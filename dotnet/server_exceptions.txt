@@ -1,0 +1,571 @@
+
+==================[30.06.2021 14:02:11]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte. 127.0.0.1:3306
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[30.06.2021 14:02:11]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte. 127.0.0.1:3306
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at bool System.Net.Sockets.Socket.DoMultipleAddressConnectCallback(object result, MultipleAddressConnectAsyncResult context)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[30.06.2021 14:02:11]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte. 127.0.0.1:3306
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at bool System.Net.Sockets.Socket.DoMultipleAddressConnectCallback(object result, MultipleAddressConnectAsyncResult context)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at bool System.Net.Sockets.Socket.DoMultipleAddressConnectCallback(object result, MultipleAddressConnectAsyncResult context)
+   at void System.Net.Sockets.Socket.MultipleAddressConnectCallback(IAsyncResult result)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[30.06.2021 14:02:11]==================
+System.AggregateException: One or more errors occurred. (Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte. 127.0.0.1:3306)
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte. 127.0.0.1:3306
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at bool System.Net.Sockets.Socket.DoMultipleAddressConnectCallback(object result, MultipleAddressConnectAsyncResult context)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at bool System.Net.Sockets.Socket.DoMultipleAddressConnectCallback(object result, MultipleAddressConnectAsyncResult context)
+   at void System.Net.Sockets.Socket.MultipleAddressConnectCallback(IAsyncResult result)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at void System.Net.Sockets.TcpClient.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.TcpClient.ConnectAsync(string host, int port)+(IAsyncResult asyncResult) => { } [1]
+   at void System.Threading.Tasks.TaskFactory<TResult>.FromAsyncCoreLogic(IAsyncResult iar, Func<IAsyncResult, TResult> endFunction, Action<IAsyncResult> endAction, Task<TResult> promise, bool requiresSynchronization)
+   --- End of inner exception stack trace ---
+   at void System.Threading.Tasks.Task.ThrowIfExceptional(bool includeTaskCanceledExceptions)
+=========================================================
+
+==================[30.06.2021 14:02:11]==================
+System.IO.FileNotFoundException: Could not load file or assembly 'E:\Spiele\Grand Theft Auto V\RageMP\server-files\dotnet\resources\Tutorial\MySql.Data.resources.dll'. Das System kann die angegebene Datei nicht finden.
+File name: 'E:\Spiele\Grand Theft Auto V\RageMP\server-files\dotnet\resources\Tutorial\MySql.Data.resources.dll'
+   at void System.Runtime.Loader.AssemblyLoadContext.LoadFromPath(IntPtr ptrNativeAssemblyLoadContext, string ilPath, string niPath, ObjectHandleOnStack retAssembly)
+
+
+=========================================================
+
+==================[30.06.2021 14:02:11]==================
+System.IO.FileNotFoundException: Could not load file or assembly 'E:\Spiele\Grand Theft Auto V\RageMP\server-files\dotnet\resources\Tutorial\MySql.Data.resources.dll'. Das System kann die angegebene Datei nicht finden.
+File name: 'E:\Spiele\Grand Theft Auto V\RageMP\server-files\dotnet\resources\Tutorial\MySql.Data.resources.dll'
+   at void System.Runtime.Loader.AssemblyLoadContext.LoadFromPath(IntPtr ptrNativeAssemblyLoadContext, string ilPath, string niPath, ObjectHandleOnStack retAssembly)
+
+
+=========================================================
+
+==================[30.06.2021 14:02:11]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+ ---> System.AggregateException: One or more errors occurred. (Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte. 127.0.0.1:3306)
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte. 127.0.0.1:3306
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at bool System.Net.Sockets.Socket.DoMultipleAddressConnectCallback(object result, MultipleAddressConnectAsyncResult context)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at bool System.Net.Sockets.Socket.DoMultipleAddressConnectCallback(object result, MultipleAddressConnectAsyncResult context)
+   at void System.Net.Sockets.Socket.MultipleAddressConnectCallback(IAsyncResult result)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at void System.Net.Sockets.TcpClient.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.TcpClient.ConnectAsync(string host, int port)+(IAsyncResult asyncResult) => { } [1]
+   at void System.Threading.Tasks.TaskFactory<TResult>.FromAsyncCoreLogic(IAsyncResult iar, Func<IAsyncResult, TResult> endFunction, Action<IAsyncResult> endAction, Task<TResult> promise, bool requiresSynchronization)
+   --- End of inner exception stack trace ---
+   at void System.Threading.Tasks.Task.ThrowIfExceptional(bool includeTaskCanceledExceptions)
+   at bool System.Threading.Tasks.Task.Wait(int millisecondsTimeout, CancellationToken cancellationToken)
+   at bool System.Threading.Tasks.Task.Wait(int millisecondsTimeout)
+   at Stream MySql.Data.Common.StreamCreator.GetTcpStream(MySqlConnectionStringBuilder settings, ref MyNetworkStream networkStream)
+   at Stream MySql.Data.Common.StreamCreator.GetStream(MySqlConnectionStringBuilder settings, ref MyNetworkStream networkStream)
+   at void MySql.Data.MySqlClient.NativeDriver.Open()
+   at void MySql.Data.MySqlClient.NativeDriver.Open()
+=========================================================
+
+==================[30.06.2021 14:02:11]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+ ---> System.AggregateException: One or more errors occurred. (Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte. 127.0.0.1:3306)
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte. 127.0.0.1:3306
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at bool System.Net.Sockets.Socket.DoMultipleAddressConnectCallback(object result, MultipleAddressConnectAsyncResult context)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at bool System.Net.Sockets.Socket.DoMultipleAddressConnectCallback(object result, MultipleAddressConnectAsyncResult context)
+   at void System.Net.Sockets.Socket.MultipleAddressConnectCallback(IAsyncResult result)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at void System.Net.Sockets.TcpClient.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.TcpClient.ConnectAsync(string host, int port)+(IAsyncResult asyncResult) => { } [1]
+   at void System.Threading.Tasks.TaskFactory<TResult>.FromAsyncCoreLogic(IAsyncResult iar, Func<IAsyncResult, TResult> endFunction, Action<IAsyncResult> endAction, Task<TResult> promise, bool requiresSynchronization)
+   --- End of inner exception stack trace ---
+   at void System.Threading.Tasks.Task.ThrowIfExceptional(bool includeTaskCanceledExceptions)
+   at bool System.Threading.Tasks.Task.Wait(int millisecondsTimeout, CancellationToken cancellationToken)
+   at bool System.Threading.Tasks.Task.Wait(int millisecondsTimeout)
+   at Stream MySql.Data.Common.StreamCreator.GetTcpStream(MySqlConnectionStringBuilder settings, ref MyNetworkStream networkStream)
+   at Stream MySql.Data.Common.StreamCreator.GetStream(MySqlConnectionStringBuilder settings, ref MyNetworkStream networkStream)
+   at void MySql.Data.MySqlClient.NativeDriver.Open()
+   at void MySql.Data.MySqlClient.NativeDriver.Open()
+   at void MySql.Data.MySqlClient.Driver.Open()
+   at Driver MySql.Data.MySqlClient.Driver.Create(MySqlConnectionStringBuilder settings)
+=========================================================
+
+==================[30.06.2021 14:02:11]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+ ---> System.AggregateException: One or more errors occurred. (Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte. 127.0.0.1:3306)
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte. 127.0.0.1:3306
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at bool System.Net.Sockets.Socket.DoMultipleAddressConnectCallback(object result, MultipleAddressConnectAsyncResult context)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at bool System.Net.Sockets.Socket.DoMultipleAddressConnectCallback(object result, MultipleAddressConnectAsyncResult context)
+   at void System.Net.Sockets.Socket.MultipleAddressConnectCallback(IAsyncResult result)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at void System.Net.Sockets.TcpClient.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.TcpClient.ConnectAsync(string host, int port)+(IAsyncResult asyncResult) => { } [1]
+   at void System.Threading.Tasks.TaskFactory<TResult>.FromAsyncCoreLogic(IAsyncResult iar, Func<IAsyncResult, TResult> endFunction, Action<IAsyncResult> endAction, Task<TResult> promise, bool requiresSynchronization)
+   --- End of inner exception stack trace ---
+   at void System.Threading.Tasks.Task.ThrowIfExceptional(bool includeTaskCanceledExceptions)
+   at bool System.Threading.Tasks.Task.Wait(int millisecondsTimeout, CancellationToken cancellationToken)
+   at bool System.Threading.Tasks.Task.Wait(int millisecondsTimeout)
+   at Stream MySql.Data.Common.StreamCreator.GetTcpStream(
+==================[30.06.2021 14:31:18]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte. 127.0.0.1:3306
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[30.06.2021 14:31:18]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte. 127.0.0.1:3306
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at bool System.Net.Sockets.Socket.DoMultipleAddressConnectCallback(object result, MultipleAddressConnectAsyncResult context)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[30.06.2021 14:31:18]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte. 127.0.0.1:3306
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at bool System.Net.Sockets.Socket.DoMultipleAddressConnectCallback(object result, MultipleAddressConnectAsyncResult context)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at bool System.Net.Sockets.Socket.DoMultipleAddressConnectCallback(object result, MultipleAddressConnectAsyncResult context)
+   at void System.Net.Sockets.Socket.MultipleAddressConnectCallback(IAsyncResult result)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[30.06.2021 14:31:18]==================
+System.AggregateException: One or more errors occurred. (Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte. 127.0.0.1:3306)
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte. 127.0.0.1:3306
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at bool System.Net.Sockets.Socket.DoMultipleAddressConnectCallback(object result, MultipleAddressConnectAsyncResult context)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at bool System.Net.Sockets.Socket.DoMultipleAddressConnectCallback(object result, MultipleAddressConnectAsyncResult context)
+   at void System.Net.Sockets.Socket.MultipleAddressConnectCallback(IAsyncResult result)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at void System.Net.Sockets.TcpClient.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.TcpClient.ConnectAsync(string host, int port)+(IAsyncResult asyncResult) => { } [1]
+   at void System.Threading.Tasks.TaskFactory<TResult>.FromAsyncCoreLogic(IAsyncResult iar, Func<IAsyncResult, TResult> endFunction, Action<IAsyncResult> endAction, Task<TResult> promise, bool requiresSynchronization)
+   --- End of inner exception stack trace ---
+   at void System.Threading.Tasks.Task.ThrowIfExceptional(bool includeTaskCanceledExceptions)
+=========================================================
+
+==================[30.06.2021 14:31:18]==================
+System.IO.FileNotFoundException: Could not load file or assembly 'E:\Spiele\Grand Theft Auto V\RageMP\server-files\dotnet\resources\Tutorial\MySql.Data.resources.dll'. Das System kann die angegebene Datei nicht finden.
+File name: 'E:\Spiele\Grand Theft Auto V\RageMP\server-files\dotnet\resources\Tutorial\MySql.Data.resources.dll'
+   at void System.Runtime.Loader.AssemblyLoadContext.LoadFromPath(IntPtr ptrNativeAssemblyLoadContext, string ilPath, string niPath, ObjectHandleOnStack retAssembly)
+
+
+=========================================================
+
+==================[30.06.2021 14:31:18]==================
+System.IO.FileNotFoundException: Could not load file or assembly 'E:\Spiele\Grand Theft Auto V\RageMP\server-files\dotnet\resources\Tutorial\MySql.Data.resources.dll'. Das System kann die angegebene Datei nicht finden.
+File name: 'E:\Spiele\Grand Theft Auto V\RageMP\server-files\dotnet\resources\Tutorial\MySql.Data.resources.dll'
+   at void System.Runtime.Loader.AssemblyLoadContext.LoadFromPath(IntPtr ptrNativeAssemblyLoadContext, string ilPath, string niPath, ObjectHandleOnStack retAssembly)
+
+
+=========================================================
+
+==================[30.06.2021 14:31:18]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+ ---> System.AggregateException: One or more errors occurred. (Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte. 127.0.0.1:3306)
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte. 127.0.0.1:3306
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at bool System.Net.Sockets.Socket.DoMultipleAddressConnectCallback(object result, MultipleAddressConnectAsyncResult context)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at bool System.Net.Sockets.Socket.DoMultipleAddressConnectCallback(object result, MultipleAddressConnectAsyncResult context)
+   at void System.Net.Sockets.Socket.MultipleAddressConnectCallback(IAsyncResult result)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at void System.Net.Sockets.TcpClient.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.TcpClient.ConnectAsync(string host, int port)+(IAsyncResult asyncResult) => { } [1]
+   at void System.Threading.Tasks.TaskFactory<TResult>.FromAsyncCoreLogic(IAsyncResult iar, Func<IAsyncResult, TResult> endFunction, Action<IAsyncResult> endAction, Task<TResult> promise, bool requiresSynchronization)
+   --- End of inner exception stack trace ---
+   at void System.Threading.Tasks.Task.ThrowIfExceptional(bool includeTaskCanceledExceptions)
+   at bool System.Threading.Tasks.Task.Wait(int millisecondsTimeout, CancellationToken cancellationToken)
+   at bool System.Threading.Tasks.Task.Wait(int millisecondsTimeout)
+   at Stream MySql.Data.Common.StreamCreator.GetTcpStream(MySqlConnectionStringBuilder settings, ref MyNetworkStream networkStream)
+   at Stream MySql.Data.Common.StreamCreator.GetStream(MySqlConnectionStringBuilder settings, ref MyNetworkStream networkStream)
+   at void MySql.Data.MySqlClient.NativeDriver.Open()
+   at void MySql.Data.MySqlClient.NativeDriver.Open()
+=========================================================
+
+==================[30.06.2021 14:31:18]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+ ---> System.AggregateException: One or more errors occurred. (Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte. 127.0.0.1:3306)
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte. 127.0.0.1:3306
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at bool System.Net.Sockets.Socket.DoMultipleAddressConnectCallback(object result, MultipleAddressConnectAsyncResult context)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at bool System.Net.Sockets.Socket.DoMultipleAddressConnectCallback(object result, MultipleAddressConnectAsyncResult context)
+   at void System.Net.Sockets.Socket.MultipleAddressConnectCallback(IAsyncResult result)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at void System.Net.Sockets.TcpClient.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.TcpClient.ConnectAsync(string host, int port)+(IAsyncResult asyncResult) => { } [1]
+   at void System.Threading.Tasks.TaskFactory<TResult>.FromAsyncCoreLogic(IAsyncResult iar, Func<IAsyncResult, TResult> endFunction, Action<IAsyncResult> endAction, Task<TResult> promise, bool requiresSynchronization)
+   --- End of inner exception stack trace ---
+   at void System.Threading.Tasks.Task.ThrowIfExceptional(bool includeTaskCanceledExceptions)
+   at bool System.Threading.Tasks.Task.Wait(int millisecondsTimeout, CancellationToken cancellationToken)
+   at bool System.Threading.Tasks.Task.Wait(int millisecondsTimeout)
+   at Stream MySql.Data.Common.StreamCreator.GetTcpStream(MySqlConnectionStringBuilder settings, ref MyNetworkStream networkStream)
+   at Stream MySql.Data.Common.StreamCreator.GetStream(MySqlConnectionStringBuilder settings, ref MyNetworkStream networkStream)
+   at void MySql.Data.MySqlClient.NativeDriver.Open()
+   at void MySql.Data.MySqlClient.NativeDriver.Open()
+   at void MySql.Data.MySqlClient.Driver.Open()
+   at Driver MySql.Data.MySqlClient.Driver.Create(MySqlConnectionStringBuilder settings)
+=========================================================
+
+==================[30.06.2021 14:31:18]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+ ---> System.AggregateException: One or more errors occurred. (Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte. 127.0.0.1:3306)
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte. 127.0.0.1:3306
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at bool System.Net.Sockets.Socket.DoMultipleAddressConnectCallback(object result, MultipleAddressConnectAsyncResult context)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at bool System.Net.Sockets.Socket.DoMultipleAddressConnectCallback(object result, MultipleAddressConnectAsyncResult context)
+   at void System.Net.Sockets.Socket.MultipleAddressConnectCallback(IAsyncResult result)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at void System.Net.Sockets.TcpClient.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.TcpClient.ConnectAsync(string host, int port)+(IAsyncResult asyncResult) => { } [1]
+   at void System.Threading.Tasks.TaskFactory<TResult>.FromAsyncCoreLogic(IAsyncResult iar, Func<IAsyncResult, TResult> endFunction, Action<IAsyncResult> endAction, Task<TResult> promise, bool requiresSynchronization)
+   --- End of inner exception stack trace ---
+   at void System.Threading.Tasks.Task.ThrowIfExceptional(bool includeTaskCanceledExceptions)
+   at bool System.Threading.Tasks.Task.Wait(int millisecondsTimeout, CancellationToken cancellationToken)
+   at bool System.Threading.Tasks.Task.Wait(int millisecondsTimeout)
+   at Stream MySql.Data.Common.StreamCreator.GetTcpStream(
+==================[01.07.2021 10:34:42]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte. 127.0.0.1:3306
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[01.07.2021 10:34:42]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte. 127.0.0.1:3306
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at bool System.Net.Sockets.Socket.DoMultipleAddressConnectCallback(object result, MultipleAddressConnectAsyncResult context)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[01.07.2021 10:34:42]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte. 127.0.0.1:3306
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at bool System.Net.Sockets.Socket.DoMultipleAddressConnectCallback(object result, MultipleAddressConnectAsyncResult context)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at bool System.Net.Sockets.Socket.DoMultipleAddressConnectCallback(object result, MultipleAddressConnectAsyncResult context)
+   at void System.Net.Sockets.Socket.MultipleAddressConnectCallback(IAsyncResult result)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[01.07.2021 10:34:42]==================
+System.AggregateException: One or more errors occurred. (Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte. 127.0.0.1:3306)
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte. 127.0.0.1:3306
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at bool System.Net.Sockets.Socket.DoMultipleAddressConnectCallback(object result, MultipleAddressConnectAsyncResult context)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at bool System.Net.Sockets.Socket.DoMultipleAddressConnectCallback(object result, MultipleAddressConnectAsyncResult context)
+   at void System.Net.Sockets.Socket.MultipleAddressConnectCallback(IAsyncResult result)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at void System.Net.Sockets.TcpClient.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.TcpClient.ConnectAsync(string host, int port)+(IAsyncResult asyncResult) => { } [1]
+   at void System.Threading.Tasks.TaskFactory<TResult>.FromAsyncCoreLogic(IAsyncResult iar, Func<IAsyncResult, TResult> endFunction, Action<IAsyncResult> endAction, Task<TResult> promise, bool requiresSynchronization)
+   --- End of inner exception stack trace ---
+   at void System.Threading.Tasks.Task.ThrowIfExceptional(bool includeTaskCanceledExceptions)
+=========================================================
+
+==================[01.07.2021 10:34:42]==================
+System.IO.FileNotFoundException: Could not load file or assembly 'E:\Spiele\Grand Theft Auto V\RageMP\server-files\dotnet\resources\Tutorial\MySql.Data.resources.dll'. Das System kann die angegebene Datei nicht finden.
+File name: 'E:\Spiele\Grand Theft Auto V\RageMP\server-files\dotnet\resources\Tutorial\MySql.Data.resources.dll'
+   at void System.Runtime.Loader.AssemblyLoadContext.LoadFromPath(IntPtr ptrNativeAssemblyLoadContext, string ilPath, string niPath, ObjectHandleOnStack retAssembly)
+
+
+=========================================================
+
+==================[01.07.2021 10:34:42]==================
+System.IO.FileNotFoundException: Could not load file or assembly 'E:\Spiele\Grand Theft Auto V\RageMP\server-files\dotnet\resources\Tutorial\MySql.Data.resources.dll'. Das System kann die angegebene Datei nicht finden.
+File name: 'E:\Spiele\Grand Theft Auto V\RageMP\server-files\dotnet\resources\Tutorial\MySql.Data.resources.dll'
+   at void System.Runtime.Loader.AssemblyLoadContext.LoadFromPath(IntPtr ptrNativeAssemblyLoadContext, string ilPath, string niPath, ObjectHandleOnStack retAssembly)
+
+
+=========================================================
+
+==================[01.07.2021 10:34:42]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+ ---> System.AggregateException: One or more errors occurred. (Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte. 127.0.0.1:3306)
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte. 127.0.0.1:3306
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at bool System.Net.Sockets.Socket.DoMultipleAddressConnectCallback(object result, MultipleAddressConnectAsyncResult context)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at bool System.Net.Sockets.Socket.DoMultipleAddressConnectCallback(object result, MultipleAddressConnectAsyncResult context)
+   at void System.Net.Sockets.Socket.MultipleAddressConnectCallback(IAsyncResult result)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at void System.Net.Sockets.TcpClient.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.TcpClient.ConnectAsync(string host, int port)+(IAsyncResult asyncResult) => { } [1]
+   at void System.Threading.Tasks.TaskFactory<TResult>.FromAsyncCoreLogic(IAsyncResult iar, Func<IAsyncResult, TResult> endFunction, Action<IAsyncResult> endAction, Task<TResult> promise, bool requiresSynchronization)
+   --- End of inner exception stack trace ---
+   at void System.Threading.Tasks.Task.ThrowIfExceptional(bool includeTaskCanceledExceptions)
+   at bool System.Threading.Tasks.Task.Wait(int millisecondsTimeout, CancellationToken cancellationToken)
+   at bool System.Threading.Tasks.Task.Wait(int millisecondsTimeout)
+   at Stream MySql.Data.Common.StreamCreator.GetTcpStream(MySqlConnectionStringBuilder settings, ref MyNetworkStream networkStream)
+   at Stream MySql.Data.Common.StreamCreator.GetStream(MySqlConnectionStringBuilder settings, ref MyNetworkStream networkStream)
+   at void MySql.Data.MySqlClient.NativeDriver.Open()
+   at void MySql.Data.MySqlClient.NativeDriver.Open()
+=========================================================
+
+==================[01.07.2021 10:34:42]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+ ---> System.AggregateException: One or more errors occurred. (Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte. 127.0.0.1:3306)
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte. 127.0.0.1:3306
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at bool System.Net.Sockets.Socket.DoMultipleAddressConnectCallback(object result, MultipleAddressConnectAsyncResult context)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at bool System.Net.Sockets.Socket.DoMultipleAddressConnectCallback(object result, MultipleAddressConnectAsyncResult context)
+   at void System.Net.Sockets.Socket.MultipleAddressConnectCallback(IAsyncResult result)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at void System.Net.Sockets.TcpClient.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.TcpClient.ConnectAsync(string host, int port)+(IAsyncResult asyncResult) => { } [1]
+   at void System.Threading.Tasks.TaskFactory<TResult>.FromAsyncCoreLogic(IAsyncResult iar, Func<IAsyncResult, TResult> endFunction, Action<IAsyncResult> endAction, Task<TResult> promise, bool requiresSynchronization)
+   --- End of inner exception stack trace ---
+   at void System.Threading.Tasks.Task.ThrowIfExceptional(bool includeTaskCanceledExceptions)
+   at bool System.Threading.Tasks.Task.Wait(int millisecondsTimeout, CancellationToken cancellationToken)
+   at bool System.Threading.Tasks.Task.Wait(int millisecondsTimeout)
+   at Stream MySql.Data.Common.StreamCreator.GetTcpStream(MySqlConnectionStringBuilder settings, ref MyNetworkStream networkStream)
+   at Stream MySql.Data.Common.StreamCreator.GetStream(MySqlConnectionStringBuilder settings, ref MyNetworkStream networkStream)
+   at void MySql.Data.MySqlClient.NativeDriver.Open()
+   at void MySql.Data.MySqlClient.NativeDriver.Open()
+   at void MySql.Data.MySqlClient.Driver.Open()
+   at Driver MySql.Data.MySqlClient.Driver.Create(MySqlConnectionStringBuilder settings)
+=========================================================
+
+==================[01.07.2021 10:34:42]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+ ---> System.AggregateException: One or more errors occurred. (Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte. 127.0.0.1:3306)
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte. 127.0.0.1:3306
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at bool System.Net.Sockets.Socket.DoMultipleAddressConnectCallback(object result, MultipleAddressConnectAsyncResult context)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at bool System.Net.Sockets.Socket.DoMultipleAddressConnectCallback(object result, MultipleAddressConnectAsyncResult context)
+   at void System.Net.Sockets.Socket.MultipleAddressConnectCallback(IAsyncResult result)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at void System.Net.Sockets.TcpClient.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.TcpClient.ConnectAsync(string host, int port)+(IAsyncResult asyncResult) => { } [1]
+   at void System.Threading.Tasks.TaskFactory<TResult>.FromAsyncCoreLogic(IAsyncResult iar, Func<IAsyncResult, TResult> endFunction, Action<IAsyncResult> endAction, Task<TResult> promise, bool requiresSynchronization)
+   --- End of inner exception stack trace ---
+   at void System.Threading.Tasks.Task.ThrowIfExceptional(bool includeTaskCanceledExceptions)
+   at bool System.Threading.Tasks.Task.Wait(int millisecondsTimeout, CancellationToken cancellationToken)
+   at bool System.Threading.Tasks.Task.Wait(int millisecondsTimeout)
+   at Stream MySql.Data.Common.StreamCreator.GetTcpStream(
+==================[01.07.2021 10:42:45]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte. 192.168.178.35:3306
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[01.07.2021 10:42:47]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte. 192.168.44.1:3306
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[01.07.2021 10:42:49]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte. 192.168.52.1:3306
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[01.07.2021 10:42:49]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte. 192.168.52.1:3306
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at bool System.Net.Sockets.Socket.DoMultipleAddressConnectCallback(object result, MultipleAddressConnectAsyncResult context)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[01.07.2021 10:42:49]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte. 192.168.52.1:3306
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at bool System.Net.Sockets.Socket.DoMultipleAddressConnectCallback(object result, MultipleAddressConnectAsyncResult context)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at bool System.Net.Sockets.Socket.DoMultipleAddressConnectCallback(object result, MultipleAddressConnectAsyncResult context)
+   at void System.Net.Sockets.Socket.MultipleAddressConnectCallback(IAsyncResult result)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[01.07.2021 10:42:49]==================
+System.AggregateException: One or more errors occurred. (Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte. 192.168.52.1:3306)
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte. 192.168.52.1:3306
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at bool System.Net.Sockets.Socket.DoMultipleAddressConnectCallback(object result, MultipleAddressConnectAsyncResult context)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at bool System.Net.Sockets.Socket.DoMultipleAddressConnectCallback(object result, MultipleAddressConnectAsyncResult context)
+   at void System.Net.Sockets.Socket.MultipleAddressConnectCallback(IAsyncResult result)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at void System.Net.Sockets.TcpClient.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.TcpClient.ConnectAsync(string host, int port)+(IAsyncResult asyncResult) => { } [1]
+   at void System.Threading.Tasks.TaskFactory<TResult>.FromAsyncCoreLogic(IAsyncResult iar, Func<IAsyncResult, TResult> endFunction, Action<IAsyncResult> endAction, Task<TResult> promise, bool requiresSynchronization)
+   --- End of inner exception stack trace ---
+   at void System.Threading.Tasks.Task.ThrowIfExceptional(bool includeTaskCanceledExceptions)
+=========================================================
+
+==================[01.07.2021 10:42:49]==================
+System.IO.FileNotFoundException: Could not load file or assembly 'E:\Spiele\Grand Theft Auto V\RageMP\server-files\dotnet\resources\Tutorial\MySql.Data.resources.dll'. Das System kann die angegebene Datei nicht finden.
+File name: 'E:\Spiele\Grand Theft Auto V\RageMP\server-files\dotnet\resources\Tutorial\MySql.Data.resources.dll'
+   at void System.Runtime.Loader.AssemblyLoadContext.LoadFromPath(IntPtr ptrNativeAssemblyLoadContext, string ilPath, string niPath, ObjectHandleOnStack retAssembly)
+
+
+=========================================================
+
+==================[01.07.2021 10:42:49]==================
+System.IO.FileNotFoundException: Could not load file or assembly 'E:\Spiele\Grand Theft Auto V\RageMP\server-files\dotnet\resources\Tutorial\MySql.Data.resources.dll'. Das System kann die angegebene Datei nicht finden.
+File name: 'E:\Spiele\Grand Theft Auto V\RageMP\server-files\dotnet\resources\Tutorial\MySql.Data.resources.dll'
+   at void System.Runtime.Loader.AssemblyLoadContext.LoadFromPath(IntPtr ptrNativeAssemblyLoadContext, string ilPath, string niPath, ObjectHandleOnStack retAssembly)
+
+
+=========================================================
+
+==================[01.07.2021 10:42:49]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+ ---> System.AggregateException: One or more errors occurred. (Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte. 192.168.52.1:3306)
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte. 192.168.52.1:3306
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at bool System.Net.Sockets.Socket.DoMultipleAddressConnectCallback(object result, MultipleAddressConnectAsyncResult context)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at bool System.Net.Sockets.Socket.DoMultipleAddressConnectCallback(object result, MultipleAddressConnectAsyncResult context)
+   at void System.Net.Sockets.Socket.MultipleAddressConnectCallback(IAsyncResult result)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at void System.Net.Sockets.TcpClient.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.TcpClient.ConnectAsync(string host, int port)+(IAsyncResult asyncResult) => { } [1]
+   at void System.Threading.Tasks.TaskFactory<TResult>.FromAsyncCoreLogic(IAsyncResult iar, Func<IAsyncResult, TResult> endFunction, Action<IAsyncResult> endAction, Task<TResult> promise, bool requiresSynchronization)
+   --- End of inner exception stack trace ---
+   at void System.Threading.Tasks.Task.ThrowIfExceptional(bool includeTaskCanceledExceptions)
+   at bool System.Threading.Tasks.Task.Wait(int millisecondsTimeout, CancellationToken cancellationToken)
+   at bool System.Threading.Tasks.Task.Wait(int millisecondsTimeout)
+   at Stream MySql.Data.Common.StreamCreator.GetTcpStream(MySqlConnectionStringBuilder settings, ref MyNetworkStream networkStream)
+   at Stream MySql.Data.Common.StreamCreator.GetStream(MySqlConnectionStringBuilder settings, ref MyNetworkStream networkStream)
+   at void MySql.Data.MySqlClient.NativeDriver.Open()
+   at void MySql.Data.MySqlClient.NativeDriver.Open()
+=========================================================
+
+==================[01.07.2021 10:42:49]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+ ---> System.AggregateException: One or more errors occurred. (Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte. 192.168.52.1:3306)
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte. 192.168.52.1:3306
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at bool System.Net.Sockets.Socket.DoMultipleAddressConnectCallback(object result, MultipleAddressConnectAsyncResult context)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at bool System.Net.Sockets.Socket.DoMultipleAddressConnectCallback(object result, MultipleAddressConnectAsyncResult context)
+   at void System.Net.Sockets.Socket.MultipleAddressConnectCallback(IAsyncResult result)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at void System.Net.Sockets.TcpClient.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.TcpClient.ConnectAsync(string host, int port)+(IAsyncResult asyncResult) => { } [1]
+   at void System.Threading.Tasks.TaskFactory<TResult>.FromAsyncCoreLogic(IAsyncResult iar, Func<IAsyncResult, TResult> endFunction, Action<IAsyncResult> endAction, Task<TResult> promise, bool requiresSynchronization)
+   --- End of inner exception stack trace ---
+   at void System.Threading.Tasks.Task.ThrowIfExceptional(bool includeTaskCanceledExceptions)
+   at bool System.Threading.Tasks.Task.Wait(int millisecondsTimeout, CancellationToken cancellationToken)
+   at bool System.Threading.Tasks.Task.Wait(int millisecondsTimeout)
+   at Stream MySql.Data.Common.StreamCreator.GetTcpStream(MySqlConnectionStringBuilder settings, ref MyNetworkStream networkStream)
+   at Stream MySql.Data.Common.StreamCreator.GetStream(MySqlConnectionStringBuilder settings, ref MyNetworkStream networkStream)
+   at void MySql.Data.MySqlClient.NativeDriver.Open()
+   at void MySql.Data.MySqlClient.NativeDriver.Open()
+   at void MySql.Data.MySqlClient.Driver.Open()
+   at Driver MySql.Data.MySqlClient.Driver.Create(MySqlConnectionStringBuilder settings)
+=========================================================
+
+==================[01.07.2021 10:42:49]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+ ---> System.AggregateException: One or more errors occurred. (Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte. 192.168.52.1:3306)
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte. 192.168.52.1:3306
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at bool System.Net.Sockets.Socket.DoMultipleAddressConnectCallback(object result, MultipleAddressConnectAsyncResult context)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at bool System.Net.Sockets.Socket.DoMultipleAddressConnectCallback(object result, MultipleAddressConnectAsyncResult context)
+   at void System.Net.Sockets.Socket.MultipleAddressConnectCallback(IAsyncResult result)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncRes
+==================[01.07.2021 11:15:44]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Access denied for user 'localhost'@'localhost' (using password: YES)
+   at MySqlPacket MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+=========================================================
+
+==================[01.07.2021 11:15:44]==================
+System.IO.FileNotFoundException: Could not load file or assembly 'E:\Spiele\Grand Theft Auto V\RageMP\server-files\dotnet\resources\Tutorial\MySql.Data.resources.dll'. Das System kann die angegebene Datei nicht finden.
+File name: 'E:\Spiele\Grand Theft Auto V\RageMP\server-files\dotnet\resources\Tutorial\MySql.Data.resources.dll'
+   at void System.Runtime.Loader.AssemblyLoadContext.LoadFromPath(IntPtr ptrNativeAssemblyLoadContext, string ilPath, string niPath, ObjectHandleOnStack retAssembly)
+
+
+=========================================================
+
+==================[01.07.2021 11:15:44]==================
+System.IO.FileNotFoundException: Could not load file or assembly 'E:\Spiele\Grand Theft Auto V\RageMP\server-files\dotnet\resources\Tutorial\MySql.Data.resources.dll'. Das System kann die angegebene Datei nicht finden.
+File name: 'E:\Spiele\Grand Theft Auto V\RageMP\server-files\dotnet\resources\Tutorial\MySql.Data.resources.dll'
+   at void System.Runtime.Loader.AssemblyLoadContext.LoadFromPath(IntPtr ptrNativeAssemblyLoadContext, string ilPath, string niPath, ObjectHandleOnStack retAssembly)
+
+
+=========================================================
+
+==================[01.07.2021 11:15:44]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Authentication to host 'localhost' for user 'localhost' using method 'mysql_native_password' failed with message: Access denied for user 'localhost'@'localhost' (using password: YES)
+ ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Access denied for user 'localhost'@'localhost' (using password: YES)
+   at MySqlPacket MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySqlPacket MySql.Data.MySqlClient.NativeDriver.ReadPacket()
+   at MySqlPacket MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ReadPacket()
+   at void MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.AuthenticationFailed(Exception ex)
+=========================================================
+
+==================[01.07.2021 11:15:44]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Authentication to host 'localhost' for user 'localhost' using method 'mysql_native_password' failed with message: Access denied for user 'localhost'@'localhost' (using password: YES)
+ ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Access denied for user 'localhost'@'localhost' (using password: YES)
+   at MySqlPacket MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySqlPacket MySql.Data.MySqlClient.NativeDriver.ReadPacket()
+   at MySqlPacket MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ReadPacket()
+   at void MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.AuthenticationFailed(Exception ex)
+   at MySqlPacket MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ReadPacket()
+   at void MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.Authenticate(bool reset)
+   at void MySql.Data.MySqlClient.NativeDriver.Authenticate(string authMethod, bool reset)
+   at void MySql.Data.MySqlClient.NativeDriver.Open()
+   at void MySql.Data.MySqlClient.Driver.Open()
+   at Driver MySql.Data.MySqlClient.Driver.Create(MySqlConnectionStringBuilder settings)
+=========================================================
+
+==================[01.07.2021 11:15:44]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Authentication to host 'localhost' for user 'localhost' using method 'mysql_native_password' failed with message: Access denied for user 'localhost'@'localhost' (using password: YES)
+ ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Access denied for user 'localhost'@'localhost' 

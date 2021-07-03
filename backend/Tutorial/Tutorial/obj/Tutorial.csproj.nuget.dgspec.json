@@ -1,0 +1,68 @@
+{
+  "format": 1,
+  "restore": {
+    "E:\\Spiele\\Grand Theft Auto V\\RageMP\\server-files\\backend\\Tutorial\\Tutorial\\Tutorial.csproj": {}
+  },
+  "projects": {
+    "E:\\Spiele\\Grand Theft Auto V\\RageMP\\server-files\\backend\\Tutorial\\Tutorial\\Tutorial.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\Spiele\\Grand Theft Auto V\\RageMP\\server-files\\backend\\Tutorial\\Tutorial\\Tutorial.csproj",
+        "projectName": "Tutorial",
+        "projectPath": "E:\\Spiele\\Grand Theft Auto V\\RageMP\\server-files\\backend\\Tutorial\\Tutorial\\Tutorial.csproj",
+        "packagesPath": "C:\\Users\\tschn\\.nuget\\packages\\",
+        "outputPath": "E:\\Spiele\\Grand Theft Auto V\\RageMP\\server-files\\backend\\Tutorial\\Tutorial\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\tschn\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "MySql.Data": {
+              "target": "Package",
+              "version": "[8.0.25, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

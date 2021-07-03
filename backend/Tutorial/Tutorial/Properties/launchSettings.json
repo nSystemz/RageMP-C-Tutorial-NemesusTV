@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "Tutorial": {
+      "commandName": "Executable",
+      "executablePath": "E:\\Spiele\\Grand Theft Auto V\\RageMP\\server-files\\ragemp-server.exe",
+      "workingDirectory": "E:\\Spiele\\Grand Theft Auto V\\RageMP\\server-files"
+    }
+  }
+}

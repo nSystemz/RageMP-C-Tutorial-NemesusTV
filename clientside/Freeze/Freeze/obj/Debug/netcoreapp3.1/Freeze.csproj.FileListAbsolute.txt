@@ -1,0 +1,4 @@
+E:\Spiele\Grand Theft Auto V\RageMP\server-files\clientside\Freeze\Freeze\obj\Debug\netcoreapp3.1\Freeze.csprojAssemblyReference.cache
+E:\Spiele\Grand Theft Auto V\RageMP\server-files\clientside\Freeze\Freeze\obj\Debug\netcoreapp3.1\Freeze.AssemblyInfoInputs.cache
+E:\Spiele\Grand Theft Auto V\RageMP\server-files\clientside\Freeze\Freeze\obj\Debug\netcoreapp3.1\Freeze.AssemblyInfo.cs
+E:\Spiele\Grand Theft Auto V\RageMP\server-files\clientside\Freeze\Freeze\obj\Debug\netcoreapp3.1\Freeze.csproj.CoreCompileInputs.cache
