@@ -10,6 +10,7 @@ namespace Tutorial
         [ServerEvent(Event.ResourceStart)]
         public void OnResourceStart()
         {
+            NAPI.Server.SetGlobalServerChat(false);
             if(Settings.LoadServerSettings())
             {
                 Datenbank.InitConnection();
@@ -35,6 +36,24 @@ namespace Tutorial
         {
             player.Health = 50;
             player.Armor = 50;
+        }
+
+        [ServerEvent(Event.ChatMessage)]
+        public void OnPlayerChat(Player player, string message)
+        {
+            Accounts account = player.GetData<Accounts>(Accounts.Account_Key);
+            //Adminchat
+            if(message.StartsWith("@"))
+            {
+                if(account.IstSpielerAdmin((int)Accounts.AdminRanks.Moderator))
+                {
+                    Utils.SendAdminMessage(message, (int)Accounts.AdminRanks.Moderator, player);
+                    return;
+                }
+            }
+            //Normaler Chat
+            string newmessage = player.Name + "[" + Utils.GetPlayerID(player.Name) + "] sagt: !{FFFFFF}" + message;
+            Utils.SendRadiusMessage(newmessage, 25, player);
         }
     }
 }

@@ -2,8 +2,8 @@
   "profiles": {
     "Tutorial": {
       "commandName": "Executable",
-      "executablePath": "E:\\Spiele\\Grand Theft Auto V\\RageMP\\server-files\\ragemp-server.exe",
-      "workingDirectory": "E:\\Spiele\\Grand Theft Auto V\\RageMP\\server-files"
+      "executablePath": "E:\\Spiele\\Grand Theft Auto V\\RageMP\\server-files\\Rage.mp-C-Tutorial-NemesusTV\\ragemp-server.exe",
+      "workingDirectory": "E:\\Spiele\\Grand Theft Auto V\\RageMP\\server-files\\Rage.mp-C-Tutorial-NemesusTV"
     }
   }
 }

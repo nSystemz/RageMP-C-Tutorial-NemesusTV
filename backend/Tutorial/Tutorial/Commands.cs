@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 using GTANetworkAPI;
 
@@ -10,6 +11,12 @@ namespace Tutorial
         [Command("veh", "/veh um ein Fahrzeug zu spawnen")]
         public void cmd_veh(Player player, string vehname, int color1, int color2)
         {
+            Accounts account = player.GetData<Accounts>(Accounts.Account_Key);
+            if(!account.IstSpielerAdmin((int)Accounts.AdminRanks.Supporter))
+            {
+                player.SendChatMessage("~r~Dein Adminlevel ist zu gering!");
+                return;
+            }
             uint vehash = NAPI.Util.GetHashKey(vehname);
             if(vehash <= 0)
             {
@@ -26,10 +33,42 @@ namespace Tutorial
         [Command("freeze", "/freeze einen Spieler einfrieren")]
         public void CMD_FreezePlayer(Player player, Player target, bool freezestatus)
         {
+            Accounts account = player.GetData<Accounts>(Accounts.Account_Key);
+            if (!account.IstSpielerAdmin((int)Accounts.AdminRanks.Supporter))
+            {
+                player.SendChatMessage("~r~Dein Adminlevel ist zu gering!");
+                return;
+            }
             NAPI.ClientEvent.TriggerClientEvent(target, "PlayerFreeze", freezestatus);
             string freezeText = (freezestatus) ? "eingefroren" : "entfroren";
             target.SendChatMessage($"Du wurdest {freezeText}!");
         }
+
+        [Command("telexyz", "/telexyz [X] [Y] [Z]")]
+        public void CMD_telexyz(Player player, float x, float y, float z)
+        {
+            Accounts account = player.GetData<Accounts>(Accounts.Account_Key);
+            if(!account.IstSpielerAdmin((int)Accounts.AdminRanks.Administrator))
+            {
+                player.SendChatMessage("~r~Dein Adminlevel ist zu gering!");
+                return;
+            }
+            Vector3 position = new Vector3(x, y, z + 0.2);
+            player.Position = position;
+            player.SendChatMessage("Du hast dich erfolgreich teleportiert");
+            return;
+        }
+
+        [Command("me", "/me [Nachricht]", GreedyArg = true)]
+        public void CMD_me(Player player, string nachricht)
+        {
+            if (!Accounts.IstSpielerEingeloggt(player)) return;
+            if(nachricht.Length > 0)
+            {
+                Utils.SendRadiusMessage("!{#EE82EE}* " + player.Name + " " + nachricht, 8, player);
+            }
+        }
+
 
 
         /*[Command("login", "/login um dich einzuloggen")]

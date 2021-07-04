@@ -7,6 +7,7 @@ namespace Tutorial
 {
     class Accounts
     {
+        public enum AdminRanks { Spieler, Moderator, Supporter, Administrator };
         public const string Account_Key = "Account_Data";
         public int ID;
         public string Name;
@@ -53,6 +54,11 @@ namespace Tutorial
                 player.SendChatMessage("Willkommen zurück!");
             }
             player.SetData(Accounts.Account_Key, this);
+        }
+
+        public bool IstSpielerAdmin(int Adminlevel)
+        {
+            return this.Adminlevel >= Adminlevel;
         }
     }
 }

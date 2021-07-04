@@ -844,11 +844,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Spiele\\Grand Theft Auto V\\RageMP\\server-files\\backend\\Tutorial\\Tutorial\\Tutorial.csproj",
+      "projectUniqueName": "E:\\Spiele\\Grand Theft Auto V\\RageMP\\server-files\\Rage.mp-C-Tutorial-NemesusTV\\backend\\Tutorial\\Tutorial\\Tutorial.csproj",
       "projectName": "Tutorial",
-      "projectPath": "E:\\Spiele\\Grand Theft Auto V\\RageMP\\server-files\\backend\\Tutorial\\Tutorial\\Tutorial.csproj",
+      "projectPath": "E:\\Spiele\\Grand Theft Auto V\\RageMP\\server-files\\Rage.mp-C-Tutorial-NemesusTV\\backend\\Tutorial\\Tutorial\\Tutorial.csproj",
       "packagesPath": "C:\\Users\\tschn\\.nuget\\packages\\",
-      "outputPath": "E:\\Spiele\\Grand Theft Auto V\\RageMP\\server-files\\backend\\Tutorial\\Tutorial\\obj\\",
+      "outputPath": "E:\\Spiele\\Grand Theft Auto V\\RageMP\\server-files\\Rage.mp-C-Tutorial-NemesusTV\\backend\\Tutorial\\Tutorial\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\tschn\\AppData\\Roaming\\NuGet\\NuGet.Config",
