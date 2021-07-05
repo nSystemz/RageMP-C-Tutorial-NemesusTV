@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Text;
 using GTANetworkAPI;
@@ -12,13 +13,13 @@ namespace Tutorial
         public void cmd_veh(Player player, string vehname, int color1, int color2)
         {
             Accounts account = player.GetData<Accounts>(Accounts.Account_Key);
-            if(!account.IstSpielerAdmin((int)Accounts.AdminRanks.Supporter))
+            if (!account.IstSpielerAdmin((int)Accounts.AdminRanks.Supporter))
             {
                 player.SendChatMessage("~r~Dein Adminlevel ist zu gering!");
                 return;
             }
             uint vehash = NAPI.Util.GetHashKey(vehname);
-            if(vehash <= 0)
+            if (vehash <= 0)
             {
                 player.SendChatMessage("~r~Ungültiges Fahrzeug!");
                 return;
@@ -48,7 +49,7 @@ namespace Tutorial
         public void CMD_telexyz(Player player, float x, float y, float z)
         {
             Accounts account = player.GetData<Accounts>(Accounts.Account_Key);
-            if(!account.IstSpielerAdmin((int)Accounts.AdminRanks.Administrator))
+            if (!account.IstSpielerAdmin((int)Accounts.AdminRanks.Administrator))
             {
                 player.SendChatMessage("~r~Dein Adminlevel ist zu gering!");
                 return;
@@ -63,13 +64,31 @@ namespace Tutorial
         public void CMD_me(Player player, string nachricht)
         {
             if (!Accounts.IstSpielerEingeloggt(player)) return;
-            if(nachricht.Length > 0)
+            if (nachricht.Length > 0)
             {
                 Utils.SendRadiusMessage("!{#EE82EE}* " + player.Name + " " + nachricht, 8, player);
             }
         }
 
+        [Command("save", "/save [Position]", GreedyArg = true)]
+        public void CMD_save(Player player, string position)
+        {
+            if (!Accounts.IstSpielerEingeloggt(player)) return;
 
+            string status = (player.IsInVehicle) ? "Im Fahrzeug" : "Zu Fuß";
+            Vector3 pos = (player.IsInVehicle) ? player.Vehicle.Position : player.Position;
+            Vector3 rot = (player.IsInVehicle) ? player.Vehicle.Rotation : player.Rotation;
+
+            string message = 
+            $"{status} -> {position}: {pos.X.ToString(new CultureInfo("en-US")):N3}, {pos.Y.ToString(new CultureInfo("en-US")):N3}, {pos.Z.ToString(new CultureInfo("en-US")):N3}, {rot.X.ToString(new CultureInfo("en-US")):N3}, {rot.Y.ToString(new CultureInfo("en-US")):N3}, {rot.Z.ToString(new CultureInfo("en-US")):N3}";
+
+            player.SendChatMessage(message);
+
+            using(StreamWriter file = new StreamWriter(@"./serverdata/savedpositions.txt", true))
+            {
+                file.WriteLine(message);
+            }
+        }
 
         /*[Command("login", "/login um dich einzuloggen")]
         public void CMD_Login(Player player, string password)
