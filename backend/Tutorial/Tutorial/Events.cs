@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 using GTANetworkAPI;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Tutorial
 {
@@ -25,6 +27,7 @@ namespace Tutorial
             NAPI.Blip.SetBlipScale(Willkommen, 0.8f);
             colWillkommen = NAPI.ColShape.CreateCylinderColShape(new Vector3(-425.50986, 1123.3857, 325.85443), 1.0f, 1.0f);
         }
+
         [ServerEvent(Event.PlayerConnected)]
         public void OnPlayerConnected(Player player)
         {
@@ -72,6 +75,26 @@ namespace Tutorial
             {
                 player.SendChatMessage("~y~Hallo und Willkommen auf dem Server!");
             }
+        }
+
+        [RemoteEvent("SpawnVehicleServer")]
+        public void OnSpawnVehicleServer(Player player, string vehiclename, bool sitIn)
+        {
+            uint vehhash = NAPI.Util.GetHashKey(vehiclename);
+            if(vehhash <= 0)
+            {
+                player.SendChatMessage("~r~Ungültiges Fahrzeug!");
+                return;
+            }
+            Vehicle veh = NAPI.Vehicle.CreateVehicle(vehhash, player.Position, player.Heading, 0, 0);
+            veh.NumberPlate = "Tutorial";
+            veh.Locked = false;
+            veh.EngineStatus = true;
+            if(sitIn)
+            {
+                player.SetIntoVehicle(veh, (int)VehicleSeat.Driver);
+            }
+
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Text;
+using System.Threading.Tasks;
 using GTANetworkAPI;
 
 namespace Tutorial
@@ -29,6 +30,18 @@ namespace Tutorial
             veh.Locked = false;
             veh.EngineStatus = true;
             player.SetIntoVehicle(veh, (int)VehicleSeat.Driver);
+        }
+
+        [Command("vehspawner", "/vehspawner um das Fahrzeugmenü zu öffnen!")]
+        public void cmd_vehspawner(Player player)
+        {
+            Accounts account = player.GetData<Accounts>(Accounts.Account_Key);
+            if(!account.IstSpielerAdmin((int)Accounts.AdminRanks.Supporter))
+            {
+                player.SendChatMessage("~r~Dein Adminlevel ist zu gering!");
+                return;
+            }
+            NAPI.ClientEvent.TriggerClientEvent(player, "vSpawner");
         }
 
         [Command("freeze", "/freeze einen Spieler einfrieren")]
@@ -88,6 +101,59 @@ namespace Tutorial
             {
                 file.WriteLine(message);
             }
+        }
+
+        [Command("createhouse", "Befehl: /createhouse um ein Haus zu erstellen")]
+        public void CMD_createhouse(Player player, int ipl, int preis)
+        {
+            if (!Accounts.IstSpielerEingeloggt(player)) return;
+            Accounts account = player.GetData<Accounts>(Accounts.Account_Key);
+            if (!account.IstSpielerAdmin((int)Accounts.AdminRanks.Administrator))
+            {
+                player.SendChatMessage("~r~Dein Adminlevel ist zu gering!");
+                return;
+            }
+            Haus house = Haus.holeHausInReichweite(player);
+            if (house != null)
+            {
+                player.SendChatMessage("~r~Hier kann kein Haus erstellt werden!");
+                return;
+            }
+            string houseLabel = string.Empty;
+            house = new Haus();
+            house.ipl = HausInterior.Interior_Liste[ipl].ipl;
+            house.position = player.Position;
+            house.preis = preis;
+            house.besitzer = "Keiner";
+            house.status = false;
+            house.abgeschlossen = false;
+
+            Task.Factory.StartNew(() =>
+            {
+                NAPI.Task.Run(() =>
+                {
+                    house.id = Datenbank.ErstelleHaus(house);
+
+                    house.hausLabel = NAPI.TextLabel.CreateTextLabel($"Dieses Haus steht für {preis}$ zum Verkauf, benutzt /buyhouse um es zu kaufen!", new Vector3(house.position.X, house.position.Y, house.position.Z + 0.8), 5.0f, 0.75f, 4, new Color(255, 255, 255));
+
+                    if (house.status == false)
+                    {
+                        house.hausBlip = NAPI.Blip.CreateBlip(40, house.position, 1.0f, 2);
+                        house.hausMarker = NAPI.Marker.CreateMarker(1, new Vector3(house.position.X, house.position.Y, house.position.Z - 1.1), house.position, new Vector3(), 1.0f, new Color(38, 230, 0), false);
+                    }
+                    else
+                    {
+                        house.hausMarker = NAPI.Marker.CreateMarker(1, new Vector3(house.position.X, house.position.Y, house.position.Z - 1.1), house.position, new Vector3(), 1.0f, new Color(255, 255, 255), false);
+                        house.hausBlip = NAPI.Blip.CreateBlip(40, house.position, 1.0f, 1);
+                    }
+                    NAPI.Blip.SetBlipName(house.hausBlip, "Hausnummer: " + house.id); NAPI.Blip.SetBlipShortRange(house.hausBlip, true);
+                    Haus.hausListe.Add(house);
+
+                    player.SendChatMessage("~g~Das Haus wurde erfolgreich erstellt!");
+                    return;
+                });
+            });
+            return;
         }
 
         /*[Command("login", "/login um dich einzuloggen")]

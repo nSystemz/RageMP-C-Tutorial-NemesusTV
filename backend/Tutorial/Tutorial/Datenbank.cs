@@ -139,5 +139,32 @@ namespace Tutorial
             return false;
 
         }
+
+        //Haussystem
+
+        public static int ErstelleHaus(Haus house)
+        {
+            int houseID = 0;
+            try
+            {
+                MySqlCommand command = Connection.CreateCommand();
+
+                command.CommandText = "INSERT INTO houses (ipl, posX, posY, posZ, preis, abgeschlossen) VALUES (@ipl, @posX, @posY, @posZ, @preis, @abgeschlossen");
+                command.Parameters.AddWithValue("@ipl", house.ipl);
+                command.Parameters.AddWithValue("@posX", house.position.X);
+                command.Parameters.AddWithValue("@posY", house.position.Y);
+                command.Parameters.AddWithValue("@posZ", house.position.Z);
+                command.Parameters.AddWithValue("@preis", house.preis);
+                command.Parameters.AddWithValue("@ageschlossen", house.abgeschlossen);
+
+                command.ExecuteNonQuery();
+                houseID = (int)command.LastInsertedId;
+            }
+            catch(Exception e)
+            {
+                NAPI.Util.ConsoleOutput("[ErstelleHaus]:" + e.ToString());
+            }
+            return houseID;
+        }
     }
 }

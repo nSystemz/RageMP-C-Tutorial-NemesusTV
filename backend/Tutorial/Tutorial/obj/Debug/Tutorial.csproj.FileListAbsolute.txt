@@ -26,3 +26,17 @@ E:\Spiele\Grand Theft Auto V\RageMP\server-files\Rage.mp-C-Tutorial-NemesusTV\do
 E:\Spiele\Grand Theft Auto V\RageMP\server-files\Rage.mp-C-Tutorial-NemesusTV\dotnet\resources\Tutorial\Tutorial.runtimeconfig.dev.json
 E:\Spiele\Grand Theft Auto V\RageMP\server-files\Rage.mp-C-Tutorial-NemesusTV\dotnet\resources\Tutorial\Tutorial.dll
 E:\Spiele\Grand Theft Auto V\RageMP\server-files\Rage.mp-C-Tutorial-NemesusTV\dotnet\resources\Tutorial\Tutorial.pdb
+J:\Tutorials\Rage.mp-C-Tutorial-NemesusTV\backend\Tutorial\Tutorial\obj\Debug\Tutorial.csprojAssemblyReference.cache
+J:\Tutorials\Rage.mp-C-Tutorial-NemesusTV\backend\Tutorial\Tutorial\obj\Debug\Tutorial.AssemblyInfoInputs.cache
+J:\Tutorials\Rage.mp-C-Tutorial-NemesusTV\backend\Tutorial\Tutorial\obj\Debug\Tutorial.AssemblyInfo.cs
+J:\Tutorials\Rage.mp-C-Tutorial-NemesusTV\backend\Tutorial\Tutorial\obj\Debug\Tutorial.csproj.CoreCompileInputs.cache
+J:\Tutorials\Rage.mp-C-Tutorial-NemesusTV\backend\Tutorial\Tutorial\obj\Debug\Tutorial.dll
+J:\Tutorials\Rage.mp-C-Tutorial-NemesusTV\backend\Tutorial\Tutorial\obj\Debug\Tutorial.pdb
+J:\Tutorials\Rage.mp-C-Tutorial-NemesusTV\backend\Tutorial\Tutorial\obj\Debug\Tutorial.csproj.CopyComplete
+J:\Tutorials\Rage.mp-C-Tutorial-NemesusTV\backend\Tutorial\Tutorial\obj\Debug\Tutorial.genruntimeconfig.cache
+J:\Tutorials\Rage.mp-C-Tutorial-NemesusTV\dotnet\resources\Tutorial\Tutorial.exe
+J:\Tutorials\Rage.mp-C-Tutorial-NemesusTV\dotnet\resources\Tutorial\Tutorial.deps.json
+J:\Tutorials\Rage.mp-C-Tutorial-NemesusTV\dotnet\resources\Tutorial\Tutorial.runtimeconfig.json
+J:\Tutorials\Rage.mp-C-Tutorial-NemesusTV\dotnet\resources\Tutorial\Tutorial.runtimeconfig.dev.json
+J:\Tutorials\Rage.mp-C-Tutorial-NemesusTV\dotnet\resources\Tutorial\Tutorial.dll
+J:\Tutorials\Rage.mp-C-Tutorial-NemesusTV\dotnet\resources\Tutorial\Tutorial.pdb
