@@ -46,5 +46,9 @@ namespace Tutorial
             return house;
         }
 
+        public static bool HatSpielerSchluessel(Player Player, Haus house)
+        {
+            return Player.Name == house.besitzer;
+        }
     }
 }

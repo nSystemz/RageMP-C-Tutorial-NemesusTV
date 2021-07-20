@@ -36,7 +36,7 @@ namespace Tutorial
         public void cmd_vehspawner(Player player)
         {
             Accounts account = player.GetData<Accounts>(Accounts.Account_Key);
-            if(!account.IstSpielerAdmin((int)Accounts.AdminRanks.Supporter))
+            if (!account.IstSpielerAdmin((int)Accounts.AdminRanks.Supporter))
             {
                 player.SendChatMessage("~r~Dein Adminlevel ist zu gering!");
                 return;
@@ -92,21 +92,20 @@ namespace Tutorial
             Vector3 pos = (player.IsInVehicle) ? player.Vehicle.Position : player.Position;
             Vector3 rot = (player.IsInVehicle) ? player.Vehicle.Rotation : player.Rotation;
 
-            string message = 
+            string message =
             $"{status} -> {position}: {pos.X.ToString(new CultureInfo("en-US")):N3}, {pos.Y.ToString(new CultureInfo("en-US")):N3}, {pos.Z.ToString(new CultureInfo("en-US")):N3}, {rot.X.ToString(new CultureInfo("en-US")):N3}, {rot.Y.ToString(new CultureInfo("en-US")):N3}, {rot.Z.ToString(new CultureInfo("en-US")):N3}";
 
             player.SendChatMessage(message);
 
-            using(StreamWriter file = new StreamWriter(@"./serverdata/savedpositions.txt", true))
+            using (StreamWriter file = new StreamWriter(@"./serverdata/savedpositions.txt", true))
             {
                 file.WriteLine(message);
             }
         }
 
-        [Command("createhouse", "Befehl: /createhouse um ein Haus zu erstellen")]
-        public void CMD_createhouse(Player player, int ipl, int preis)
+        [Command("createhouse", "/createhouse um ein Haus zu erstellen!")]
+        public void CMD_createhouse(Player player, int preis, int ipl)
         {
-            if (!Accounts.IstSpielerEingeloggt(player)) return;
             Accounts account = player.GetData<Accounts>(Accounts.Account_Key);
             if (!account.IstSpielerAdmin((int)Accounts.AdminRanks.Administrator))
             {
@@ -116,10 +115,10 @@ namespace Tutorial
             Haus house = Haus.holeHausInReichweite(player);
             if (house != null)
             {
-                player.SendChatMessage("~r~Hier kann kein Haus erstellt werden!");
+                player.SendChatMessage("~r~Hier ist bereits ein Haus!");
                 return;
             }
-            string houseLabel = string.Empty;
+            string hausLabel = string.Empty;
             house = new Haus();
             house.ipl = HausInterior.Interior_Liste[ipl].ipl;
             house.position = player.Position;
@@ -133,68 +132,199 @@ namespace Tutorial
                 NAPI.Task.Run(() =>
                 {
                     house.id = Datenbank.ErstelleHaus(house);
-
-                    house.hausLabel = NAPI.TextLabel.CreateTextLabel($"Dieses Haus steht für {preis}$ zum Verkauf, benutzt /buyhouse um es zu kaufen!", new Vector3(house.position.X, house.position.Y, house.position.Z + 0.8), 5.0f, 0.75f, 4, new Color(255, 255, 255));
-
+                    house.hausLabel = NAPI.TextLabel.CreateTextLabel($"Dieses Haus steht für {preis}$ zum Verkauf, benutze /buyhouse um es zu kaufen!", new Vector3(house.position.X, house.position.Y, house.position.Z + 0.8), 5.0f, 0.75f, 4, new Color(255, 255, 255));
                     if (house.status == false)
                     {
-                        house.hausBlip = NAPI.Blip.CreateBlip(40, house.position, 1.0f, 2);
                         house.hausMarker = NAPI.Marker.CreateMarker(1, new Vector3(house.position.X, house.position.Y, house.position.Z - 1.1), house.position, new Vector3(), 1.0f, new Color(38, 230, 0), false);
+                        house.hausBlip = NAPI.Blip.CreateBlip(40, house.position, 1.0f, 2);
                     }
                     else
                     {
                         house.hausMarker = NAPI.Marker.CreateMarker(1, new Vector3(house.position.X, house.position.Y, house.position.Z - 1.1), house.position, new Vector3(), 1.0f, new Color(255, 255, 255), false);
                         house.hausBlip = NAPI.Blip.CreateBlip(40, house.position, 1.0f, 1);
                     }
-                    NAPI.Blip.SetBlipName(house.hausBlip, "Hausnummer: " + house.id); NAPI.Blip.SetBlipShortRange(house.hausBlip, true);
+                    NAPI.Blip.SetBlipName(house.hausBlip, "Hausnummer: " + house.id);
+                    NAPI.Blip.SetBlipShortRange(house.hausBlip, true);
+
                     Haus.hausListe.Add(house);
 
-                    player.SendChatMessage("~g~Das Haus wurde erfolgreich erstellt!");
-                    return;
+                    player.SendChatMessage("~g~ Das Haus wurde erfolgreich erstellt!");
                 });
+
             });
-            return;
+
         }
 
-        /*[Command("login", "/login um dich einzuloggen")]
-        public void CMD_Login(Player player, string password)
+        [Command("enter", "/enter um ein Haus zu betreten!")]
+        public void CMD_enter(Player player)
         {
-            if(Accounts.IstSpielerEingeloggt(player))
+            foreach (Haus house in Haus.hausListe)
             {
-                player.SendNotification("~r~Du bist bereits eingeloggt!");
-                return;
+                if (player.Position.DistanceTo(house.position) <= 2.5f)
+                {
+                    if (!Haus.HatSpielerSchluessel(player, house) && house.abgeschlossen)
+                    {
+                        player.SendChatMessage("~r~Türe ist abgeschlossen!");
+                    }
+                    else
+                    {
+                        NAPI.World.RequestIpl(house.ipl);
+                        player.Position = HausInterior.GetHausAusgang(house.ipl);
+                        player.SetData("Haus_ID", house.id);
+                        player.SendNotification("~g~Haus betreten!");
+                    }
+                }
             }
-            if(!Datenbank.IstAccountBereitsVorhanden(player.Name))
-            {
-                player.SendNotification("~r~Keinen Account gefunden!");
-                return;
-            }
-            if(!Datenbank.PasswortCheck(player.Name, password))
-            {
-                player.SendNotification("~r~Falsches Passwort!");
-                return;
-            }
-            Accounts account = new Accounts(player.Name, player);
-            account.Login(player, false);
-            NAPI.ClientEvent.TriggerClientEvent(player, "PlayerFreeze", false);
         }
 
-        [Command("register", "/register um dich zu registrieren")]
-        public void CMD_Register(Player player, string password)
+        [Command("exit", "/exit um ein Haus zu verlassen!")]
+        public void CMD_exit(Player player)
         {
-            if (Accounts.IstSpielerEingeloggt(player))
+            foreach (Haus house in Haus.hausListe)
             {
-                player.SendNotification("~r~Du bist bereits eingeloggt!");
+                if (player.Position.DistanceTo(HausInterior.GetHausAusgang(house.ipl)) <= 2.5f)
+                {
+                    if (!Haus.HatSpielerSchluessel(player, house) && house.abgeschlossen)
+                    {
+                        player.SendChatMessage("~r~Türe ist abgeschlossen!");
+                    }
+                    else
+                    {
+                        player.Position = house.position;
+                        NAPI.World.RemoveIpl(house.ipl);
+                        player.SetData("Haus_ID", -1);
+                        player.SendNotification("~r~Haus verlassen!");
+                    }
+                }
+            }
+        }
+
+        [Command("lock", "/lock um ein Haus auf/ab zu schließen!")]
+        public void CMD_lock(Player player)
+        {
+            if (!Accounts.IstSpielerEingeloggt(player)) return;
+            Haus house = null;
+            house = Haus.holeHausInReichweite(player);
+            if(house != null)
+            {
+                house = Haus.holeHausInReichweite(player);
+            }
+            else
+            {
+                house = Haus.HoleHausMitID(player.GetData<int>("Haus_ID"));
+            }
+            if (house != null)
+            {
+                if (Haus.HatSpielerSchluessel(player, house))
+                {
+                    if (house.abgeschlossen == false)
+                    {
+                        house.abgeschlossen = true;
+                        player.SendNotification("~r~Haus abgeschlossen");
+                    }
+                    else
+                    {
+                        house.abgeschlossen = false;
+                        player.SendNotification("~g~ Haus aufgeschlossen");
+                    }
+                }
+            }
+            else
+            {
+                player.SendChatMessage("~r~Du bist nicht in der Nähe von einem Haus!");
+            }
+        }
+        [Command("buyhouse", "/buyhouse um ein Haus zu kaufen!")]
+        public void CMD_buyhouse(Player player)
+        {
+            if (!Accounts.IstSpielerEingeloggt(player)) return;
+            Accounts account = player.GetData<Accounts>(Accounts.Account_Key);
+            Haus house = Haus.holeHausInReichweite(player);
+            if(house == null || house.besitzer != "Keiner")
+            {
+                player.SendChatMessage("~r~Du bist nicht in der Nähe von einem freien Haus!");
                 return;
             }
-            if(Datenbank.IstAccountBereitsVorhanden(player.Name))
+            if(account.Geld < house.preis)
             {
-                player.SendNotification("~r~Account bereits vorhanden!");
+                player.SendChatMessage("~r~ Du hast nicht genügend Geld dabei!");
                 return;
             }
-            Accounts account = new Accounts(player.Name, player);
-            account.Register(player.Name, password);
-            NAPI.ClientEvent.TriggerClientEvent(player, "PlayerFreeze", false);
-        }*/
+            account.Geld -= house.preis;
+            house.status = true;
+            house.besitzer = player.Name;
+
+            NAPI.Entity.DeleteEntity(house.hausMarker);
+            NAPI.Entity.DeleteEntity(house.hausBlip);
+            NAPI.Entity.DeleteEntity(house.hausLabel);
+
+            house.hausLabel = NAPI.TextLabel.CreateTextLabel($"Dieses Haus gehört {house.besitzer}, benutze /enter um es zu betreten!", new Vector3(house.position.X, house.position.Y, house.position.Z + 0.8), 5.0f, 0.75f, 4, new Color(255, 255, 255));
+            if (house.status == false)
+            {
+                house.hausMarker = NAPI.Marker.CreateMarker(1, new Vector3(house.position.X, house.position.Y, house.position.Z - 1.1), house.position, new Vector3(), 1.0f, new Color(38, 230, 0), false);
+                house.hausBlip = NAPI.Blip.CreateBlip(40, house.position, 1.0f, 2);
+            }
+            else
+            {
+                house.hausMarker = NAPI.Marker.CreateMarker(1, new Vector3(house.position.X, house.position.Y, house.position.Z - 1.1), house.position, new Vector3(), 1.0f, new Color(255, 255, 255), false);
+                house.hausBlip = NAPI.Blip.CreateBlip(40, house.position, 1.0f, 1);
+            }
+            NAPI.Blip.SetBlipName(house.hausBlip, "Hausnummer: " + house.id);
+            NAPI.Blip.SetBlipShortRange(house.hausBlip, true);
+
+            player.SendChatMessage("~g~Du hast das Haus erfolgreich erworben!");
+
+            Task.Factory.StartNew(() =>
+            {
+                Datenbank.HausSpeichern(house);
+            });
+        }
+
+        [Command("sellhouse", "/sellhouse um ein Haus zu verkaufen!")]
+        public void CMD_sellhouse(Player player)
+        {
+            if (!Accounts.IstSpielerEingeloggt(player)) return;
+            Accounts account = player.GetData<Accounts>(Accounts.Account_Key);
+            Haus house = Haus.holeHausInReichweite(player);
+            if (house == null)
+            {
+                player.SendChatMessage("~r~Du bist nicht in der Nähe von einem Haus!");
+                return;
+            }
+            if(house.besitzer != player.Name)
+            {
+                player.SendChatMessage("~r~Dieses Haus gehört dir nicht!");
+                return;
+            }
+            account.Geld += house.preis/2;
+            house.status = false;
+            house.abgeschlossen = false;
+            house.besitzer = "Keiner";
+
+            NAPI.Entity.DeleteEntity(house.hausMarker);
+            NAPI.Entity.DeleteEntity(house.hausBlip);
+            NAPI.Entity.DeleteEntity(house.hausLabel);
+
+            house.hausLabel = NAPI.TextLabel.CreateTextLabel($"Dieses Haus steht für {house.preis}$ zum Verkauf, benutze /buyhouse um es zu kaufen!", new Vector3(house.position.X, house.position.Y, house.position.Z + 0.8), 5.0f, 0.75f, 4, new Color(255, 255, 255));
+            if (house.status == false)
+            {
+                house.hausMarker = NAPI.Marker.CreateMarker(1, new Vector3(house.position.X, house.position.Y, house.position.Z - 1.1), house.position, new Vector3(), 1.0f, new Color(38, 230, 0), false);
+                house.hausBlip = NAPI.Blip.CreateBlip(40, house.position, 1.0f, 2);
+            }
+            else
+            {
+                house.hausMarker = NAPI.Marker.CreateMarker(1, new Vector3(house.position.X, house.position.Y, house.position.Z - 1.1), house.position, new Vector3(), 1.0f, new Color(255, 255, 255), false);
+                house.hausBlip = NAPI.Blip.CreateBlip(40, house.position, 1.0f, 1);
+            }
+            NAPI.Blip.SetBlipName(house.hausBlip, "Hausnummer: " + house.id);
+            NAPI.Blip.SetBlipShortRange(house.hausBlip, true);
+
+            player.SendChatMessage("~g~Du hast das Haus erfolgreich verkauft!");
+
+            Task.Factory.StartNew(() =>
+            {
+                Datenbank.HausSpeichern(house);
+            });
+        }
     }
 }
