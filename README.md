@@ -1,6 +1,8 @@
 # Rage.mp-C-Tutorial-NemesusTV
 
-Hier findet Ihr alle Dateien zur Youtube Tutorialreihe für Rage.MP C#
+Hier findet Ihr alle Dateien zur Youtube Tutorialreihe für RageMP C#
+
+(RageMP C# Tutorials (C#, CEF, NativeUI und vieles mehr)
 
 Playlist:
 https://www.youtube.com/watch?v=Y28QzJ_1ZK0&amp;list=PLwo_W2ZlTOIk3Csvsx77vhZuKYH_NfHpi
