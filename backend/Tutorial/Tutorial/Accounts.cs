@@ -45,7 +45,7 @@ namespace Tutorial
         public void Login(Player player, bool firstLogin)
         {
             Datenbank.AccountLaden(this);
-            if(firstLogin)
+            if (firstLogin)
             {
                 player.SendChatMessage("Willkommen auf unserem Server!");
             }

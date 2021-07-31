@@ -152,7 +152,6 @@ namespace Tutorial
                 });
 
             });
-
         }
 
         [Command("enter", "/enter um ein Haus zu betreten!")]
@@ -325,6 +324,34 @@ namespace Tutorial
             {
                 Datenbank.HausSpeichern(house);
             });
+        }
+
+        //Nicht in der Tutorialreihe erstellt
+        [Command("setskin", "/setskin um dir ein Skin zu setzen!")]
+        public void CMD_setskin(Player player, string model)
+        {
+            Accounts account = player.GetData<Accounts>(Accounts.Account_Key);
+            if (!account.IstSpielerAdmin((int)Accounts.AdminRanks.Administrator))
+            {
+                player.SendChatMessage("~r~Dein Adminlevel ist zu gering!");
+                return;
+            }
+            uint skinhash = NAPI.Util.GetHashKey(model);
+            NAPI.Player.SetPlayerSkin(player, skinhash);
+            player.SendChatMessage("~g~Skin erfolgreich gesetzt!");
+        }
+
+        [Command("loadipl", "/loadipl um eine IPL zu laden!")]
+        public void CMD_loadipl(Player player, string ipl)
+        {
+            Accounts account = player.GetData<Accounts>(Accounts.Account_Key);
+            if (!account.IstSpielerAdmin((int)Accounts.AdminRanks.Administrator))
+            {
+                player.SendChatMessage("~r~Dein Adminlevel ist zu gering!");
+                return;
+            }
+            NAPI.World.RequestIpl(ipl);
+            player.SendChatMessage("~g~IPL Erfolgreich geladen!");
         }
     }
 }
