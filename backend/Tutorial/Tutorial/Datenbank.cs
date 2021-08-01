@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Text;
 using Bcrypt;
 using GTANetworkAPI;
@@ -26,6 +27,9 @@ namespace Tutorial
 
         public static void InitConnection()
         {
+            System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
+            System.Net.ServicePointManager.Expect100Continue = false;
+
             Datenbank sql = new Datenbank();
             String SQLConnection = $"SERVER={sql.Host}; DATABASE={sql.Database}; UID={sql.Username}; PASSWORD={sql.Password}";
             NAPI.Util.ConsoleOutput(SQLConnection);
