@@ -30,7 +30,7 @@ namespace Tutorial
             veh.Locked = false;
             veh.EngineStatus = true;
             player.SetIntoVehicle(veh, (int)VehicleSeat.Driver);
-            Utils.sendNotification(player, "Fahrzeug erfolgreich gespawnt", "fas fa-info");
+            Utils.sendNotification(player, "Fahrzeug erfolgreich gespawnt!", "fas fa-car");
         }
 
         [Command("vehspawner", "/vehspawner um das Fahrzeugmenü zu öffnen!")]

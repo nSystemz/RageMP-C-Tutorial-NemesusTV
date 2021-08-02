@@ -53,9 +53,9 @@ namespace Tutorial
             return 0;
         }
 
-        public static void sendNotification(Player player, string text, string icon)
+        public static void sendNotification(Player player, string text, string iconpic)
         {
-            NAPI.ClientEvent.TriggerClientEvent(player, "showNotification", text, icon);
+            NAPI.ClientEvent.TriggerClientEvent(player, "showNotification", text, iconpic);
         }
     }
 }
