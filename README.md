@@ -14,4 +14,6 @@ https://www.youtube.com/watch?v=Y28QzJ_1ZK0&amp;list=PLwo_W2ZlTOIk3Csvsx77vhZuKY
 Forum:
 https://forum.nemesus.de
 
+Discord (Support und Smalltalk): https://discord.nemesus.de
+
 Viel Spass!
