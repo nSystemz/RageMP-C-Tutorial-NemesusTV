@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using GTANetworkAPI;
+﻿using GTANetworkAPI;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -28,6 +25,34 @@ namespace Tutorial
             NAPI.Blip.SetBlipShortRange(Willkommen, true);
             NAPI.Blip.SetBlipScale(Willkommen, 0.8f);
             colWillkommen = NAPI.ColShape.CreateCylinderColShape(new Vector3(-425.50986, 1123.3857, 325.85443), 1.0f, 1.0f);
+
+            Timer paydayTimer = new Timer(OnPaydayTimer, null, 60000, 60000);
+        }
+
+        public static void OnPaydayTimer(object state)
+        {
+            Task.Factory.StartNew(() =>
+            {
+                NAPI.Task.Run(() =>
+                {
+                    foreach(Player player in NAPI.Pools.GetAllPlayers())
+                    {
+                        //Payday
+                        player.SendChatMessage("~y~Paydaycheck");
+                        Accounts account = player.GetData<Accounts>(Accounts.Account_Key);
+                        if(account != null && Accounts.IstSpielerEingeloggt(player))
+                        {
+                            account.Payday--;
+                            if(account.Payday <= 0)
+                            {
+                                account.Payday = 60;
+                                player.SendNotification("Payday: 500$");
+                                account.Geld += 500;
+                            }
+                        }
+                    }
+                });
+            });
         }
 
         [ServerEvent(Event.PlayerConnected)]

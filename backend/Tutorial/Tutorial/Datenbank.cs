@@ -76,12 +76,13 @@ namespace Tutorial
             try
             {
                 MySqlCommand command = Connection.CreateCommand();
-                command.CommandText = "INSERT INTO accounts (password, name, adminlevel, geld) VALUES (@password, @name, @adminlevel, @geld)";
+                command.CommandText = "INSERT INTO accounts (password, name, adminlevel, geld, payday) VALUES (@password, @name, @adminlevel, @geld, @payday)";
 
                 command.Parameters.AddWithValue("@password", saltedpw);
                 command.Parameters.AddWithValue("@name", account.Name);
                 command.Parameters.AddWithValue("@adminlevel", account.Adminlevel);
                 command.Parameters.AddWithValue("@geld", account.Geld);
+                command.Parameters.AddWithValue("@payday", account.Payday);
 
                 command.ExecuteNonQuery();
 
@@ -108,6 +109,7 @@ namespace Tutorial
                     account.ID = reader.GetInt16("id");
                     account.Adminlevel = reader.GetInt16("adminlevel");
                     account.Geld = reader.GetInt32("geld");
+                    account.Payday = reader.GetInt16("payday");
                 }
             }
         }
@@ -115,10 +117,11 @@ namespace Tutorial
         public static void AccountSpeichern(Accounts account)
         {
             MySqlCommand command = Connection.CreateCommand();
-            command.CommandText = "UPDATE accounts SET adminlevel=@adminlevel, geld=@geld WHERE id=@id";
+            command.CommandText = "UPDATE accounts SET adminlevel=@adminlevel, geld=@geld, payday=@payday WHERE id=@id";
 
             command.Parameters.AddWithValue("@adminlevel", account.Adminlevel);
             command.Parameters.AddWithValue("@geld", account.Geld);
+            command.Parameters.AddWithValue("@payday", account.Payday);
             command.Parameters.AddWithValue("@id", account.ID);
         }
 

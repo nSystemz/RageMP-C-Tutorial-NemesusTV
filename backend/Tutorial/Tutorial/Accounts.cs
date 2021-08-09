@@ -14,12 +14,14 @@ namespace Tutorial
         public int Adminlevel;
         public long Geld;
         public Player _player;
+        public int Payday;
 
         public Accounts()
         {
             this.Name = "";
             this.Adminlevel = 0;
             this.Geld = 5000;
+            this.Payday = 60;
         }
 
         public Accounts(string Name, Player player)
@@ -28,6 +30,7 @@ namespace Tutorial
             this._player = player;
             this.Adminlevel = 0;
             this.Geld = 5000;
+            this.Payday = 60;
         }
 
         public static bool IstSpielerEingeloggt(Player player)
