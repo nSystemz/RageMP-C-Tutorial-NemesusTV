@@ -3,7 +3,7 @@ import App from './App.vue'
 
 Vue.config.productionTip = false
 
-global.gui = {notify: null}
+global.gui = {notify: null, inv: null}
 
 new Vue({
   render: h => h(App),

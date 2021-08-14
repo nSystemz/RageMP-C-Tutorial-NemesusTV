@@ -123,5 +123,20 @@ namespace Tutorial
             }
 
         }
+
+        [RemoteEvent("OnPlayerPressF")]
+        public void OnPlayerPressF(Player player)
+        {
+            if (!Accounts.IstSpielerEingeloggt(player)) return;
+            Vector3 npcPosition = new Vector3(-420.6354, 1120.6459, 325.85843);
+            if(player.Position.DistanceTo(npcPosition) < 1.5f)
+            {
+                player.SendChatMessage("~g~Du hast dir erfolgreich ein Hot-Dog erworben!");
+                if (player.Health <= 75)
+                {
+                    player.Health = player.Health + 25;
+                }
+            }
+        }
     }
 }
