@@ -17,6 +17,7 @@ export default {
   },
   mounted() {
     global.gui.notify = this.$refs.notification;
+    global.gui.inventory = this.$refs.inventory;
   }
 }
 </script>
