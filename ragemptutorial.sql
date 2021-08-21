@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 04. Aug 2021 um 11:05
+-- Erstellungszeit: 21. Aug 2021 um 18:00
 -- Server-Version: 10.4.13-MariaDB
 -- PHP-Version: 7.2.32
 
@@ -32,15 +32,16 @@ CREATE TABLE `accounts` (
   `name` varchar(25) NOT NULL,
   `password` varchar(100) NOT NULL,
   `adminlevel` int(2) NOT NULL DEFAULT 0,
-  `geld` int(11) NOT NULL
+  `geld` int(11) NOT NULL,
+  `payday` int(2) NOT NULL DEFAULT 60
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Daten für Tabelle `accounts`
 --
 
-INSERT INTO `accounts` (`id`, `name`, `password`, `adminlevel`, `geld`) VALUES
-(2, 'WeirdNewbie', '$2a$10$Y0XnAEu0moCEbJl6BAbXM.IGw7G1XgJFyebOVmWvBgc5wFYutlQ0.', 3, 5000);
+INSERT INTO `accounts` (`id`, `name`, `password`, `adminlevel`, `geld`, `payday`) VALUES
+(2, 'WeirdNewbie', '$2a$10$Y0XnAEu0moCEbJl6BAbXM.IGw7G1XgJFyebOVmWvBgc5wFYutlQ0.', 3, 5000, 60);
 
 -- --------------------------------------------------------
 
@@ -67,6 +68,23 @@ CREATE TABLE `house` (
 INSERT INTO `house` (`id`, `ipl`, `posX`, `posY`, `posZ`, `preis`, `besitzer`, `abgeschlossen`, `status`) VALUES
 (1, 'apa_v_mp_h_01_a', -437.341, 1124.94, 325.859, 50, 'Keiner', 0, 0);
 
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `items`
+--
+
+CREATE TABLE `items` (
+  `id` int(11) NOT NULL,
+  `hash` varchar(35) NOT NULL,
+  `ownerEntity` varchar(35) NOT NULL,
+  `ownerIdentifier` int(6) NOT NULL,
+  `amount` int(4) NOT NULL,
+  `posX` float NOT NULL,
+  `posY` float NOT NULL,
+  `PosZ` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 --
 -- Indizes der exportierten Tabellen
 --
@@ -84,6 +102,12 @@ ALTER TABLE `house`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indizes für die Tabelle `items`
+--
+ALTER TABLE `items`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT für exportierte Tabellen
 --
 
@@ -98,6 +122,12 @@ ALTER TABLE `accounts`
 --
 ALTER TABLE `house`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT für Tabelle `items`
+--
+ALTER TABLE `items`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
