@@ -29,5 +29,19 @@ namespace Tutorial.Inventory
             itemModel.textHandle = textHandle;
             return itemModel;
         }
+
+        public static ItemModel GetItemModelFromId(int itemId)
+        {
+            ItemModel item = null;
+            foreach (ItemModel itemModel in Inventory.itemList)
+            {
+                if (itemModel != null && itemModel.id == itemId)
+                {
+                    item = itemModel;
+                    break;
+                }
+            }
+            return item;
+        }
     }
 }

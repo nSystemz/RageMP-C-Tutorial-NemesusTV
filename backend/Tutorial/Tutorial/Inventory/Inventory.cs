@@ -3,7 +3,6 @@ using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace Tutorial.Inventory
 {
@@ -121,16 +120,52 @@ namespace Tutorial.Inventory
                 if(item != null && item.ownerEntity == "Player" && item.ownerIdentifier == playerId)
                 {
                     InventoryModel inventoryItem = new InventoryModel();
+                    Item getItem = Item.GetItemFromItem(item.hash);
                     inventoryItem.id = item.id;
                     inventoryItem.hash = item.hash;
-                    inventoryItem.descriptionitem = "";
-                    inventoryItem.type = 0;
+                    inventoryItem.descriptionitem = getItem.descriptionitem;
+                    inventoryItem.type = getItem.type;
                     inventoryItem.amount = item.amount;
 
                     inventory.Add(inventoryItem);
                 }
             }
             return inventory;
+        }
+
+        [RemoteEvent("InventarAktionServer")]
+        public void OnInventarAktionServer(Player player, int ItemId, string action)
+        {
+            List<InventoryModel> inventory = new List<InventoryModel>();
+            inventory = GetPlayerInventory(player);
+
+            ItemModel item = ItemModel.GetItemModelFromId(ItemId);
+            if (item == null) return;
+
+            Item getItem = Item.GetItemFromItem(item.hash);
+
+            switch(action.ToLower())
+            {
+                case "konsumieren":
+                {
+                        if (getItem.type != (int)Item.ItemTypes.Consumable) return;
+                        item.amount--;
+                        string message = $"Du konsumierst ein/e/en {getItem.descriptionitem}";
+                        NAPI.Chat.SendChatMessageToPlayer(player, message);
+
+                        if(item.amount <= 0)
+                        {
+                            RemoveItem(item.id);
+                            itemList.Remove(item);
+                        }
+                        else
+                        {
+                            Inventory.UpdateItem(item);
+                        }
+                        player.TriggerEvent("hideInventory");
+                        break;
+                }
+            }
         }
     }
 }
