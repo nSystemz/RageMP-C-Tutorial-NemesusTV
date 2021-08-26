@@ -43,5 +43,19 @@ namespace Tutorial.Inventory
             }
             return item;
         }
+
+        public static ItemModel GetClosestItemWithHash(Player player, string hash)
+        {
+            ItemModel itemModel = null;
+            foreach(ItemModel item in Inventory.itemList)
+            {
+                if(item.ownerEntity == "Ground" && item.hash == hash && player.Position.DistanceTo(item.position) < 2.0f)
+                {
+                    itemModel = item;
+                    break;
+                }
+            }
+            return itemModel;
+        }
     }
 }

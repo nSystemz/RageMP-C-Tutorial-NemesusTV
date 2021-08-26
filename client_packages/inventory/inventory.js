@@ -24,7 +24,7 @@ mp.events.add('hideInventory', () =>
     }
 });
 
-mp.events.add('InventarAktion', () => {
+mp.events.add('InventarAktion', (itemid, action) => {
     mp.events.CallRemote('InventarAktionServer', itemid, action);
 });
 

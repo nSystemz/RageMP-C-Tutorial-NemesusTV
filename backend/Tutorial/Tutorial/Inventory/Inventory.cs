@@ -3,6 +3,7 @@ using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Tutorial.Inventory
 {
@@ -13,9 +14,9 @@ namespace Tutorial.Inventory
         public static ItemModel GetItemModelFromID(int itemId)
         {
             ItemModel item = null;
-            foreach(ItemModel itemModel in itemList)
+            foreach (ItemModel itemModel in itemList)
             {
-                if(itemModel != null && itemModel.id == itemId)
+                if (itemModel != null && itemModel.id == itemId)
                 {
                     item = itemModel;
                     break;
@@ -46,9 +47,9 @@ namespace Tutorial.Inventory
             MySqlCommand command = Datenbank.Connection.CreateCommand();
             command.CommandText = "SELECT * from items";
 
-            using(MySqlDataReader reader = command.ExecuteReader())
+            using (MySqlDataReader reader = command.ExecuteReader())
             {
-                while(reader.Read())
+                while (reader.Read())
                 {
                     ItemModel item = new ItemModel();
 
@@ -63,7 +64,7 @@ namespace Tutorial.Inventory
                     item.amount = reader.GetInt32("amount");
                     item.position = new Vector3(posX, posY, posZ);
 
-                    if(item.ownerEntity == "Ground")
+                    if (item.ownerEntity == "Ground")
                     {
                         item.objectHandle = NAPI.Object.CreateObject(uint.Parse(item.hash), item.position, new Vector3(0.0f, 0.0f, 0.0f), 255);
                     }
@@ -115,9 +116,9 @@ namespace Tutorial.Inventory
 
             int playerId = account.ID;
 
-            foreach(ItemModel item in itemList.ToList())
+            foreach (ItemModel item in itemList.ToList())
             {
-                if(item != null && item.ownerEntity == "Player" && item.ownerIdentifier == playerId)
+                if (item != null && item.ownerEntity == "Player" && item.ownerIdentifier == playerId)
                 {
                     InventoryModel inventoryItem = new InventoryModel();
                     Item getItem = Item.GetItemFromItem(item.hash);
@@ -133,6 +134,7 @@ namespace Tutorial.Inventory
             return inventory;
         }
 
+
         [RemoteEvent("InventarAktionServer")]
         public void OnInventarAktionServer(Player player, int ItemId, string action)
         {
@@ -144,16 +146,16 @@ namespace Tutorial.Inventory
 
             Item getItem = Item.GetItemFromItem(item.hash);
 
-            switch(action.ToLower())
+            switch (action.ToLower())
             {
                 case "konsumieren":
-                {
+                    {
                         if (getItem.type != (int)Item.ItemTypes.Consumable) return;
                         item.amount--;
                         string message = $"Du konsumierst ein/e/en {getItem.descriptionitem}";
                         NAPI.Chat.SendChatMessageToPlayer(player, message);
 
-                        if(item.amount <= 0)
+                        if (item.amount <= 0)
                         {
                             RemoveItem(item.id);
                             itemList.Remove(item);
@@ -164,7 +166,97 @@ namespace Tutorial.Inventory
                         }
                         player.TriggerEvent("hideInventory");
                         break;
+                    }
+                case "wegwerfen":
+                    {
+                        item.amount--;
+                        ItemModel closestItem = ItemModel.GetClosestItemWithHash(player, item.hash);
+                        if (closestItem != null)
+                        {
+                            closestItem.amount++;
+                            Inventory.UpdateItem(item);
+                        }
+                        else
+                        {
+                            closestItem = item.Copy();
+                            closestItem.ownerEntity = "Ground";
+                            closestItem.position = new Vector3(player.Position.X, player.Position.Y, player.Position.Z - 0.92f);
+                            closestItem.objectHandle = NAPI.Object.CreateObject(uint.Parse(closestItem.hash), closestItem.position, new Vector3(0.0f, 0.0f, 0.0f), 255);
+                            closestItem.textHandle = NAPI.TextLabel.CreateTextLabel("Hier liegt etwas - benutze /pickup!", new Vector3(player.Position.X, player.Position.Y, player.Position.Z - 0.5), 10.0f, 0.5f, 4, new Color(255, 255, 255));
+                            closestItem.id = AddNewItem(closestItem);
+                            itemList.Add(closestItem);
+                            UpdateItem(closestItem);
+
+                            if (item.amount <= 0)
+                            {
+                                RemoveItem(item.id);
+                                itemList.Remove(item);
+                            }
+                        }
+                        player.TriggerEvent("hideInventory");
+                        break;
+                    }
+            }
+        }
+
+        public static ItemModel GetClosestItem(Player player)
+        {
+            ItemModel itemModel = null;
+            foreach(ItemModel item in itemList)
+            {
+                if(item.ownerEntity == "Ground" && player.Position.DistanceTo(item.position) < 2.5f)
+                {
+                    itemModel = item;
+                    break;
                 }
+            }
+            return itemModel;
+        }
+
+        public static ItemModel GetPlayerItemModelFromHash(int playerId, string hash)
+        {
+            ItemModel itemModel = null;
+            foreach(ItemModel item in itemList)
+            {
+                if(item.ownerEntity == "Player" && item.ownerIdentifier == playerId && item.hash == hash)
+                {
+                    itemModel = item;
+                    break;
+                }
+            }
+            return itemModel;
+        }
+
+        [Command("inventory", "Befehl: /inventory um dein Inventar zu öffnen")]
+        public void CMD_inventory(Player player)
+        {
+            player.TriggerEvent("showPlayerInventory", NAPI.Util.ToJson(GetPlayerInventory(player)));
+        }
+
+        [Command("pickup", "Befehl: /pickup um um ein Gegenstand aufzuheben")]
+        public void CMD_pickup(Player player)
+        {
+            if (player.IsInVehicle) return;
+            ItemModel item = GetClosestItem(player);
+            if(item != null)
+            {
+                ItemModel playerItem = GetPlayerItemModelFromHash(player.GetData<int>(Accounts.Account_Key), item.hash);
+
+                if(playerItem != null)
+                {
+                    playerItem.amount += item.amount;
+                }
+                else
+                {
+                    playerItem = item;
+                }
+                item.objectHandle.Delete();
+                item.textHandle.Delete();
+                playerItem.ownerEntity = "Player";
+                playerItem.ownerIdentifier = player.GetData<int>(Accounts.Account_Key);
+                playerItem.position = new Vector3(0.0f, 0.0f, 0.0f);
+                UpdateItem(playerItem);
+                player.SendChatMessage($"Du hast erfolgreich etwas aufgehoben!");
             }
         }
     }

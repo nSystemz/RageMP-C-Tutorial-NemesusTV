@@ -21,11 +21,8 @@ export default {
         getChildPayload: function() {
             return this.items;
         },
-        giveitem: function() {
-            mp.trigger("InventarAktion", this.item.id, "geben")
-        },
         useitem: function() {
-            mp.trigger("InventarAktion", this.item.id, "benutzen")
+            mp.trigger("InventarAktion", this.item.id, "konsumieren")
         },
         destroyitem: function() {
             mp.trigger("InventarAktion", this.item.id, "wegwerfen")
