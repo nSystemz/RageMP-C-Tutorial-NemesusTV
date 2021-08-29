@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 21. Aug 2021 um 18:00
+-- Erstellungszeit: 29. Aug 2021 um 13:43
 -- Server-Version: 10.4.13-MariaDB
 -- PHP-Version: 7.2.32
 
@@ -86,6 +86,13 @@ CREATE TABLE `items` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- Daten für Tabelle `items`
+--
+
+INSERT INTO `items` (`id`, `hash`, `ownerEntity`, `ownerIdentifier`, `amount`, `posX`, `posY`, `PosZ`) VALUES
+(2, '2565741261', 'Player', 2, 3, 0, 0, 0);
+
+--
 -- Indizes der exportierten Tabellen
 --
 
@@ -127,7 +134,7 @@ ALTER TABLE `house`
 -- AUTO_INCREMENT für Tabelle `items`
 --
 ALTER TABLE `items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

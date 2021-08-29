@@ -15,6 +15,7 @@ namespace Tutorial
         public long Geld;
         public Player _player;
         public int Payday;
+        public bool showInv;
 
         public Accounts()
         {
@@ -22,6 +23,7 @@ namespace Tutorial
             this.Adminlevel = 0;
             this.Geld = 5000;
             this.Payday = 60;
+            this.showInv = false;
         }
 
         public Accounts(string Name, Player player)
@@ -31,6 +33,7 @@ namespace Tutorial
             this.Adminlevel = 0;
             this.Geld = 5000;
             this.Payday = 60;
+            this.showInv = false;
         }
 
         public static bool IstSpielerEingeloggt(Player player)

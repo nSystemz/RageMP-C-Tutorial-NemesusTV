@@ -67,6 +67,7 @@ namespace Tutorial.Inventory
                     if (item.ownerEntity == "Ground")
                     {
                         item.objectHandle = NAPI.Object.CreateObject(uint.Parse(item.hash), item.position, new Vector3(0.0f, 0.0f, 0.0f), 255);
+                        item.textHandle = NAPI.TextLabel.CreateTextLabel("Hier liegt etwas - benutze /pickup!", new Vector3(posX, posY, posZ - 0.5), 10.0f, 0.5f, 4, new Color(255, 255, 255));
                     }
                     itemList.Add(item);
                 }
@@ -97,7 +98,7 @@ namespace Tutorial.Inventory
         public static void UpdateItem(ItemModel item)
         {
             MySqlCommand command = Datenbank.Connection.CreateCommand();
-            command.CommandText = "UPDATE items SET ownerEntity = @OwnerEntity, ownerIdentifier = @ownerIdentifiert, amount = @amount, posX = @posX, posY = @posY, posZ = @posZ WHERE id = @id LIMIT 1";
+            command.CommandText = "UPDATE items SET ownerEntity = @OwnerEntity, ownerIdentifier = @ownerIdentifier, amount = @amount, posX = @posX, posY = @posY, posZ = @posZ WHERE id = @id LIMIT 1";
             command.Parameters.AddWithValue("@ownerEntity", item.ownerEntity);
             command.Parameters.AddWithValue("@ownerIdentifier", item.ownerIdentifier);
             command.Parameters.AddWithValue("@amount", item.amount);
@@ -138,6 +139,8 @@ namespace Tutorial.Inventory
         [RemoteEvent("InventarAktionServer")]
         public void OnInventarAktionServer(Player player, int ItemId, string action)
         {
+            Accounts account = player.GetData<Accounts>(Accounts.Account_Key);
+
             List<InventoryModel> inventory = new List<InventoryModel>();
             inventory = GetPlayerInventory(player);
 
@@ -164,6 +167,7 @@ namespace Tutorial.Inventory
                         {
                             Inventory.UpdateItem(item);
                         }
+                        account.showInv = false;
                         player.TriggerEvent("hideInventory");
                         break;
                     }
@@ -183,6 +187,7 @@ namespace Tutorial.Inventory
                             closestItem.position = new Vector3(player.Position.X, player.Position.Y, player.Position.Z - 0.92f);
                             closestItem.objectHandle = NAPI.Object.CreateObject(uint.Parse(closestItem.hash), closestItem.position, new Vector3(0.0f, 0.0f, 0.0f), 255);
                             closestItem.textHandle = NAPI.TextLabel.CreateTextLabel("Hier liegt etwas - benutze /pickup!", new Vector3(player.Position.X, player.Position.Y, player.Position.Z - 0.5), 10.0f, 0.5f, 4, new Color(255, 255, 255));
+                            closestItem.amount = 1;
                             closestItem.id = AddNewItem(closestItem);
                             itemList.Add(closestItem);
                             UpdateItem(closestItem);
@@ -193,6 +198,7 @@ namespace Tutorial.Inventory
                                 itemList.Remove(item);
                             }
                         }
+                        account.showInv = false;
                         player.TriggerEvent("hideInventory");
                         break;
                     }
@@ -230,7 +236,17 @@ namespace Tutorial.Inventory
         [Command("inventory", "Befehl: /inventory um dein Inventar zu öffnen")]
         public void CMD_inventory(Player player)
         {
-            player.TriggerEvent("showPlayerInventory", NAPI.Util.ToJson(GetPlayerInventory(player)));
+            Accounts account = player.GetData<Accounts>(Accounts.Account_Key);
+            if (account.showInv == false)
+            {
+                account.showInv = true;
+                player.TriggerEvent("showPlayerInventory", NAPI.Util.ToJson(GetPlayerInventory(player)));
+            }
+            else
+            {
+                account.showInv = false;
+                player.TriggerEvent("hideInventory");
+            }
         }
 
         [Command("pickup", "Befehl: /pickup um um ein Gegenstand aufzuheben")]
@@ -240,7 +256,9 @@ namespace Tutorial.Inventory
             ItemModel item = GetClosestItem(player);
             if(item != null)
             {
-                ItemModel playerItem = GetPlayerItemModelFromHash(player.GetData<int>(Accounts.Account_Key), item.hash);
+                Accounts account = player.GetData<Accounts>(Accounts.Account_Key);
+
+                ItemModel playerItem = GetPlayerItemModelFromHash(account.ID, item.hash);
 
                 if(playerItem != null)
                 {
@@ -253,9 +271,10 @@ namespace Tutorial.Inventory
                 item.objectHandle.Delete();
                 item.textHandle.Delete();
                 playerItem.ownerEntity = "Player";
-                playerItem.ownerIdentifier = player.GetData<int>(Accounts.Account_Key);
+                playerItem.ownerIdentifier = account.ID;
                 playerItem.position = new Vector3(0.0f, 0.0f, 0.0f);
                 UpdateItem(playerItem);
+                RemoveItem(item.id);
                 player.SendChatMessage($"Du hast erfolgreich etwas aufgehoben!");
             }
         }

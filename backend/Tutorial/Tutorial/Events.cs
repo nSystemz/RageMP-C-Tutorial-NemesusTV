@@ -18,6 +18,8 @@ namespace Tutorial
             }
             //Häuser
             Haus.hausListe = Datenbank.LadeAlleHäuser();
+            //Items
+            Inventory.Inventory.itemList = Inventory.Inventory.LoadAllItems();
             //Sonstige Sachen
             NAPI.TextLabel.CreateTextLabel("~w~Willkommen auf dem NemesusTV Tutorial Server!", new Vector3(-425.50986, 1123.3857, 325.85443 + 1.0), 10.0f, 0.5f, 4, new Color(255, 255, 255));
             NAPI.Marker.CreateMarker(2, new Vector3(-425.50986, 1123.3857, 325.85443), new Vector3(), new Vector3(), 1.0f, new Color(255, 255, 255));
@@ -38,7 +40,6 @@ namespace Tutorial
                     foreach(Player player in NAPI.Pools.GetAllPlayers())
                     {
                         //Payday
-                        player.SendChatMessage("~y~Paydaycheck");
                         Accounts account = player.GetData<Accounts>(Accounts.Account_Key);
                         if(account != null && Accounts.IstSpielerEingeloggt(player))
                         {

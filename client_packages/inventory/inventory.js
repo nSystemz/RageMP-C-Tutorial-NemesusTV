@@ -4,7 +4,7 @@ mp.events.add('showPlayerInventory', (data) =>
 {
     if(invHud == null)
     {
-        invHud = mp.browsers.new("https://localhost:8080/");
+        invHud = mp.browsers.new("http://localhost:8080/");
         invHud.execute(`gui.inventory.showInventory('${data}');`);
         mp.gui.cursor.show(true, true);
     }
@@ -25,6 +25,6 @@ mp.events.add('hideInventory', () =>
 });
 
 mp.events.add('InventarAktion', (itemid, action) => {
-    mp.events.CallRemote('InventarAktionServer', itemid, action);
+    mp.events.callRemote('InventarAktionServer', itemid, action);
 });
 

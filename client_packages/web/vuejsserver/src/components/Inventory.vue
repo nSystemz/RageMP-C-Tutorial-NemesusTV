@@ -19,8 +19,8 @@ import InventoryItem from './utils/InventoryItem.vue'
 export default {
     data() {
         return {
-            inventoryItems: [{}],
-            showInventar: true,
+            inventoryItems: [],
+            showInventar: false,
         }
     },
     components: {
@@ -30,17 +30,18 @@ export default {
         InventoryItem
     },
     methods: {
+        showInventory: function (data) {
+            this.showInventar = true
+            this.inventoryItems = JSON.parse(data)
+        },
         getChildPayload(index) {
-            return this.inventoryItems[index]
+            return this.showInventar[index];
         },
         hideInventory: function () {
             this.showInventar = false
         },
-        showInventory: function (data) {
-            this.inventoryItems = data
-            this.showInventar = true
-        },
         updateInventory: function() {
+            // eslint-disable-next-line no-undef
             mp.trigger("updateInventory", JSON.stringify(this.inventoryItems));
         }
     }
