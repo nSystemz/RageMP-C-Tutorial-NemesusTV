@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace Tutorial.Inventory
 {
@@ -59,15 +60,17 @@ namespace Tutorial.Inventory
 
                     item.id = reader.GetInt32("id");
                     item.hash = reader.GetString("hash");
+                    item.oldhash = item.hash;
                     item.ownerEntity = reader.GetString("ownerEntity");
                     item.ownerIdentifier = reader.GetInt32("ownerIdentifier");
                     item.amount = reader.GetInt32("amount");
+                    item.oldamount = item.amount;
                     item.position = new Vector3(posX, posY, posZ);
 
                     if (item.ownerEntity == "Ground")
                     {
                         item.objectHandle = NAPI.Object.CreateObject(uint.Parse(item.hash), item.position, new Vector3(0.0f, 0.0f, 0.0f), 255);
-                        item.textHandle = NAPI.TextLabel.CreateTextLabel("Hier liegt etwas - benutze /pickup!", new Vector3(posX, posY, posZ - 0.5), 10.0f, 0.5f, 4, new Color(255, 255, 255));
+                        item.textHandle = NAPI.TextLabel.CreateTextLabel("Hier liegt etwas - benutze /pickup!", new Vector3(posX, posY, posZ + 0.5), 10.0f, 0.5f, 4, new Color(255, 255, 255));
                     }
                     itemList.Add(item);
                 }
@@ -110,7 +113,7 @@ namespace Tutorial.Inventory
             command.ExecuteNonQuery();
         }
 
-        private List<InventoryModel> GetPlayerInventory(Player player)
+        private static List<InventoryModel> GetPlayerInventory(Player player)
         {
             List<InventoryModel> inventory = new List<InventoryModel>();
             Accounts account = player.GetData<Accounts>(Accounts.Account_Key);
@@ -125,9 +128,11 @@ namespace Tutorial.Inventory
                     Item getItem = Item.GetItemFromItem(item.hash);
                     inventoryItem.id = item.id;
                     inventoryItem.hash = item.hash;
+                    inventoryItem.oldhash = inventoryItem.hash;
                     inventoryItem.descriptionitem = getItem.descriptionitem;
                     inventoryItem.type = getItem.type;
                     inventoryItem.amount = item.amount;
+                    inventoryItem.oldamount = inventoryItem.amount;
 
                     inventory.Add(inventoryItem);
                 }
@@ -155,6 +160,7 @@ namespace Tutorial.Inventory
                     {
                         if (getItem.type != (int)Item.ItemTypes.Consumable) return;
                         item.amount--;
+                        item.oldamount = item.amount;
                         string message = $"Du konsumierst ein/e/en {getItem.descriptionitem}";
                         NAPI.Chat.SendChatMessageToPlayer(player, message);
 
@@ -174,10 +180,12 @@ namespace Tutorial.Inventory
                 case "wegwerfen":
                     {
                         item.amount--;
+                        item.oldamount = item.amount;
                         ItemModel closestItem = ItemModel.GetClosestItemWithHash(player, item.hash);
                         if (closestItem != null)
                         {
                             closestItem.amount++;
+                            closestItem.oldamount = closestItem.amount;
                             Inventory.UpdateItem(item);
                         }
                         else
@@ -188,6 +196,7 @@ namespace Tutorial.Inventory
                             closestItem.objectHandle = NAPI.Object.CreateObject(uint.Parse(closestItem.hash), closestItem.position, new Vector3(0.0f, 0.0f, 0.0f), 255);
                             closestItem.textHandle = NAPI.TextLabel.CreateTextLabel("Hier liegt etwas - benutze /pickup!", new Vector3(player.Position.X, player.Position.Y, player.Position.Z - 0.5), 10.0f, 0.5f, 4, new Color(255, 255, 255));
                             closestItem.amount = 1;
+                            closestItem.oldamount = closestItem.amount;
                             closestItem.id = AddNewItem(closestItem);
                             itemList.Add(closestItem);
                             UpdateItem(closestItem);
@@ -234,7 +243,7 @@ namespace Tutorial.Inventory
         }
 
         [Command("inventory", "Befehl: /inventory um dein Inventar zu öffnen")]
-        public void CMD_inventory(Player player)
+        public static void CMD_inventory(Player player)
         {
             Accounts account = player.GetData<Accounts>(Accounts.Account_Key);
             if (account.showInv == false)
@@ -263,6 +272,7 @@ namespace Tutorial.Inventory
                 if(playerItem != null)
                 {
                     playerItem.amount += item.amount;
+                    playerItem.oldamount = playerItem.amount;
                 }
                 else
                 {
@@ -278,5 +288,12 @@ namespace Tutorial.Inventory
                 player.SendChatMessage($"Du hast erfolgreich etwas aufgehoben!");
             }
         }
+
+        [RemoteEvent("updateInventoryServer")]
+        public void OnUpdateInventoryServer(Player player, string json)
+        {
+            NAPI.Util.ConsoleOutput(json);
+        }
+
     }
 }

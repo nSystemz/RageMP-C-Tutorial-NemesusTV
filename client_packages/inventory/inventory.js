@@ -28,3 +28,7 @@ mp.events.add('InventarAktion', (itemid, action) => {
     mp.events.callRemote('InventarAktionServer', itemid, action);
 });
 
+mp.events.add('updateInventory', (json) => {
+    mp.events.callRemote('updateInventoryServer', json);
+})
+

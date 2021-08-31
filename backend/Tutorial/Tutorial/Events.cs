@@ -37,14 +37,14 @@ namespace Tutorial
             {
                 NAPI.Task.Run(() =>
                 {
-                    foreach(Player player in NAPI.Pools.GetAllPlayers())
+                    foreach (Player player in NAPI.Pools.GetAllPlayers())
                     {
                         //Payday
                         Accounts account = player.GetData<Accounts>(Accounts.Account_Key);
-                        if(account != null && Accounts.IstSpielerEingeloggt(player))
+                        if (account != null && Accounts.IstSpielerEingeloggt(player))
                         {
                             account.Payday--;
-                            if(account.Payday <= 0)
+                            if (account.Payday <= 0)
                             {
                                 account.Payday = 60;
                                 player.SendNotification("Payday: 500$");
@@ -99,7 +99,7 @@ namespace Tutorial
         [ServerEvent(Event.PlayerEnterColshape)]
         public void OnPlayerEnterColShape(ColShape colshape, Player player)
         {
-            if(colshape == colWillkommen)
+            if (colshape == colWillkommen)
             {
                 player.SendChatMessage("~y~Hallo und Willkommen auf dem Server!");
             }
@@ -109,20 +109,46 @@ namespace Tutorial
         public void OnSpawnVehicleServer(Player player, string vehiclename, bool sitIn)
         {
             uint vehhash = NAPI.Util.GetHashKey(vehiclename);
-            if(vehhash <= 0)
+            if (vehhash <= 0)
             {
                 player.SendChatMessage("~r~Ungültiges Fahrzeug!");
                 return;
             }
             Vehicle veh = NAPI.Vehicle.CreateVehicle(vehhash, player.Position, player.Heading, 0, 0);
             veh.NumberPlate = "Tutorial";
-            veh.Locked = false;
+            veh.Locked = true;
             veh.EngineStatus = true;
-            if(sitIn)
+            if (sitIn)
             {
                 player.SetIntoVehicle(veh, (int)VehicleSeat.Driver);
             }
 
+        }
+
+        [RemoteEvent("successLockpickingServer")]
+        public void OnSuccessLockpickingServer(Player player)
+        {
+            Vehicle veh = Utils.GetClosestVehicle(player);
+            if(veh != null && veh.Locked == true)
+            {
+                veh.Locked = false;
+                player.SendChatMessage("~g~Fahrzeug erfolgreich geknackt!");
+                NAPI.ClientEvent.TriggerClientEvent(player, "hideLockpicking");
+            }
+        }
+
+        [RemoteEvent("failedLockpickingServer")]
+        public void OnFailedLockpickingServer(Player player)
+        {
+            player.SendChatMessage("~r~Fahrzeug konnte nicht geknackt werden");
+            NAPI.ClientEvent.TriggerClientEvent(player, "hideLockpicking");
+        }
+
+        [RemoteEvent("OnPlayerPressI")]
+        public void OnPlayerPressI(Player player)
+        {
+            if (!Accounts.IstSpielerEingeloggt(player)) return;
+            Inventory.Inventory.CMD_inventory(player);
         }
 
         [RemoteEvent("OnPlayerPressF")]
@@ -130,7 +156,7 @@ namespace Tutorial
         {
             if (!Accounts.IstSpielerEingeloggt(player)) return;
             Vector3 npcPosition = new Vector3(-420.6354, 1120.6459, 325.85843);
-            if(player.Position.DistanceTo(npcPosition) < 1.5f)
+            if (player.Position.DistanceTo(npcPosition) < 1.5f)
             {
                 player.SendChatMessage("~g~Du hast dir erfolgreich ein Hot-Dog erworben!");
                 if (player.Health <= 75)

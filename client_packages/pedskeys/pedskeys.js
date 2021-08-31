@@ -8,8 +8,15 @@ mp.peds.new
 );
 
 //Keys
+
 //F Taste
 mp.keys.bind(0x46, true, function() {
     if(mp.players.local.isTypingInTextChat) return;
     mp.events.callRemote('OnPlayerPressF');
+});
+
+//I Taste
+mp.keys.bind(0x49, true, function() {
+    if(mp.players.local.isTypingInTextChat) return;
+    mp.events.callRemote('OnPlayerPressI');
 });

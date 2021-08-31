@@ -9,6 +9,7 @@
       "Tutorial/1.0.0": {
         "dependencies": {
           "MySql.Data": "8.0.25",
+          "Newtonsoft.Json": "12.0.3",
           "Bootstrapper": "1.1.0.0"
         },
         "runtime": {
@@ -113,6 +114,14 @@
           "lib/netstandard2.1/Zstandard.Net.dll": {
             "assemblyVersion": "1.1.7.0",
             "fileVersion": "1.1.7.0"
+          }
+        }
+      },
+      "Newtonsoft.Json/12.0.3": {
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "assemblyVersion": "12.0.0.0",
+            "fileVersion": "12.0.3.23909"
           }
         }
       },
@@ -329,14 +338,6 @@
           }
         }
       },
-      "Newtonsoft.Json/12.0.0.0": {
-        "runtime": {
-          "Newtonsoft.Json.dll": {
-            "assemblyVersion": "12.0.0.0",
-            "fileVersion": "12.0.3.23909"
-          }
-        }
-      },
       "NeoSmart.Hashing/0.1.0.0": {
         "runtime": {
           "NeoSmart.Hashing.dll": {
@@ -474,6 +475,13 @@
       "path": "mysql.data/8.0.25",
       "hashPath": "mysql.data.8.0.25.nupkg.sha512"
     },
+    "Newtonsoft.Json/12.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-6mgjfnRB4jKMlzHSl+VD+oUc1IebOZabkbyWj2RiTgWwYPPuaK1H97G1sHqGwPlS5npiF5Q0OrxN1wni2n5QWg==",
+      "path": "newtonsoft.json/12.0.3",
+      "hashPath": "newtonsoft.json.12.0.3.nupkg.sha512"
+    },
     "System.Buffers/4.5.1": {
       "type": "package",
       "serviceable": true,
@@ -567,11 +575,6 @@
       "sha512": ""
     },
     "Microsoft.CodeAnalysis.CSharp/3.5.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Newtonsoft.Json/12.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""

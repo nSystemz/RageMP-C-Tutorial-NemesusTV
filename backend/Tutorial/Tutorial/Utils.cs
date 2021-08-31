@@ -57,5 +57,22 @@ namespace Tutorial
         {
             NAPI.ClientEvent.TriggerClientEvent(player, "showNotification", text, iconpic);
         }
+
+        public static Vehicle GetClosestVehicle(Player player, float distance = 2.75f)
+        {
+            Vehicle vehicle = null;
+            foreach(Vehicle veh in NAPI.Pools.GetAllVehicles())
+            {
+                Vector3 vehPos = veh.Position;
+                float distanceVehicleToPlayer = player.Position.DistanceTo(vehPos);
+
+                if(distanceVehicleToPlayer < distance && player.Dimension == veh.Dimension)
+                {
+                    distance = distanceVehicleToPlayer;
+                    vehicle = veh;
+                }
+            }
+            return vehicle;
+        }
     }
 }

@@ -322,4 +322,94 @@ SERVER=localhost; DATABASE=ragemptutorial; UID=ragemptutorial; PASSWORD=I3sVLglF
    at Tutorial.Datenbank.InitConnection() in J:\Tutorials\Rage.mp-C-Tutorial-NemesusTV\backend\Tutorial\Tutorial\Datenbank.cs:line 40
 -> Error starting 'Tutorial'
 System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
- ---> System.InvalidOperation
+ ---> System.InvalidOperationInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 30.08.2021 17:14:22
+Unable to load acl.xml
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Tutorial resource..
+Tutorial: loading scripts.. found 1 script(s)
+Tutorial: instantiating Tutorial.Commands..
+Tutorial: instantiating Tutorial.Connections..
+Tutorial: instantiating Tutorial.Events..
+Tutorial: instantiating Tutorial.Haus..
+Tutorial: instantiating Tutorial.HausInterior..
+Tutorial: instantiating Tutorial.Inventory.Inventory..
+Tutorial: instantiating Tutorial.Inventory.ItemModel..
+Tutorial: loading server events.. found 5 server event(s)
+Tutorial: loaded 5 server events(s)
+Tutorial: loading commands.. found 14 command(s)
+Tutorial: loading commands.. found 2 command(s)
+Tutorial: loaded 16 commands(s)
+Tutorial: loading remote events.. found 2 remote event(s)
+Tutorial: loading remote events.. found 2 remote event(s)
+Tutorial: loading remote events.. found 2 remote event(s)
+Tutorial: loaded 6 remote event(s)
+[Settings] -> Die Server Settings wurden erfolgreich geladen!
+SERVER=localhost; DATABASE=ragemptutorial; UID=ragemptutorial; PASSWORD=I3sVLglFepGrFM1A
+[MYSQL] -> Verbindung erfolgreich aufgebaut!
+-> Resource Tutorial started!
+Started! Waiting for connections..
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.IO.FileLoadException: Could not load file or assembly 'Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed'. Could not find or load a specific file. (0x80131621)
+File name: 'Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed'
+ ---> System.IO.FileLoadException: Could not load file or assembly 'Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed'.
+   at void System.Runtime.Loader.AssemblyLoadContext.LoadFromPath(IntPtr ptrNativeAssemblyLoadContext, string ilPath, string niPath, ObjectHandleOnStack retAssembly)
+   at Assembly System.Runtime.Loader.AssemblyLoadContext.LoadFromAssemblyPath(string assemblyPath)
+   at Assembly System.Reflection.Assembly.LoadFrom(string assemblyFile)
+   at Assembly System.Reflection.Assembly.LoadFromResolveHandler(object sender, ResolveEventArgs args)
+   at RuntimeAssembly System.Runtime.Loader.AssemblyLoadContext.InvokeResolveEvent(ResolveEventHandler eventHandler, RuntimeAssembly assembly, string name)
+   at RuntimeAssembly System.Runtime.Loader.AssemblyLoadContext.OnAssemblyResolve(RuntimeAssembly assembly, string assemblyFullName)
+   at void Tutorial.Inventory.Inventory.OnUpdateInventory(Player player, string json)
+
+
+   --- End of inner exception stack trace ---
+   at object RuntimeMethodHandle.InvokeMethod(object target, object[] arguments, Signature sig, bool constructor, bool wrapExceptions)
+   at object System.Reflection.RuntimeMethodInfo.Invoke(object obj, BindingFlags invokeAttr, Binder binder, object[] parameters, CultureInfo culture)
+   at void GTANetworkInternals.RemoteEventParser.Parse(Player sender, ulong eventNameHash, params object[] args)
+   at void GTANetworkInternals.RemoteEventHandler.Parse(Player sender, ulong eventNameHash, params object[] arguments)
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.IO.FileLoadException: Could not load file or assembly 'Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed'. Could not find or load a specific file. (0x80131621)
+File name: 'Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed'
+ ---> System.IO.FileLoadException: Could not load file or assembly 'Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed'.
+   at void System.Runtime.Loader.AssemblyLoadContext.LoadFromPath(IntPtr ptrNativeAssemblyLoadContext, string ilPath, string niPath, ObjectHandleOnStack retAssembly)
+   at Assembly System.Runtime.Loader.AssemblyLoadContext.LoadFromAssemblyPath(string assemblyPath)
+   at Assembly System.Reflection.Assembly.LoadFrom(string assemblyFile)
+   at Assembly System.Reflection.Assembly.LoadFromResolveHandler(object sender, ResolveEventArgs args)
+   at RuntimeAssembly System.Runtime.Loader.AssemblyLoadContext.InvokeResolveEvent(ResolveEventHandler eventHandler, RuntimeAssembly assembly, string name)
+   at RuntimeAssembly System.Runtime.Loader.AssemblyLoadContext.OnAssemblyResolve(RuntimeAssembly assembly, string assemblyFullName)
+   at void Tutorial.Inventory.Inventory.OnUpdateInventory(Player player, string json)
+
+
+   --- End of inner exception stack trace ---
+   at object RuntimeMethodHandle.InvokeMethod(object target, object[] arguments, Signature sig, bool constructor, bool wrapExceptions)
+   at object System.Reflection.RuntimeMethodInfo.Invoke(object obj, BindingFlags invokeAttr, Binder binder, object[] parameters, CultureInfo culture)
+   at void GTANetworkInternals.RemoteEventParser.Parse(Player sender, ulong eventNameHash, params object[] args)
+   at void GTANetworkInternals.RemoteEventHandler.Parse(Player sender, ulong eventNameHash, params object[] arguments)
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.IO.FileLoadException: Could not load file or assembly 'Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed'. Could not find or load a specific file. (0x80131621)
+File name: 'Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed'
+ ---> System.IO.FileLoadException: Could not load file or assembly 'Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed'.
+   at void System.Runtime.Loader.AssemblyLoadContext.LoadFromPath(IntPtr ptrNativeAssemblyLoadContext, string ilPath, string niPath, ObjectHandleOnStack retAssembly)
+   at Assembly System.Runtime.Loader.AssemblyLoadContext.LoadFromAssemblyPath(string assemblyPath)
+   at Assembly System.Reflection.Assembly.LoadFrom(string assemblyFile)
+   at Assembly System.Reflection.Assembly.LoadFromResolveHandler(object sender, ResolveEventArgs args)
+   at RuntimeAssembly System.Runtime.Loader.AssemblyLoadContext.InvokeResolveEvent(ResolveEventHandler eventHandler, RuntimeAssembly assembly, string name)
+   at RuntimeAssembly System.Runtime.Loader.AssemblyLoadContext.OnAssemblyResolve(RuntimeAssembly assembly, string assemblyFullName)
+   at void Tutorial.Inventory.Inventory.OnUpdateInventory(Player player, string json)
+
+
+   --- End of inner exception stack trace ---
+   at object RuntimeMethodHandle.InvokeMethod(object target, object[] arguments, Signature sig, bool constructor, bool wrapExceptions)
+   at object System.Reflection.RuntimeMethodInfo.Invoke(object obj, BindingFlags invokeAttr, Binder binder, object[] parameters, CultureInfo culture)
+   at void GTANetworkInternals.RemoteEventParser.Parse(Player sender, ulong eventNameHash, params object[] args)
+   at void GTANetworkInternals.RemoteEventHandler.Parse(Player sender, ulong eventNameHash, params object[] arguments)
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.IO.FileLoadException: Could not load file or assembly 'Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed'. Could not find or load a specific file. (0x80131621)
+File name: 'Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed'
+ ---> System.IO.FileLoadException: Could not load file or assembly 'Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed'.
+   at void System.Runtime.Loader.AssemblyLoadContext.LoadFromPath(IntPtr ptrNativeAssemblyLoadContext, string ilPath, string niPath, ObjectHandleOnStack retAssembly)
+   at Assembly System.Runtime.Loader.AssemblyLoadContext.LoadFromAssemblyPath(string assemblyPath)
+   at Assembly System.Reflection.Assembly.LoadFrom(string assemblyFile)
+   at Assembly System.Reflection.Assembly.LoadFromResolveHandler(object sender, ResolveEventArgs args)
+   at Run

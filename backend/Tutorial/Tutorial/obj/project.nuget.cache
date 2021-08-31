@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "C5IuiAqCUv1nj7M1Jg3kdoRCD5RQbYUXfn3KlPQiPVBcwe1XJhQmbv3omMihzl4t2czD9ZUvNcAEAzHWlmqsVA==",
+  "dgSpecHash": "ld9FDmKxwctTx4NrWLFqkJr9glpsd7YdzUX88q5/RgFBSbv4ZrA4KGci3SypOlSzuLXhT3qVOlL9ySNKEYhirg==",
   "success": true,
   "projectFilePath": "J:\\Tutorials\\Rage.mp-C-Tutorial-NemesusTV\\backend\\Tutorial\\Tutorial\\Tutorial.csproj",
   "expectedPackageFiles": [
@@ -12,6 +12,7 @@
     "C:\\Users\\tschn\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\tschn\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
     "C:\\Users\\tschn\\.nuget\\packages\\mysql.data\\8.0.25\\mysql.data.8.0.25.nupkg.sha512",
+    "C:\\Users\\tschn\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
     "C:\\Users\\tschn\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
     "C:\\Users\\tschn\\.nuget\\packages\\system.configuration.configurationmanager\\4.4.1\\system.configuration.configurationmanager.4.4.1.nupkg.sha512",
     "C:\\Users\\tschn\\.nuget\\packages\\system.drawing.common\\4.7.0\\system.drawing.common.4.7.0.nupkg.sha512",

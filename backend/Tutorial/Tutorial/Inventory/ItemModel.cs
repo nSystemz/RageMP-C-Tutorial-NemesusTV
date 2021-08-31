@@ -9,9 +9,11 @@ namespace Tutorial.Inventory
     {
         public int id { get; set; }
         public string hash { get; set; }
+        public string oldhash { get; set; }
         public string ownerEntity { get; set; }
         public int ownerIdentifier { get; set; }
         public int amount { get; set; }
+        public int oldamount { get; set; }
         public Vector3 position { get; set; }
         public GTANetworkAPI.Object objectHandle { get; set; }
         public TextLabel textHandle { get; set; }
@@ -21,9 +23,11 @@ namespace Tutorial.Inventory
             ItemModel itemModel = new ItemModel();
             itemModel.id = id;
             itemModel.hash = hash;
+            itemModel.oldhash = hash;
             itemModel.ownerEntity = ownerEntity;
             itemModel.ownerIdentifier = ownerIdentifier;
             itemModel.amount = amount;
+            itemModel.oldamount = amount;
             itemModel.position = position;
             itemModel.objectHandle = objectHandle;
             itemModel.textHandle = textHandle;

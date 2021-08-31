@@ -27,7 +27,7 @@ namespace Tutorial
             }
             Vehicle veh = NAPI.Vehicle.CreateVehicle(vehash, player.Position, player.Heading, color1, color2);
             veh.NumberPlate = "Tutorial";
-            veh.Locked = false;
+            veh.Locked = true;
             veh.EngineStatus = true;
             player.SetIntoVehicle(veh, (int)VehicleSeat.Driver);
             Utils.sendNotification(player, "Fahrzeug erfolgreich gespawnt!", "fas fa-car");
@@ -325,6 +325,27 @@ namespace Tutorial
             {
                 Datenbank.HausSpeichern(house);
             });
+        }
+
+        [Command("lockpicking", "/lockpicking um ein Fahrzeug aufzuknacken!")]
+        public void CMD_lockpicking(Player player)
+        {
+            Vehicle vehicle = Utils.GetClosestVehicle(player);
+            if(vehicle != null)
+            {
+                if(vehicle.Locked == true)
+                {
+                    NAPI.ClientEvent.TriggerClientEvent(player, "showLockpicking");
+                }
+                else
+                {
+                    player.SendChatMessage("~r~Das Fahrzeug ist bereits offen!");
+                }
+            }
+            else
+            {
+                player.SendChatMessage("~r~Du bist nicht in der Nähe von einem Fahrzeug!");
+            }
         }
 
         //Nicht in der Tutorialreihe erstellt
