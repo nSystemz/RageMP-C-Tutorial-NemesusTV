@@ -12,20 +12,6 @@ namespace Tutorial.Inventory
     {
         public static List<ItemModel> itemList;
 
-        public static ItemModel GetItemModelFromID(int itemId)
-        {
-            ItemModel item = null;
-            foreach (ItemModel itemModel in itemList)
-            {
-                if (itemModel != null && itemModel.id == itemId)
-                {
-                    item = itemModel;
-                    break;
-                }
-            }
-            return item;
-        }
-
         public static void RemoveItem(int id)
         {
             try
@@ -60,11 +46,9 @@ namespace Tutorial.Inventory
 
                     item.id = reader.GetInt32("id");
                     item.hash = reader.GetString("hash");
-                    item.oldhash = item.hash;
                     item.ownerEntity = reader.GetString("ownerEntity");
                     item.ownerIdentifier = reader.GetInt32("ownerIdentifier");
                     item.amount = reader.GetInt32("amount");
-                    item.oldamount = item.amount;
                     item.position = new Vector3(posX, posY, posZ);
 
                     if (item.ownerEntity == "Ground")
@@ -128,11 +112,9 @@ namespace Tutorial.Inventory
                     Item getItem = Item.GetItemFromItem(item.hash);
                     inventoryItem.id = item.id;
                     inventoryItem.hash = item.hash;
-                    inventoryItem.oldhash = inventoryItem.hash;
                     inventoryItem.descriptionitem = getItem.descriptionitem;
                     inventoryItem.type = getItem.type;
                     inventoryItem.amount = item.amount;
-                    inventoryItem.oldamount = inventoryItem.amount;
 
                     inventory.Add(inventoryItem);
                 }
@@ -160,7 +142,6 @@ namespace Tutorial.Inventory
                     {
                         if (getItem.type != (int)Item.ItemTypes.Consumable) return;
                         item.amount--;
-                        item.oldamount = item.amount;
                         string message = $"Du konsumierst ein/e/en {getItem.descriptionitem}";
                         NAPI.Chat.SendChatMessageToPlayer(player, message);
 
@@ -180,12 +161,10 @@ namespace Tutorial.Inventory
                 case "wegwerfen":
                     {
                         item.amount--;
-                        item.oldamount = item.amount;
                         ItemModel closestItem = ItemModel.GetClosestItemWithHash(player, item.hash);
                         if (closestItem != null)
                         {
                             closestItem.amount++;
-                            closestItem.oldamount = closestItem.amount;
                             Inventory.UpdateItem(item);
                         }
                         else
@@ -196,7 +175,6 @@ namespace Tutorial.Inventory
                             closestItem.objectHandle = NAPI.Object.CreateObject(uint.Parse(closestItem.hash), closestItem.position, new Vector3(0.0f, 0.0f, 0.0f), 255);
                             closestItem.textHandle = NAPI.TextLabel.CreateTextLabel("Hier liegt etwas - benutze /pickup!", new Vector3(player.Position.X, player.Position.Y, player.Position.Z - 0.5), 10.0f, 0.5f, 4, new Color(255, 255, 255));
                             closestItem.amount = 1;
-                            closestItem.oldamount = closestItem.amount;
                             closestItem.id = AddNewItem(closestItem);
                             itemList.Add(closestItem);
                             UpdateItem(closestItem);
@@ -272,7 +250,6 @@ namespace Tutorial.Inventory
                 if(playerItem != null)
                 {
                     playerItem.amount += item.amount;
-                    playerItem.oldamount = playerItem.amount;
                 }
                 else
                 {

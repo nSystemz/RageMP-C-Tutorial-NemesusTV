@@ -1,4 +1,5 @@
 //NPCs
+//Tutorial PED
 mp.peds.new
 (
     mp.game.joaat("ig_benny"),
@@ -7,8 +8,17 @@ mp.peds.new
     0
 );
 
-//Keys
+//Police Carspawner PED
+mp.peds.new
+(
+    mp.game.joaat("s_m_y_cop_01"),
+    new mp.Vector3(441.1015, -978.8775, 30.689598),
+    177.06728,
+    0
+);
 
+
+//Keys
 //F Taste
 mp.keys.bind(0x46, true, function() {
     if(mp.players.local.isTypingInTextChat) return;

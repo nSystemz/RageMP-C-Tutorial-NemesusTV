@@ -20,6 +20,8 @@ namespace Tutorial
             Haus.hausListe = Datenbank.LadeAlleHäuser();
             //Items
             Inventory.Inventory.itemList = Inventory.Inventory.LoadAllItems();
+            //Timer
+            Timer paydayTimer = new Timer(OnPaydayTimer, null, 60000, 60000);
             //Sonstige Sachen
             NAPI.TextLabel.CreateTextLabel("~w~Willkommen auf dem NemesusTV Tutorial Server!", new Vector3(-425.50986, 1123.3857, 325.85443 + 1.0), 10.0f, 0.5f, 4, new Color(255, 255, 255));
             NAPI.Marker.CreateMarker(2, new Vector3(-425.50986, 1123.3857, 325.85443), new Vector3(), new Vector3(), 1.0f, new Color(255, 255, 255));
@@ -27,8 +29,9 @@ namespace Tutorial
             NAPI.Blip.SetBlipShortRange(Willkommen, true);
             NAPI.Blip.SetBlipScale(Willkommen, 0.8f);
             colWillkommen = NAPI.ColShape.CreateCylinderColShape(new Vector3(-425.50986, 1123.3857, 325.85443), 1.0f, 1.0f);
-
-            Timer paydayTimer = new Timer(OnPaydayTimer, null, 60000, 60000);
+            //Police Carspawner
+            NAPI.TextLabel.CreateTextLabel("~w~Benutze Taste ~y~[F]~w~ um ein Fraktionsfahrzeug zu spawnen!", new Vector3(441.07944, -981.0528, 30.689598 + 0.5), 20.0f, 0.5f, 4, new Color(255, 255, 255));
+        
         }
 
         public static void OnPaydayTimer(object state)
@@ -76,6 +79,7 @@ namespace Tutorial
         {
             player.Health = 50;
             player.Armor = 50;
+            player.Dimension = 0;
         }
 
         [ServerEvent(Event.ChatMessage)]
@@ -155,6 +159,7 @@ namespace Tutorial
         public void OnPlayerPressF(Player player)
         {
             if (!Accounts.IstSpielerEingeloggt(player)) return;
+            Accounts account = player.GetData<Accounts>(Accounts.Account_Key);
             Vector3 npcPosition = new Vector3(-420.6354, 1120.6459, 325.85843);
             if (player.Position.DistanceTo(npcPosition) < 1.5f)
             {
@@ -162,6 +167,18 @@ namespace Tutorial
                 if (player.Health <= 75)
                 {
                     player.Health = player.Health + 25;
+                }
+            }
+            Vector3 npcPoliceSpawner = new Vector3(441.07944, -981.0528, 30.689598);
+            if(player.Position.DistanceTo(npcPoliceSpawner) < 1.5f)
+            {
+                if(account.IstSpielerInFraktion(1))
+                {
+                    Vehicle tempVehicle;
+                    tempVehicle = NAPI.Vehicle.CreateVehicle(NAPI.Util.GetHashKey("police"), new Vector3(452.96118, -1020.051, 27.976496), -93.67f, 0, 0);
+                    tempVehicle.Locked = true;
+                    tempVehicle.SetData<int>("VEHICLE_FRAKTION", 1);
+                    player.SetIntoVehicle(tempVehicle, (int)VehicleSeat.Driver);
                 }
             }
         }

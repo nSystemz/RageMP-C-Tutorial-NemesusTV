@@ -171,6 +171,7 @@ namespace Tutorial
                         NAPI.World.RequestIpl(house.ipl);
                         player.Position = HausInterior.GetHausAusgang(house.ipl);
                         player.SetData("Haus_ID", house.id);
+                        player.Dimension = (uint)house.id;
                         player.SendNotification("~g~Haus betreten!");
                     }
                 }
@@ -193,6 +194,7 @@ namespace Tutorial
                         player.Position = house.position;
                         NAPI.World.RemoveIpl(house.ipl);
                         player.SetData("Haus_ID", -1);
+                        player.Dimension = 0;
                         player.SendNotification("~r~Haus verlassen!");
                     }
                 }
@@ -374,6 +376,93 @@ namespace Tutorial
             }
             NAPI.World.RequestIpl(ipl);
             player.SendChatMessage("~g~IPL Erfolgreich geladen!");
+        }
+
+        [Command("fraktionsinfo", "/fraktionsinfo für eine Fraktionsübersicht")]
+        public void CMD_fraktionsinfo(Player player)
+        {
+            Accounts account = player.GetData<Accounts>(Accounts.Account_Key);
+            player.SendChatMessage($"Du bist in der Fraktion {account.HoleFraktionsName()} und hast den Rang {account.HoleRangName()}!");
+        }
+
+        [Command("makeleader", "/makeleader um einen zum Leader zu machen!")]
+        public void CMD_makeleader(Player player, String playertarget, int frak)
+        {
+            Accounts account = player.GetData<Accounts>(Accounts.Account_Key);
+            if (!account.IstSpielerAdmin((int)Accounts.AdminRanks.Administrator))
+            {
+                player.SendChatMessage("~r~Dein Adminlevel ist zu gering!");
+                return;
+            }
+            Player target = Utils.GetPlayerByNameOrID(playertarget);
+            Accounts accounttarget = target.GetData<Accounts>(Accounts.Account_Key);
+            if(accounttarget != null && frak < 0 || frak > Accounts.Fraktionen.Length)
+            {
+                player.SendChatMessage("~r~Ungültige Fraktion!");
+                return;
+            }
+            accounttarget.Fraktion = frak;
+            accounttarget.Rang = 6;
+            player.SendChatMessage($"Du hast {target.Name} zum Chef der Fraktion {Accounts.Fraktionen[frak]} gemacht!");
+            target.SendChatMessage($"Du wurdest von {player.Name} zum Chef der Fraktion {Accounts.Fraktionen[frak]} gemacht!");
+        }
+
+        [Command("invite", "/invite um einen zu deiner Fraktion einzuladen!")]
+        public void CMD_invite(Player player, String playertarget)
+        {
+            Accounts account = player.GetData<Accounts>(Accounts.Account_Key);
+            if(account.Fraktion == 0)
+            {
+                player.SendChatMessage("~r~Du bist in keiner Fraktion!");
+                return;
+            }
+            if(account.Rang < 6)
+            {
+                player.SendChatMessage($"~r~Du bist kein {Accounts.RangNamen[6]}");
+                return;
+            }
+            Player target = Utils.GetPlayerByNameOrID(playertarget);
+            Accounts accounttarget = target.GetData<Accounts>(Accounts.Account_Key);
+            accounttarget.Fraktion = account.Fraktion;
+            accounttarget.Rang = 1;
+            player.SendChatMessage($"Du hast {target.Name} in die Fraktion {Accounts.Fraktionen[account.Fraktion]} eingeladen!");
+            target.SendChatMessage($"Du wurdest von {player.Name} in die Fraktion {Accounts.Fraktionen[account.Fraktion]} eingeladen!");
+        }
+
+        [Command("pistole","/pistole um dir eine Pistole zu geben")]
+        public void CMD_pistole(Player player)
+        {
+            Accounts account = player.GetData<Accounts>(Accounts.Account_Key);
+            if(account.Fraktion != 1)
+            {
+                player.SendChatMessage($"~r~Du bist kein Mitglied des {Accounts.Fraktionen[1]}!");
+                return;
+            }
+            NAPI.Player.GivePlayerWeapon(player, NAPI.Util.WeaponNameToModel("pistol"), 500);
+            player.SendChatMessage("Du hast dir eine Pistole gegeben!");
+        }
+
+        [Command("carlock", "/carlock um ein Fahrzeug auf/ab zu schließen!")]
+        public void CMD_carlock(Player player)
+        {
+            Vehicle getVehicle = Utils.GetClosestVehicle(player);
+            if(getVehicle != null)
+            {
+                Accounts account = player.GetData<Accounts>(Accounts.Account_Key);
+                if(getVehicle.GetData<int>("VEHICLE_FRAKTION") == account.Fraktion)
+                {
+                    if(getVehicle.Locked == true)
+                    {
+                        getVehicle.Locked = false;
+                        Utils.sendNotification(player, "Aufgeschlossen", "fas fa-car");
+                    }
+                    else
+                    {
+                        getVehicle.Locked = true;
+                        Utils.sendNotification(player, "Abgeschlossen", "fas fa-car");
+                    }
+                }
+            }
         }
     }
 }

@@ -110,6 +110,8 @@ namespace Tutorial
                     account.Adminlevel = reader.GetInt16("adminlevel");
                     account.Geld = reader.GetInt32("geld");
                     account.Payday = reader.GetInt16("payday");
+                    account.Fraktion = reader.GetInt16("fraktion");
+                    account.Rang = reader.GetInt16("rang");
                 }
             }
         }
@@ -117,11 +119,13 @@ namespace Tutorial
         public static void AccountSpeichern(Accounts account)
         {
             MySqlCommand command = Connection.CreateCommand();
-            command.CommandText = "UPDATE accounts SET adminlevel=@adminlevel, geld=@geld, payday=@payday WHERE id=@id";
+            command.CommandText = "UPDATE accounts SET adminlevel=@adminlevel, geld=@geld, payday=@payday, fraktion=@fraktion, rang=@rang WHERE id=@id";
 
             command.Parameters.AddWithValue("@adminlevel", account.Adminlevel);
             command.Parameters.AddWithValue("@geld", account.Geld);
             command.Parameters.AddWithValue("@payday", account.Payday);
+            command.Parameters.AddWithValue("@fraktion", account.Fraktion);
+            command.Parameters.AddWithValue("@rang", account.Rang);
             command.Parameters.AddWithValue("@id", account.ID);
         }
 

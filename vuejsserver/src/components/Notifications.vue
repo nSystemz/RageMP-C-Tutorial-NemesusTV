@@ -17,8 +17,8 @@ Vue.use(Toast, {
 export default {
   name: 'Notifications',
   methods: {
-    showNotification: function(text,iconpic) {
-      this.$toast.success(text, {
+    showNotification: function(notificationtext,iconpic) {
+      this.$toast.success(notificationtext, {
         position: "top-right",
         timeout: 5000,
         closeOnClick: true,

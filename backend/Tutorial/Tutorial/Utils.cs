@@ -74,5 +74,17 @@ namespace Tutorial
             }
             return vehicle;
         }
+
+        public static Player GetPlayerByNameOrID(string nameOrID)
+        {
+            foreach(Player p in NAPI.Pools.GetAllPlayers())
+            {
+                if(p.Handle.ToString() == nameOrID || p.Name.ToLower().Contains(nameOrID.ToLower()))
+                {
+                    return p;
+                }
+            }
+            return null;
+        }
     }
 }
