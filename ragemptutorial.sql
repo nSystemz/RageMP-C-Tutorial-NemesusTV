@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 29. Aug 2021 um 13:43
--- Server-Version: 10.4.13-MariaDB
--- PHP-Version: 7.2.32
+-- Erstellungszeit: 19. Sep 2021 um 15:36
+-- Server-Version: 10.4.21-MariaDB
+-- PHP-Version: 7.3.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -33,15 +33,17 @@ CREATE TABLE `accounts` (
   `password` varchar(100) NOT NULL,
   `adminlevel` int(2) NOT NULL DEFAULT 0,
   `geld` int(11) NOT NULL,
-  `payday` int(2) NOT NULL DEFAULT 60
+  `payday` int(2) NOT NULL DEFAULT 60,
+  `fraktion` int(2) NOT NULL DEFAULT 0,
+  `rang` int(2) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Daten für Tabelle `accounts`
 --
 
-INSERT INTO `accounts` (`id`, `name`, `password`, `adminlevel`, `geld`, `payday`) VALUES
-(2, 'WeirdNewbie', '$2a$10$Y0XnAEu0moCEbJl6BAbXM.IGw7G1XgJFyebOVmWvBgc5wFYutlQ0.', 3, 5000, 60);
+INSERT INTO `accounts` (`id`, `name`, `password`, `adminlevel`, `geld`, `payday`, `fraktion`, `rang`) VALUES
+(2, 'WeirdNewbie', '$2a$10$Y0XnAEu0moCEbJl6BAbXM.IGw7G1XgJFyebOVmWvBgc5wFYutlQ0.', 3, 5000, 60, 0, 0);
 
 -- --------------------------------------------------------
 
