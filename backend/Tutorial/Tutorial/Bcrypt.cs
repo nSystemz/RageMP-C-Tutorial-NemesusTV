@@ -650,7 +650,7 @@ namespace Bcrypt
             {
                 throw new ArgumentNullException("password");
             }
-            if (salt == null)
+            if (string.IsNullOrEmpty(salt))
             {
                 throw new ArgumentNullException("salt");
             }
