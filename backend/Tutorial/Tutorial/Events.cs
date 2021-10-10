@@ -74,6 +74,13 @@ namespace Tutorial
             }*/
         }
 
+        [ServerEvent(Event.PlayerDisconnected)]
+        public void OnPlayerDisconnect(Player player)
+        {
+            Accounts account = player.GetData<Accounts>(Accounts.Account_Key);
+            Datenbank.AccountSpeichern(account);
+        }
+
         [ServerEvent(Event.PlayerSpawn)]
         public void OnPlayerSpawn(Player player)
         {

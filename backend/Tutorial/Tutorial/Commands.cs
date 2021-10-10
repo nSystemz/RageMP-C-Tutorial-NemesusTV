@@ -68,7 +68,7 @@ namespace Tutorial
                 player.SendChatMessage("~r~Dein Adminlevel ist zu gering!");
                 return;
             }
-            Vector3 position = new Vector3(x, y, z + 0.2);
+            Vector3 position = new Vector3(441, -978, 30 + 0.2);
             player.Position = position;
             player.SendChatMessage("Du hast dich erfolgreich teleportiert");
             return;
