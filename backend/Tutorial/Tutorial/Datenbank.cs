@@ -148,8 +148,7 @@ namespace Tutorial
                 password = reader.GetString("password");
             }
 
-            if (Bcrypt.BCrypt.CheckPassword(passwordinput, password)) return true;
-            return false;
+            return Bcrypt.BCrypt.CheckPassword(passwordinput, password); // Gibt ein true oder false zurück
         }
 
         //Haussystem
