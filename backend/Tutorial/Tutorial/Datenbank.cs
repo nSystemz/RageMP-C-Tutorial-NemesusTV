@@ -127,6 +127,8 @@ namespace Tutorial
             command.Parameters.AddWithValue("@fraktion", account.Fraktion);
             command.Parameters.AddWithValue("@rang", account.Rang);
             command.Parameters.AddWithValue("@id", account.ID);
+
+            command.ExecuteNonQuery();
         }
 
         public static bool PasswortCheck(string name, string passwordinput)
