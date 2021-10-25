@@ -10,6 +10,8 @@ Installation:
 Die benötigten Dateien einfach in euren Rage Server Ordner kopieren, evtl. C# auf enabled setzen in der server.cfg und im vuejsserver Ordner einmal npm install aufrufen.
 
 
+Weitere Links:
+
 Youtube: 
 https://yt.nemesus.de
 
