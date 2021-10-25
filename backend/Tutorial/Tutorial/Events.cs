@@ -31,7 +31,7 @@ namespace Tutorial
             colWillkommen = NAPI.ColShape.CreateCylinderColShape(new Vector3(-425.50986, 1123.3857, 325.85443), 1.0f, 1.0f);
             //Police Carspawner
             NAPI.TextLabel.CreateTextLabel("~w~Benutze Taste ~y~[F]~w~ um ein Fraktionsfahrzeug zu spawnen!", new Vector3(441.07944, -981.0528, 30.689598 + 0.5), 20.0f, 0.5f, 4, new Color(255, 255, 255));
-        
+
         }
 
         public static void OnPaydayTimer(object state)
@@ -78,7 +78,10 @@ namespace Tutorial
         public void OnPlayerDisconnect(Player player)
         {
             Accounts account = player.GetData<Accounts>(Accounts.Account_Key);
-            Datenbank.AccountSpeichern(account);
+            if (account != null)
+            {
+                Datenbank.AccountSpeichern(account);
+            }
         }
 
         [ServerEvent(Event.PlayerSpawn)]

@@ -190,15 +190,15 @@
                         <li>
                             <span class="contenttext">Haarstil</span>
                             <input class="ml-3 slider" type="range" min="0" max="75" value="1"
-                                v-model="character.hair[0]" v-oninput="customize('hair', 0, this.value)"><small class="ml-2">{{character.hair[0]}}</small>
+                                v-model="character.hair[0]" v-oninput="customize('hair', 0, character.hair[0])"><small class="ml-2">{{character.hair[0]}}</small>
                             <hr />
                         </li>
                         <li>
                             <span class="contenttext">Haarfarbe</span>
                             <div class="hair">
                                 <ul class="hairColors-1">
-                                    <li v-for="hairColor in hairColors" :key="hairColor"
-                                        :style="{ background: hairColor }">
+                                    <li v-for="(hairColor, index) in hairColors" :key="hairColor"
+                                        :style="{ background: hairColor }" v-on:click="customize('hair', 1, index)">
                                     </li>
                                 </ul>
                             </div>
@@ -208,8 +208,8 @@
                             <span class="contenttext">Haartönung</span>
                             <div class="hair">
                                 <ul class="hairColors-2">
-                                    <li v-for="hairColor in hairColors" :key="hairColor"
-                                        :style="{ background: hairColor }">
+                                    <li v-for="(hairColor, index) in hairColors" :key="hairColor"
+                                        :style="{ background: hairColor }" v-on:click="customize('hair',2,index)">
                                     </li>
                                 </ul>
                             </div>
@@ -218,7 +218,7 @@
                         <li>
                             <span class="contenttext">Bartstil</span>
                             <input class="ml-3 slider" type="range" min="1" max="28" value="1"
-                                v-model="character.beard[0]"><small class="ml-2">{{character.beard[0]}}</small>
+                                v-model="character.beard[0]" v-oninput="customize('beard', 0, character.beard[0])"><small class="ml-2">{{character.beard[0]}}</small>
                             <hr />
                         </li>
                         <li>
@@ -300,22 +300,30 @@ export default {
     {
         //Activate Sidebars
         // eslint-disable-next-line no-undef
-        $('#sidebar').toggleClass('active');
-        // eslint-disable-next-line no-undef
-        $('input[type="range"]').rangeslider();
-        // eslint-disable-next-line no-undef
         this.charcreatorShow = true;
         this.$forceUpdate();
+        setTimeout(function() {
+          // eslint-disable-next-line no-undef
+          $('#sidebar').toggleClass('active');
+          // eslint-disable-next-line no-undef
+          $('input[type="range"]').rangeslider();
+        }, 300);
     },
     hideCharcreator: function ()
     {
         this.charcreatorShow = false;
         this.$forceUpdate();
     },
-    /*customize: function (x, id, val)
+    customize: function (x, id, val)
     {
-       mp.trigger('client:creator_set', x, JSON.stringify(this.character[x]));
-    }*/
+       this.character[x][id] = val;
+       if(x == 'faceFeatures')
+        // eslint-disable-next-line no-undef
+        mp.trigger('client:charcreator-preview', x, JSON.stringify([id, val]));
+       else
+        // eslint-disable-next-line no-undef
+        mp.trigger('client:charcreator-preview', x, JSON.stringify(this.character[x]));
+    }
   },
   mounted() {
     //Activate Sidebars

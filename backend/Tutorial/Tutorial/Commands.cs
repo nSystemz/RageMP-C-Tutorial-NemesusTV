@@ -464,5 +464,11 @@ namespace Tutorial
                 }
             }
         }
+        [Command("charcreator")]
+        public void CMD_charcreator(Player player)
+        {
+            player.TriggerEvent("charcreator-show");
+        }
+
     }
 }

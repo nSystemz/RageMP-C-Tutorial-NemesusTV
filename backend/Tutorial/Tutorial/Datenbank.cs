@@ -141,16 +141,16 @@ namespace Tutorial
 
             using (MySqlDataReader reader = command.ExecuteReader())
             {
-                if(!reader.HasRows)
+                if(reader.HasRows)
                 {
-                    return false;
+                    reader.Read();
+                    password = reader.GetString("password");
                 }
-                
-                reader.Read();
-                password = reader.GetString("password");
             }
 
-            return Bcrypt.BCrypt.CheckPassword(passwordinput, password); // Gibt ein true oder false zurück
+            if (Bcrypt.BCrypt.CheckPassword(passwordinput, password)) return true;
+            return false;
+
         }
 
         //Haussystem
