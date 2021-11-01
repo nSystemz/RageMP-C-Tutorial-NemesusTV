@@ -125,7 +125,7 @@
                         <li class="active mt-2" v-for="(faceFeature, index) in faceFeatures" :key="index">
                             <span class="contenttext">{{faceFeatures[index]}}</span>
                             <input class="ml-2 slider" type="range" :min="-1" :max="1" :step="0.1"
-                                v-model="character.faceFeatures[index]"><small
+                                v-model="character.faceFeatures[index]" v-oninput="customize('faceFeatures',index, character.faceFeatures[index])"><small
                                 class="ml-2">{{character.faceFeatures[index]}}</small>
                         </li>
                     </ul>
@@ -152,10 +152,10 @@
                     style="margin-right: 0;margin-left:auto;background-color: #0084ff">
                     <h1><a class="logo" style="color:white">Kleidung</a></h1>
                     <ul class="list-unstyled components mb-5">
-                        <li class="active mt-2" v-for="(clothing, index) in clothings" :key="index">
+                        <li class="active mt-2" v-for="(clothes, index) in clothings" :key="index">
                             <span class="contenttext">{{clothings[index]}}</span>
                             <input class="ml-2 slider" type="range" :min="0" :max="clothingMax[index]" :step="1"
-                                v-model="character.clothing[index]"><small
+                                v-model="character.clothing[index]" v-oninput="customize('clothing', index, character.clothing[index])"><small
                                 class="ml-2">{{character.clothing[index]}}</small>
                         </li>
                     </ul>
@@ -226,7 +226,7 @@
                             <div class="beard">
                                 <ul class="beardColors">
                                     <li v-for="beardColor in beardColors" :key="beardColor"
-                                        :style="{ background: hairColors[beardColor] }"></li>
+                                        :style="{ background: hairColors[beardColor] }" v-on:click="customize('beard',1,beardColor)"></li>
                                 </ul>
                             </div>
                         </li>
@@ -252,7 +252,6 @@ export default {
         beard: [0, 0],
         blendData: [0, 0, 0, 0, 0, 0],
         faceFeatures: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        torso: 0,
         clothing: [0, 0, 0, 0],
         headOverlays: [255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255],
         headOverlaysColors: [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -285,10 +284,10 @@ export default {
         'Gesässbreite', 'Wangenbreite', 'Augen', 'Lippen', 'Wangenlänge', 'Wangenhöhe',
         'Kinnlänge', 'Kinnposition', 'Bartbreite', 'Bartform', 'Nackenbreite',
       ],
-      clothings: ['T-Shirt', 'Oberkörper', 'Hose', 'Schuhe'], 
-      clothingMax: [361, 132, 97],
+      clothings: ['T-Shirt', 'Torso', 'Hose', 'Schuhe'], 
+      clothingMax: [361, 240, 195, 101],
       headOverlays: ['Schönheitsfehler', 'Gesichtsbehaarung', 'Augenbrauen', 'Altersflecken', 'Make-up', 'Rötung', 'Teint', 'Sonnenschaden', 'Lippenstift', 'Sommersprossen', 'Brustbehaarung' , 'Hautunreinheiten' , 'Körperunreinheiten'],
-      headOverlaysMax: [23, 28, 33, 14, 74, 32, 11, 10, 9, 17, 16 , 11 , 1],
+      headOverlaysMax: [23, 28, 33, 14, 74, 32, 11, 10, 9, 17, 16, 11, 1],
     }
   },
   methods: {
@@ -316,11 +315,7 @@ export default {
     },
     customize: function (x, id, val)
     {
-       this.character[x][id] = val;
-       if(x == 'faceFeatures')
-        // eslint-disable-next-line no-undef
-        mp.trigger('client:charcreator-preview', x, JSON.stringify([id, val]));
-       else
+        this.character[x][id] = val;
         // eslint-disable-next-line no-undef
         mp.trigger('client:charcreator-preview', x, JSON.stringify(this.character[x]));
     }

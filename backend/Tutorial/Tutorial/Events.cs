@@ -78,7 +78,7 @@ namespace Tutorial
         public void OnPlayerDisconnect(Player player)
         {
             Accounts account = player.GetData<Accounts>(Accounts.Account_Key);
-            if (account != null)
+            if (account != null && player.HasData(Accounts.Account_Key))
             {
                 Datenbank.AccountSpeichern(account);
             }

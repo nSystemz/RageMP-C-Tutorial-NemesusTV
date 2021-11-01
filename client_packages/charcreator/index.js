@@ -44,22 +44,22 @@ mp.events.add(
             case 0: //Torso
             {
                 camera = { Angle: 0, Dist: 2.5, Height: 0.2 };
-		break;
+		    break;
             }
             case 1: //Kopf
             {
                 camera = { Angle: 0, Dist: 1, Height: 0.5 };
-		break;
+		    break;
             }
             case 2: //Gesicht
             {
                 camera = { Angle: 0, Dist: 0.5, Height: 0.7 };
-		break;
+		    break;
             }
             case 3: //Körper/Brust
             {
                 camera = { Angle: 0, Dist: 1, Height: 0.2 };
-		break;
+		    break;
             }
         }
         bodyCamStart = player.position;
@@ -80,10 +80,43 @@ mp.events.add(
                 player.setHairColor(parseInt(data[1]), parseInt(data[2]));
                 break;
             }
-	    case 'beard': {
-		mp.events.call('charcreator-camera', 2);
+	        case 'beard': {
+		        mp.events.call('charcreator-camera', 2);
+                player.setHeadOverlay(1, parseInt(data[0]), 1.0, parseInt(data[1]), parseInt(data[1]));
             	break;
-	    }
+	        }
+            case 'faceFeatures': {
+                mp.events.call('charcreator-camera', 2)
+                player.setFaceFeature(0, parseFloat(data[0]));
+                player.setFaceFeature(1, parseFloat(data[1]));
+                player.setFaceFeature(2, parseFloat(data[2]));
+                player.setFaceFeature(3, parseFloat(data[3]));
+                player.setFaceFeature(4, parseFloat(data[4]));
+                player.setFaceFeature(5, parseFloat(data[5]));
+                player.setFaceFeature(6, parseFloat(data[6]));
+                player.setFaceFeature(7, parseFloat(data[7]));
+                player.setFaceFeature(8, parseFloat(data[8]));
+                player.setFaceFeature(9, parseFloat(data[9]));
+                player.setFaceFeature(10, parseFloat(data[10]));
+                player.setFaceFeature(11, parseFloat(data[11]));
+                player.setFaceFeature(12, parseFloat(data[12]));
+                player.setFaceFeature(13, parseFloat(data[13]));
+                player.setFaceFeature(14, parseFloat(data[14]));
+                player.setFaceFeature(15, parseFloat(data[15]));
+                player.setFaceFeature(16, parseFloat(data[16]));
+                player.setFaceFeature(17, parseFloat(data[17]));
+                player.setFaceFeature(18, parseFloat(data[18]));
+                player.setFaceFeature(19, parseFloat(data[19]));
+                break;
+            }
+            case 'clothing': {
+                mp.events.call('charcreator-camera', 0);
+                player.setComponentVariation(11, parseInt(data[0]), 0, 0);
+                player.setComponentVariation(3, parseInt(data[1]), 0, 0);
+                player.setComponentVariation(4, parseInt(data[2]), 0, 0);
+                player.setComponentVariation(6, parseInt(data[3]), 0, 0);
+                break;
+            }
         }    
     }
 });
