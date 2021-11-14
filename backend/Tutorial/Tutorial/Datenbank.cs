@@ -133,7 +133,7 @@ namespace Tutorial
 
         public static bool PasswortCheck(string name, string passwordinput)
         {
-            string password = "";
+            string password = null;
 
             MySqlCommand command = Connection.CreateCommand();
             command.CommandText = "SELECT password FROM accounts WHERE name=@name LIMIT 1";
