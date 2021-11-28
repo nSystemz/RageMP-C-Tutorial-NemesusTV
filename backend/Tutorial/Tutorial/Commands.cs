@@ -168,7 +168,6 @@ namespace Tutorial
                     }
                     else
                     {
-                        NAPI.World.RequestIpl(house.ipl);
                         player.Position = HausInterior.GetHausAusgang(house.ipl);
                         player.SetData("Haus_ID", house.id);
                         player.Dimension = (uint)house.id;
@@ -192,7 +191,6 @@ namespace Tutorial
                     else
                     {
                         player.Position = house.position;
-                        NAPI.World.RemoveIpl(house.ipl);
                         player.SetData("Haus_ID", -1);
                         player.Dimension = 0;
                         player.SendNotification("~r~Haus verlassen!");
@@ -374,7 +372,6 @@ namespace Tutorial
                 player.SendChatMessage("~r~Dein Adminlevel ist zu gering!");
                 return;
             }
-            NAPI.World.RequestIpl(ipl);
             player.SendChatMessage("~g~IPL Erfolgreich geladen!");
         }
 

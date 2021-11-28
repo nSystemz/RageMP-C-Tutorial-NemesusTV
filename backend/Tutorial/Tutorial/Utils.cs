@@ -86,5 +86,20 @@ namespace Tutorial
             }
             return null;
         }
+
+        public static void adminLog(string text, string username)
+        {
+            HTTP.Post("HIEREIGENENWEBHOOKEINTRAGEN", new System.Collections.Specialized.NameValueCollection()
+            {
+                {
+                    "username",
+                    username
+                },
+                {
+                    "content",
+                    text
+                }
+            });
+        }
     }
 }

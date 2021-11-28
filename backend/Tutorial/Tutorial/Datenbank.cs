@@ -129,6 +129,8 @@ namespace Tutorial
             command.Parameters.AddWithValue("@id", account.ID);
 
             command.ExecuteNonQuery();
+
+            NAPI.Util.ConsoleOutput($"[AccountSpeichern]: Account mit der ID: " + account.ID + " wurde gespeichert!");
         }
 
         public static bool PasswortCheck(string name, string passwordinput)
@@ -251,6 +253,13 @@ namespace Tutorial
                     hausListeTemp.Add(house);
                 }
             }
+
+            //IPLs laden
+            foreach(HausInterior hausinterior in HausInterior.Interior_Liste)
+            {
+                NAPI.World.RequestIpl(hausinterior.ipl);
+            }
+
             return hausListeTemp;
         }
     }
