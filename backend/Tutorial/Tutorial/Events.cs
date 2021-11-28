@@ -78,11 +78,7 @@ namespace Tutorial
         [ServerEvent(Event.PlayerDisconnected)]
         public void OnPlayerDisconnect(Player player, DisconnectionType type, string reason)
         {
-            Accounts account = player.GetData<Accounts>(Accounts.Account_Key);
-            if (account != null && player.HasData(Accounts.Account_Key))
-            {
-                Datenbank.AccountSpeichern(account);
-            }
+            Datenbank.AccountSpeichern(player);
         }
 
         [ServerEvent(Event.PlayerSpawn)]

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 10. Okt 2021 um 16:30
+-- Erstellungszeit: 28. Nov 2021 um 13:04
 -- Server-Version: 10.4.21-MariaDB
 -- PHP-Version: 8.0.11
 
@@ -35,15 +35,19 @@ CREATE TABLE `accounts` (
   `geld` int(11) NOT NULL,
   `payday` int(2) NOT NULL DEFAULT 60,
   `fraktion` int(2) NOT NULL DEFAULT 0,
-  `rang` int(2) NOT NULL DEFAULT 0
+  `rang` int(2) NOT NULL DEFAULT 0,
+  `posx` float NOT NULL,
+  `posy` float NOT NULL,
+  `posz` float NOT NULL,
+  `posa` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Daten für Tabelle `accounts`
 --
 
-INSERT INTO `accounts` (`id`, `name`, `password`, `adminlevel`, `geld`, `payday`, `fraktion`, `rang`) VALUES
-(2, 'WeirdNewbie', '$2a$10$Y0XnAEu0moCEbJl6BAbXM.IGw7G1XgJFyebOVmWvBgc5wFYutlQ0.', 3, 5000, 60, 0, 0);
+INSERT INTO `accounts` (`id`, `name`, `password`, `adminlevel`, `geld`, `payday`, `fraktion`, `rang`, `posx`, `posy`, `posz`, `posa`) VALUES
+(2, 'WeirdNewbie', '$2a$10$Y0XnAEu0moCEbJl6BAbXM.IGw7G1XgJFyebOVmWvBgc5wFYutlQ0.', 3, 5000, 59, 1, 6, -445.791, 1135.73, 325.905, 177.193);
 
 -- --------------------------------------------------------
 

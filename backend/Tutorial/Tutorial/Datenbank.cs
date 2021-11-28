@@ -98,7 +98,6 @@ namespace Tutorial
         {
             MySqlCommand command = Connection.CreateCommand();
             command.CommandText = "SELECT * FROM accounts WHERE name=@name LIMIT 1";
-
             command.Parameters.AddWithValue("@name", account.Name);
 
             using(MySqlDataReader reader = command.ExecuteReader())
@@ -112,20 +111,30 @@ namespace Tutorial
                     account.Payday = reader.GetInt16("payday");
                     account.Fraktion = reader.GetInt16("fraktion");
                     account.Rang = reader.GetInt16("rang");
+                    account.positions[0] = reader.GetFloat("posx");
+                    account.positions[1] = reader.GetFloat("posy");
+                    account.positions[2] = reader.GetFloat("posz");
+                    account.positions[3] = reader.GetFloat("posa");
                 }
             }
         }
 
-        public static void AccountSpeichern(Accounts account)
+        public static void AccountSpeichern(Player player)
         {
+            Accounts account = player.GetData<Accounts>(Accounts.Account_Key);
+            if (account == null) return;
             MySqlCommand command = Connection.CreateCommand();
-            command.CommandText = "UPDATE accounts SET adminlevel=@adminlevel, geld=@geld, payday=@payday, fraktion=@fraktion, rang=@rang WHERE id=@id";
+            command.CommandText = "UPDATE accounts SET adminlevel=@adminlevel, geld=@geld, payday=@payday, fraktion=@fraktion, rang=@rang, posx=@posx, posy=@posy, posz=@posz, posa=@posa WHERE id=@id";
 
             command.Parameters.AddWithValue("@adminlevel", account.Adminlevel);
             command.Parameters.AddWithValue("@geld", account.Geld);
             command.Parameters.AddWithValue("@payday", account.Payday);
             command.Parameters.AddWithValue("@fraktion", account.Fraktion);
             command.Parameters.AddWithValue("@rang", account.Rang);
+            command.Parameters.AddWithValue("@posx", player.Position.X);
+            command.Parameters.AddWithValue("@posy", player.Position.Y);
+            command.Parameters.AddWithValue("@posz", player.Position.Z);
+            command.Parameters.AddWithValue("@posa", player.Rotation.Z);
             command.Parameters.AddWithValue("@id", account.ID);
 
             command.ExecuteNonQuery();

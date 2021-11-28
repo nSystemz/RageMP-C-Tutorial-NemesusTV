@@ -24,6 +24,7 @@ namespace Tutorial
         public int Fraktion;
         public int Rang;
         public bool showInv;
+        public float[] positions = new float[4];
 
         public Accounts()
         {
@@ -76,6 +77,11 @@ namespace Tutorial
             NAPI.ClientEvent.TriggerClientEvent(player, "updatePB", (int)Accounts.ProgressBars.Healthbar, 0.5);
             NAPI.ClientEvent.TriggerClientEvent(player, "updatePB", (int)Accounts.ProgressBars.Hungerbar, 0.8);
             NAPI.ClientEvent.TriggerClientEvent(player, "updatePB", (int)Accounts.ProgressBars.Thirstbar, 1.0);
+            if(this.positions[0] != 0.0 && this.positions[1] != 0.0 && this.positions[2] != 0.0)
+            {
+                player.Position = new Vector3(this.positions[0],this.positions[1],this.positions[2]);
+                player.Rotation = new Vector3(0.0, 0.0, this.positions[3]);
+            }
         }
 
         public bool IstSpielerAdmin(int Adminlevel)
