@@ -4,7 +4,7 @@ mp.events.add('showPlayerInventory', (data) =>
 {
     if(invHud == null)
     {
-        invHud = mp.browsers.new("http://localhost:8080/");
+        invHud = mp.browsers.new("package://web/vue/index.html");
         invHud.execute(`gui.inventory.showInventory('${data}');`);
         mp.gui.cursor.show(true, true);
     }

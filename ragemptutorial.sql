@@ -47,7 +47,7 @@ CREATE TABLE `accounts` (
 --
 
 INSERT INTO `accounts` (`id`, `name`, `password`, `adminlevel`, `geld`, `payday`, `fraktion`, `rang`, `posx`, `posy`, `posz`, `posa`) VALUES
-(2, 'WeirdNewbie', '$2a$10$Y0XnAEu0moCEbJl6BAbXM.IGw7G1XgJFyebOVmWvBgc5wFYutlQ0.', 3, 5000, 59, 1, 6, -445.791, 1135.73, 325.905, 177.193);
+(2, 'Testn2', '$2a$10$Y0XnAEu0moCEbJl6BAbXM.IGw7G1XgJFyebOVmWvBgc5wFYutlQ0.', 3, 5000, 59, 1, 6, -445.791, 1135.73, 325.905, 177.193);
 
 -- --------------------------------------------------------
 

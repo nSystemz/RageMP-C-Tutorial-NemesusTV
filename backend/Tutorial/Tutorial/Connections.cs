@@ -15,7 +15,12 @@ namespace Tutorial
                 player.SendNotification("~r~Du bist bereits eingeloggt!");
                 return;
             }
-            if(!Datenbank.PasswortCheck(player.Name, password))
+            if (!Datenbank.AccountCheck(player.Name))
+            {
+                player.SendNotification("~r~Ungültiger Account!");
+                return;
+            }
+            if (!Datenbank.PasswortCheck(player.Name, password))
             {
                 player.SendNotification("~r~Falsches Passwort");
                 NAPI.Task.Run(() =>

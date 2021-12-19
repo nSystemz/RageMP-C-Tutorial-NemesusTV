@@ -161,7 +161,22 @@ namespace Tutorial
 
             if (Bcrypt.BCrypt.CheckPassword(passwordinput, password)) return true;
             return false;
+        }
 
+        public static bool AccountCheck(string name)
+        {
+            MySqlCommand command = Connection.CreateCommand();
+            command.CommandText = "SELECT id FROM accounts WHERE name=@name LIMIT 1";
+            command.Parameters.AddWithValue("@name", name);
+
+            using (MySqlDataReader reader = command.ExecuteReader())
+            {
+                if (reader.HasRows)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         //Haussystem
