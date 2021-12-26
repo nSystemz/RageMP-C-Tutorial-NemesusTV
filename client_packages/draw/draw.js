@@ -2,6 +2,7 @@ let player = mp.players.local;
 let street = undefined;
 let zone = undefined;
 
+//Called every frame
 mp.events.add('render', () => {
     mp.game.graphics.drawText('~b~Nemesus.de', [0.5, 0.005], {
         font: 0,
