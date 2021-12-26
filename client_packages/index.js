@@ -5,3 +5,4 @@ require('./pedskeys/pedskeys');
 require('./inventory/inventory');
 require('./lockpicking/lockpicking');
 require('./charcreator/index');
+require('./draw/draw');
