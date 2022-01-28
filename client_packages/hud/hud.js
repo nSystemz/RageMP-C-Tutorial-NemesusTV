@@ -14,3 +14,10 @@ mp.events.add('updatePB', (bar, wert) =>
 {
     notifyHud.execute(`gui.hud.updateProgressbar('${bar}', '${wert}');`)
 });
+
+mp.events.addDataHandler("Account:Geld", (entity, value, oldValue) => {
+    if(notifyHud != null)
+    {
+        notifyHud.execute(`gui.money.updateMoney('${value}');`)
+    }
+});

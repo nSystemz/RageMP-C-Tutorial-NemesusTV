@@ -7,6 +7,7 @@ namespace Tutorial
     class Events : Script
     {
         public ColShape colWillkommen;
+        public Marker testMarker = null;
 
         [ServerEvent(Event.ResourceStart)]
         public void OnResourceStart()
@@ -29,6 +30,8 @@ namespace Tutorial
             NAPI.Blip.SetBlipShortRange(Willkommen, true);
             NAPI.Blip.SetBlipScale(Willkommen, 0.8f);
             colWillkommen = NAPI.ColShape.CreateCylinderColShape(new Vector3(-425.50986, 1123.3857, 325.85443), 1.0f, 1.0f);
+            //Marker
+            testMarker = NAPI.Marker.CreateMarker(42, new Vector3(-417.766, 1133.68, 325.905), new Vector3(0.0, 0.0, 0.0), new Vector3(0.0, 0.0, 0.0), 1.0f, new Color(255, 255, 255), false, 0);
             //Police Carspawner
             NAPI.TextLabel.CreateTextLabel("~w~Benutze Taste ~y~[F]~w~ um ein Fraktionsfahrzeug zu spawnen!", new Vector3(441.07944, -981.0528, 30.689598 + 0.5), 20.0f, 0.5f, 4, new Color(255, 255, 255));
             //Adminlog
@@ -73,12 +76,14 @@ namespace Tutorial
             {
                 player.SendChatMessage("~w~Bitte erstellte dir mit /register einen Account!");
             }*/
+            player.SetOwnSharedData("Account:Geld", 0);
         }
 
         [ServerEvent(Event.PlayerDisconnected)]
         public void OnPlayerDisconnect(Player player, DisconnectionType type, string reason)
         {
             Datenbank.AccountSpeichern(player);
+            player.SetOwnSharedData("Account:Geld", 0);
         }
 
         [ServerEvent(Event.PlayerSpawn)]
@@ -160,6 +165,16 @@ namespace Tutorial
         {
             if (!Accounts.IstSpielerEingeloggt(player)) return;
             Inventory.Inventory.CMD_inventory(player);
+        }
+
+        [RemoteEvent("OnPlayerPressF5")]
+        public void OnPlayerPressF5(Player player)
+        {
+            if (!Accounts.IstSpielerEingeloggt(player)) return;
+            if(testMarker != null && player.Position.DistanceTo(testMarker.Position) < 2.5f)
+            {
+                Utils.sendNotification(player, "Du bist im Marker und hast F5 gedrückt!", "fas fa-user-secret");
+            }
         }
 
         [RemoteEvent("OnPlayerPressF")]

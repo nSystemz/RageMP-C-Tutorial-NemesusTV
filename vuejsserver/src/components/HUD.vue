@@ -83,22 +83,22 @@ export default {
 
 <style scoped>
 #container {
-    margin-top: 897px;
-    margin-left: 310px;
+    margin-top: 787px;
+    margin-left: 370px;
     padding: 5px;
     width: 50px;
     height: 50px;
     clear: left;
 }
 #container2 {
-    margin-left: 310px;
+    margin-left: 370px;
     padding: 5px;
     width: 50px;
     height: 50px;
     clear: left;
 }
 #container3 {
-    margin-left: 310px;
+    margin-left: 370px;
     padding: 5px;
     width: 50px;
     height: 50px;

@@ -461,11 +461,20 @@ namespace Tutorial
                 }
             }
         }
+
         [Command("charcreator")]
         public void CMD_charcreator(Player player)
         {
             player.TriggerEvent("charcreator-show");
         }
 
+        [Command("geld")]
+        public void CMD_geld(Player player)
+        {
+            Accounts account = player.GetData<Accounts>(Accounts.Account_Key);
+            account.Geld += 50;
+            player.SetOwnSharedData("Account:Geld", account.Geld);
+            player.SendChatMessage("~g~Geld gegeben!");
+        }
     }
 }

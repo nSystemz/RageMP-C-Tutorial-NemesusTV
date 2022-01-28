@@ -30,3 +30,9 @@ mp.keys.bind(0x49, true, function() {
     if(mp.players.local.isTypingInTextChat) return;
     mp.events.callRemote('OnPlayerPressI');
 });
+
+//F5 Taste
+mp.keys.bind(0x74, true, function() {
+    if(mp.players.local.isTypingInTextChat) return;
+    mp.events.callRemote('OnPlayerPressF5');
+});
