@@ -29,6 +29,15 @@ namespace Tutorial
                 }, delayTime: 1500);
                 return;
             }
+            if(!Utils.IsPlayerWhitelisted(player))
+            {
+                player.SendNotification($"~r~Du stehst nicht auf der Whitelist - {player.SocialClubId}!");
+                NAPI.Task.Run(() =>
+                {
+                    player.Kick();
+                }, delayTime: 5500);
+                return;
+            }
             Accounts account = new Accounts(player.Name, player);
             account.Login(player, false);
             NAPI.ClientEvent.TriggerClientEvent(player, "PlayerFreeze", false);
@@ -44,6 +53,15 @@ namespace Tutorial
                 {
                     player.Kick();
                 }, delayTime: 1500);
+                return;
+            }
+            if (!Utils.IsPlayerWhitelisted(player))
+            {
+                player.SendNotification($"~r~Du stehst nicht auf der Whitelist - {player.SocialClubId}!");
+                NAPI.Task.Run(() =>
+                {
+                    player.Kick();
+                }, delayTime: 5500);
                 return;
             }
             Accounts accounts = new Accounts(player.Name, player);

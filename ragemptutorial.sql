@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 28. Nov 2021 um 13:04
+-- Erstellungszeit: 28. Mrz 2022 um 19:25
 -- Server-Version: 10.4.21-MariaDB
 -- PHP-Version: 8.0.11
 
@@ -47,7 +47,7 @@ CREATE TABLE `accounts` (
 --
 
 INSERT INTO `accounts` (`id`, `name`, `password`, `adminlevel`, `geld`, `payday`, `fraktion`, `rang`, `posx`, `posy`, `posz`, `posa`) VALUES
-(2, 'Testn2', '$2a$10$Y0XnAEu0moCEbJl6BAbXM.IGw7G1XgJFyebOVmWvBgc5wFYutlQ0.', 3, 5000, 59, 1, 6, -445.791, 1135.73, 325.905, 177.193);
+(2, 'Nemesus', '$2a$10$Y0XnAEu0moCEbJl6BAbXM.IGw7G1XgJFyebOVmWvBgc5wFYutlQ0.', 3, 5050, 49, 1, 6, -427.869, 1160.93, 325.904, -26.7166);
 
 -- --------------------------------------------------------
 
@@ -96,7 +96,28 @@ CREATE TABLE `items` (
 --
 
 INSERT INTO `items` (`id`, `hash`, `ownerEntity`, `ownerIdentifier`, `amount`, `posX`, `posY`, `PosZ`) VALUES
-(2, '2565741261', 'Player', 2, 3, 0, 0, 0);
+(2, '2565741261', 'Player', 2, 3, 0, 0, 0),
+(9, '2565741261', 'Ground', 2, 1, -445.791, 1135.73, 324.985),
+(10, '2565741261', 'Ground', 2, 1, -435.519, 1136.22, 324.984);
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `whitelist`
+--
+
+CREATE TABLE `whitelist` (
+  `id` int(11) NOT NULL,
+  `socialclubid` int(10) NOT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Daten für Tabelle `whitelist`
+--
+
+INSERT INTO `whitelist` (`id`, `socialclubid`, `timestamp`) VALUES
+(3, 18021891, '2022-03-08 12:47:33');
 
 --
 -- Indizes der exportierten Tabellen
@@ -121,6 +142,12 @@ ALTER TABLE `items`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indizes für die Tabelle `whitelist`
+--
+ALTER TABLE `whitelist`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT für exportierte Tabellen
 --
 
@@ -140,7 +167,13 @@ ALTER TABLE `house`
 -- AUTO_INCREMENT für Tabelle `items`
 --
 ALTER TABLE `items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT für Tabelle `whitelist`
+--
+ALTER TABLE `whitelist`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

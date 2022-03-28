@@ -4664,3 +4664,102 @@ MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of 
    at bool System.Threading.Tasks.Task.Wait(int millisecondsTimeout, CancellationToken cancellationToken)
    at bool System.Threading.Tasks.Task.Wait(int millisecondsTimeout)
    at Stream MySql.Data.Common.StreamCreator.GetTcpStream(MySqlConnectionStringBuilder
+==================[23.03.2022 19:11:11]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Access denied for user 'ragemptutorial'@'localhost' to database 'ragemptutorial'
+   at MySqlPacket MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+=========================================================
+
+==================[23.03.2022 19:11:11]==================
+System.IO.FileNotFoundException: Could not load file or assembly 'J:\Tutorials\Rage.mp-C-Tutorial-NemesusTV\dotnet\resources\Tutorial\MySql.Data.resources.dll'. Das System kann die angegebene Datei nicht finden.
+File name: 'J:\Tutorials\Rage.mp-C-Tutorial-NemesusTV\dotnet\resources\Tutorial\MySql.Data.resources.dll'
+   at void System.Runtime.Loader.AssemblyLoadContext.LoadFromPath(IntPtr ptrNativeAssemblyLoadContext, string ilPath, string niPath, ObjectHandleOnStack retAssembly)
+
+
+=========================================================
+
+==================[23.03.2022 19:11:11]==================
+System.IO.FileNotFoundException: Could not load file or assembly 'J:\Tutorials\Rage.mp-C-Tutorial-NemesusTV\dotnet\resources\Tutorial\MySql.Data.resources.dll'. Das System kann die angegebene Datei nicht finden.
+File name: 'J:\Tutorials\Rage.mp-C-Tutorial-NemesusTV\dotnet\resources\Tutorial\MySql.Data.resources.dll'
+   at void System.Runtime.Loader.AssemblyLoadContext.LoadFromPath(IntPtr ptrNativeAssemblyLoadContext, string ilPath, string niPath, ObjectHandleOnStack retAssembly)
+
+
+=========================================================
+
+==================[23.03.2022 19:11:11]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Authentication to host 'localhost' for user 'ragemptutorial' using method 'mysql_native_password' failed with message: Access denied for user 'ragemptutorial'@'localhost' to database 'ragemptutorial'
+ ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Access denied for user 'ragemptutorial'@'localhost' to database 'ragemptutorial'
+   at MySqlPacket MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySqlPacket MySql.Data.MySqlClient.NativeDriver.ReadPacket()
+   at MySqlPacket MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ReadPacket()
+   at void MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.AuthenticationFailed(Exception ex)
+=========================================================
+
+==================[23.03.2022 19:11:11]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Authentication to host 'localhost' for user 'ragemptutorial' using method 'mysql_native_password' failed with message: Access denied for user 'ragemptutorial'@'localhost' to database 'ragemptutorial'
+ ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Access denied for user 'ragemptutorial'@'localhost' to database 'ragemptutorial'
+   at MySqlPacket MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySqlPacket MySql.Data.MySqlClient.NativeDriver.ReadPacket()
+   at MySqlPacket MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ReadPacket()
+   at void MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.AuthenticationFailed(Exception ex)
+   at MySqlPacket MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ReadPacket()
+   at void MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.Authenticate(bool reset)
+   at void MySql.Data.MySqlClient.NativeDriver.Authenticate(string authMethod, bool reset)
+   at void MySql.Data.MySqlClient.NativeDriver.Open()
+   at void MySql.Data.MySqlClient.Driver.Open()
+   at Driver MySql.Data.MySqlClient.Driver.Create(MySqlConnectionStringBuilder settings)
+=========================================================
+
+==================[23.03.2022 19:11:11]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Authentication to host 'localhost' for user 'ragemptutorial' using method 'mysql_native_password' failed with message: Access denied for user 'ragemptutorial'@'localhost' to database 'ragemptutorial'
+ ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Access denied for user 'ragemptutorial'@'localhost' to database 'ragemptutorial'
+   at MySqlPacket MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySqlPacket MySql.Data.MySqlClient.NativeDriver.ReadPacket()
+   at MySqlPacket MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ReadPacket()
+   at void MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.AuthenticationFailed(Exception ex)
+   at MySqlPacket MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ReadPacket()
+   at void MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.Authenticate(bool reset)
+   at void MySql.Data.MySqlClient.NativeDriver.Authenticate(string authMethod, bool reset)
+   at void MySql.Data.MySqlClient.NativeDriver.Open()
+   at void MySql.Data.MySqlClient.Driver.Open()
+   at Driver MySql.Data.MySqlClient.Driver.Create(MySqlConnectionStringBuilder settings)
+   at Driver MySql.Data.MySqlClient.MySqlPool.CreateNewPooledConnection()
+   at Driver MySql.Data.MySqlClient.MySqlPool.GetPooledConnection()
+   at Driver MySql.Data.MySqlClient.MySqlPool.TryToGetDriver()
+=========================================================
+
+==================[23.03.2022 19:11:11]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Authentication to host 'localhost' for user 'ragemptutorial' using method 'mysql_native_password' failed with message: Access denied for user 'ragemptutorial'@'localhost' to database 'ragemptutorial'
+ ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Access denied for user 'ragemptutorial'@'localhost' to database 'ragemptutorial'
+   at MySqlPacket MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySqlPacket MySql.Data.MySqlClient.NativeDriver.ReadPacket()
+   at MySqlPacket MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ReadPacket()
+   at void MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.AuthenticationFailed(Exception ex)
+   at MySqlPacket MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ReadPacket()
+   at void MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.Authenticate(bool reset)
+   at void MySql.Data.MySqlClient.NativeDriver.Authenticate(string authMethod, bool reset)
+   at void MySql.Data.MySqlClient.NativeDriver.Open()
+   at void MySql.Data.MySqlClient.Driver.Open()
+   at Driver MySql.Data.MySqlClient.Driver.Create(MySqlConnectionStringBuilder settings)
+   at Driver MySql.Data.MySqlClient.MySqlPool.CreateNewPooledConnection()
+   at Driver MySql.Data.MySqlClient.MySqlPool.GetPooledConnection()
+   at Driver MySql.Data.MySqlClient.MySqlPool.TryToGetDriver()
+   at Driver MySql.Data.MySqlClient.MySqlPool.GetConnection()
+   at void MySql.Data.MySqlClient.MySqlConnection.Open()
+=========================================================
+
+==================[23.03.2022 19:11:11]==================
+System.InvalidOperationException: Connection must be valid and open.
+   at void MySql.Data.MySqlClient.Interceptors.ExceptionInterceptor.Throw(Exception exception)
+=========================================================
+
+==================[23.03.2022 19:11:11]==================
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.InvalidOperationException: Connection must be valid and open.
+   at void MySql.Data.MySqlClient.Interceptors.ExceptionInterceptor.Throw(Exception exception)
+   at void MySql.Data.MySqlClient.MySqlConnection.Throw(Exception ex)
+   at void MySql.Data.MySqlClient.MySqlCommand.Throw(Exception ex)
+   at void MySql.Data.MySqlClient.MySqlCommand.CheckState()
+   at MySqlDataReader MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySqlDataReader MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at List<Haus> Tutorial.Datenbank.LadeAlleHäuser() in J:/Tutorials/Rage.mp-C-Tutorial-NemesusTV/backend/Tutorial/Tutorial/Datenbank.cs:line 245
+   at void Tutorial.Events.OnResourceStart() in J:/Tutorials/Rage.mp-C-Tutorial-NemesusTV/backend/

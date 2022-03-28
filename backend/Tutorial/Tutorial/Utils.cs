@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using GTANetworkAPI;
+using MySql.Data.MySqlClient;
 
 namespace Tutorial
 {
@@ -100,6 +101,21 @@ namespace Tutorial
                     text
                 }
             });
+        }
+
+        public static bool IsPlayerWhitelisted(Player player)
+        {
+            MySqlCommand command = Datenbank.Connection.CreateCommand();
+            command.CommandText = "SELECT id FROM whitelist WHERE socialclubid=@socialclubid LIMIT 1";
+            command.Parameters.AddWithValue("socialclubid", player.SocialClubId);
+            using(MySqlDataReader reader = command.ExecuteReader())
+            {
+                if(reader.HasRows)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

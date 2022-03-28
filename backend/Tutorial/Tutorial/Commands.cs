@@ -5,6 +5,7 @@ using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using GTANetworkAPI;
+using MySql.Data.MySqlClient;
 
 namespace Tutorial
 {
@@ -402,6 +403,49 @@ namespace Tutorial
             accounttarget.Rang = 6;
             player.SendChatMessage($"Du hast {target.Name} zum Chef der Fraktion {Accounts.Fraktionen[frak]} gemacht!");
             target.SendChatMessage($"Du wurdest von {player.Name} zum Chef der Fraktion {Accounts.Fraktionen[frak]} gemacht!");
+        }
+
+        [Command("whitelist", "/whitelist um einen Spieler auf die Whitelist zu setzen")]
+        public void CMD_whitelist(Player player, ulong socialclubid)
+        {
+            bool found = false;
+            Accounts account = player.GetData<Accounts>(Accounts.Account_Key);
+            if (!account.IstSpielerAdmin((int)Accounts.AdminRanks.Administrator))
+            {
+                player.SendChatMessage("~r~Dein Adminlevel ist zu gering!");
+                return;
+            }
+            if(socialclubid < 10000)
+            {
+                player.SendChatMessage("~r~Ungültige Socialclubid!");
+                return;
+            }
+            MySqlCommand command = Datenbank.Connection.CreateCommand();
+            command.CommandText = "SELECT id from whitelist WHERE socialclubid=@socialclubid LIMIT 1";
+            command.Parameters.AddWithValue("socialclubid", socialclubid);
+            using(MySqlDataReader reader = command.ExecuteReader())
+            {
+                if(reader.HasRows)
+                {
+                    found = true;
+                }
+            }
+            if(found == true)
+            {
+                MySqlCommand command2 = Datenbank.Connection.CreateCommand();
+                command2.CommandText = "DELETE FROM whitelist WHERE socialclubid=@socialclubid LIMIT 1";
+                command2.Parameters.AddWithValue("socialclubid", socialclubid);
+                command2.ExecuteNonQuery();
+                player.SendChatMessage("~g~Whitelisteintrag entfernt!");
+            }
+            else
+            {
+                MySqlCommand command3 = Datenbank.Connection.CreateCommand();
+                command3.CommandText = "INSERT INTO whitelist (socialclubid) VALUES (@socialclubid)";
+                command3.Parameters.AddWithValue("socialclubid", socialclubid);
+                command3.ExecuteNonQuery();
+                player.SendChatMessage("~g~Whitelisteintrag erfolgreich hinzugefügt!");
+            }
         }
 
         [Command("invite", "/invite um einen zu deiner Fraktion einzuladen!")]

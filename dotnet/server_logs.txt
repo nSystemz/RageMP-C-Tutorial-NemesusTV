@@ -804,4 +804,61 @@ SERVER=localhost; DATABASE=ragemptutorial; UID=ragemptutorial; PASSWORD=12345
    at MySql.Data.MySqlClient.MySqlPool.TryToGetDriver()
    at MySql.Data.MySqlClient.MySqlPool.GetConnection()
    at MySql.Data.MySqlClient.MySqlConnection.Open()
-   at Tutorial.Datenbank.InitConnection() in J:\Tutorials\Rage.mp-C-Tutorial-NemesusTV\ba
+   at Tutorial.Datenbank.InitConnection() in J:\Tutorials\Rage.mp-C-Tutorial-NemesusTV\baInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 23.03.2022 19:11:08
+Unable to load acl.xml
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Tutorial resource..
+Tutorial: loading scripts.. found 1 script(s)
+Tutorial: instantiating Tutorial.Commands..
+Tutorial: instantiating Tutorial.Connections..
+Tutorial: instantiating Tutorial.Events..
+Tutorial: instantiating Tutorial.Haus..
+Tutorial: instantiating Tutorial.HausInterior..
+Tutorial: instantiating Tutorial.Inventory.Inventory..
+Tutorial: instantiating Tutorial.Inventory.ItemModel..
+Tutorial: loading server events.. found 6 server event(s)
+Tutorial: loaded 6 server events(s)
+Tutorial: loading commands.. found 23 command(s)
+Tutorial: loading commands.. found 2 command(s)
+Tutorial: loaded 25 commands(s)
+Tutorial: loading remote events.. found 2 remote event(s)
+Tutorial: loading remote events.. found 6 remote event(s)
+Tutorial: loading remote events.. found 2 remote event(s)
+Tutorial: loaded 10 remote event(s)
+[Settings] -> Die Server Settings wurden erfolgreich geladen!
+SERVER=localhost; DATABASE=ragemptutorial; UID=ragemptutorial; PASSWORD=12345
+[MYSQL] -> Verbindung konnte nicht aufgebaut werden!
+[MYSQL] ->MySql.Data.MySqlClient.MySqlException (0x80004005): Authentication to host 'localhost' for user 'ragemptutorial' using method 'mysql_native_password' failed with message: Access denied for user 'ragemptutorial'@'localhost' to database 'ragemptutorial'
+ ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Access denied for user 'ragemptutorial'@'localhost' to database 'ragemptutorial'
+   at MySqlPacket MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySqlPacket MySql.Data.MySqlClient.NativeDriver.ReadPacket()
+   at MySqlPacket MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ReadPacket()
+   at MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.AuthenticationFailed(Exception ex)
+   at MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ReadPacket()
+   at MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.Authenticate(Boolean reset)
+   at MySql.Data.MySqlClient.NativeDriver.Authenticate(String authMethod, Boolean reset)
+   at MySql.Data.MySqlClient.NativeDriver.Open()
+   at MySql.Data.MySqlClient.Driver.Open()
+   at MySql.Data.MySqlClient.Driver.Create(MySqlConnectionStringBuilder settings)
+   at MySql.Data.MySqlClient.MySqlPool.CreateNewPooledConnection()
+   at MySql.Data.MySqlClient.MySqlPool.GetPooledConnection()
+   at MySql.Data.MySqlClient.MySqlPool.TryToGetDriver()
+   at MySql.Data.MySqlClient.MySqlPool.GetConnection()
+   at MySql.Data.MySqlClient.MySqlConnection.Open()
+   at Tutorial.Datenbank.InitConnection() in J:\Tutorials\Rage.mp-C-Tutorial-NemesusTV\backend\Tutorial\Tutorial\Datenbank.cs:line 40
+-> Error starting 'Tutorial'
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.InvalidOperationException: Connection must be valid and open.
+   at void MySql.Data.MySqlClient.Interceptors.ExceptionInterceptor.Throw(Exception exception)
+   at void MySql.Data.MySqlClient.MySqlConnection.Throw(Exception ex)
+   at void MySql.Data.MySqlClient.MySqlCommand.Throw(Exception ex)
+   at void MySql.Data.MySqlClient.MySqlCommand.CheckState()
+   at MySqlDataReader MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySqlDataReader MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at List<Haus> Tutorial.Datenbank.LadeAlleHäuser() in J:/Tutorials/Rage.mp-C-Tutorial-NemesusTV/backend/Tutorial/Tutorial/Datenbank.cs:line 245
+   at void Tutorial.Events.OnResourceStart() in J:/Tutorials/Rage.mp-C-Tutorial-NemesusTV/backend/Tutorial/Tutorial/Events.cs:line 21
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder bi
