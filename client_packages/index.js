@@ -6,3 +6,4 @@ require('./inventory/inventory');
 require('./lockpicking/lockpicking');
 require('./charcreator/index');
 require('./draw/draw');
+require('./googledocs/googledocs');

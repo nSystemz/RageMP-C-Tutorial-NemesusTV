@@ -520,5 +520,15 @@ namespace Tutorial
             player.SetOwnSharedData("Account:Geld", account.Geld);
             player.SendChatMessage("~g~Geld gegeben!");
         }
+
+        [Command("docs")]
+        public void CMD_docs(Player player)
+        {
+            Accounts account = player.GetData<Accounts>(Accounts.Account_Key);
+            if(account.Fraktion == 1)
+            {
+                player.TriggerEvent("ShowDocsWindow");
+            }
+        }
     }
 }
