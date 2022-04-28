@@ -76,13 +76,14 @@ namespace Tutorial
             try
             {
                 MySqlCommand command = Connection.CreateCommand();
-                command.CommandText = "INSERT INTO accounts (password, name, adminlevel, geld, payday) VALUES (@password, @name, @adminlevel, @geld, @payday)";
+                command.CommandText = "INSERT INTO accounts (password, name, adminlevel, geld, payday, einreise) VALUES (@password, @name, @adminlevel, @geld, @payday, @einreise)";
 
                 command.Parameters.AddWithValue("@password", saltedpw);
                 command.Parameters.AddWithValue("@name", account.Name);
                 command.Parameters.AddWithValue("@adminlevel", account.Adminlevel);
                 command.Parameters.AddWithValue("@geld", account.Geld);
                 command.Parameters.AddWithValue("@payday", account.Payday);
+                command.Parameters.AddWithValue("@einreise", account.Einreise);
 
                 command.ExecuteNonQuery();
 
@@ -115,6 +116,7 @@ namespace Tutorial
                     account.positions[1] = reader.GetFloat("posy");
                     account.positions[2] = reader.GetFloat("posz");
                     account.positions[3] = reader.GetFloat("posa");
+                    account.Einreise = reader.GetInt16("einreise");
                 }
             }
         }
@@ -124,7 +126,7 @@ namespace Tutorial
             Accounts account = player.GetData<Accounts>(Accounts.Account_Key);
             if (account == null) return;
             MySqlCommand command = Connection.CreateCommand();
-            command.CommandText = "UPDATE accounts SET adminlevel=@adminlevel, geld=@geld, payday=@payday, fraktion=@fraktion, rang=@rang, posx=@posx, posy=@posy, posz=@posz, posa=@posa WHERE id=@id";
+            command.CommandText = "UPDATE accounts SET adminlevel=@adminlevel, geld=@geld, payday=@payday, fraktion=@fraktion, rang=@rang, posx=@posx, posy=@posy, posz=@posz, posa=@posa, einreise=@einreise WHERE id=@id";
 
             command.Parameters.AddWithValue("@adminlevel", account.Adminlevel);
             command.Parameters.AddWithValue("@geld", account.Geld);
@@ -135,6 +137,7 @@ namespace Tutorial
             command.Parameters.AddWithValue("@posy", player.Position.Y);
             command.Parameters.AddWithValue("@posz", player.Position.Z);
             command.Parameters.AddWithValue("@posa", player.Rotation.Z);
+            command.Parameters.AddWithValue("@einreise", account.Einreise);
             command.Parameters.AddWithValue("@id", account.ID);
 
             command.ExecuteNonQuery();

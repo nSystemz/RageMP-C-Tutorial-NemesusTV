@@ -60,6 +60,38 @@ namespace Tutorial
             target.SendChatMessage($"Du wurdest {freezeText}!");
         }
 
+        [Command("einreise", "/einreise um einen Spieler einreisen zu lassen")]
+        public void CMD_einreise(Player player, string playertarget)
+        {
+            Accounts account = player.GetData<Accounts>(Accounts.Account_Key);
+            if (!account.IstSpielerAdmin((int)Accounts.AdminRanks.Moderator))
+            {
+                player.SendChatMessage("~r~Dein Adminlevel ist zu gering!");
+                return;
+            }
+            Player target = Utils.GetPlayerByNameOrID(playertarget);
+            if(target == null)
+            {
+                player.SendChatMessage("~r~Ungültiger Spieler");
+                return;
+            }
+            Accounts accountTarget = player.GetData<Accounts>(Accounts.Account_Key);
+            if(accountTarget.Einreise == 0)
+            {
+                accountTarget.Einreise = 1;
+                player.Position = new Vector3(-420.678, 1182.97, 325.642);
+                player.SendChatMessage("~g~Einreise erfolgreich!");
+                Utils.sendNotification(player, "Einreise erfolgreich!", "fas fa-user");
+                target.SendChatMessage("~g~Einreise erfolgreich!");
+                Utils.sendNotification(target, "Einreise erfolgreich!", "fas fa-user");
+                Datenbank.AccountSpeichern(target);
+            }
+            else
+            {
+                player.SendChatMessage("~r~Der Spieler muss nicht mehr einreisen!");
+            }
+        }
+
         [Command("telexyz", "/telexyz [X] [Y] [Z]")]
         public void CMD_telexyz(Player player, float x, float y, float z)
         {
@@ -69,7 +101,7 @@ namespace Tutorial
                 player.SendChatMessage("~r~Dein Adminlevel ist zu gering!");
                 return;
             }
-            Vector3 position = new Vector3(441, -978, 30 + 0.2);
+            Vector3 position = new Vector3(x, y, z + 0.2);
             player.Position = position;
             player.SendChatMessage("Du hast dich erfolgreich teleportiert");
             return;
