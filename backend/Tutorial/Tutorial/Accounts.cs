@@ -7,8 +7,7 @@ namespace Tutorial
 {
     class Accounts
     {
-        public static String[] Fraktionen = new String[3] { "Keine Fraktion", "Los Santos Police Department", "Newsfirma" };
-        public static String[] RangNamen = new String[7] { "Kein Rang", "Praktikant", "Auszubildener", "Angestellter", "Abteilungsleiter", "Ausbilder", "Chef" };
+        public static String[,] FraktionsDaten = new string[3, 11];
 
         public enum ProgressBars { Healthbar = 1, Hungerbar, Thirstbar };
 
@@ -113,12 +112,12 @@ namespace Tutorial
 
         public string HoleFraktionsName()
         {
-            return Fraktionen[Fraktion];
+            return FraktionsDaten[Fraktion, 0];
         }
 
         public String HoleRangName()
         {
-            return RangNamen[Rang];
+            return FraktionsDaten[Fraktion, Rang];
         }
     }
 }

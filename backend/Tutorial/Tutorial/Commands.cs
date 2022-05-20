@@ -426,15 +426,15 @@ namespace Tutorial
             }
             Player target = Utils.GetPlayerByNameOrID(playertarget);
             Accounts accounttarget = target.GetData<Accounts>(Accounts.Account_Key);
-            if(accounttarget != null && frak < 0 || frak > Accounts.Fraktionen.Length)
+            if(accounttarget != null && frak < 0 || frak > Accounts.FraktionsDaten.Length)
             {
                 player.SendChatMessage("~r~Ungültige Fraktion!");
                 return;
             }
             accounttarget.Fraktion = frak;
-            accounttarget.Rang = 6;
-            player.SendChatMessage($"Du hast {target.Name} zum Chef der Fraktion {Accounts.Fraktionen[frak]} gemacht!");
-            target.SendChatMessage($"Du wurdest von {player.Name} zum Chef der Fraktion {Accounts.Fraktionen[frak]} gemacht!");
+            accounttarget.Rang = 10;
+            player.SendChatMessage($"Du hast {target.Name} zum Chef der Fraktion {Accounts.FraktionsDaten[frak, 0]} gemacht!");
+            target.SendChatMessage($"Du wurdest von {player.Name} zum Chef der Fraktion {Accounts.FraktionsDaten[frak, 0]} gemacht!");
         }
 
         [Command("whitelist", "/whitelist um einen Spieler auf die Whitelist zu setzen")]
@@ -489,17 +489,17 @@ namespace Tutorial
                 player.SendChatMessage("~r~Du bist in keiner Fraktion!");
                 return;
             }
-            if(account.Rang < 6)
+            if(account.Rang < 10)
             {
-                player.SendChatMessage($"~r~Du bist kein {Accounts.RangNamen[6]}");
+                player.SendChatMessage($"~r~Du bist kein {Accounts.FraktionsDaten[account.Fraktion,10]}");
                 return;
             }
             Player target = Utils.GetPlayerByNameOrID(playertarget);
             Accounts accounttarget = target.GetData<Accounts>(Accounts.Account_Key);
             accounttarget.Fraktion = account.Fraktion;
             accounttarget.Rang = 1;
-            player.SendChatMessage($"Du hast {target.Name} in die Fraktion {Accounts.Fraktionen[account.Fraktion]} eingeladen!");
-            target.SendChatMessage($"Du wurdest von {player.Name} in die Fraktion {Accounts.Fraktionen[account.Fraktion]} eingeladen!");
+            player.SendChatMessage($"Du hast {target.Name} in die Fraktion {Accounts.FraktionsDaten[account.Fraktion, 0]} eingeladen!");
+            target.SendChatMessage($"Du wurdest von {player.Name} in die Fraktion {Accounts.FraktionsDaten[account.Fraktion, 0]} eingeladen!");
         }
 
         [Command("pistole","/pistole um dir eine Pistole zu geben")]
@@ -508,7 +508,7 @@ namespace Tutorial
             Accounts account = player.GetData<Accounts>(Accounts.Account_Key);
             if(account.Fraktion != 1)
             {
-                player.SendChatMessage($"~r~Du bist kein Mitglied des {Accounts.Fraktionen[1]}!");
+                player.SendChatMessage($"~r~Du bist kein Mitglied des {Accounts.FraktionsDaten[1,0]}!");
                 return;
             }
             NAPI.Player.GivePlayerWeapon(player, NAPI.Util.WeaponNameToModel("pistol"), 500);

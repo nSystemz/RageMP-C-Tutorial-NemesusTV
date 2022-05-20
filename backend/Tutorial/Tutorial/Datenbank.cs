@@ -289,5 +289,27 @@ namespace Tutorial
 
             return hausListeTemp;
         }
+
+        //Fraktionen
+        public static void LadeAllFraktionen()
+        {
+            MySqlCommand command = Connection.CreateCommand();
+            command.CommandText = "SELECT * from factions";
+
+            int countFaction = 0;
+
+            using(MySqlDataReader reader = command.ExecuteReader())
+            {
+                while(reader.Read())
+                {
+                    Accounts.FraktionsDaten[countFaction, 0] = reader.GetString("factionname");
+                    for (int i = 1; i<=10; i++)
+                    {
+                        Accounts.FraktionsDaten[countFaction, i] = reader.GetString("rang" + i);
+                    }
+                    countFaction ++;
+                }
+            }
+        }
     }
 }

@@ -21,6 +21,8 @@ namespace Tutorial
             Haus.hausListe = Datenbank.LadeAlleHäuser();
             //Items
             Inventory.Inventory.itemList = Inventory.Inventory.LoadAllItems();
+            //Fraktions
+            Datenbank.LadeAllFraktionen();
             //Timer
             Timer paydayTimer = new Timer(OnPaydayTimer, null, 60000, 60000);
             //Sonstige Sachen

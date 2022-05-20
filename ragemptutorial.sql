@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 28. Apr 2022 um 14:32
+-- Erstellungszeit: 20. Mai 2022 um 17:44
 -- Server-Version: 10.4.21-MariaDB
 -- PHP-Version: 8.0.11
 
@@ -49,6 +49,36 @@ CREATE TABLE `accounts` (
 
 INSERT INTO `accounts` (`id`, `name`, `password`, `adminlevel`, `geld`, `payday`, `fraktion`, `rang`, `posx`, `posy`, `posz`, `posa`, `einreise`) VALUES
 (2, 'Nemesus', '$2a$10$Y0XnAEu0moCEbJl6BAbXM.IGw7G1XgJFyebOVmWvBgc5wFYutlQ0.', 3, 5050, 45, 1, 6, -420.678, 1182.97, 325.642, 160.944, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `factions`
+--
+
+CREATE TABLE `factions` (
+  `id` int(11) NOT NULL,
+  `factionname` varchar(128) NOT NULL,
+  `rang1` varchar(64) NOT NULL,
+  `rang2` varchar(64) NOT NULL,
+  `rang3` varchar(64) NOT NULL,
+  `rang4` varchar(64) NOT NULL,
+  `rang5` varchar(64) NOT NULL,
+  `rang6` varchar(64) NOT NULL,
+  `rang7` varchar(64) NOT NULL,
+  `rang8` varchar(64) NOT NULL,
+  `rang9` varchar(64) NOT NULL,
+  `rang10` varchar(64) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Daten für Tabelle `factions`
+--
+
+INSERT INTO `factions` (`id`, `factionname`, `rang1`, `rang2`, `rang3`, `rang4`, `rang5`, `rang6`, `rang7`, `rang8`, `rang9`, `rang10`) VALUES
+(0, 'Keine Fraktion', 'Kein Rang', 'Kein Rang', 'Kein Rang', 'Kein Rang', 'Kein Rang', 'Kein Rang', 'Kein Rang', 'Kein Rang', 'Kein Rang', 'Kein Rang'),
+(1, 'LSPD', 'Praktikant', 'Praktikant2', 'n/A', 'n/A', 'n/A', 'n/A', 'n/A', 'n/A', 'n/A', 'Boss'),
+(2, 'Newsfirma', 'Test', 'Test', 'n/A', 'n/A', 'n/A', 'n/A', 'n/A', 'n/A', 'n/A', 'Chef');
 
 -- --------------------------------------------------------
 
@@ -131,6 +161,12 @@ ALTER TABLE `accounts`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indizes für die Tabelle `factions`
+--
+ALTER TABLE `factions`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indizes für die Tabelle `house`
 --
 ALTER TABLE `house`
@@ -156,6 +192,12 @@ ALTER TABLE `whitelist`
 -- AUTO_INCREMENT für Tabelle `accounts`
 --
 ALTER TABLE `accounts`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT für Tabelle `factions`
+--
+ALTER TABLE `factions`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
