@@ -1,240 +1,232 @@
 <template>
-    <div class="charactercreator" v-if="charcreatorShow">
-        <body>
-            <div class="wrapper d-flex align-items-stretch">
-                <div id="sidebar" ref="sidebar" class="active animate__animated animate__backInUp"
-                    style="overflow-x:hidden;overflow-y:hidden;">
-                    <div class="p-4">
-                        <h1><a class="logo">Charakter Erstellung</a></h1>
-                        <ul id="navigation" class="list-unstyled components mb-5">
-                            <li :class="[(naviSwitch == 'Indentität') ? 'active':'']">
-                                <a @click="naviSwitch='Indentität'" style="cursor:pointer"><span
-                                        class="fa fa-home mr-3"></span>Identität</a>
-                            </li>
-                            <li :class="[(naviSwitch == 'Genetik') ? 'active':'']">
-                                <a @click="naviSwitch='Genetik'" style="cursor:pointer"><span
-                                        class="fa fa-user mr-3"></span>Genetik</a>
-                            </li>
-                            <li :class="[(naviSwitch == 'Haare') ? 'active':'']">
-                                <a @click="naviSwitch='Haare'" style="cursor:pointer"><span
-                                        class="fa fa-user-edit mr-3"></span>Haare/Bart</a>
-                            </li>
-                            <li :class="[(naviSwitch == 'Gesichtsform') ? 'active':'']">
-                                <a @click="naviSwitch='Gesichtsform'" style="cursor:pointer"><span
-                                        class="fa fa-meh-blank mr-3"></span>Gesicht</a>
-                            </li>
-                            <li :class="[(naviSwitch == 'Details') ? 'active':'']">
-                                <a @click="naviSwitch='Details'" style="cursor:pointer"><span
-                                        class="fa fa-info-circle mr-3"></span>Details</a>
-                            </li>
-                            <li :class="[(naviSwitch == 'Kleidung') ? 'active':'']">
-                                <a @click="naviSwitch='Kleidung'" style="cursor:pointer"><span
-                                        class="fa fa-tshirt mr-3"></span>Kleidung</a>
-                            </li>
-                            <li :class="[(naviSwitch == 'Fertig') ? 'active':'']">
-                                <a @click="naviSwitch='Fertig'" style="cursor:pointer"><span
-                                        class="fa fa-flag-checkered mr-3"></span>Fertig</a>
-                            </li>
-                        </ul>
-                        <div class="footer">
-                            Bitte beachte das du dein Aussehen sowie deinen Namen nicht mehr ändern kannst!
-                        </div>
-                    </div>
-                </div>
-                <div id="box" class="ml-1 mt-1 animate__animated animate__backInUp"
-                    style=" width: 200px;background: -webkit-linear-gradient(top, #0074e0, #07a9d6);border:  0px solid;height: 60px; color:white">
-                    <span class="ml-1"></span>Kameraauswahl:<input class="ml-3 slider" type="range" min="1" max="100"
-                        value="1" data-orientation="vertical">
-                </div>
-                <div v-if="naviSwitch == 'Indentität'" id="sidebar" class="p-4"
-                    style="margin-right: 0;margin-left:auto;background-color: #0084ff">
-                    <h1><a class="logo" style="color:white">Identität</a></h1>
-                    <ul class="list-unstyled components mb-5">
-                        <li class="active">
-                            <span class="fa fa-venus-mars mr-2"></span>Geschlecht
-                            <br />
-                            <div v-if="character.gender == 'Männlich'">
-                                <button type="button" class="btn btn-primary"
-                                    style="background-color: #104e6b; border: 0"
-                                    v-on:click="character.gender = 'Männlich'; reRender()">Männlich</button>
-                                <button type="button" class="btn btn-secondary ml-2"
-                                    v-on:click="character.gender = 'Weiblich'">Weiblich</button>
-                            </div>
-                            <div v-if="character.gender == 'Weiblich'">
-                                <button type="button" class="btn btn-secondary"
-                                    v-on:click="character.gender = 'Männlich'">Männlich</button>
-                                <button type="button" class="btn btn-primary ml-2"
-                                    style="background-color: #104e6b; border: 0"
-                                    v-on:click="character.gender = 'Weiblich'; reRender()">Weiblich</button>
-                            </div>
-                        </li>
-                        <li class="active">
-                            <span class="fa fa-calendar mt-3 mr-2"></span>Geburtsdatum
-                            <input v-model="character.birth" type="text" class="form-control" id="exampleInputEmail1"
-                                maxlength="10">
-                        </li>
-                        <hr />
-                        <li class="active">
-                            <span class="fa fa-user mt-3 mr-2"></span>Vorname
-                            <input v-model="character.firstname" type="text" class="form-control"
-                                id="exampleInputEmail1" maxlength="16">
-                        </li>
-                        <li class="active">
-                            <span class="fa fa-user mt-3 mr-2"></span>Nachname
-                            <input v-model="character.lastname" type="text" class="form-control" id="exampleInputEmail1"
-                                maxlength="16">
-                        </li>
-                        <li class="active">
-                            <span class="fa fa-align-center mt-3 mr-2"></span>Größe
-                            <input v-model="character.size" type="text" class="form-control" id="exampleInputEmail1"
-                                maxlength="9" placeholder="1m - 70cm">
-                        </li>
-                        <li class="active">
-                            <span class="fa fa-flag mt-3 mr-2"></span>Herkunft
-                            <input v-model="character.origin" type="text" class="form-control" id="exampleInputEmail1"
-                                maxlength="30" placeholder="Los-Santos">
-                        </li>
-                    </ul>
-                </div>
-                <div v-if="naviSwitch == 'Genetik'" id="sidebar" class="p-4"
-                    style="margin-right: 0;margin-left:auto;background-color: #0084ff">
-                    <h1><a class="logo" style="color:white">Genetik</a></h1>
-                    <ul class="list-unstyled components mb-5">
-                        <li class="active mt-2" v-for="(blend, index) in blendData" :key="index">
-                            <span class="contenttext">{{blend[0]}}</span>
-                            <input class="ml-2 slider" type="range" :min="blend[1]" :max="blend[2]" value='0'
-                                :step="blend[3]" v-model="character.blendData[index]"><small
-                                class="ml-2">{{character.blendData[index]}}</small>
-                        </li>
-                        <div class="mt-2">
-                            <span class="contenttext">Augenfarbe</span>
-                            <div class="hair">
-                                <ul class="hairColors-1">
-                                    <li v-for="hairColor in hairColors" :key="hairColor"
-                                        :style="{ background: hairColor }">
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </ul>
-                </div>
-                <div v-if="naviSwitch == 'Gesichtsform'" id="sidebar" class="p-4"
-                    style="margin-right: 0;margin-left:auto;background-color: #0084ff">
-                    <h1><a class="logo" style="color:white">Gesicht</a></h1>
-                    <ul class="list-unstyled components mb-5">
-                        <li class="active mt-2" v-for="(faceFeature, index) in faceFeatures" :key="index">
-                            <span class="contenttext">{{faceFeatures[index]}}</span>
-                            <input class="ml-2 slider" type="range" :min="-1" :max="1" :step="0.1"
-                                v-model="character.faceFeatures[index]" v-oninput="customize('faceFeatures',index, character.faceFeatures[index])"><small
-                                class="ml-2">{{character.faceFeatures[index]}}</small>
-                        </li>
-                    </ul>
-                </div>
-                <div v-if="naviSwitch == 'Details'" id="sidebar" class="p-4"
-                    style="margin-right: 0;margin-left:auto;background-color: #0084ff">
-                    <h1><a class="logo" style="color:white">Details</a></h1>
-                    <ul class="list-unstyled components mb-5">
-                        <li class="active mt-2" v-for="(headOverlay, index) in headOverlays" :key="index">
-                            <span class="contenttext">{{headOverlays[index]}}</span><span
-                                class="ml-2 fa fa-window-close icons" :key="index+1"
-                                v-on:click="character.headOverlays[index] = 255; character.headOverlaysColors[index] = 0; reRender();"
-                                style="color:lightred;cursor: pointer"></span>
-                            <input class="ml-2 slider" type="range" :min="0" :max="headOverlaysMax[index]" :step="1"
-                                v-model="character.headOverlays[index]"><small
-                                class="ml-2">{{character.headOverlays[index]}}</small>
-                            <input class="ml-2 slider" type="range" :min="0" :max="63" :step="1"
-                                v-model="character.headOverlaysColors[index]"><small
-                                class="ml-2">{{character.headOverlaysColors[index]}}</small>
-                        </li>
-                    </ul>
-                </div>
-                <div v-if="naviSwitch == 'Kleidung'" id="sidebar" class="p-4"
-                    style="margin-right: 0;margin-left:auto;background-color: #0084ff">
-                    <h1><a class="logo" style="color:white">Kleidung</a></h1>
-                    <ul class="list-unstyled components mb-5">
-                        <li class="active mt-2" v-for="(clothes, index) in clothings" :key="index">
-                            <span class="contenttext">{{clothings[index]}}</span>
-                            <input class="ml-2 slider" type="range" :min="0" :max="clothingMax[index]" :step="1"
-                                v-model="character.clothing[index]" v-oninput="customize('clothing', index, character.clothing[index])"><small
-                                class="ml-2">{{character.clothing[index]}}</small>
-                        </li>
-                    </ul>
-                </div>
-                <div v-if="!naviSwitch" id="sidebar" class="p-4 animate__animated animate__backInUp"
-                    style="margin-right: 0;margin-left:auto;background-color: #0084ff">
-                    <h1><a class="logo" style="color:white">Hallo</a></h1>
-                    <p class="mt-2">Willkommen auf dem <strong>NemesusTV Tutorial (Powered by Nemesus.de)</strong>
-                        Roleplayserver.
-                        Du kannst dir jetzt einen Charakter erstellen, wähle dazu Rechts eine Kategorie aus.</p>
-                    <p>Viel Spass bei der Charaktererstellung!</p>
-                </div>
-                <div v-if="naviSwitch == 'Fertig'" id="sidebar" class="p-4"
-                    style="margin-right: 0;margin-left:auto;background-color: #0084ff">
-                    <h1><a class="logo" style="color:white">Fertig</a></h1>
-                    <p class="mt-2">Bitte beachte, wir sind ein <strong>Roleplay-Server</strong> demzufolge schlüpfst du
-                        in die
-                        Rolle eines Charakteres und spielst diesen aus. Für einen reibungslosen Spielverlauf gibt es
-                        Regeln, diese
-                        findest du unter <strong>https://regeln.nemesus.de</strong>, bitte lese dir diese aufmerksam
-                        durch!</p>
-                    <p>Nach dem Klicken von 'Charakter erstellen' wird dein Charakter erstellt, dann beginnt dein IC
-                        Leben!</p>
-                    <button type="button"
-                        class="btn btn-success mt-5 ml-4 animate__animated animate__heartBeat">Charakter
-                        erstellen</button>
-                </div>
-                <div v-if="naviSwitch == 'Haare'" id="sidebar" class="p-4"
-                    style="margin-right: 0;margin-left:auto;background-color: #0084ff">
-                    <h1><a class="logo" style="color:white">Haare/Bart</a></h1>
-                    <ul class="list-unstyled components mb-5">
-                        <li>
-                            <span class="contenttext">Haarstil</span>
-                            <input class="ml-3 slider" type="range" min="0" max="75" value="1"
-                                v-model="character.hair[0]" v-oninput="customize('hair', 0, character.hair[0])"><small class="ml-2">{{character.hair[0]}}</small>
-                            <hr />
-                        </li>
-                        <li>
-                            <span class="contenttext">Haarfarbe</span>
-                            <div class="hair">
-                                <ul class="hairColors-1">
-                                    <li v-for="(hairColor, index) in hairColors" :key="hairColor"
-                                        :style="{ background: hairColor }" v-on:click="customize('hair', 1, index)">
-                                    </li>
-                                </ul>
-                            </div>
-                            <hr />
-                        </li>
-                        <li>
-                            <span class="contenttext">Haartönung</span>
-                            <div class="hair">
-                                <ul class="hairColors-2">
-                                    <li v-for="(hairColor, index) in hairColors" :key="hairColor"
-                                        :style="{ background: hairColor }" v-on:click="customize('hair',2,index)">
-                                    </li>
-                                </ul>
-                            </div>
-                            <hr />
-                        </li>
-                        <li>
-                            <span class="contenttext">Bartstil</span>
-                            <input class="ml-3 slider" type="range" min="1" max="28" value="1"
-                                v-model="character.beard[0]" v-oninput="customize('beard', 0, character.beard[0])"><small class="ml-2">{{character.beard[0]}}</small>
-                            <hr />
-                        </li>
-                        <li>
-                            <span class="contenttext">Bartfarbe</span>
-                            <div class="beard">
-                                <ul class="beardColors">
-                                    <li v-for="beardColor in beardColors" :key="beardColor"
-                                        :style="{ background: hairColors[beardColor] }" v-on:click="customize('beard',1,beardColor)"></li>
-                                </ul>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+  <div class="charactercreator" v-if="charcreatorShow">
+    <body>
+      <div class="wrapper d-flex align-items-stretch">
+        <div id="sidebar" ref="sidebar" class="active animate__animated animate__backInUp"
+          style="overflow-x:hidden;overflow-y:hidden;">
+          <div class="p-4">
+            <h1><a class="logo">Charakter Erstellung</a></h1>
+            <ul id="navigation" class="list-unstyled components mb-5">
+              <li :class="[(naviSwitch == 'Identität') ? 'active':'']">
+                <a @click="setDefaultCamera()" style="cursor:pointer"><span
+                    class="fa fa-home mr-3"></span>Identität</a>
+              </li>
+              <li :class="[(naviSwitch == 'Genetik') ? 'active':'']">
+                <a @click="naviSwitch='Genetik'" style="cursor:pointer"><span class="fa fa-user mr-3"></span>Genetik</a>
+              </li>
+              <li :class="[(naviSwitch == 'Haare') ? 'active':'']">
+                <a @click="naviSwitch='Haare'" style="cursor:pointer"><span
+                    class="fa fa-user-edit mr-3"></span>Haare/Bart</a>
+              </li>
+              <li :class="[(naviSwitch == 'Gesichtsform') ? 'active':'']">
+                <a @click="naviSwitch='Gesichtsform'" style="cursor:pointer"><span
+                    class="fa fa-meh-blank mr-3"></span>Gesicht</a>
+              </li>
+              <li :class="[(naviSwitch == 'Details') ? 'active':'']">
+                <a @click="naviSwitch='Details'" style="cursor:pointer"><span
+                    class="fa fa-info-circle mr-3"></span>Details</a>
+              </li>
+              <li :class="[(naviSwitch == 'Kleidung') ? 'active':'']">
+                <a @click="naviSwitch='Kleidung'" style="cursor:pointer"><span
+                    class="fa fa-tshirt mr-3"></span>Kleidung</a>
+              </li>
+              <li :class="[(naviSwitch == 'Fertig') ? 'active':'']">
+                <a @click="naviSwitch='Fertig'" style="cursor:pointer"><span
+                    class="fa fa-flag-checkered mr-3"></span>Fertig</a>
+              </li>
+            </ul>
+            <div class="footer">
+              Bitte beachte das du dein Aussehen sowie deinen Namen nicht mehr ändern kannst!
+              <br /><br />Die Charaktererstellung wurde von <b>Nemesus.de</b> entwickelt!
             </div>
-        </body>
-    </div>
+          </div>
+        </div>
+        <div v-if="naviSwitch == 'Identität'" id="sidebar" class="p-4"
+          style="margin-right: 0;margin-left:auto;background-color: #0084ff">
+          <h1><a class="logo" style="color:white">Identität</a></h1>
+          <ul class="list-unstyled components mb-5">
+            <li class="active">
+              <span class="fa fa-venus-mars mr-2"></span>Geschlecht
+              <br />
+              <div v-if="character.gender == 'Männlich'">
+                <button type="button" class="btn btn-primary" style="background-color: #104e6b; border: 0"
+                  v-on:click="setGender('Männlich')">Männlich</button>
+                <button type="button" class="btn btn-secondary ml-2"
+                  v-on:click="setGender('Weiblich')">Weiblich</button>
+              </div>
+              <div v-if="character.gender == 'Weiblich'">
+                <button type="button" class="btn btn-secondary"
+                  v-on:click="setGender('Männlich')">Männlich</button>
+                <button type="button" class="btn btn-primary ml-2" style="background-color: #104e6b; border: 0"
+                  v-on:click="setGender('Weiblich')">Weiblich</button>
+              </div>
+            </li>
+            <li class="active">
+              <span class="fa fa-calendar mt-3 mr-2"></span>Geburtsdatum
+              <input v-model="character.birth" type="text" class="form-control" id="exampleInputEmail1" maxlength="10">
+            </li>
+            <hr />
+            <li class="active">
+              <span class="fa fa-user mt-3 mr-2"></span>Vorname
+              <input v-model="character.firstname" type="text" class="form-control" id="exampleInputEmail1"
+                maxlength="16">
+            </li>
+            <li class="active">
+              <span class="fa fa-user mt-3 mr-2"></span>Nachname
+              <input v-model="character.lastname" type="text" class="form-control" id="exampleInputEmail1"
+                maxlength="16">
+            </li>
+            <li class="active">
+              <span class="fa fa-align-center mt-3 mr-2"></span>Größe
+              <input v-model="character.size" type="text" class="form-control" id="exampleInputEmail1" maxlength="9"
+                placeholder="1m - 70cm">
+            </li>
+            <li class="active">
+              <span class="fa fa-flag mt-3 mr-2"></span>Herkunft
+              <input v-model="character.origin" type="text" class="form-control" id="exampleInputEmail1" maxlength="30"
+                placeholder="Los-Santos">
+            </li>
+          </ul>
+        </div>
+        <div v-if="naviSwitch == 'Genetik'" id="sidebar" class="p-4"
+          style="margin-right: 0;margin-left:auto;background-color: #0084ff">
+          <h1><a class="logo" style="color:white">Genetik</a></h1>
+          <ul class="list-unstyled components mb-5">
+            <li class="active mt-2" v-for="(blend, index) in blendData" :key="index">
+              <span class="contenttext">{{blend[0]}}</span>
+              <input class="ml-2 slider" type="range" :min="blend[1]" :max="blend[2]" value='0' :step="blend[3]"
+                v-model="character.blendData[index]"
+                v-oninput="customize('blendData', index, character.blendData[index])"><small class="ml-2">{{character.blendData[index]}}</small>
+            </li>
+              <div class="mt-2">
+                <span class="contenttext">Augenfarbe [{{character.eyeColor[0]}}]</span>
+                <input class="ml-2 slider" type="range" :min="0" :max="31" value='0' :step="1"
+                  v-model="character.eyeColor[0]"
+                  v-oninput="customize('eyeColor', 0, character.eyeColor[0])"><small class="ml-2">{{character.eyeColor[0]}}</small>
+              </div>
+          </ul>
+        </div>
+        <div v-if="naviSwitch == 'Gesichtsform'" id="sidebar" class="p-4"
+          style="margin-right: 0;margin-left:auto;background-color: #0084ff">
+          <h1><a class="logo" style="color:white">Gesicht</a></h1>
+          <ul class="list-unstyled components mb-5">
+            <li class="active mt-2" v-for="(faceFeature, index) in faceFeatures" :key="index">
+              <span class="contenttext">{{faceFeatures[index]}}</span>
+              <input class="ml-2 slider" type="range" :min="-1" :max="1" :step="0.1"
+                v-model="character.faceFeatures[index]"
+                v-oninput="customize('faceFeatures',index, character.faceFeatures[index])"><small
+                class="ml-2">{{character.faceFeatures[index]}}</small>
+            </li>
+          </ul>
+        </div>
+        <div v-if="naviSwitch == 'Details'" id="sidebar" class="p-4"
+          style="margin-right: 0;margin-left:auto;background-color: #0084ff">
+          <h1><a class="logo" style="color:white">Details</a></h1>
+          <ul class="list-unstyled components mb-5">
+            <li class="active mt-2" v-for="(headOverlay, index) in headOverlays" :key="index">
+              <span class="contenttext">{{headOverlays[index]}}</span><span class="ml-2 fa fa-window-close icons"
+                :key="index"
+                v-on:click="character.headOverlays[index] = -1; character.headOverlaysColors[index] = 0; reRender();"
+                style="color:lightred;cursor: pointer"></span>
+              <input class="ml-2 slider" type="range" :min="0" :max="headOverlaysMax[index]" :step="1"
+                v-model="character.headOverlays[index]"
+                v-oninput="customize2(index, character.headOverlays[index], character.headOverlaysColors[index])"><small class="ml-2">{{character.headOverlays[index]}}</small>
+              <input class="ml-2 slider" type="range" :min="0" :max="36" :step="1"
+                v-model="character.headOverlaysColors[index]"
+                v-oninput="customize2(index, character.headOverlays[index], character.headOverlaysColors[index])"><small
+                class="ml-2">{{character.headOverlaysColors[index]}}</small>
+            </li>
+          </ul>
+        </div>
+        <div v-if="naviSwitch == 'Kleidung'" id="sidebar" class="p-4"
+          style="margin-right: 0;margin-left:auto;background-color: #0084ff">
+          <h1><a class="logo" style="color:white">Kleidung</a></h1>
+          <ul class="list-unstyled components mb-5">
+            <li class="active mt-2" v-for="(clothes, index) in clothings" :key="index">
+              <span class="contenttext">{{clothings[index]}}</span>
+              <input class="ml-2 slider" type="range" :min="0" :max="clothingMax[index]" :step="1"
+                v-model="character.clothing[index]"
+                v-oninput="customize('clothing', index, character.clothing[index])"><small
+                class="ml-2">{{character.clothing[index]}}</small>
+            </li>
+          </ul>
+          <button type="button" class="btn btn-danger mt-3"
+            v-on:click="resetCloths()">Kleidung reseten</button>
+        </div>
+        <div v-if="!naviSwitch" id="sidebar" class="p-4 animate__animated animate__backInUp"
+          style="margin-right: 0;margin-left:auto;background-color: #0084ff">
+          <h1><a class="logo" style="color:white">Hallo</a></h1>
+          <p class="mt-2">Willkommen auf dem <strong>NemesusTV Tutorial (Powered by Nemesus.de)</strong>
+            Roleplayserver.
+            Du kannst dir jetzt einen Charakter erstellen, wähle dazu Rechts eine Kategorie aus.</p>
+          <p>Viel Spass bei der Charaktererstellung!</p>
+        </div>
+        <div v-if="naviSwitch == 'Fertig'" id="sidebar" class="p-4"
+          style="margin-right: 0;margin-left:auto;background-color: #0084ff">
+          <h1><a class="logo" style="color:white">Fertig</a></h1>
+          <p class="mt-2">Bitte beachte, wir sind ein <strong>Roleplay-Server</strong> demzufolge schlüpfst du
+            in die
+            Rolle eines Charakteres und spielst diesen aus. Für einen reibungslosen Spielverlauf gibt es
+            Regeln, diese
+            findest du unter <strong>https://regeln.nemesus.de</strong>, bitte lese dir diese aufmerksam
+            durch!</p>
+          <p>Nach dem Klicken von 'Charakter erstellen' wird dein Charakter erstellt, dann beginnt dein IC
+            Leben!</p>
+          <button type="button" class="btn btn-success mt-5 ml-4 animate__animated animate__heartBeat" v-on:click="createCharacter()">Charakter
+            erstellen</button>
+        </div>
+        <div v-if="naviSwitch == 'Haare'" id="sidebar" class="p-4"
+          style="margin-right: 0;margin-left:auto;background-color: #0084ff">
+          <h1><a class="logo" style="color:white">Haare/Bart</a></h1>
+          <ul class="list-unstyled components mb-5">
+            <li>
+              <span class="contenttext">Haarstil</span>
+              <input class="ml-3 slider" type="range" min="0" max="75" value="1" v-model="character.hair[0]"
+                v-oninput="customize('hair', 0, character.hair[0])"><small class="ml-2">{{character.hair[0]}}</small>
+              <hr />
+            </li>
+            <li>
+              <span class="contenttext">Haarfarbe</span>
+              <div class="hair">
+                <ul class="hairColors-1">
+                  <li v-for="(hairColor, index) in hairColors" :key="hairColor" :style="{ background: hairColor }"
+                    v-on:click="customize('hair', 1, index)">
+                  </li>
+                </ul>
+              </div>
+              <hr />
+            </li>
+            <li>
+              <span class="contenttext">Haartönung</span>
+              <div class="hair">
+                <ul class="hairColors-2">
+                  <li v-for="(hairColor, index) in hairColors" :key="hairColor" :style="{ background: hairColor }"
+                    v-on:click="customize('hair',2,index)">
+                  </li>
+                </ul>
+              </div>
+              <hr />
+            </li>
+            <li>
+              <span class="contenttext">Bartstil</span>
+              <input class="ml-3 slider" type="range" min="1" max="28" value="1" v-model="character.beard[0]"
+                v-oninput="customize('beard', 0, character.beard[0])"><small class="ml-2">{{character.beard[0]}}</small>
+              <hr />
+            </li>
+            <li>
+              <span class="contenttext">Bartfarbe</span>
+              <div class="beard">
+                <ul class="beardColors">
+                  <li v-for="beardColor in beardColors" :key="beardColor"
+                    :style="{ background: hairColors[beardColor] }" v-on:click="customize('beard',1,beardColor)"></li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </body>
+  </div>
 </template>
 
 <script>
@@ -253,10 +245,9 @@ export default {
         blendData: [0, 0, 0, 0, 0, 0],
         faceFeatures: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         clothing: [0, 0, 0, 0],
-        headOverlays: [255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255],
-        headOverlaysColors: [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        eyeColor: 0,
-        eyebrowColor: 0,
+        headOverlays: [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1],
+        headOverlaysColors: [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        eyeColor: [ 0 ],
       },
       charcreatorShow: false,
       naviSwitch: '',
@@ -286,11 +277,34 @@ export default {
       ],
       clothings: ['T-Shirt', 'Torso', 'Hose', 'Schuhe'], 
       clothingMax: [361, 240, 195, 101],
-      headOverlays: ['Schönheitsfehler', 'Gesichtsbehaarung', 'Augenbrauen', 'Altersflecken', 'Make-up', 'Rötung', 'Teint', 'Sonnenschaden', 'Lippenstift', 'Sommersprossen', 'Brustbehaarung' , 'Hautunreinheiten' , 'Körperunreinheiten'],
-      headOverlaysMax: [23, 28, 33, 14, 74, 32, 11, 10, 9, 17, 16, 11, 1],
+      headOverlays: ['Schönheitsfehler', 'Augenbrauen', 'Altersflecken', 'Make-up', 'Rötung', 'Teint', 'Sonnenschaden', 'Lippenstift', 'Sommersprossen', 'Brustbehaarung', 'Hautunreinheiten', 'Körperunreinheiten'],
+      headOverlaysMax: [23, 33, 14, 74, 32, 11, 10, 9, 17, 16, 11, 1],
     }
   },
   methods: {
+    createCharacter: function()
+    {
+      // eslint-disable-next-line no-undef
+       mp.trigger('client:charcreator-create', JSON.stringify(this.character));
+    },
+    setGender: function(gender)
+    {
+      this.character.gender = gender;
+      this.reRender();
+      // eslint-disable-next-line no-undef
+       mp.trigger('client:charcreator-setgender', gender);
+    },
+    setDefaultCamera: function()
+    {
+      this.naviSwitch = 'Identität';
+      // eslint-disable-next-line no-undef
+       mp.trigger('charcreator-camera', 0);
+    },
+    resetCloths: function()
+    {
+        // eslint-disable-next-line no-undef
+        mp.trigger('client:charcreator-resetcloths');
+    },
     reRender: function () 
     {
       this.$forceUpdate();
@@ -318,6 +332,18 @@ export default {
         this.character[x][id] = val;
         // eslint-disable-next-line no-undef
         mp.trigger('client:charcreator-preview', x, JSON.stringify(this.character[x]));
+    },
+    customize2: function(id, val, val2)
+    {
+      if(val == -1)
+      {
+        val = 255;
+        val2 = 0;
+      }
+      this.character['headOverlays'][id] = val;
+      this.character['headOverlaysColors'][id] = val2;
+      // eslint-disable-next-line no-undef
+      mp.trigger('client:charcreator-preview2', JSON.stringify(this.character['headOverlays']), JSON.stringify(this.character['headOverlaysColors']));
     }
   },
   mounted() {

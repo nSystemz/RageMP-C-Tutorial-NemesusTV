@@ -13,7 +13,7 @@ function getKmh() {
         let vehicle = mp.players.local.vehicle;
         let speed = vehicle.getSpeed()*3.6;
         speed = Math.round(speed)
-        mp.game.graphics.drawText(`${getSpeedColor(speed)}${speed} KMH`, [0.45, 0.91], {
+        mp.game.graphics.drawText(`${getSpeedColor(speed)}${speed} KMH`, [0.5, 0.91], {
             font: 2,
             color: [255, 255, 255, 255],
             scale: [1.5, 1.5],

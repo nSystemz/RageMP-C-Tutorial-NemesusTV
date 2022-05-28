@@ -541,6 +541,7 @@ namespace Tutorial
         [Command("charcreator")]
         public void CMD_charcreator(Player player)
         {
+            player.TriggerEvent("showHideMoneyHud");
             player.TriggerEvent("charcreator-show");
         }
 

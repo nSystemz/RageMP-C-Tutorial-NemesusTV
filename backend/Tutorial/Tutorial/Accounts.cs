@@ -25,6 +25,7 @@ namespace Tutorial
         public bool showInv;
         public float[] positions = new float[4];
         public int Einreise;
+        public string CharacterData;
 
         public Accounts()
         {
@@ -36,6 +37,7 @@ namespace Tutorial
             this.Rang = 0;
             this.showInv = false;
             this.Einreise = 0;
+            this.CharacterData = "";
         }
 
         public Accounts(string Name, Player player)
@@ -49,6 +51,7 @@ namespace Tutorial
             this.Rang = 0;
             this.showInv = false;
             this.Einreise = 0;
+            this.CharacterData = "";
         }
 
         public static bool IstSpielerEingeloggt(Player player)
@@ -82,6 +85,8 @@ namespace Tutorial
             player.SetOwnSharedData("Account:Geld", Geld);
             if (Einreise == 1)
             {
+                player.TriggerEvent("showHideMoneyHud");
+                Events.OnCharacterCreated(player, CharacterData, false);
                 if (this.positions[0] != 0.0 && this.positions[1] != 0.0 && this.positions[2] != 0.0)
                 {
                     player.Position = new Vector3(this.positions[0], this.positions[1], this.positions[2]);
@@ -92,6 +97,16 @@ namespace Tutorial
             {
                 player.Position = new Vector3(405.64282, -993.8147, -99.004036);
                 player.Rotation = new Vector3(0.0, 0.0, 175.28539);
+                if (CharacterData.Length <= 0)
+                {
+                    player.TriggerEvent("showHideMoneyHud");
+                    player.TriggerEvent("charcreator-show");
+                }
+                else
+                {
+                    player.TriggerEvent("showHideMoneyHud");
+                    Events.OnCharacterCreated(player, CharacterData, false);
+                }
             }
         }
 

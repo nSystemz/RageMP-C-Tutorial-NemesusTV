@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 20. Mai 2022 um 17:44
+-- Erstellungszeit: 28. Mai 2022 um 22:45
 -- Server-Version: 10.4.21-MariaDB
 -- PHP-Version: 8.0.11
 
@@ -40,15 +40,16 @@ CREATE TABLE `accounts` (
   `posy` float NOT NULL,
   `posz` float NOT NULL,
   `posa` float NOT NULL,
-  `einreise` int(1) NOT NULL DEFAULT 0
+  `einreise` int(1) NOT NULL DEFAULT 0,
+  `characterdata` longtext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Daten für Tabelle `accounts`
 --
 
-INSERT INTO `accounts` (`id`, `name`, `password`, `adminlevel`, `geld`, `payday`, `fraktion`, `rang`, `posx`, `posy`, `posz`, `posa`, `einreise`) VALUES
-(2, 'Nemesus', '$2a$10$Y0XnAEu0moCEbJl6BAbXM.IGw7G1XgJFyebOVmWvBgc5wFYutlQ0.', 3, 5050, 45, 1, 6, -420.678, 1182.97, 325.642, 160.944, 0);
+INSERT INTO `accounts` (`id`, `name`, `password`, `adminlevel`, `geld`, `payday`, `fraktion`, `rang`, `posx`, `posy`, `posz`, `posa`, `einreise`, `characterdata`) VALUES
+(2, 'Nemesus', '$2a$10$Y0XnAEu0moCEbJl6BAbXM.IGw7G1XgJFyebOVmWvBgc5wFYutlQ0.', 3, 5050, 40, 1, 6, 401.444, -1003.79, -99.0041, 127.34, 1, '{\"gender\":\"Männlich\",\"firstname\":\"Test\",\"lastname\":\"Test\",\"birth\":\"01.01.2000\",\"size\":\"1m - 70cm\",\"origin\":\"Los-Santos\",\"hair\":[\"36\",15,0],\"beard\":[\"16\",15],\"blendData\":[0,0,0,0,0,0],\"faceFeatures\":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],\"clothing\":[0,0,0,\"45\"],\"headOverlays\":[-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1],\"headOverlaysColors\":[0,0,0,0,0,0,0,0,0,0,0,0],\"eyeColor\":[0]}');
 
 -- --------------------------------------------------------
 

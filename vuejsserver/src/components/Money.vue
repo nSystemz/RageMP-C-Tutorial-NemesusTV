@@ -1,5 +1,5 @@
 <template>
-  <div class="money">
+  <div class="money" v-if="moneyshow">
     <div id="moneyhud">
         {{money}}$
     </div>    
@@ -12,12 +12,16 @@ export default {
   data() {
       return {
           money: 0,
+          moneyshow: false,
       }
   },
   methods: {
       updateMoney: function(money) {
-          this.money = money;
-      }
+        this.money = money;
+      },
+      showHideMoney: function() {
+        this.moneyshow = !this.moneyshow;
+      },
   },
 }
 </script>

@@ -10,6 +10,11 @@ mp.events.add('showNotification', (text, iconpic) =>
     notifyHud.execute(`gui.notify.showNotification('${text}', '${iconpic}');`)
 });
 
+mp.events.add('showHideMoneyHud', () => 
+{
+    notifyHud.execute(`gui.money.showHideMoney();`)
+});
+
 mp.events.add('updatePB', (bar, wert) => 
 {
     notifyHud.execute(`gui.hud.updateProgressbar('${bar}', '${wert}');`)
