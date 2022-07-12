@@ -1,4 +1,5 @@
 let notifyHud = null;
+let cayoLoaded = false;
 
 mp.events.add('showHUD', () => 
 {
@@ -25,6 +26,14 @@ mp.events.addDataHandler("Account:Geld", (entity, value, oldValue) => {
     {
         notifyHud.execute(`gui.money.updateMoney('${value}');`)
     }
+});
+
+mp.keys.bind(0x72, false, () => {
+    cayoLoaded = !cayoLoaded;
+    mp.game.invoke("0x9A9D1BA639675CF1", "HeistIsland", cayoLoaded);
+    mp.game.invoke("0x5E1460624D194A38", cayoLoaded);
+
+    mp.gui.chat.push(`Insel geladen/nicht geladen!`);
 });
 
 setInterval(() => {

@@ -60,6 +60,19 @@ namespace Tutorial
             target.SendChatMessage($"Du wurdest {freezeText}!");
         }
 
+        [Command("cayo", "/cayo um dich nach Cayo Perico zu teleportieren")]
+        public void CMD_cayo(Player player)
+        {
+            Accounts account = player.GetData<Accounts>(Accounts.Account_Key);
+            if (!account.IstSpielerAdmin((int)Accounts.AdminRanks.Supporter))
+            {
+                player.SendChatMessage("~r~Dein Adminlevel ist zu gering!");
+                return;
+            }
+            player.Position = new Vector3(4840.571, -5174.425, 2.0);
+            player.SendChatMessage("Du hast dich nach Cayo Perico teleportiert!");
+        }
+
         [Command("einreise", "/einreise um einen Spieler einreisen zu lassen")]
         public void CMD_einreise(Player player, string playertarget)
         {
