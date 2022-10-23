@@ -46,6 +46,18 @@ namespace Tutorial
             NAPI.ClientEvent.TriggerClientEvent(player, "vSpawner");
         }
 
+        [Command("playmusic", "/playmusic um Musik abzuspiefen!")]
+        public void cmd_playmusic(Player player, string music)
+        {
+            Accounts account = player.GetData<Accounts>(Accounts.Account_Key);
+            if (!account.IstSpielerAdmin((int)Accounts.AdminRanks.Supporter))
+            {
+                player.SendChatMessage("~r~Dein Adminlevel ist zu gering!");
+                return;
+            }
+            NAPI.ClientEvent.TriggerClientEvent(player, "PlayMusic", music);
+        }
+
         [Command("freeze", "/freeze einen Spieler einfrieren")]
         public void CMD_FreezePlayer(Player player, Player target, bool freezestatus)
         {

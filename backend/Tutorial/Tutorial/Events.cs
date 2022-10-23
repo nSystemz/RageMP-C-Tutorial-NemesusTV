@@ -37,6 +37,8 @@ namespace Tutorial
             testMarker = NAPI.Marker.CreateMarker(42, new Vector3(-417.766, 1133.68, 325.905), new Vector3(0.0, 0.0, 0.0), new Vector3(0.0, 0.0, 0.0), 1.0f, new Color(255, 255, 255), false, 0);
             //Police Carspawner
             NAPI.TextLabel.CreateTextLabel("~w~Benutze Taste ~y~[F]~w~ um ein Fraktionsfahrzeug zu spawnen!", new Vector3(441.07944, -981.0528, 30.689598 + 0.5), 20.0f, 0.5f, 4, new Color(255, 255, 255));
+            //Discord
+            Discord.DiscordBot.StartDiscordBot();
             //Adminlog
             Utils.adminLog("Der Server wurde erfolgreich gestartet", "Server");
         }

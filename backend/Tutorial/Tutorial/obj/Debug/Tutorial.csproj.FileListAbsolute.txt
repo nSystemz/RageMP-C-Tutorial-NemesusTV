@@ -39,5 +39,4 @@ J:\Tutorials\Rage.mp-C-Tutorial-NemesusTV\dotnet\resources\Tutorial\Tutorial.run
 J:\Tutorials\Rage.mp-C-Tutorial-NemesusTV\dotnet\resources\Tutorial\Tutorial.runtimeconfig.dev.json
 J:\Tutorials\Rage.mp-C-Tutorial-NemesusTV\dotnet\resources\Tutorial\Tutorial.dll
 J:\Tutorials\Rage.mp-C-Tutorial-NemesusTV\dotnet\resources\Tutorial\Tutorial.pdb
-J:\Tutorials\Rage.mp-C-Tutorial-NemesusTV\backend\Tutorial\Tutorial\obj\Debug\Tutorial.csproj.AssemblyReference.cache
 J:\Tutorials\Rage.mp-C-Tutorial-NemesusTV\backend\Tutorial\Tutorial\obj\Debug\Tutorial.GeneratedMSBuildEditorConfig.editorconfig

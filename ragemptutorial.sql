@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 28. Mai 2022 um 22:45
+-- Erstellungszeit: 23. Okt 2022 um 18:05
 -- Server-Version: 10.4.21-MariaDB
 -- PHP-Version: 8.0.11
 
@@ -49,7 +49,8 @@ CREATE TABLE `accounts` (
 --
 
 INSERT INTO `accounts` (`id`, `name`, `password`, `adminlevel`, `geld`, `payday`, `fraktion`, `rang`, `posx`, `posy`, `posz`, `posa`, `einreise`, `characterdata`) VALUES
-(2, 'Nemesus', '$2a$10$Y0XnAEu0moCEbJl6BAbXM.IGw7G1XgJFyebOVmWvBgc5wFYutlQ0.', 3, 5050, 40, 1, 6, 401.444, -1003.79, -99.0041, 127.34, 1, '{\"gender\":\"Männlich\",\"firstname\":\"Test\",\"lastname\":\"Test\",\"birth\":\"01.01.2000\",\"size\":\"1m - 70cm\",\"origin\":\"Los-Santos\",\"hair\":[\"36\",15,0],\"beard\":[\"16\",15],\"blendData\":[0,0,0,0,0,0],\"faceFeatures\":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],\"clothing\":[0,0,0,\"45\"],\"headOverlays\":[-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1],\"headOverlaysColors\":[0,0,0,0,0,0,0,0,0,0,0,0],\"eyeColor\":[0]}');
+(2, 'Nemesus', '$2a$10$Y0XnAEu0moCEbJl6BAbXM.IGw7G1XgJFyebOVmWvBgc5wFYutlQ0.', 3, 5050, 40, 1, 6, 401.862, -1005.12, -99.0041, 155.828, 1, '{\"gender\":\"Männlich\",\"firstname\":\"Test\",\"lastname\":\"Test\",\"birth\":\"01.01.2000\",\"size\":\"1m - 70cm\",\"origin\":\"Los-Santos\",\"hair\":[\"36\",15,0],\"beard\":[\"16\",15],\"blendData\":[0,0,0,0,0,0],\"faceFeatures\":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],\"clothing\":[0,0,0,\"45\"],\"headOverlays\":[-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1],\"headOverlaysColors\":[0,0,0,0,0,0,0,0,0,0,0,0],\"eyeColor\":[0]}'),
+(3, 'WeirdNewbie', '$2a$10$8LXC/OFCR71YqlGF8LXU2ORlhvi88uGT37T5n/YKD5IUh0xQHhBKi', 3, 5000, 59, 0, 0, 401.728, -1003.62, -99.0041, 127.031, 0, '{\"gender\":\"Männlich\",\"firstname\":\"\",\"lastname\":\"\",\"birth\":\"01.01.2000\",\"size\":\"1m - 70cm\",\"origin\":\"Los-Santos\",\"hair\":[0,0,0],\"beard\":[0,0],\"blendData\":[0,0,0,0,0,0],\"faceFeatures\":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],\"clothing\":[0,0,0,0],\"headOverlays\":[-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1],\"headOverlaysColors\":[0,0,0,0,0,0,0,0,0,0,0,0],\"eyeColor\":[0]}');
 
 -- --------------------------------------------------------
 
@@ -193,7 +194,7 @@ ALTER TABLE `whitelist`
 -- AUTO_INCREMENT für Tabelle `accounts`
 --
 ALTER TABLE `accounts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT für Tabelle `factions`

@@ -4943,3 +4943,1462 @@ System.InvalidOperationException: Connection must be valid and open.
 ==================[09.04.2022 11:38:37]==================
 System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
  ---> System
+==================[01.10.2022 12:50:08]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte. 127.0.0.1:3306
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[01.10.2022 12:50:08]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte. 127.0.0.1:3306
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at bool System.Net.Sockets.Socket.DoMultipleAddressConnectCallback(object result, MultipleAddressConnectAsyncResult context)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[01.10.2022 12:50:08]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte. 127.0.0.1:3306
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at bool System.Net.Sockets.Socket.DoMultipleAddressConnectCallback(object result, MultipleAddressConnectAsyncResult context)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at bool System.Net.Sockets.Socket.DoMultipleAddressConnectCallback(object result, MultipleAddressConnectAsyncResult context)
+   at void System.Net.Sockets.Socket.MultipleAddressConnectCallback(IAsyncResult result)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[01.10.2022 12:50:08]==================
+System.AggregateException: One or more errors occurred. (Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte. 127.0.0.1:3306)
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte. 127.0.0.1:3306
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at bool System.Net.Sockets.Socket.DoMultipleAddressConnectCallback(object result, MultipleAddressConnectAsyncResult context)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at bool System.Net.Sockets.Socket.DoMultipleAddressConnectCallback(object result, MultipleAddressConnectAsyncResult context)
+   at void System.Net.Sockets.Socket.MultipleAddressConnectCallback(IAsyncResult result)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at void System.Net.Sockets.TcpClient.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.TcpClient.ConnectAsync(string host, int port)+(IAsyncResult asyncResult) => { } [1]
+   at void System.Threading.Tasks.TaskFactory<TResult>.FromAsyncCoreLogic(IAsyncResult iar, Func<IAsyncResult, TResult> endFunction, Action<IAsyncResult> endAction, Task<TResult> promise, bool requiresSynchronization)
+   --- End of inner exception stack trace ---
+   at void System.Threading.Tasks.Task.ThrowIfExceptional(bool includeTaskCanceledExceptions)
+=========================================================
+
+==================[01.10.2022 12:50:08]==================
+System.IO.FileNotFoundException: Could not load file or assembly 'J:\Tutorials\Rage.mp-C-Tutorial-NemesusTV\dotnet\resources\Tutorial\MySql.Data.resources.dll'. Das System kann die angegebene Datei nicht finden.
+File name: 'J:\Tutorials\Rage.mp-C-Tutorial-NemesusTV\dotnet\resources\Tutorial\MySql.Data.resources.dll'
+   at void System.Runtime.Loader.AssemblyLoadContext.LoadFromPath(IntPtr ptrNativeAssemblyLoadContext, string ilPath, string niPath, ObjectHandleOnStack retAssembly)
+
+
+=========================================================
+
+==================[01.10.2022 12:50:08]==================
+System.IO.FileNotFoundException: Could not load file or assembly 'J:\Tutorials\Rage.mp-C-Tutorial-NemesusTV\dotnet\resources\Tutorial\MySql.Data.resources.dll'. Das System kann die angegebene Datei nicht finden.
+File name: 'J:\Tutorials\Rage.mp-C-Tutorial-NemesusTV\dotnet\resources\Tutorial\MySql.Data.resources.dll'
+   at void System.Runtime.Loader.AssemblyLoadContext.LoadFromPath(IntPtr ptrNativeAssemblyLoadContext, string ilPath, string niPath, ObjectHandleOnStack retAssembly)
+
+
+=========================================================
+
+==================[01.10.2022 12:50:08]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+ ---> System.AggregateException: One or more errors occurred. (Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte. 127.0.0.1:3306)
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte. 127.0.0.1:3306
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at bool System.Net.Sockets.Socket.DoMultipleAddressConnectCallback(object result, MultipleAddressConnectAsyncResult context)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at bool System.Net.Sockets.Socket.DoMultipleAddressConnectCallback(object result, MultipleAddressConnectAsyncResult context)
+   at void System.Net.Sockets.Socket.MultipleAddressConnectCallback(IAsyncResult result)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at void System.Net.Sockets.TcpClient.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.TcpClient.ConnectAsync(string host, int port)+(IAsyncResult asyncResult) => { } [1]
+   at void System.Threading.Tasks.TaskFactory<TResult>.FromAsyncCoreLogic(IAsyncResult iar, Func<IAsyncResult, TResult> endFunction, Action<IAsyncResult> endAction, Task<TResult> promise, bool requiresSynchronization)
+   --- End of inner exception stack trace ---
+   at void System.Threading.Tasks.Task.ThrowIfExceptional(bool includeTaskCanceledExceptions)
+   at bool System.Threading.Tasks.Task.Wait(int millisecondsTimeout, CancellationToken cancellationToken)
+   at bool System.Threading.Tasks.Task.Wait(int millisecondsTimeout)
+   at Stream MySql.Data.Common.StreamCreator.GetTcpStream(MySqlConnectionStringBuilder settings, ref MyNetworkStream networkStream)
+   at Stream MySql.Data.Common.StreamCreator.GetStream(MySqlConnectionStringBuilder settings, ref MyNetworkStream networkStream)
+   at void MySql.Data.MySqlClient.NativeDriver.Open()
+   at void MySql.Data.MySqlClient.NativeDriver.Open()
+=========================================================
+
+==================[01.10.2022 12:50:08]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+ ---> System.AggregateException: One or more errors occurred. (Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte. 127.0.0.1:3306)
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte. 127.0.0.1:3306
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at bool System.Net.Sockets.Socket.DoMultipleAddressConnectCallback(object result, MultipleAddressConnectAsyncResult context)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at bool System.Net.Sockets.Socket.DoMultipleAddressConnectCallback(object result, MultipleAddressConnectAsyncResult context)
+   at void System.Net.Sockets.Socket.MultipleAddressConnectCallback(IAsyncResult result)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at void System.Net.Sockets.TcpClient.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.TcpClient.ConnectAsync(string host, int port)+(IAsyncResult asyncResult) => { } [1]
+   at void System.Threading.Tasks.TaskFactory<TResult>.FromAsyncCoreLogic(IAsyncResult iar, Func<IAsyncResult, TResult> endFunction, Action<IAsyncResult> endAction, Task<TResult> promise, bool requiresSynchronization)
+   --- End of inner exception stack trace ---
+   at void System.Threading.Tasks.Task.ThrowIfExceptional(bool includeTaskCanceledExceptions)
+   at bool System.Threading.Tasks.Task.Wait(int millisecondsTimeout, CancellationToken cancellationToken)
+   at bool System.Threading.Tasks.Task.Wait(int millisecondsTimeout)
+   at Stream MySql.Data.Common.StreamCreator.GetTcpStream(MySqlConnectionStringBuilder settings, ref MyNetworkStream networkStream)
+   at Stream MySql.Data.Common.StreamCreator.GetStream(MySqlConnectionStringBuilder settings, ref MyNetworkStream networkStream)
+   at void MySql.Data.MySqlClient.NativeDriver.Open()
+   at void MySql.Data.MySqlClient.NativeDriver.Open()
+   at void MySql.Data.MySqlClient.Driver.Open()
+   at Driver MySql.Data.MySqlClient.Driver.Create(MySqlConnectionStringBuilder settings)
+=========================================================
+
+==================[01.10.2022 12:50:08]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+ ---> System.AggregateException: One or more errors occurred. (Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte. 127.0.0.1:3306)
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte. 127.0.0.1:3306
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at bool System.Net.Sockets.Socket.DoMultipleAddressConnectCallback(object result, MultipleAddressConnectAsyncResult context)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at bool System.Net.Sockets.Socket.DoMultipleAddressConnectCallback(object result, MultipleAddressConnectAsyncResult context)
+   at void System.Net.Sockets.Socket.MultipleAddressConnectCallback(IAsyncResult result)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at void System.Net.Sockets.TcpClient.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.TcpClient.ConnectAsync(string host, int port)+(IAsyncResult asyncResult) => { } [1]
+   at void System.Threading.Tasks.TaskFactory<TResult>.FromAsyncCoreLogic(IAsyncResult iar, Func<IAsyncResult, TResult> endFunction, Action<IAsyncResult> endAction, Task<TResult> promise, bool requiresSynchronization)
+   --- End of inner exception stack trace ---
+   at void System.Threading.Tasks.Task.ThrowIfExceptional(bool includeTaskCanceledExceptions)
+   at bool System.Threading.Tasks.Task.Wait(int millisecondsTimeout, CancellationToken cancellationToken)
+   at bool System.Threading.Tasks.Task.Wait(int millisecondsTimeout)
+   at Stream MySql.Data.Common.StreamCreator.GetTcpStream(MySqlConnectionStringBuilder
+==================[11.10.2022 17:14:35]==================
+Discord.Net.WebSocketClosedException: The server sent close 4003: "Not authenticated."
+   at async Task Discord.Net.WebSockets.DefaultWebSocketClient.RunAsync(CancellationToken cancelToken)
+=========================================================
+
+==================[11.10.2022 17:14:35]==================
+System.Exception: WebSocket connection was closed
+ ---> Discord.Net.WebSocketClosedException: The server sent close 4003: "Not authenticated."
+   at async Task Discord.Net.WebSockets.DefaultWebSocketClient.RunAsync(CancellationToken cancelToken)
+   --- End of inner exception stack trace ---
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[11.10.2022 17:14:35]==================
+System.Threading.Tasks.TaskCanceledException: A task was canceled.
+   at void System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+=========================================================
+
+==================[11.10.2022 17:14:36]==================
+Discord.Net.WebSocketClosedException: The server sent close 4004: "Authentication failed."
+   at async Task Discord.Net.WebSockets.DefaultWebSocketClient.RunAsync(CancellationToken cancelToken)
+=========================================================
+
+==================[11.10.2022 17:14:36]==================
+System.Exception: WebSocket connection was closed
+ ---> Discord.Net.WebSocketClosedException: The server sent close 4004: "Authentication failed."
+   at async Task Discord.Net.WebSockets.DefaultWebSocketClient.RunAsync(CancellationToken cancelToken)
+   --- End of inner exception stack trace ---
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[11.10.2022 17:14:36]==================
+System.Exception: WebSocket connection was closed
+ ---> Discord.Net.WebSocketClosedException: The server sent close 4004: "Authentication failed."
+   at async Task Discord.Net.WebSockets.DefaultWebSocketClient.RunAsync(CancellationToken cancelToken)
+   --- End of inner exception stack trace ---
+   at async Task Discord.ConnectionManager.WaitAsync()
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[11.10.2022 17:14:36]==================
+System.Exception: WebSocket connection was closed
+ ---> Discord.Net.WebSocketClosedException: The server sent close 4004: "Authentication failed."
+   at async Task Discord.Net.WebSockets.DefaultWebSocketClient.RunAsync(CancellationToken cancelToken)
+   --- End of inner exception stack trace ---
+   at async Task Discord.ConnectionManager.WaitAsync()
+   at async Task Discord.WebSocket.DiscordSocketClient.OnConnectingAsync()
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[11.10.2022 17:14:36]==================
+System.Threading.Tasks.TaskCanceledException: A task was canceled.
+   at void System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+=========================================================
+
+==================[11.10.2022 17:14:36]==================
+System.Threading.Tasks.TaskCanceledException: A task was canceled.
+   at void System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+=========================================================
+
+==================[11.10.2022 17:14:36]==================
+System.Exception: WebSocket connection was closed
+ ---> Discord.Net.WebSocketClosedException: The server sent close 4004: "Authentication failed."
+   at async Task Discord.Net.WebSockets.DefaultWebSocketClient.RunAsync(CancellationToken cancelToken)
+   --- End of inner exception stack trace ---
+   at async Task Discord.ConnectionManager.WaitAsync()
+   at async Task Discord.WebSocket.DiscordSocketClient.OnConnectingAsync()
+   at async Task Discord.ConnectionManager.ConnectAsync(CancellationTokenSource reconnectCancelToken)
+=========================================================
+
+==================[11.10.2022 17:14:36]==================
+System.Exception: WebSocket connection was closed
+ ---> Discord.Net.WebSocketClosedException: The server sent close 4004: "Authentication failed."
+   at async Task Discord.Net.WebSockets.DefaultWebSocketClient.RunAsync(CancellationToken cancelToken)
+   --- End of inner exception stack trace ---
+   at async Task Discord.ConnectionManager.WaitAsync()
+   at async Task Discord.WebSocket.DiscordSocketClient.OnConnectingAsync()
+   at async Task Discord.ConnectionManager.ConnectAsync(CancellationTokenSource reconnectCancelToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[11.10.2022 17:14:39]==================
+Discord.Net.WebSocketClosedException: The server sent close 4004: "Authentication failed."
+   at async Task Discord.Net.WebSockets.DefaultWebSocketClient.RunAsync(CancellationToken cancelToken)
+=========================================================
+
+==================[11.10.2022 17:14:39]==================
+System.Exception: WebSocket connection was closed
+ ---> Discord.Net.WebSocketClosedException: The server sent close 4004: "Authentication failed."
+   at async Task Discord.Net.WebSockets.DefaultWebSocketClient.RunAsync(CancellationToken cancelToken)
+   --- End of inner exception stack trace ---
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[11.10.2022 17:14:39]==================
+System.Exception: WebSocket connection was closed
+ ---> Discord.Net.WebSocketClosedException: The server sent close 4004: "Authentication failed."
+   at async Task Discord.Net.WebSockets.DefaultWebSocketClient.RunAsync(CancellationToken cancelToken)
+   --- End of inner exception stack trace ---
+   at async Task Discord.ConnectionManager.WaitAsync()
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[11.10.2022 17:14:39]==================
+System.Exception: WebSocket connection was closed
+ ---> Discord.Net.WebSocketClosedException: The server sent close 4004: "Authentication failed."
+   at async Task Discord.Net.WebSockets.DefaultWebSocketClient.RunAsync(CancellationToken cancelToken)
+   --- End of inner exception stack trace ---
+   at async Task Discord.ConnectionManager.WaitAsync()
+   at async Task Discord.WebSocket.DiscordSocketClient.OnConnectingAsync()
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[11.10.2022 17:14:39]==================
+System.Threading.Tasks.TaskCanceledException: A task was canceled.
+   at void System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+=========================================================
+
+==================[11.10.2022 17:14:39]==================
+System.Threading.Tasks.TaskCanceledException: A task was canceled.
+   at void System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+=========================================================
+
+==================[11.10.2022 17:14:39]==================
+System.Exception: WebSocket connection was closed
+ ---> Discord.Net.WebSocketClosedException: The server sent close 4004: "Authentication failed."
+   at async Task Discord.Net.WebSockets.DefaultWebSocketClient.RunAsync(CancellationToken cancelToken)
+   --- End of inner exception stack trace ---
+   at async Task Discord.ConnectionManager.WaitAsync()
+   at async Task Discord.WebSocket.DiscordSocketClient.OnConnectingAsync()
+   at async Task Discord.ConnectionManager.ConnectAsync(CancellationTokenSource reconnectCancelToken)
+=========================================================
+
+==================[11.10.2022 17:14:39]==================
+System.Exception: WebSocket connection was closed
+ ---> Discord.Net.WebSocketClosedException: The server sent close 4004: "Authentication failed."
+   at async Task Discord.Net.WebSockets.DefaultWebSocketClient.RunAsync(CancellationToken cancelToken)
+   --- End of inner exception stack trace ---
+   at async Task Discord.ConnectionManager.WaitAsync()
+   at async Task Discord.WebSocket.DiscordSocketClient.OnConnectingAsync()
+   at async Task Discord.ConnectionManager.ConnectAsync(CancellationTokenSource reconnectCancelToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[11.10.2022 17:14:44]==================
+Discord.Net.WebSocketClosedException: The server sent close 4004: "Authentication failed."
+   at async Task Discord.Net.WebSockets.DefaultWebSocketClient.RunAsync(CancellationToken cancelToken)
+=========================================================
+
+==================[11.10.2022 17:14:44]==================
+System.Exception: WebSocket connection was closed
+ ---> Discord.Net.WebSocketClosedException: The server sent close 4004: "Authentication failed."
+   at async Task Discord.Net.WebSockets.DefaultWebSocketClient.RunAsync(CancellationToken cancelToken)
+   --- End of inner exception stack trace ---
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[11.10.2022 17:14:44]==================
+System.Exception: WebSocket connection was closed
+ ---> Discord.Net.WebSocketClosedException: The server sent close 4004: "Authentication failed."
+   at async Task Discord.Net.WebSockets.DefaultWebSocketClient.RunAsync(CancellationToken cancelToken)
+   --- End of inner exception stack trace ---
+   at async Task Discord.ConnectionManager.WaitAsync()
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[11.10.2022 17:14:44]==================
+System.Exception: WebSocket connection was closed
+ ---> Discord.Net.WebSocketClosedException: The server sent close 4004: "Authentication failed."
+   at async Task Discord.Net.WebSockets.DefaultWebSocketClient.RunAsync(CancellationToken cancelToken)
+   --- End of inner exception stack trace ---
+   at async Task Discord.ConnectionManager.WaitAsync()
+   at async Task Discord.WebSocket.DiscordSocketClient.OnConnectingAsync()
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[11.10.2022 17:14:44]==================
+System.Threading.Tasks.TaskCanceledException: A task was canceled.
+   at void System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+=========================================================
+
+==================[11.10.2022 17:14:44]==================
+System.Threading.Tasks.TaskCanceledException: A task was canceled.
+   at void System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+=========================================================
+
+==================[11.10.2022 17:14:44]==================
+System.Exception: WebSocket connection was closed
+ ---> Discord.Net.WebSocketClosedException: The server sent close 4004: "Authentication failed."
+   at async Task Discord.Net.WebSockets.DefaultWebSocketClient.RunAsync(CancellationToken cancelToken)
+   --- End of inner exception stack trace ---
+   at async Task Discord.ConnectionManager.WaitAsync()
+   at async Task Discord.WebSocket.DiscordSocketClient.OnConnectingAsync()
+   at async Task Discord.ConnectionManager.ConnectAsync(CancellationTokenSource reconnectCancelToken)
+=========================================================
+
+==================[11.10.2022 17:14:44]==================
+System.Exception: WebSocket connection was closed
+ ---> Discord.Net.WebSocketClosedException: The server sent clo
+==================[23.10.2022 15:44:51]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+=========================================================
+
+==================[23.10.2022 15:44:51]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 15:44:51]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 15:44:51]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 15:44:51]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at async Task<TResponse> Discord.API.DiscordRestApiClient.SendAsync<TResponse>(string method, string endpoint, BucketId bucketId, ClientBucketType clientBucket, RequestOptions options)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 15:44:51]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at async Task<TResponse> Discord.API.DiscordRestApiClient.SendAsync<TResponse>(string method, string endpoint, BucketId bucketId, ClientBucketType clientBucket, RequestOptions options)
+   at async Task<GetBotGatewayResponse> Discord.API.DiscordRestApiClient.GetBotGatewayAsync(RequestOptions options)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 15:44:51]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at async Task<TResponse> Discord.API.DiscordRestApiClient.SendAsync<TResponse>(string method, string endpoint, BucketId bucketId, ClientBucketType clientBucket, RequestOptions options)
+   at async Task<GetBotGatewayResponse> Discord.API.DiscordRestApiClient.GetBotGatewayAsync(RequestOptions options)
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 15:44:51]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at async Task<TResponse> Discord.API.DiscordRestApiClient.SendAsync<TResponse>(string method, string endpoint, BucketId bucketId, ClientBucketType clientBucket, RequestOptions options)
+   at async Task<GetBotGatewayResponse> Discord.API.DiscordRestApiClient.GetBotGatewayAsync(RequestOptions options)
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 15:44:51]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at async Task<TResponse> Discord.API.DiscordRestApiClient.SendAsync<TResponse>(string method, string endpoint, BucketId bucketId, ClientBucketType clientBucket, RequestOptions options)
+   at async Task<GetBotGatewayResponse> Discord.API.DiscordRestApiClient.GetBotGatewayAsync(RequestOptions options)
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at async Task Discord.API.DiscordSocketApiClient.ConnectAsync()
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 15:44:51]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at async Task<TResponse> Discord.API.DiscordRestApiClient.SendAsync<TResponse>(string method, string endpoint, BucketId bucketId, ClientBucketType clientBucket, RequestOptions options)
+   at async Task<GetBotGatewayResponse> Discord.API.DiscordRestApiClient.GetBotGatewayAsync(RequestOptions options)
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at async Task Discord.API.DiscordSocketApiClient.ConnectAsync()
+   at async Task Discord.WebSocket.DiscordSocketClient.OnConnectingAsync()
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 15:44:51]==================
+System.Threading.Tasks.TaskCanceledException: A task was canceled.
+   at void System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+=========================================================
+
+==================[23.10.2022 15:44:51]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at async Task<TResponse> Discord.API.DiscordRestApiClient.SendAsync<TResponse>(string method, string endpoint, BucketId bucketId, ClientBucketType clientBucket, RequestOptions options)
+   at async Task<GetBotGatewayResponse> Discord.API.DiscordRestApiClient.GetBotGatewayAsync(RequestOptions options)
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at async Task Discord.API.DiscordSocketApiClient.ConnectAsync()
+   at async Task Discord.WebSocket.DiscordSocketClient.OnConnectingAsync()
+   at async Task Discord.ConnectionManager.ConnectAsync(CancellationTokenSource reconnectCancelToken)
+=========================================================
+
+==================[23.10.2022 15:44:51]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at async Task<TResponse> Discord.API.DiscordRestApiClient.SendAsync<TResponse>(string method, string endpoint, BucketId bucketId, ClientBucketType clientBucket, RequestOptions options)
+   at async Task<GetBotGatewayResponse> Discord.API.DiscordRestApiClient.GetBotGatewayAsync(RequestOptions options)
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at async Task Discord.API.DiscordSocketApiClient.ConnectAsync()
+   at async Task Discord.WebSocket.DiscordSocketClient.OnConnectingAsync()
+   at async Task Discord.ConnectionManager.ConnectAsync(CancellationTokenSource reconnectCancelToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 15:44:52]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+=========================================================
+
+==================[23.10.2022 15:44:52]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 15:44:52]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 15:44:52]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 15:44:52]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at async Task<TResponse> Discord.API.DiscordRestApiClient.SendAsync<TResponse>(string method, string endpoint, BucketId bucketId, ClientBucketType clientBucket, RequestOptions options)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 15:44:52]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at async Task<TResponse> Discord.API.DiscordRestApiClient.SendAsync<TResponse>(string method, string endpoint, BucketId bucketId, ClientBucketType clientBucket, RequestOptions options)
+   at async Task<GetBotGatewayResponse> Discord.API.DiscordRestApiClient.GetBotGatewayAsync(RequestOptions options)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 15:44:52]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at async Task<TResponse> Discord.API.DiscordRestApiClient.SendAsync<TResponse>(string method, string endpoint, BucketId bucketId, ClientBucketType clientBucket, RequestOptions options)
+   at async Task<GetBotGatewayResponse> Discord.API.DiscordRestApiClient.GetBotGatewayAsync(RequestOptions options)
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 15:44:52]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at async Task<TResponse> Discord.API.DiscordRestApiClient.SendAsync<TResponse>(string method, string endpoint, BucketId bucketId, ClientBucketType clientBucket, RequestOptions options)
+   at async Task<GetBotGatewayResponse> Discord.API.DiscordRestApiClient.GetBotGatewayAsync(RequestOptions options)
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 15:44:52]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at async Task<TResponse> Discord.API.DiscordRestApiClient.SendAsync<TResponse>(string method, string endpoint, BucketId bucketId, ClientBucketType clientBucket, RequestOptions options)
+   at async Task<GetBotGatewayResponse> Discord.API.DiscordRestApiClient.GetBotGatewayAsync(RequestOptions options)
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at async Task Discord.API.DiscordSocketApiClient.ConnectAsync()
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 15:44:52]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at async Task<TResponse> Discord.API.DiscordRestApiClient.SendAsync<TResponse>(string method, string endpoint, BucketId bucketId, ClientBucketType clientBucket, RequestOptions options)
+   at async Task<GetBotGatewayResponse> Discord.API.DiscordRestApiClient.GetBotGatewayAsync(RequestOptions options)
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at async Task Discord.API.DiscordSocketApiClient.ConnectAsync()
+   at async Task Discord.WebSocket.DiscordSocketClient.OnConnectingAsync()
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 15:44:52]==================
+System.Threading.Tasks.TaskCanceledException: A task was canceled.
+   at void System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+=========================================================
+
+==================[23.10.2022 15:44:52]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at async Task<TResponse> Discord.API.DiscordRestApiClient.SendAsync<TResponse>(string method, string endpoint, BucketId bucketId, ClientBucketType clientBucket, RequestOptions options)
+   at async Task<GetBotGatewayResponse> Discord.API.DiscordRestApiClient.GetBotGatewayAsync(RequestOptions options)
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at async Task Discord.API.DiscordSocketApiClient.ConnectAsync()
+   at async Task Discord.WebSocket.DiscordSocketClient.OnConnectingAsync()
+   at async Task Discord.ConnectionManager.ConnectAsync(CancellationTokenSource reconnectCancelToken)
+=========================================================
+
+==================[23.10.2022 15:44:52]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at async Task<TResponse> Discord.API.DiscordRestApiClient.SendAsync<TResponse>(string method, string endpoint, BucketId bucketId, ClientBucketType clientBucket, RequestOptions options)
+   at async Task<GetBotGatewayResponse> Discord.API.DiscordRestApiClient.GetBotGatewayAsync(RequestOptions options)
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at async Task Discord.API.DiscordSocketApiClient.ConnectAsync()
+   at async Task Discord.WebSocket.DiscordSocketClient.OnConnectingAsync()
+   at async Task Discord.ConnectionManager.ConnectAsync(CancellationTokenSource reconnectCancelToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 15:44:54]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+=========================================================
+
+==================[23.10.2022 15:44:54]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 15:44:54]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 15:44:54]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 15:44:54]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at async Task<TResponse> Discord.API.DiscordRestApiClient.SendAsync<TResponse>(string method, string endpoint, BucketId bucketId, ClientBucketType clientBucket, RequestOptions options)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 15:44:54]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at async Task<TResponse> Discord.API.DiscordRestApiClient.SendAsync<TResponse>(string method, string endpoint, BucketId bucketId, ClientBucketType clientBucket, RequestOptions options)
+   at async Task<GetBotGatewayResponse> Discord.API.DiscordRestApiClient.GetBotGatewayAsync(RequestOptions options)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 15:44:54]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at async Task<TResponse> Discord.API.DiscordRestApiClient.SendAsync<TResponse>(string method, string endpoint, BucketId bucketId, ClientBucketType clientBucket, RequestOptions options)
+   at async Task<GetBotGatewayResponse> Discord.API.DiscordRestApiClient.GetBotGatewayAsync(RequestOptions options)
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 15:44:54]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at async Task<TResponse> Discord.API.DiscordRestApiClient.SendAsync<TResponse>(string method, string endpoint, BucketId bucketId, ClientBucketType clientBucket, RequestOptions options)
+   at async Task<GetBotGatewayResponse> Discord.API.DiscordRestApiClient.GetBotGatewayAsync(RequestOptions options)
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 15:44:54]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at async Task<TResponse> Discord.API.DiscordRestApiClient.SendAsync<TResponse>(string method, string endpoint, BucketId bucketId, ClientBucketType clientBucket, RequestOptions options)
+   at async Task<GetBotGatewayResponse> Discord.API.DiscordRestApiClient.GetBotGatewayAsync(RequestOptions options)
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at async Task Discord.API.DiscordSocketApiClient.ConnectAsync()
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 15:44:54]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at async Task<TResponse> Discord.API.DiscordRestApiClient.SendAsync<TResponse>(string method, string endpoint, BucketId bucketId, ClientBucketType clientBucket, RequestOptions options)
+   at async Task<GetBotGatewayResponse> Discord.API.DiscordRestApiClient.GetBotGatewayAsync(RequestOptions options)
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at async Task Discord.API.DiscordSocketApiClient.ConnectAsync()
+   at async Task Discord.WebSocket.DiscordSocketClient.OnConnectingAsync()
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 15:44:54]==================
+System.Threading.Tasks.TaskCanceledException: A task was canceled.
+   at void System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+=========================================================
+
+==================[23.10.2022 15:44:54]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at async Task<TResponse> Discord.API.DiscordRestApiClient.SendAsync<TResponse>(string method, string endpoint, BucketId bucketId, ClientBucketType clientBucket, RequestOptions options)
+   at async Task<GetBotGatewayResponse> Discord.API.DiscordRestApiClient.GetBotGatewayAsync(RequestOptions options)
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at async Task Discord.API.DiscordSocketApiClient.ConnectAsync()
+   at async Task Discord.WebSocket.DiscordSocketClient.OnConnectingAsync()
+   at async Task Discord.ConnectionManager.ConnectAsync(CancellationTokenSource reconnectCancelToken)
+=========================================================
+
+==================[23.10.2022 15:44:54]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at async Task<TResponse> Discord.API.DiscordRestApiClient.SendAsync<TResponse>(string method, string endpoint, BucketId bucketId, ClientBucketType clientBucket, RequestOptions options)
+   at async Task<GetBotGatewayResponse> Discord.API.DiscordRestApiClient.GetBotGatewayAsync(RequestOptions options)
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at async Task Discord.API.DiscordSocketApiClient.ConnectAsync()
+   at async Task Discord.WebSocket.DiscordSocketClient.OnConnectingAsync()
+   at async Task Discord.ConnectionManager.ConnectAsync(CancellationTokenSource reconnectCancelToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 15:44:58]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+=========================================================
+
+==================[23.10.2022 15:44:58]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 15:44:58]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 15:44:58]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 15:44:58]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at async Task<TResponse> Discord.API.DiscordRestApiClient.SendAsync<TResponse>(string method, string endpoint, BucketId bucketId, ClientBucketType clientBucket, RequestOptions options)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 15:44:58]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at async Task<TResponse> Discord.API.DiscordRestApiClient.SendAsync<TResponse>(string method, string endpoint, BucketId bucketId, ClientBucketType clientBucket, RequestOptions options)
+   at async Task<GetBotGatewayResponse> Discord.API.DiscordRestApiClient.GetBotGatewayAsync(RequestOptions options)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 15:44:58]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at async Task<TResponse> Discord.API.DiscordRestApiClient.SendAsync<TResponse>(string method, string endpoint, BucketId bucketId, ClientBucketType clientBucket, RequestOptions options)
+   at async Task<GetBotGatewayResponse> Discord.API.DiscordRestApiClient.GetBotGatewayAsync(RequestOptions options)
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 15:44:58]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at async Task<TResponse> Discord.API.DiscordRestApiClient.SendAsync<TResponse>(string method, string endpoint, BucketId bucketId, ClientBucketType clientBucket, RequestOptions options)
+   at async Task<GetBotGatewayResponse> Discord.API.DiscordRestApiClient.GetBotGatewayAsync(RequestOptions options)
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 15:44:58]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at async Task<TResponse> Discord.API.DiscordRestApiClient.SendAsync<TResponse>(string method, string endpoint, BucketId bucketId, ClientBucketType clientBucket, RequestOptions options)
+   at async Task<GetBotGatewayResponse> Discord.API.DiscordRestApiClient.GetBotGatewayAsync(RequestOptions options)
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at async Task Discord.API.DiscordSocketApiClient.ConnectAsync()
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 15:44:58]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at async Task<TResponse> Discord.API.DiscordRestApiClient.SendAsync<TResponse>(string method, string endpoint, BucketId bucketId, ClientBucketType clientBucket, RequestOptions options)
+   at async Task<GetBotGatewayResponse> Discord.API.DiscordRestApiClient.GetBotGatewayAsync(RequestOptions options)
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at async Task Discord.API.DiscordSocketApiClient.ConnectAsync()
+   at async Task Discord.WebSocket.DiscordSocketClient.OnConnectingAsync()
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 15:44:58]==================
+System.Threading.Tasks.TaskCanceledException: A task was canceled.
+   at void System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+=========================================================
+
+==================[23.10.2022 15:44:58]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at async Task<TResponse> Discord.API.DiscordRestApiClient.SendAsync<TResponse>(string method, string endpoint, BucketId bucketId, ClientBucketType clientBucket, RequestOptions options)
+   at async Task<GetBotGatewayResponse> Discord.API.DiscordRestApiClient.GetBotGatewayAsync(RequestOptions options)
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at async Task Discord.API.DiscordSocketApiClient.ConnectAsync()
+   at async Task Discord.WebSocket.DiscordSocketClient.OnConnectingAsync()
+   at async Task Discord.ConnectionManager.ConnectAsync(CancellationTokenSource reconnectCancelToken)
+=========================================================
+
+==================[23.10.2022 15:44:58]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at async Task<TResponse> Discord.API.DiscordRestApiClient.SendAsync<TResponse>(string method, string endpoint, BucketId bucketId, ClientBucketType clientBucket, RequestOptions options)
+   at async Task<GetBotGatewayResponse> Discord.API.DiscordRestApiClient.GetBotGatewayAsync(RequestOptions options)
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at async Task Discord.API.DiscordSocketApiClient.ConnectAsync()
+   at async Task Discord.WebSocket.DiscordSocketClient.OnConnectingAsync()
+   at async Task Discord.ConnectionManager.ConnectAsync(CancellationTokenSource reconnectCancelToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 15:45:06]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+=========================================================
+
+==================[23.10.2022 15:45:06]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 15:45:06]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 15:45:06]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 15:45:06]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at async Task<TResponse> Discord.API.DiscordRestApiClient.SendAsync<TResponse>(string method, string endpoint, BucketId bucketId, ClientBucketType clientBucket, RequestOptions options)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 15:45:06]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at async Task<TResponse> Discord.API.DiscordRestApiClient.SendAsync<TResponse>(string method, string endpoint, BucketId bucketId, ClientBucketType clientBucket, RequestOptions options)
+   at async Task<GetBotGatewayResponse> Discord.API.DiscordRestApiClient.GetBotGatewayAsync(RequestOptions options)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 15:45:06]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at async Task<TResponse> Discord.API.DiscordRestApiClient.SendAsync<TResponse>(string method, string endpoint, BucketId bucketId, ClientBucketType clientBucket, RequestOptions options)
+   at async Task<GetBotGatewayResponse> Discord.API.DiscordRestApiClient.GetBotGatewayAsync(RequestOptions options)
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 15:45:06]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at async Task<TResponse> Discord.API.DiscordRestApiClient.SendAsync<TResponse>(string method, string endpoint, BucketId bucketId, ClientBucketType clientBucket, RequestOptions options)
+   at async Task<GetBotGatewayResponse> Discord.API.DiscordRestApiClient.GetBotGatewayAsync(RequestOptions options)
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 15:45:06]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at async Task<TResponse> Discord.API.DiscordRestApiClient.SendAsync<TResponse>(string method, string endpoint, BucketId bucketId, ClientBucketType clientBucket, RequestOptions options)
+   at async Task<GetBotGatewayResponse> Discord.API.DiscordRestApiClient.GetBotGatewayAsync(RequestOptions options)
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at async Task Discord.API.DiscordSocketApiClient.ConnectAsync()
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 15:45:06]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at async Task<TResponse> Discord.API.DiscordRestApiClient.SendAsync<TResponse>(string method, string endpoint, BucketId bucketId, ClientBucketType clientBucket, RequestOptions options)
+   at async Task<GetBotGatewayResponse> Discord.API.DiscordRestApiClient.GetBotGatewayAsync(RequestOptions options)
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at async Task Discord.API.D
+==================[23.10.2022 18:03:54]==================
+Discord.Net.WebSocketClosedException: The server sent close 4003: "Not authenticated."
+   at async Task Discord.Net.WebSockets.DefaultWebSocketClient.RunAsync(CancellationToken cancelToken)
+=========================================================
+
+==================[23.10.2022 18:03:54]==================
+System.Exception: WebSocket connection was closed
+ ---> Discord.Net.WebSocketClosedException: The server sent close 4003: "Not authenticated."
+   at async Task Discord.Net.WebSockets.DefaultWebSocketClient.RunAsync(CancellationToken cancelToken)
+   --- End of inner exception stack trace ---
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 18:03:54]==================
+System.Threading.Tasks.TaskCanceledException: A task was canceled.
+   at void System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+=========================================================
+
+==================[23.10.2022 18:03:56]==================
+Discord.Net.WebSocketClosedException: The server sent close 4004: "Authentication failed."
+   at async Task Discord.Net.WebSockets.DefaultWebSocketClient.RunAsync(CancellationToken cancelToken)
+=========================================================
+
+==================[23.10.2022 18:03:56]==================
+System.Exception: WebSocket connection was closed
+ ---> Discord.Net.WebSocketClosedException: The server sent close 4004: "Authentication failed."
+   at async Task Discord.Net.WebSockets.DefaultWebSocketClient.RunAsync(CancellationToken cancelToken)
+   --- End of inner exception stack trace ---
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 18:03:56]==================
+System.Exception: WebSocket connection was closed
+ ---> Discord.Net.WebSocketClosedException: The server sent close 4004: "Authentication failed."
+   at async Task Discord.Net.WebSockets.DefaultWebSocketClient.RunAsync(CancellationToken cancelToken)
+   --- End of inner exception stack trace ---
+   at async Task Discord.ConnectionManager.WaitAsync()
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 18:03:56]==================
+System.Exception: WebSocket connection was closed
+ ---> Discord.Net.WebSocketClosedException: The server sent close 4004: "Authentication failed."
+   at async Task Discord.Net.WebSockets.DefaultWebSocketClient.RunAsync(CancellationToken cancelToken)
+   --- End of inner exception stack trace ---
+   at async Task Discord.ConnectionManager.WaitAsync()
+   at async Task Discord.WebSocket.DiscordSocketClient.OnConnectingAsync()
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 18:03:56]==================
+System.Threading.Tasks.TaskCanceledException: A task was canceled.
+   at void System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+=========================================================
+
+==================[23.10.2022 18:03:56]==================
+System.Threading.Tasks.TaskCanceledException: A task was canceled.
+   at void System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+=========================================================
+
+==================[23.10.2022 18:03:56]==================
+System.Exception: WebSocket connection was closed
+ ---> Discord.Net.WebSocketClosedException: The server sent close 4004: "Authentication failed."
+   at async Task Discord.Net.WebSockets.DefaultWebSocketClient.RunAsync(CancellationToken cancelToken)
+   --- End of inner exception stack trace ---
+   at async Task Discord.ConnectionManager.WaitAsync()
+   at async Task Discord.WebSocket.DiscordSocketClient.OnConnecti
+==================[23.10.2022 18:04:06]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+=========================================================
+
+==================[23.10.2022 18:04:06]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 18:04:06]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 18:04:06]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 18:04:06]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at async Task<TResponse> Discord.API.DiscordRestApiClient.SendAsync<TResponse>(string method, string endpoint, BucketId bucketId, ClientBucketType clientBucket, RequestOptions options)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 18:04:06]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at async Task<TResponse> Discord.API.DiscordRestApiClient.SendAsync<TResponse>(string method, string endpoint, BucketId bucketId, ClientBucketType clientBucket, RequestOptions options)
+   at async Task<GetBotGatewayResponse> Discord.API.DiscordRestApiClient.GetBotGatewayAsync(RequestOptions options)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 18:04:06]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at async Task<TResponse> Discord.API.DiscordRestApiClient.SendAsync<TResponse>(string method, string endpoint, BucketId bucketId, ClientBucketType clientBucket, RequestOptions options)
+   at async Task<GetBotGatewayResponse> Discord.API.DiscordRestApiClient.GetBotGatewayAsync(RequestOptions options)
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 18:04:07]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at async Task<TResponse> Discord.API.DiscordRestApiClient.SendAsync<TResponse>(string method, string endpoint, BucketId bucketId, ClientBucketType clientBucket, RequestOptions options)
+   at async Task<GetBotGatewayResponse> Discord.API.DiscordRestApiClient.GetBotGatewayAsync(RequestOptions options)
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 18:04:07]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at async Task<TResponse> Discord.API.DiscordRestApiClient.SendAsync<TResponse>(string method, string endpoint, BucketId bucketId, ClientBucketType clientBucket, RequestOptions options)
+   at async Task<GetBotGatewayResponse> Discord.API.DiscordRestApiClient.GetBotGatewayAsync(RequestOptions options)
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at async Task Discord.API.DiscordSocketApiClient.ConnectAsync()
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 18:04:07]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at async Task<TResponse> Discord.API.DiscordRestApiClient.SendAsync<TResponse>(string method, string endpoint, BucketId bucketId, ClientBucketType clientBucket, RequestOptions options)
+   at async Task<GetBotGatewayResponse> Discord.API.DiscordRestApiClient.GetBotGatewayAsync(RequestOptions options)
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at async Task Discord.API.DiscordSocketApiClient.ConnectAsync()
+   at async Task Discord.WebSocket.DiscordSocketClient.OnConnectingAsync()
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 18:04:07]==================
+System.Threading.Tasks.TaskCanceledException: A task was canceled.
+   at void System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+=========================================================
+
+==================[23.10.2022 18:04:07]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at async Task<TResponse> Discord.API.DiscordRestApiClient.SendAsync<TResponse>(string method, string endpoint, BucketId bucketId, ClientBucketType clientBucket, RequestOptions options)
+   at async Task<GetBotGatewayResponse> Discord.API.DiscordRestApiClient.GetBotGatewayAsync(RequestOptions options)
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at async Task Discord.API.DiscordSocketApiClient.ConnectAsync()
+   at async Task Discord.WebSocket.DiscordSocketClient.OnConnectingAsync()
+   at async Task Discord.ConnectionManager.ConnectAsync(CancellationTokenSource reconnectCancelToken)
+=========================================================
+
+==================[23.10.2022 18:04:07]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at async Task<TResponse> Discord.API.DiscordRestApiClient.SendAsync<TResponse>(string method, string endpoint, BucketId bucketId, ClientBucketType clientBucket, RequestOptions options)
+   at async Task<GetBotGatewayResponse> Discord.API.DiscordRestApiClient.GetBotGatewayAsync(RequestOptions options)
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at async Task Discord.API.DiscordSocketApiClient.ConnectAsync()
+   at async Task Discord.WebSocket.DiscordSocketClient.OnConnectingAsync()
+   at async Task Discord.ConnectionManager.ConnectAsync(CancellationTokenSource reconnectCancelToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 18:04:08]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+=========================================================
+
+==================[23.10.2022 18:04:08]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 18:04:08]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 18:04:08]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 18:04:08]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at async Task<TResponse> Discord.API.DiscordRestApiClient.SendAsync<TResponse>(string method, string endpoint, BucketId bucketId, ClientBucketType clientBucket, RequestOptions options)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 18:04:08]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at async Task<TResponse> Discord.API.DiscordRestApiClient.SendAsync<TResponse>(string method, string endpoint, BucketId bucketId, ClientBucketType clientBucket, RequestOptions options)
+   at async Task<GetBotGatewayResponse> Discord.API.DiscordRestApiClient.GetBotGatewayAsync(RequestOptions options)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 18:04:08]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at async Task<TResponse> Discord.API.DiscordRestApiClient.SendAsync<TResponse>(string method, string endpoint, BucketId bucketId, ClientBucketType clientBucket, RequestOptions options)
+   at async Task<GetBotGatewayResponse> Discord.API.DiscordRestApiClient.GetBotGatewayAsync(RequestOptions options)
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 18:04:08]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at async Task<TResponse> Discord.API.DiscordRestApiClient.SendAsync<TResponse>(string method, string endpoint, BucketId bucketId, ClientBucketType clientBucket, RequestOptions options)
+   at async Task<GetBotGatewayResponse> Discord.API.DiscordRestApiClient.GetBotGatewayAsync(RequestOptions options)
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 18:04:08]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at async Task<TResponse> Discord.API.DiscordRestApiClient.SendAsync<TResponse>(string method, string endpoint, BucketId bucketId, ClientBucketType clientBucket, RequestOptions options)
+   at async Task<GetBotGatewayResponse> Discord.API.DiscordRestApiClient.GetBotGatewayAsync(RequestOptions options)
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at async Task Discord.API.DiscordSocketApiClient.ConnectAsync()
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 18:04:08]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at async Task<TResponse> Discord.API.DiscordRestApiClient.SendAsync<TResponse>(string method, string endpoint, BucketId bucketId, ClientBucketType clientBucket, RequestOptions options)
+   at async Task<GetBotGatewayResponse> Discord.API.DiscordRestApiClient.GetBotGatewayAsync(RequestOptions options)
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at async Task Discord.API.DiscordSocketApiClient.ConnectAsync()
+   at async Task Discord.WebSocket.DiscordSocketClient.OnConnectingAsync()
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 18:04:08]==================
+System.Threading.Tasks.TaskCanceledException: A task was canceled.
+   at void System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+=========================================================
+
+==================[23.10.2022 18:04:08]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at async Task<TResponse> Discord.API.DiscordRestApiClient.SendAsync<TResponse>(string method, string endpoint, BucketId bucketId, ClientBucketType clientBucket, RequestOptions options)
+   at async Task<GetBotGatewayResponse> Discord.API.DiscordRestApiClient.GetBotGatewayAsync(RequestOptions options)
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at async Task Discord.API.DiscordSocketApiClient.ConnectAsync()
+   at async Task Discord.WebSocket.DiscordSocketClient.OnConnectingAsync()
+   at async Task Discord.ConnectionManager.ConnectAsync(CancellationTokenSource reconnectCancelToken)
+=========================================================
+
+==================[23.10.2022 18:04:08]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at async Task<TResponse> Discord.API.DiscordRestApiClient.SendAsync<TResponse>(string method, string endpoint, BucketId bucketId, ClientBucketType clientBucket, RequestOptions options)
+   at async Task<GetBotGatewayResponse> Discord.API.DiscordRestApiClient.GetBotGatewayAsync(RequestOptions options)
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at async Task Discord.API.DiscordSocketApiClient.ConnectAsync()
+   at async Task Discord.WebSocket.DiscordSocketClient.OnConnectingAsync()
+   at async Task Discord.ConnectionManager.ConnectAsync(CancellationTokenSource reconnectCancelToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 18:04:10]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+=========================================================
+
+==================[23.10.2022 18:04:10]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 18:04:10]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 18:04:10]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 18:04:10]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at async Task<TResponse> Discord.API.DiscordRestApiClient.SendAsync<TResponse>(string method, string endpoint, BucketId bucketId, ClientBucketType clientBucket, RequestOptions options)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 18:04:10]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at async Task<TResponse> Discord.API.DiscordRestApiClient.SendAsync<TResponse>(string method, string endpoint, BucketId bucketId, ClientBucketType clientBucket, RequestOptions options)
+   at async Task<GetBotGatewayResponse> Discord.API.DiscordRestApiClient.GetBotGatewayAsync(RequestOptions options)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 18:04:10]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at async Task<TResponse> Discord.API.DiscordRestApiClient.SendAsync<TResponse>(string method, string endpoint, BucketId bucketId, ClientBucketType clientBucket, RequestOptions options)
+   at async Task<GetBotGatewayResponse> Discord.API.DiscordRestApiClient.GetBotGatewayAsync(RequestOptions options)
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 18:04:10]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at async Task<TResponse> Discord.API.DiscordRestApiClient.SendAsync<TResponse>(string method, string endpoint, BucketId bucketId, ClientBucketType clientBucket, RequestOptions options)
+   at async Task<GetBotGatewayResponse> Discord.API.DiscordRestApiClient.GetBotGatewayAsync(RequestOptions options)
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 18:04:10]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at async Task<TResponse> Discord.API.DiscordRestApiClient.SendAsync<TResponse>(string method, string endpoint, BucketId bucketId, ClientBucketType clientBucket, RequestOptions options)
+   at async Task<GetBotGatewayResponse> Discord.API.DiscordRestApiClient.GetBotGatewayAsync(RequestOptions options)
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at async Task Discord.API.DiscordSocketApiClient.ConnectAsync()
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 18:04:10]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at async Task<TResponse> Discord.API.DiscordRestApiClient.SendAsync<TResponse>(string method, string endpoint, BucketId bucketId, ClientBucketType clientBucket, RequestOptions options)
+   at async Task<GetBotGatewayResponse> Discord.API.DiscordRestApiClient.GetBotGatewayAsync(RequestOptions options)
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at async Task Discord.API.DiscordSocketApiClient.ConnectAsync()
+   at async Task Discord.WebSocket.DiscordSocketClient.OnConnectingAsync()
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 18:04:10]==================
+System.Threading.Tasks.TaskCanceledException: A task was canceled.
+   at void System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+=========================================================
+
+==================[23.10.2022 18:04:10]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at async Task<TResponse> Discord.API.DiscordRestApiClient.SendAsync<TResponse>(string method, string endpoint, BucketId bucketId, ClientBucketType clientBucket, RequestOptions options)
+   at async Task<GetBotGatewayResponse> Discord.API.DiscordRestApiClient.GetBotGatewayAsync(RequestOptions options)
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at async Task Discord.API.DiscordSocketApiClient.ConnectAsync()
+   at async Task Discord.WebSocket.DiscordSocketClient.OnConnectingAsync()
+   at async Task Discord.ConnectionManager.ConnectAsync(CancellationTokenSource reconnectCancelToken)
+=========================================================
+
+==================[23.10.2022 18:04:10]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at async Task<TResponse> Discord.API.DiscordRestApiClient.SendAsync<TResponse>(string method, string endpoint, BucketId bucketId, ClientBucketType clientBucket, RequestOptions options)
+   at async Task<GetBotGatewayResponse> Discord.API.DiscordRestApiClient.GetBotGatewayAsync(RequestOptions options)
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at async Task Discord.API.DiscordSocketApiClient.ConnectAsync()
+   at async Task Discord.WebSocket.DiscordSocketClient.OnConnectingAsync()
+   at async Task Discord.ConnectionManager.ConnectAsync(CancellationTokenSource reconnectCancelToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 18:04:14]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+=========================================================
+
+==================[23.10.2022 18:04:14]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 18:04:14]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 18:04:14]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 18:04:14]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at async Task<TResponse> Discord.API.DiscordRestApiClient.SendAsync<TResponse>(string method, string endpoint, BucketId bucketId, ClientBucketType clientBucket, RequestOptions options)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 18:04:14]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at async Task<TResponse> Discord.API.DiscordRestApiClient.SendAsync<TResponse>(string method, string endpoint, BucketId bucketId, ClientBucketType clientBucket, RequestOptions options)
+   at async Task<GetBotGatewayResponse> Discord.API.DiscordRestApiClient.GetBotGatewayAsync(RequestOptions options)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 18:04:14]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at async Task<TResponse> Discord.API.DiscordRestApiClient.SendAsync<TResponse>(string method, string endpoint, BucketId bucketId, ClientBucketType clientBucket, RequestOptions options)
+   at async Task<GetBotGatewayResponse> Discord.API.DiscordRestApiClient.GetBotGatewayAsync(RequestOptions options)
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 18:04:14]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at async Task<Stream> Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at async Task<Stream> Discord.API.DiscordRestApiClient.SendInternalAsync(string method, string endpoint, RestRequest request)
+   at async Task<TResponse> Discord.API.DiscordRestApiClient.SendAsync<TResponse>(string method, string endpoint, BucketId bucketId, ClientBucketType clientBucket, RequestOptions options)
+   at async Task<GetBotGatewayResponse> Discord.API.DiscordRestApiClient.GetBotGatewayAsync(RequestOptions options)
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at async Task Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[23.10.2022 18:04:14]==================
+Discord.Net.HttpException: The server responded with error 401: 401: Unautho

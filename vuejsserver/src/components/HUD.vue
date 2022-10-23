@@ -24,6 +24,7 @@ export default {
   name: 'HUD',
   data() {
       return {
+          sound: null,
           options1: {
               color: '#e03a3a',
               strokeWidth: 7.0,
@@ -63,6 +64,18 @@ export default {
       }
   },
   methods: {
+      playSound: function(music) {
+        if(this.sound != null)
+        {
+            this.sound.stop();
+        }
+        else
+        {
+            this.sound = new Audio('../assets/sounds/'+music);
+            this.sound.volume = 1;
+            this.sound.play();
+        }
+      },
       updateProgressbar: function(bar, wert) {
           if(bar == 1)
           {

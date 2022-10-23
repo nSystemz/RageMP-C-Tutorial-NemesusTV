@@ -7,3 +7,4 @@ require('./lockpicking/lockpicking');
 require('./charcreator/index');
 require('./draw/draw');
 require('./googledocs/googledocs');
+require('./animations/animations');

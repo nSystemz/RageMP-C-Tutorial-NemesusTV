@@ -916,4 +916,207 @@ SERVER=localhost; DATABASE=ragemptutorial; UID=ragemptutorial; PASSWORD=12345
    at MySql.Data.MySqlClient.MySqlPool.TryToGetDriver()
    at MySql.Data.MySqlClient.MySqlPool.GetConnection()
    at MySql.Data.MySqlClient.MySqlConnection.Open()
-   at Tutorial.Datenbank.InitConnection() in J:\Tutorials\Rage.mp-C-Tutorial-NemesusTV\b
+   at Tutorial.Datenbank.InitConnection() in J:\Tutorials\Rage.mp-C-Tutorial-NemesusTV\bInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 11.10.2022 17:13:00
+Unable to load acl.xml
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Tutorial resource..
+Tutorial: loading scripts.. found 1 script(s)
+Tutorial: instantiating Tutorial.Commands..
+Tutorial: instantiating Tutorial.Connections..
+Tutorial: instantiating Tutorial.Events..
+Tutorial: instantiating Tutorial.Haus..
+Tutorial: instantiating Tutorial.HausInterior..
+Tutorial: instantiating Tutorial.Inventory.Inventory..
+Tutorial: instantiating Tutorial.Inventory.ItemModel..
+Tutorial: loading server events.. found 6 server event(s)
+Tutorial: loaded 6 server events(s)
+Tutorial: loading commands.. found 27 command(s)
+Tutorial: loading commands.. found 2 command(s)
+Tutorial: loaded 29 commands(s)
+Tutorial: loading remote events.. found 2 remote event(s)
+Tutorial: loading remote events.. found 8 remote event(s)
+Tutorial: loading remote events.. found 2 remote event(s)
+Tutorial: loaded 12 remote event(s)
+[Settings] -> Die Server Settings wurden erfolgreich geladen!
+SERVER=localhost; DATABASE=ragemptutorial; UID=ragemptutorial; PASSWORD=12345
+[MYSQL] -> Verbindung erfolgreich aufgebaut!
+DiscordBot: 17:13:01 Discord     Discord.Net v3.8.1 (API v10)
+DiscordBot: 17:13:01 Gateway     Connecting
+-> Resource Tutorial started!
+-> Starting SaltyChat resource..
+SaltyChat: loading scripts.. found 2 script(s)
+SaltyChat: instantiating SaltyServer.VoiceManager..
+SaltyChat: loading server events.. found 3 server event(s)
+SaltyChat: loaded 3 server events(s)
+SaltyChat: loading commands.. found 3 command(s)
+SaltyChat: loaded 3 commands(s)
+SaltyChat: loading remote events.. found 3 remote event(s)
+SaltyChat: loaded 3 remote event(s)
+-> Resource SaltyChat started!
+Started! Waiting for connections..
+DiscordBot: 17:13:03 Gateway     You're using the GuildScheduledEvents gateway intent without listening to any events related to that intent, consider removing the intent from your config.
+DiscordBot: 17:13:03 Gateway     You're using the GuildInvites gateway intent without listening to any events related to that intent, consider removing the intent from your config.
+DiscordBot: 17:13:03 Gateway     Connected
+DiscordBot: 17:13:04 Gateway     Ready
+DiscordBot: 17:14:35 Gateway     System.Exception: WebSocket connection was closed
+ ---> Discord.Net.WebSocketClosedException: The server sent close 4003: "Not authenticated."
+   at async Task Discord.Net.WebSockets.DefaultWebSocketClient.RunAsync(CancellationToken cancelToken)
+   --- End of inner exception stack trace ---
+   at Discord.ConnectionManager.<>c__DisplayClass29_0.<<StartAsync>b__0>d.MoveNext()
+DiscordBot: 17:14:35 Gateway     Disconnecting
+DiscordBot: 17:14:35 Gateway     Disconnected
+DiscordBot: 17:14:36 Gateway     Connecting
+DiscordBot: 17:14:36 Gateway     System.Exception: WebSocket connection was closed
+ ---> Discord.Net.WebSocketClosedException: The server sent close 4004: "Authentication failed."
+   at async Task Discord.Net.WebSockets.DefaultWebSocketClient.RunAsync(CancellationToken cancelToken)
+   --- End of inner exception stack trace ---
+   at Discord.ConnectionManager.WaitAsync()
+   at Discord.WebSocket.DiscordSocketClient.OnConnectingAsync()
+   at Discord.ConnectionManager.ConnectAsync(CancellationTokenSource reconnectCancelToken)
+   at Discord.ConnectionManager.<>c__DisplayClass29_0.<<StartAsync>b__0>d.MoveNext()
+DiscordBot: 17:14:36 Gateway     Disconnecting
+DiscordBot: 17:14:36 Gateway     Disconnected
+DiscordBot: 17:14:39 Gateway     Connecting
+DiscordBot: 17:14:39 Gateway     System.Exception: WebSocket connection was closed
+ ---> Discord.Net.WebSocketClosedException: The server sent close 4004: "Authentication failed."
+   at async Task Discord.Net.WebSockets.DefaultWebSocketClient.RunAsync(CancellationToken cancelToken)
+   --- End of inner exception stack trace ---
+   at Discord.ConnectionManager.WaitAsync()
+   at Discord.WebSocket.DiscordSocketClient.OnConnectingAsync()
+   at Discord.ConnectionManager.ConnectAsInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 23.10.2022 15:44:44
+Unable to load acl.xml
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Tutorial resource..
+Tutorial: loading scripts.. found 1 script(s)
+Tutorial: instantiating Tutorial.Commands..
+Tutorial: instantiating Tutorial.Connections..
+Tutorial: instantiating Tutorial.Events..
+Tutorial: instantiating Tutorial.Haus..
+Tutorial: instantiating Tutorial.HausInterior..
+Tutorial: instantiating Tutorial.Inventory.Inventory..
+Tutorial: instantiating Tutorial.Inventory.ItemModel..
+Tutorial: loading server events.. found 6 server event(s)
+Tutorial: loaded 6 server events(s)
+Tutorial: loading commands.. found 27 command(s)
+Tutorial: loading commands.. found 2 command(s)
+Tutorial: loaded 29 commands(s)
+Tutorial: loading remote events.. found 2 remote event(s)
+Tutorial: loading remote events.. found 8 remote event(s)
+Tutorial: loading remote events.. found 2 remote event(s)
+Tutorial: loaded 12 remote event(s)
+[Settings] -> Die Server Settings wurden erfolgreich geladen!
+SERVER=localhost; DATABASE=ragemptutorial; UID=ragemptutorial; PASSWORD=12345
+[MYSQL] -> Verbindung erfolgreich aufgebaut!
+DiscordBot: 15:44:49 Discord     Discord.Net v3.8.1 (API v10)
+DiscordBot: 15:44:49 Gateway     Connecting
+-> Resource Tutorial started!
+-> Starting SaltyChat resource..
+SaltyChat: loading scripts.. found 2 script(s)
+SaltyChat: instantiating SaltyServer.VoiceManager..
+SaltyChat: loading server events.. found 3 server event(s)
+SaltyChat: loaded 3 server events(s)
+SaltyChat: loading commands.. found 3 command(s)
+SaltyChat: loaded 3 commands(s)
+SaltyChat: loading remote events.. found 3 remote event(s)
+SaltyChat: loaded 3 remote event(s)
+-> Resource SaltyChat started!
+Started! Waiting for connections..
+DiscordBot: 15:44:51 Gateway     Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at Discord.API.DiscordRestApiClient.SendInternalAsync(String method, String endpoint, RestRequest request)
+   at Discord.API.DiscordRestApiClient.SendAsync[TResponse](String method, String endpoint, BucketId bucketId, ClientBucketType clientBucket, RequestOptions options)
+   at Discord.API.DiscordRestApiClient.GetBotGatewayAsync(RequestOptions options)
+   at Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at Discord.API.DiscordSocketApiClient.ConnectAsync()
+   at Discord.WebSocket.DiscordSocketClient.OnConnectingAsync()
+   at Discord.ConnectionManager.ConnectAsync(CancellationTokenSource reconnectCancelToken)
+   at Discord.ConnectionManager.<>c__DisplayClass29_0.<<StartAsync>b__0>d.MoveNext()
+DiscordBot: 15:44:51 Gateway     Disconnecting
+DiscordBot: 15:44:51 Gateway     Disconnected
+DiscordBot: 15:44:52 Gateway     Connecting
+DiscordBot: 15:44:52 Gateway     Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at Discord.API.DiscordRestApiClient.SendInternalAsync(String method, String endpoint, RestRequest request)
+   at Discord.API.DiscordRestApiClient.SendAsync[TResponse](String method, String endpoint, BucketId bucketId, ClientBucketType clientBucket, RequestOptions options)
+   at Discord.API.DiscordRestApiClient.GetBotGatewayAsync(RequestOptions options)
+   at Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at Discord.API.DiscordSocketApiClient.ConnectAsync()
+   at Discord.WebSocket.DiscordSocketClient.OnConnectingAsync()
+   at Discord.ConnectionManager.ConnectAsync(CancellationTokenSource reconnectCancelToken)
+   at Discord.ConnectionManager.<>c__DisplayClass29_0.<<StartAsync>b__0>d.MoveNext()
+DiscordBot: 15:44:52 GatInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 23.10.2022 18:04:04
+Unable to load acl.xml
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Tutorial resource..
+Tutorial: loading scripts.. found 1 script(s)
+Tutorial: instantiating Tutorial.Commands..
+Tutorial: instantiating Tutorial.Connections..
+Tutorial: instantiating Tutorial.Events..
+Tutorial: instantiating Tutorial.Haus..
+Tutorial: instantiating Tutorial.HausInterior..
+Tutorial: instantiating Tutorial.Inventory.Inventory..
+Tutorial: instantiating Tutorial.Inventory.ItemModel..
+Tutorial: loading server events.. found 6 server event(s)
+Tutorial: loaded 6 server events(s)
+Tutorial: loading commands.. found 27 command(s)
+Tutorial: loading commands.. found 2 command(s)
+Tutorial: loaded 29 commands(s)
+Tutorial: loading remote events.. found 2 remote event(s)
+Tutorial: loading remote events.. found 8 remote event(s)
+Tutorial: loading remote events.. found 2 remote event(s)
+Tutorial: loaded 12 remote event(s)
+[Settings] -> Die Server Settings wurden erfolgreich geladen!
+SERVER=localhost; DATABASE=ragemptutorial; UID=ragemptutorial; PASSWORD=12345
+[MYSQL] -> Verbindung erfolgreich aufgebaut!
+DiscordBot: 18:04:06 Discord     Discord.Net v3.8.1 (API v10)
+DiscordBot: 18:04:06 Gateway     Connecting
+-> Resource Tutorial started!
+-> Starting SaltyChat resource..
+SaltyChat: loading scripts.. found 2 script(s)
+SaltyChat: instantiating SaltyServer.VoiceManager..
+SaltyChat: loading server events.. found 3 server event(s)
+SaltyChat: loaded 3 server events(s)
+SaltyChat: loading commands.. found 3 command(s)
+SaltyChat: loaded 3 commands(s)
+SaltyChat: loading remote events.. found 3 remote event(s)
+SaltyChat: loaded 3 remote event(s)
+-> Resource SaltyChat started!
+Started! Waiting for connections..
+DiscordBot: 18:04:07 Gateway     Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at Discord.API.DiscordRestApiClient.SendInternalAsync(String method, String endpoint, RestRequest request)
+   at Discord.API.DiscordRestApiClient.SendAsync[TResponse](String method, String endpoint, BucketId bucketId, ClientBucketType clientBucket, RequestOptions options)
+   at Discord.API.DiscordRestApiClient.GetBotGatewayAsync(RequestOptions options)
+   at Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at Discord.API.DiscordSocketApiClient.ConnectAsync()
+   at Discord.WebSocket.DiscordSocketClient.OnConnectingAsync()
+   at Discord.ConnectionManager.ConnectAsync(CancellationTokenSource reconnectCancelToken)
+   at Discord.ConnectionManager.<>c__DisplayClass29_0.<<StartAsync>b__0>d.MoveNext()
+DiscordBot: 18:04:07 Gateway     Disconnecting
+DiscordBot: 18:04:07 Gateway     Disconnected
+DiscordBot: 18:04:08 Gateway     Connecting
+DiscordBot: 18:04:08 Gateway     Discord.Net.HttpException: The server responded with error 401: 401: Unauthorized
+   at Discord.Net.Queue.RequestBucket.SendAsync(RestRequest request)
+   at Discord.Net.Queue.RequestQueue.SendAsync(RestRequest request)
+   at Discord.API.DiscordRestApiClient.SendInternalAsync(String method, String endpoint, RestRequest request)
+   at Discord.API.DiscordRestApiClient.SendAsync[TResponse](String method, String endpoint, BucketId bucketId, ClientBucketType clientBucket, RequestOptions options)
+   at Discord.API.DiscordRestApiClient.GetBotGatewayAsync(RequestOptions options)
+   at Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at Discord.API.DiscordSocketApiClient.ConnectInternalAsync()
+   at Discord.API.DiscordSocketApiClient.ConnectAsync()
+   at Discord.WebSocket.DiscordSocketClient.OnConnectingAsync()
+   at Discord.ConnectionManager.ConnectAsync(CancellationTokenSource reconnectCancelToken)
+   at Discord.ConnectionManager.<>c__DisplayClass29_0.<<StartAsync>b__0>d.MoveNext()
+DiscordBot: 18:04:08 Gat
