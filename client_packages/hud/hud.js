@@ -1,6 +1,8 @@
 let notifyHud = null;
 let cayoLoaded = false;
 
+mp.game.ui.setRadarZoom(1100);
+
 mp.events.add('showHUD', () => 
 {
     notifyHud = mp.browsers.new("http://localhost:8080/");
