@@ -1,5 +1,8 @@
 <template>
   <div class="hud">
+    <div class="crosshair" v-if="crosshairshow && crosshair > 0">
+        <img :src="getCrosshair(crosshair)" alt="Crosshair">
+    </div>
     <div id="container">
         <progress-bar type="circle" ref="healthbar" color="#e03a3a" strokeWidth="0.5" duration="2000" :options="options1">
         </progress-bar>
@@ -24,6 +27,8 @@ export default {
   name: 'HUD',
   data() {
       return {
+          crosshairshow: false,
+          crosshair: 0,
           sound: null,
           options1: {
               color: '#e03a3a',
@@ -64,6 +69,16 @@ export default {
       }
   },
   methods: {
+      getCrosshair(crosshair) {
+        return require('../assets/images/crosshair/' + crosshair + '.png')
+      },
+      showCrosshair: function (crosshair) {
+        this.crosshairshow = true;
+        this.crosshair = crosshair;
+      },
+      hideCrosshair: function () {
+        this.crosshairshow = false;
+      },
       playSound: function(music) {
         if(this.sound != null)
         {
@@ -95,6 +110,12 @@ export default {
 </script>
 
 <style scoped>
+.crosshair {
+    position: absolute;
+    right: 50%;
+    top: 50%;
+    transform: translate(50%, -50%);
+}
 #container {
     margin-top: 787px;
     margin-left: 370px;

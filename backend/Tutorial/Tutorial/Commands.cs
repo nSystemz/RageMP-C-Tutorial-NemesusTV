@@ -570,6 +570,25 @@ namespace Tutorial
             player.TriggerEvent("charcreator-show");
         }
 
+        [Command("crosshair")]
+        public void CMD_crosshair(Player player, int crosshair)
+        {
+            if(crosshair < 0 || crosshair > 18)
+            {
+                Utils.sendNotification(player, "Ungültiges Crosshair", "fas fa-user");
+                return;
+            }
+            player.TriggerEvent("showcrosshair", crosshair);
+            Utils.sendNotification(player, "Crosshair gesetzt!", "fas fa-user");
+        }
+
+        [Command("crosshairhide")]
+        public void CMD_crosshairhide(Player player)
+        {
+            player.TriggerEvent("hidecrosshair");
+            Utils.sendNotification(player, "Crosshair deaktiviert!", "fas fa-user");
+        }
+
         [Command("geld")]
         public void CMD_geld(Player player)
         {

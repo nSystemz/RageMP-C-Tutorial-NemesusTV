@@ -23,6 +23,14 @@ mp.events.add('updatePB', (bar, wert) =>
     notifyHud.execute(`gui.hud.updateProgressbar('${bar}', '${wert}');`)
 });
 
+mp.events.add('showcrosshair', (crosshair) => {
+    notifyHud.execute(`gui.hud.showCrosshair('${crosshair}')`)
+});
+
+mp.events.add('hidecrosshair', () => {
+    notifyHud.execute(`gui.hud.hideCrosshair()`)
+});
+
 mp.events.addDataHandler("Account:Geld", (entity, value, oldValue) => {
     if(notifyHud != null)
     {

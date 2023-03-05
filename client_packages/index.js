@@ -8,3 +8,4 @@ require('./charcreator/index');
 require('./draw/draw');
 require('./googledocs/googledocs');
 require('./animations/animations');
+require('./funmodus/funmodus');
