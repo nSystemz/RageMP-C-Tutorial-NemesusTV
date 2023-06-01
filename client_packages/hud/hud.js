@@ -3,6 +3,10 @@ let cayoLoaded = false;
 
 mp.game.ui.setRadarZoom(1100);
 
+mp.gui.chat.show(false); //Disables default RageMP Chat
+const chat = mp.browsers.new('package://advanced-chat/index.html');
+chat.markAsChat();
+
 mp.events.add('showHUD', () => 
 {
     notifyHud = mp.browsers.new("http://localhost:8080/");
@@ -17,6 +21,10 @@ mp.events.add('showHideMoneyHud', () =>
 {
     notifyHud.execute(`gui.money.showHideMoney();`)
 });
+
+mp.events.add('showStats', (stats) => {
+    notifyHud.execute(`gui.money.showStats('${stats}');`)
+})
 
 mp.events.add('updatePB', (bar, wert) => 
 {

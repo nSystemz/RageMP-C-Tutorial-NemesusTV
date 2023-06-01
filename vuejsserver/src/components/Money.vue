@@ -1,6 +1,14 @@
 <template>
-  <div class="money" v-if="moneyshow">
-    <div id="moneyhud">
+  <div class="money">
+    <div class="stats" v-if="statsshow">
+      <ul class="list-group float-right" style="margin-right: 1vw;">
+        <li class="list-group-item"><strong>{{stats.name}}</strong></li>
+        <li class="list-group-item">Level {{stats.level}}</li>
+        <li class="list-group-item">{{stats.money}}$</li>
+        <li class="list-group-item">Payday in {{stats.payday}} Minuten</li>
+      </ul>
+    </div>
+    <div id="moneyhud" v-if="moneyshow">
         {{money}}$
     </div>    
   </div>
@@ -13,6 +21,8 @@ export default {
       return {
           money: 0,
           moneyshow: false,
+          statsshow: false,
+          stats: []
       }
   },
   methods: {
@@ -22,6 +32,13 @@ export default {
       showHideMoney: function() {
         this.moneyshow = !this.moneyshow;
       },
+      showStats: function(stats) {
+        this.statsshow = !this.statsshow;
+        if(this.statsshow)
+        {
+          this.stats = JSON.parse(stats);
+        }
+      }
   },
 }
 </script>

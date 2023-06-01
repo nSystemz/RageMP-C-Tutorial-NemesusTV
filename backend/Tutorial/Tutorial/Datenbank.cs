@@ -186,53 +186,26 @@ namespace Tutorial
 
         //Haussystem
 
-        public static int ErstelleHaus(Haus house)
+        public static int ErstelleHaus(HausModel house)
         {
-            int houseID = 0;
             try
             {
-                MySqlCommand command = Connection.CreateCommand();
-
-                command.CommandText = "INSERT INTO house (ipl, posX, posY, posZ, preis, abgeschlossen, besitzer) VALUES (@ipl, @posX, @posY, @posZ, @preis, @abgeschlossen, @besitzer)";
-                command.Parameters.AddWithValue("@ipl", house.ipl);
-                command.Parameters.AddWithValue("@posX", house.position.X);
-                command.Parameters.AddWithValue("@posY", house.position.Y);
-                command.Parameters.AddWithValue("@posZ", house.position.Z);
-                command.Parameters.AddWithValue("@preis", house.preis);
-                command.Parameters.AddWithValue("@abgeschlossen", house.abgeschlossen);
-                command.Parameters.AddWithValue("@besitzer", house.besitzer);
-
-                command.ExecuteNonQuery();
-                houseID = (int)command.LastInsertedId;
+                PetaPoco.Database db = new PetaPoco.Database(Datenbank.Connection);
+                db.Insert(house);
             }
             catch(Exception e)
             {
                 NAPI.Util.ConsoleOutput("[ErstelleHaus]:" + e.ToString());
             }
-            return houseID;
+            return house.id;
         }
 
-        public static void HausSpeichern(Haus house)
+        public static void HausSpeichern(HausModel house)
         {
             try
             {
-                MySqlCommand command = Connection.CreateCommand();
-
-                command.CommandText = "UPDATE house SET ipl = @ipl, posX = @posX, posY = @posY, preis = @preis, besitzer = @besitzer, status = @status, abgeschlossen = @abgeschlossen";
-                command.CommandText += " WHERE id = @id";
-
-                command.Parameters.AddWithValue("@ipl", house.ipl);
-                command.Parameters.AddWithValue("@posX", house.position.X);
-                command.Parameters.AddWithValue("@posY", house.position.Y);
-                command.Parameters.AddWithValue("@posZ", house.position.Z);
-                command.Parameters.AddWithValue("@preis", house.preis);
-                command.Parameters.AddWithValue("@besitzer", house.besitzer);
-                command.Parameters.AddWithValue("@status", house.status);
-                command.Parameters.AddWithValue("@abgeschlossen", house.abgeschlossen);
-                command.Parameters.AddWithValue("@id", house.id);
-
-                command.ExecuteNonQuery();
-
+                PetaPoco.Database db = new PetaPoco.Database(Datenbank.Connection);
+                db.Save(house);
             }
             catch (Exception e)
             {
@@ -240,48 +213,30 @@ namespace Tutorial
             }
         }
 
-        public static List<Haus> LadeAlleHäuser()
+        public static List<HausModel> LadeAlleHäuser()
         {
-            List<Haus> hausListeTemp = new List<Haus>();
+            List<HausModel> hausListeTemp = new List<HausModel>();
 
-            MySqlCommand command = Connection.CreateCommand();
-            command.CommandText = "SELECT * FROM house";
-
-            using(MySqlDataReader reader = command.ExecuteReader())
+            PetaPoco.Database db = new PetaPoco.Database(Datenbank.Connection);
+            foreach(HausModel hausModel in db.Fetch<HausModel>("SELECT * FROM house"))
             {
-                while(reader.Read())
+                hausModel.position = new Vector3(hausModel.posx, hausModel.posy, hausModel.posz);
+                hausModel.hausLabel = NAPI.TextLabel.CreateTextLabel($"Dieses Haus steht für {hausModel.preis}$ zum Verkauf, benutze /buyhouse um es zu kaufen", new Vector3(hausModel.position.X, hausModel.position.Y, hausModel.position.Z + 0.8), 5.0f, 0.75f, 4, new Color(255, 255, 255));
+                if (hausModel.status == false)
                 {
-                    Haus house = new Haus();
-
-                    float posX = reader.GetFloat("posX");
-                    float posY = reader.GetFloat("posY");
-                    float posZ = reader.GetFloat("posZ");
-
-                    house.id = reader.GetInt32("id");
-                    house.ipl = reader.GetString("ipl");
-                    house.position = new Vector3(posX, posY, posZ);
-                    house.preis = reader.GetInt16("preis");
-                    house.besitzer = reader.GetString("besitzer");
-                    house.status = reader.GetBoolean("status");
-                    house.abgeschlossen = reader.GetBoolean("abgeschlossen");
-
-                    house.hausLabel = NAPI.TextLabel.CreateTextLabel($"Dieses Haus steht für {house.preis}$ zum Verkauf, benutze /buyhouse um es zu kaufen", new Vector3(house.position.X, house.position.Y, house.position.Z + 0.8), 5.0f, 0.75f, 4, new Color(255, 255, 255));
-                    if (house.status == false)
-                    {
-                        house.hausMarker = NAPI.Marker.CreateMarker(1, new Vector3(house.position.X, house.position.Y, house.position.Z - 1.1), house.position, new Vector3(), 1.0f, new Color(38, 230, 0), false);
-                        house.hausBlip = NAPI.Blip.CreateBlip(40, house.position, 1.0f, 2);
-                    }
-                    else
-                    {
-                        house.hausMarker = NAPI.Marker.CreateMarker(1, new Vector3(house.position.X, house.position.Y, house.position.Z - 1.1), house.position, new Vector3(), 1.0f, new Color(255, 255, 255), false);
-                        house.hausBlip = NAPI.Blip.CreateBlip(40, house.position, 1.0f, 1);
-                    }
-                    NAPI.Blip.SetBlipName(house.hausBlip, "Hausnummer: " + house.id);
-                    NAPI.Blip.SetBlipShortRange(house.hausBlip, true);
-
-                    hausListeTemp.Add(house);
+                    hausModel.hausMarker = NAPI.Marker.CreateMarker(1, new Vector3(hausModel.position.X, hausModel.position.Y, hausModel.position.Z - 1.1), hausModel.position, new Vector3(), 1.0f, new Color(38, 230, 0), false);
+                    hausModel.hausBlip = NAPI.Blip.CreateBlip(40, hausModel.position, 1.0f, 2);
                 }
+                else
+                {
+                    hausModel.hausMarker = NAPI.Marker.CreateMarker(1, new Vector3(hausModel.position.X, hausModel.position.Y, hausModel.position.Z - 1.1), hausModel.position, new Vector3(), 1.0f, new Color(255, 255, 255), false);
+                    hausModel.hausBlip = NAPI.Blip.CreateBlip(40, hausModel.position, 1.0f, 1);
+                }
+                NAPI.Blip.SetBlipName(hausModel.hausBlip, "Hausnummer: " + hausModel.id);
+                NAPI.Blip.SetBlipShortRange(hausModel.hausBlip, true);
+                hausListeTemp.Add(hausModel);
             }
+
 
             //IPLs laden
             foreach(HausInterior hausinterior in HausInterior.Interior_Liste)

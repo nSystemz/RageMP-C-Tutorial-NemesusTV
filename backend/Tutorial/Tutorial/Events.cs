@@ -2,6 +2,7 @@
 using Newtonsoft.Json.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Tutorial.Controllers;
 
 namespace Tutorial
 {
@@ -19,7 +20,7 @@ namespace Tutorial
                 Datenbank.InitConnection();
             }
             //Häuser
-            Haus.hausListe = Datenbank.LadeAlleHäuser();
+            HausController.hausListe = Datenbank.LadeAlleHäuser();
             //Items
             Inventory.Inventory.itemList = Inventory.Inventory.LoadAllItems();
             //Fraktions
@@ -41,6 +42,8 @@ namespace Tutorial
             Discord.DiscordBot.StartDiscordBot();
             //Adminlog
             Utils.adminLog("Der Server wurde erfolgreich gestartet", "Server");
+            //Test
+            HausController.VerarbeiteHausListAlsJson();
         }
 
         public static void OnPaydayTimer(object state)

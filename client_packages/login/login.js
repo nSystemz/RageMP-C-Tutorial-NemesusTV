@@ -5,6 +5,7 @@ setTimeout(() => {
     mp.game.ui.displayHud(false);
     mp.gui.chat.show(false);
     mp.game.ui.displayRadar(false);
+    mp.discord.update('Spielt auf Nemesus.de', 'Wir spielen Roleplay!');
 }, 150)
 
 mp.events.add("Auth.Register", (password) => 

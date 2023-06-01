@@ -21,6 +21,8 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
     <PackageReference Include="MySql.Data" Version="8.0.25" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="PetaPoco" Version="5.1.306" />
+    <PackageReference Include="PetaPoco.Compiled" Version="6.0.532" />
   </ItemGroup>
 
   <ItemGroup>

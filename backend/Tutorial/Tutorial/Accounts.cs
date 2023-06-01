@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using GTANetworkAPI;
+using Tutorial.Models;
 
 namespace Tutorial
 {
@@ -86,6 +87,8 @@ namespace Tutorial
             if (Einreise == 1)
             {
                 player.TriggerEvent("showHideMoneyHud");
+                Stats stats = new Stats(Name, 5, (int)Geld, Payday);
+                player.TriggerEvent("showStats", NAPI.Util.ToJson(stats));
                 Events.OnCharacterCreated(player, CharacterData, false);
                 if (this.positions[0] != 0.0 && this.positions[1] != 0.0 && this.positions[2] != 0.0)
                 {
@@ -100,11 +103,15 @@ namespace Tutorial
                 if (CharacterData.Length <= 0)
                 {
                     player.TriggerEvent("showHideMoneyHud");
+                    Stats stats = new Stats(Name, 5, (int)Geld, Payday);
+                    player.TriggerEvent("showStats", NAPI.Util.ToJson(stats));
                     player.TriggerEvent("charcreator-show");
                 }
                 else
                 {
                     player.TriggerEvent("showHideMoneyHud");
+                    Stats stats = new Stats(Name, 5, (int)Geld, Payday);
+                    player.TriggerEvent("showStats", NAPI.Util.ToJson(stats));
                     Events.OnCharacterCreated(player, CharacterData, false);
                 }
             }

@@ -12,6 +12,8 @@
           "Microsoft.Extensions.DependencyInjection": "6.0.0",
           "MySql.Data": "8.0.25",
           "Newtonsoft.Json": "13.0.1",
+          "PetaPoco": "5.1.306",
+          "PetaPoco.Compiled": "6.0.532",
           "Bootstrapper": "1.1.0.0",
           "System.Reactive.Reference": "5.0.0.0"
         },
@@ -234,6 +236,19 @@
           }
         }
       },
+      "PetaPoco/5.1.306": {},
+      "PetaPoco.Compiled/6.0.532": {
+        "dependencies": {
+          "System.Reflection.Emit.ILGeneration": "4.7.0",
+          "System.Reflection.Emit.Lightweight": "4.7.0"
+        },
+        "runtime": {
+          "lib/netstandard2.1/PetaPoco.dll": {
+            "assemblyVersion": "6.0.532.0",
+            "fileVersion": "6.0.532.0"
+          }
+        }
+      },
       "System.Buffers/4.5.1": {},
       "System.Collections.Immutable/5.0.0": {
         "runtime": {
@@ -301,6 +316,8 @@
       },
       "System.Memory/4.5.3": {},
       "System.Reactive/5.0.0": {},
+      "System.Reflection.Emit.ILGeneration/4.7.0": {},
+      "System.Reflection.Emit.Lightweight/4.7.0": {},
       "System.Runtime.CompilerServices.Unsafe/6.0.0": {
         "runtime": {
           "lib/netcoreapp3.1/System.Runtime.CompilerServices.Unsafe.dll": {
@@ -698,6 +715,20 @@
       "path": "newtonsoft.json/13.0.1",
       "hashPath": "newtonsoft.json.13.0.1.nupkg.sha512"
     },
+    "PetaPoco/5.1.306": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-B8CaBJtriKE42WYx8M/2wGPgnTMY6DrbzzsC5NenBZgTwveKymYYf6kqC1Sm/4dwhhy9ijMpu20Bqmz2jOY1Gw==",
+      "path": "petapoco/5.1.306",
+      "hashPath": "petapoco.5.1.306.nupkg.sha512"
+    },
+    "PetaPoco.Compiled/6.0.532": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ebQSAVBJcultGltwV1r2SlpoRfxnI6uzCXRvoly/U4GhwtIUARWsPKseT86uCtWlamrKxZsU93hWUfdFz7y/Vw==",
+      "path": "petapoco.compiled/6.0.532",
+      "hashPath": "petapoco.compiled.6.0.532.nupkg.sha512"
+    },
     "System.Buffers/4.5.1": {
       "type": "package",
       "serviceable": true,
@@ -753,6 +784,20 @@
       "sha512": "sha512-erBZjkQHWL9jpasCE/0qKAryzVBJFxGHVBAvgRN1bzM0q2s1S4oYREEEL0Vb+1kA/6BKb5FjUZMp5VXmy+gzkQ==",
       "path": "system.reactive/5.0.0",
       "hashPath": "system.reactive.5.0.0.nupkg.sha512"
+    },
+    "System.Reflection.Emit.ILGeneration/4.7.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-AucBYo3DSI0IDxdUjKksBcQJXPHyoPyrCXYURW1WDsLI4M65Ar/goSHjdnHOAY9MiYDNKqDlIgaYm+zL2hA1KA==",
+      "path": "system.reflection.emit.ilgeneration/4.7.0",
+      "hashPath": "system.reflection.emit.ilgeneration.4.7.0.nupkg.sha512"
+    },
+    "System.Reflection.Emit.Lightweight/4.7.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-a4OLB4IITxAXJeV74MDx49Oq2+PsF6Sml54XAFv+2RyWwtDBcabzoxiiJRhdhx+gaohLh4hEGCLQyBozXoQPqA==",
+      "path": "system.reflection.emit.lightweight/4.7.0",
+      "hashPath": "system.reflection.emit.lightweight.4.7.0.nupkg.sha512"
     },
     "System.Runtime.CompilerServices.Unsafe/6.0.0": {
       "type": "package",

@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using GTANetworkAPI;
 using MySql.Data.MySqlClient;
+using Tutorial.Controllers;
 
 namespace Tutorial
 {
@@ -95,13 +96,13 @@ namespace Tutorial
                 return;
             }
             Player target = Utils.GetPlayerByNameOrID(playertarget);
-            if(target == null)
+            if (target == null)
             {
                 player.SendChatMessage("~r~Ungültiger Spieler");
                 return;
             }
             Accounts accountTarget = player.GetData<Accounts>(Accounts.Account_Key);
-            if(accountTarget.Einreise == 0)
+            if (accountTarget.Einreise == 0)
             {
                 accountTarget.Einreise = 1;
                 player.Position = new Vector3(-420.678, 1182.97, 325.642);
@@ -130,6 +131,30 @@ namespace Tutorial
             player.Position = position;
             player.SendChatMessage("Du hast dich erfolgreich teleportiert");
             return;
+        }
+
+        [Command("testcloth", "Befehl: /testcloths [Component-ID] [Drawable] [Color*]")]
+        public void CMD_testcloths(Player player, int componentid, int drawable, int color = 0)
+        {
+            NAPI.Task.Run(() =>
+            {
+                Accounts account = player.GetData<Accounts>(Accounts.Account_Key);
+                if (!account.IstSpielerAdmin((int)Accounts.AdminRanks.Administrator))
+                {
+                    player.SendChatMessage("~r~Dein Adminlevel ist zu gering!");
+                    return;
+                }
+                if (componentid == 0)
+                {
+                    NAPI.Player.SetPlayerAccessory(player, 0, drawable, color);
+                }
+                else
+                {
+                    NAPI.Player.SetPlayerClothes(player, componentid, drawable, color);
+                }
+                player.SendChatMessage("Testkleidung gesetzt!");
+                return;
+            });
         }
 
         [Command("me", "/me [Nachricht]", GreedyArg = true)]
@@ -171,14 +196,14 @@ namespace Tutorial
                 player.SendChatMessage("~r~Dein Adminlevel ist zu gering!");
                 return;
             }
-            Haus house = Haus.holeHausInReichweite(player);
+            HausModel house = HausController.holeHausInReichweite(player);
             if (house != null)
             {
                 player.SendChatMessage("~r~Hier ist bereits ein Haus!");
                 return;
             }
             string hausLabel = string.Empty;
-            house = new Haus();
+            house = new HausModel();
             house.ipl = HausInterior.Interior_Liste[ipl].ipl;
             house.position = player.Position;
             house.preis = preis;
@@ -205,7 +230,7 @@ namespace Tutorial
                     NAPI.Blip.SetBlipName(house.hausBlip, "Hausnummer: " + house.id);
                     NAPI.Blip.SetBlipShortRange(house.hausBlip, true);
 
-                    Haus.hausListe.Add(house);
+                    HausController.hausListe.Add(house);
 
                     player.SendChatMessage("~g~ Das Haus wurde erfolgreich erstellt!");
                 });
@@ -216,11 +241,11 @@ namespace Tutorial
         [Command("enter", "/enter um ein Haus zu betreten!")]
         public void CMD_enter(Player player)
         {
-            foreach (Haus house in Haus.hausListe)
+            foreach (HausModel house in HausController.hausListe)
             {
                 if (player.Position.DistanceTo(house.position) <= 2.5f)
                 {
-                    if (!Haus.HatSpielerSchluessel(player, house) && house.abgeschlossen)
+                    if (!HausController.HatSpielerSchluessel(player, house) && house.abgeschlossen)
                     {
                         player.SendChatMessage("~r~Türe ist abgeschlossen!");
                     }
@@ -238,11 +263,11 @@ namespace Tutorial
         [Command("exit", "/exit um ein Haus zu verlassen!")]
         public void CMD_exit(Player player)
         {
-            foreach (Haus house in Haus.hausListe)
+            foreach (HausModel house in HausController.hausListe)
             {
                 if (player.Position.DistanceTo(HausInterior.GetHausAusgang(house.ipl)) <= 2.5f)
                 {
-                    if (!Haus.HatSpielerSchluessel(player, house) && house.abgeschlossen)
+                    if (!HausController.HatSpielerSchluessel(player, house) && house.abgeschlossen)
                     {
                         player.SendChatMessage("~r~Türe ist abgeschlossen!");
                     }
@@ -261,19 +286,19 @@ namespace Tutorial
         public void CMD_lock(Player player)
         {
             if (!Accounts.IstSpielerEingeloggt(player)) return;
-            Haus house = null;
-            house = Haus.holeHausInReichweite(player);
-            if(house != null)
+            HausModel house = null;
+            house = HausController.holeHausInReichweite(player);
+            if (house != null)
             {
-                house = Haus.holeHausInReichweite(player);
+                house = HausController.holeHausInReichweite(player);
             }
             else
             {
-                house = Haus.HoleHausMitID(player.GetData<int>("Haus_ID"));
+                house = HausController.HoleHausMitID(player.GetData<int>("Haus_ID"));
             }
             if (house != null)
             {
-                if (Haus.HatSpielerSchluessel(player, house))
+                if (HausController.HatSpielerSchluessel(player, house))
                 {
                     if (house.abgeschlossen == false)
                     {
@@ -297,13 +322,13 @@ namespace Tutorial
         {
             if (!Accounts.IstSpielerEingeloggt(player)) return;
             Accounts account = player.GetData<Accounts>(Accounts.Account_Key);
-            Haus house = Haus.holeHausInReichweite(player);
-            if(house == null || house.besitzer != "Keiner")
+            HausModel house = HausController.holeHausInReichweite(player);
+            if (house == null || house.besitzer != "Keiner")
             {
                 player.SendChatMessage("~r~Du bist nicht in der Nähe von einem freien Haus!");
                 return;
             }
-            if(account.Geld < house.preis)
+            if (account.Geld < house.preis)
             {
                 player.SendChatMessage("~r~ Du hast nicht genügend Geld dabei!");
                 return;
@@ -343,18 +368,18 @@ namespace Tutorial
         {
             if (!Accounts.IstSpielerEingeloggt(player)) return;
             Accounts account = player.GetData<Accounts>(Accounts.Account_Key);
-            Haus house = Haus.holeHausInReichweite(player);
+            HausModel house = HausController.holeHausInReichweite(player);
             if (house == null)
             {
                 player.SendChatMessage("~r~Du bist nicht in der Nähe von einem Haus!");
                 return;
             }
-            if(house.besitzer != player.Name)
+            if (house.besitzer != player.Name)
             {
                 player.SendChatMessage("~r~Dieses Haus gehört dir nicht!");
                 return;
             }
-            account.Geld += house.preis/2;
+            account.Geld += house.preis / 2;
             house.status = false;
             house.abgeschlossen = false;
             house.besitzer = "Keiner";
@@ -389,9 +414,9 @@ namespace Tutorial
         public void CMD_lockpicking(Player player)
         {
             Vehicle vehicle = Utils.GetClosestVehicle(player);
-            if(vehicle != null)
+            if (vehicle != null)
             {
-                if(vehicle.Locked == true)
+                if (vehicle.Locked == true)
                 {
                     NAPI.ClientEvent.TriggerClientEvent(player, "showLockpicking");
                 }
@@ -451,7 +476,7 @@ namespace Tutorial
             }
             Player target = Utils.GetPlayerByNameOrID(playertarget);
             Accounts accounttarget = target.GetData<Accounts>(Accounts.Account_Key);
-            if(accounttarget != null && frak < 0 || frak > Accounts.FraktionsDaten.Length)
+            if (accounttarget != null && frak < 0 || frak > Accounts.FraktionsDaten.Length)
             {
                 player.SendChatMessage("~r~Ungültige Fraktion!");
                 return;
@@ -472,7 +497,7 @@ namespace Tutorial
                 player.SendChatMessage("~r~Dein Adminlevel ist zu gering!");
                 return;
             }
-            if(socialclubid < 10000)
+            if (socialclubid < 10000)
             {
                 player.SendChatMessage("~r~Ungültige Socialclubid!");
                 return;
@@ -480,14 +505,14 @@ namespace Tutorial
             MySqlCommand command = Datenbank.Connection.CreateCommand();
             command.CommandText = "SELECT id from whitelist WHERE socialclubid=@socialclubid LIMIT 1";
             command.Parameters.AddWithValue("socialclubid", socialclubid);
-            using(MySqlDataReader reader = command.ExecuteReader())
+            using (MySqlDataReader reader = command.ExecuteReader())
             {
-                if(reader.HasRows)
+                if (reader.HasRows)
                 {
                     found = true;
                 }
             }
-            if(found == true)
+            if (found == true)
             {
                 MySqlCommand command2 = Datenbank.Connection.CreateCommand();
                 command2.CommandText = "DELETE FROM whitelist WHERE socialclubid=@socialclubid LIMIT 1";
@@ -509,14 +534,14 @@ namespace Tutorial
         public void CMD_invite(Player player, String playertarget)
         {
             Accounts account = player.GetData<Accounts>(Accounts.Account_Key);
-            if(account.Fraktion == 0)
+            if (account.Fraktion == 0)
             {
                 player.SendChatMessage("~r~Du bist in keiner Fraktion!");
                 return;
             }
-            if(account.Rang < 10)
+            if (account.Rang < 10)
             {
-                player.SendChatMessage($"~r~Du bist kein {Accounts.FraktionsDaten[account.Fraktion,10]}");
+                player.SendChatMessage($"~r~Du bist kein {Accounts.FraktionsDaten[account.Fraktion, 10]}");
                 return;
             }
             Player target = Utils.GetPlayerByNameOrID(playertarget);
@@ -527,13 +552,13 @@ namespace Tutorial
             target.SendChatMessage($"Du wurdest von {player.Name} in die Fraktion {Accounts.FraktionsDaten[account.Fraktion, 0]} eingeladen!");
         }
 
-        [Command("pistole","/pistole um dir eine Pistole zu geben")]
+        [Command("pistole", "/pistole um dir eine Pistole zu geben")]
         public void CMD_pistole(Player player)
         {
             Accounts account = player.GetData<Accounts>(Accounts.Account_Key);
-            if(account.Fraktion != 1)
+            if (account.Fraktion != 1)
             {
-                player.SendChatMessage($"~r~Du bist kein Mitglied des {Accounts.FraktionsDaten[1,0]}!");
+                player.SendChatMessage($"~r~Du bist kein Mitglied des {Accounts.FraktionsDaten[1, 0]}!");
                 return;
             }
             NAPI.Player.GivePlayerWeapon(player, NAPI.Util.WeaponNameToModel("pistol"), 500);
@@ -544,12 +569,12 @@ namespace Tutorial
         public void CMD_carlock(Player player)
         {
             Vehicle getVehicle = Utils.GetClosestVehicle(player);
-            if(getVehicle != null)
+            if (getVehicle != null)
             {
                 Accounts account = player.GetData<Accounts>(Accounts.Account_Key);
-                if(getVehicle.GetData<int>("VEHICLE_FRAKTION") == account.Fraktion)
+                if (getVehicle.GetData<int>("VEHICLE_FRAKTION") == account.Fraktion)
                 {
-                    if(getVehicle.Locked == true)
+                    if (getVehicle.Locked == true)
                     {
                         getVehicle.Locked = false;
                         Utils.sendNotification(player, "Aufgeschlossen", "fas fa-car");
@@ -573,7 +598,7 @@ namespace Tutorial
         [Command("crosshair")]
         public void CMD_crosshair(Player player, int crosshair)
         {
-            if(crosshair < 0 || crosshair > 18)
+            if (crosshair < 0 || crosshair > 18)
             {
                 Utils.sendNotification(player, "Ungültiges Crosshair", "fas fa-user");
                 return;
@@ -602,7 +627,7 @@ namespace Tutorial
         public void CMD_docs(Player player)
         {
             Accounts account = player.GetData<Accounts>(Accounts.Account_Key);
-            if(account.Fraktion == 1)
+            if (account.Fraktion == 1)
             {
                 player.TriggerEvent("ShowDocsWindow");
             }
