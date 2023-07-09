@@ -13,14 +13,13 @@ namespace Tutorial
         public string Username { get; set; }
         public string Password { get; set; }
         public string Database { get; set; }
+        
 
         public static bool LoadServerSettings()
         {
-            string directory = "./serverdata/settings.json";
+            string directory = "./serverdata/.env";
             if(File.Exists(directory))
             {
-                string settings = File.ReadAllText(directory);
-                _Settings = NAPI.Util.FromJson<Settings>(settings);
                 NAPI.Util.ConsoleOutput("[Settings] -> Die Server Settings wurden erfolgreich geladen!");
                 return true;
             }

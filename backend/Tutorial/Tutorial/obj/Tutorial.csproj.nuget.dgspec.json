@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "J:\\Tutorials\\Rage.mp-C-Tutorial-NemesusTV\\backend\\Tutorial\\Tutorial\\Tutorial.csproj": {}
+    "C:\\Users\\mrtuxa\\Documents\\GitHub\\RageMP-C-Tutorial-NemesusTV\\backend\\Tutorial\\Tutorial\\Tutorial.csproj": {}
   },
   "projects": {
-    "J:\\Tutorials\\Rage.mp-C-Tutorial-NemesusTV\\backend\\Tutorial\\Tutorial\\Tutorial.csproj": {
+    "C:\\Users\\mrtuxa\\Documents\\GitHub\\RageMP-C-Tutorial-NemesusTV\\backend\\Tutorial\\Tutorial\\Tutorial.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "J:\\Tutorials\\Rage.mp-C-Tutorial-NemesusTV\\backend\\Tutorial\\Tutorial\\Tutorial.csproj",
+        "projectUniqueName": "C:\\Users\\mrtuxa\\Documents\\GitHub\\RageMP-C-Tutorial-NemesusTV\\backend\\Tutorial\\Tutorial\\Tutorial.csproj",
         "projectName": "Tutorial",
-        "projectPath": "J:\\Tutorials\\Rage.mp-C-Tutorial-NemesusTV\\backend\\Tutorial\\Tutorial\\Tutorial.csproj",
-        "packagesPath": "C:\\Users\\tschn\\.nuget\\packages\\",
-        "outputPath": "J:\\Tutorials\\Rage.mp-C-Tutorial-NemesusTV\\backend\\Tutorial\\Tutorial\\obj\\",
+        "projectPath": "C:\\Users\\mrtuxa\\Documents\\GitHub\\RageMP-C-Tutorial-NemesusTV\\backend\\Tutorial\\Tutorial\\Tutorial.csproj",
+        "packagesPath": "C:\\Users\\mrtuxa\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\mrtuxa\\Documents\\GitHub\\RageMP-C-Tutorial-NemesusTV\\backend\\Tutorial\\Tutorial\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "F:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\tschn\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\mrtuxa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -63,6 +68,10 @@
             "PetaPoco.Compiled": {
               "target": "Package",
               "version": "[6.0.532, )"
+            },
+            "dotenv.net": {
+              "target": "Package",
+              "version": "[3.1.2, )"
             }
           },
           "imports": [
@@ -71,7 +80,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -80,7 +90,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.426\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
         }
       }
     }

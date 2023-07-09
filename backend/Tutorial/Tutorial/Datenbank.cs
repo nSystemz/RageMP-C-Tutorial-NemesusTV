@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Net;
 using System.Text;
 using Bcrypt;
+using dotenv.net.Utilities;
 using GTANetworkAPI;
 using MySql.Data.MySqlClient;
 
@@ -19,10 +20,10 @@ namespace Tutorial
 
         public Datenbank()
         {
-            this.Host = Settings._Settings.Host;
-            this.Username = Settings._Settings.Username;
-            this.Password = Settings._Settings.Password;
-            this.Database = Settings._Settings.Database;
+            this.Host = EnvReader.GetStringValue("DB_HOST");
+            this.Username = EnvReader.GetStringValue("DB_USER");
+            this.Password = EnvReader.GetStringValue("DB_PASSWD");
+            this.Database = EnvReader.GetStringValue("DB_NAME");
         }
 
         public static void InitConnection()

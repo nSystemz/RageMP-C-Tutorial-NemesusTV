@@ -1,4 +1,5 @@
 ﻿using System;
+using dotenv.net;
 using GTANetworkAPI;
 
 namespace Tutorial
@@ -7,6 +8,10 @@ namespace Tutorial
     {
         static void Main(string[] args)
         {
+            DotEnv.Fluent()
+                .WithExceptions()
+                .WithEnvFiles("./serverdata/.env")
+                .Load();
         }
     }
 }
