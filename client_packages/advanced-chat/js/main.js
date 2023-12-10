@@ -1,10 +1,10 @@
 const settings = {
-    timeStamp: false,
+    timeStamp: true,
     removeInputColors: false,
-    characterCount: false,
+    characterCount: true,
     lowerCaseCommand: false,
-    scrollbar: false,
-    maxLength: 200
+    scrollbar: true,
+    maxLength: 150
 }
 
 let CHAT_BOX, MESSAGE_LIST, CHAT_INPUT, CHAR_COUNT;

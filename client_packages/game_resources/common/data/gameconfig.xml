@@ -87,7 +87,7 @@
                         </Item>
                         <Item>
                             <PoolName>CGameScriptResource</PoolName>
-                            <PoolSize value="3065"/>
+                            <PoolSize value="3067"/>
                         </Item>
                         <Item>
                             <PoolName>ClothStore</PoolName>
@@ -183,7 +183,7 @@
                         </Item>
                         <Item>
                             <PoolName>DwdStore</PoolName>
-                            <PoolSize value="18600"/>
+                            <PoolSize value="375000"/>
                         </Item>
                         <Item>
                             <PoolName>EntityBatch</PoolName>
@@ -203,7 +203,7 @@
                         </Item>
                         <Item>
                             <PoolName>FragmentStore</PoolName>
-                            <PoolSize value="33400"/>
+                            <PoolSize value="34500"/>
                         </Item>
                         <Item>
                             <PoolName>GamePlayerBroadcastDataHandler_Remote</PoolName>
@@ -379,7 +379,7 @@
                         </Item>
                         <Item>
                             <PoolName>TxdStore</PoolName>
-                            <PoolSize value="80000"/>
+                            <PoolSize value="375000"/>
                         </Item>
                         <Item>
                             <PoolName>Vehicles</PoolName>
@@ -420,7 +420,7 @@
                         </Item>
                         <Item>
                             <PoolName>CMoveObject</PoolName>
-                            <PoolSize value="180"/>
+                            <PoolSize value="300"/>
                         </Item>
                         <Item>
                             <PoolName>CMoveAnimatedBuilding</PoolName>
@@ -793,7 +793,7 @@
                     <MaxVehicleModelInfos value="320"/>
                     <MaxWeaponModelInfos value="115"/>
                     <MaxExtraPedModelInfos value="350"/>
-                    <MaxExtraVehicleModelInfos value="500"/>
+                    <MaxExtraVehicleModelInfos value="525"/>
                     <MaxExtraWeaponModelInfos value="610"/>
                 </ConfigModelInfo>
 
@@ -1089,12 +1089,12 @@
                         </Item>
                         <Item>
                             <StackName>MULTIPLAYER_FREEMODE</StackName>
-                            <SizeOfStack value="72500"/>
+                            <SizeOfStack value="80000"/>
                             <NumberOfStacksOfThisSize value="1"/>
                         </Item>
                         <Item>
                             <StackName>MISSION</StackName>
-                            <SizeOfStack value="54000"/>
+                            <SizeOfStack value="57500"/>
                             <NumberOfStacksOfThisSize value="1"/>
                         </Item>
                         <Item>
@@ -1873,7 +1873,7 @@
                         </Item>
                         <Item>
                             <ResourceTypeName>WEAPON_ASSET</ResourceTypeName>
-                            <ExpectedMaximum value="69"/>
+                            <ExpectedMaximum value="71"/>
                         </Item>
                         <Item>
                             <ResourceTypeName>VEHICLE_ASSET</ResourceTypeName>

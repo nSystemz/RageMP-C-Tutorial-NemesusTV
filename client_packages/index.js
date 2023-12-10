@@ -9,3 +9,5 @@ require('./draw/draw');
 require('./googledocs/googledocs');
 require('./animations/animations');
 require('./funmodus/funmodus');
+require('./doors/doors');
+require('./nTuning/index');
