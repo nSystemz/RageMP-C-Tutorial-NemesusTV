@@ -31,6 +31,7 @@ namespace Tutorial
             veh.NumberPlate = "Tutorial";
             veh.Locked = true;
             veh.EngineStatus = true;
+            veh.SetSharedData("Vehicle:Tuning", "n/A");
             player.SetIntoVehicle(veh, (int)VehicleSeat.Driver);
             Utils.sendNotification(player, "Fahrzeug erfolgreich gespawnt!", "fas fa-car");
         }
@@ -47,6 +48,49 @@ namespace Tutorial
             NAPI.ClientEvent.TriggerClientEvent(player, "vSpawner");
         }
 
+        [Command("aduty", "/aduty um den Admindienst zu beginnen/beenden")]
+        public void cmd_aduty(Player player, string password, int color = 1)
+        {
+            Accounts account = player.GetData<Accounts>(Accounts.Account_Key);
+            if(!account.IstSpielerAdmin((int)Accounts.AdminRanks.Moderator))
+            {
+                player.SendChatMessage("~r~Dein Adminlevel ist zu gering!");
+                return;
+            }
+            if (password == "test" || account.Aduty == true)
+            {
+                if (!account.IsSpielerADuty())
+                {
+                    account.Aduty = true;
+                    player.SendChatMessage("~g~Du bist jetzt Aduty!");
+                    NAPI.Player.SetPlayerClothes(player, 8, 15, color);
+                    NAPI.Player.SetPlayerClothes(player, 3, 2, color);
+                    NAPI.Player.SetPlayerClothes(player, 10, 0, color);
+                    NAPI.Player.SetPlayerClothes(player, 4, 114, color);
+                    NAPI.Player.SetPlayerClothes(player, 6, 78, color);
+                    NAPI.Player.SetPlayerClothes(player, 1, 135, color);
+                    NAPI.Player.SetPlayerClothes(player, 7, 0, color);
+                    NAPI.Player.SetPlayerClothes(player, 11, 287, color);
+                    NAPI.Player.SetPlayerAccessory(player, 0, -1, color);
+                    NAPI.Player.SetPlayerAccessory(player, 1, -1, color);
+                    NAPI.Player.SetPlayerAccessory(player, 2, -1, color);
+                    NAPI.Player.SetPlayerAccessory(player, 6, -1, color);
+                    NAPI.Player.SetPlayerAccessory(player, 7, -1, color);
+                }
+                else
+                {
+                    account.Aduty = false;
+                    player.SendChatMessage("~g~Du bist nicht mehr Aduty!");
+                    Events.OnCharacterCreated(player, account.CharacterData, false);
+
+                }
+            }
+            else
+            {
+                player.SendChatMessage("~r~Falsches Passwort!");
+            }
+        }
+
         [Command("playmusic", "/playmusic um Musik abzuspiefen!")]
         public void cmd_playmusic(Player player, string music)
         {
@@ -57,6 +101,20 @@ namespace Tutorial
                 return;
             }
             NAPI.ClientEvent.TriggerClientEvent(player, "PlayMusic", music);
+        }
+
+        [Command("createroulette", "/createroulette um ein Roulette Tisch zu erstellen")]
+        public void cmd_createroulette(Player player)
+        {
+            player.TriggerEvent("createRoulette");
+        }
+
+        [Command("startroulette", "/startroulette um das Roullete Spiel zu starten")]
+        public void cmd_startroulette(Player player)
+        {
+            Random rnd = new Random();
+            int number = rnd.Next(1, 38);
+            player.TriggerEvent("startRoulette", number);
         }
 
         [Command("freeze", "/freeze einen Spieler einfrieren")]
@@ -133,6 +191,22 @@ namespace Tutorial
             return;
         }
 
+        [Command("dog", "/dog")]
+        public void CMD_dog(Player player)
+        {
+            Accounts account = player.GetData<Accounts>(Accounts.Account_Key);
+            if (!account.IstSpielerAdmin((int)Accounts.AdminRanks.Moderator))
+            {
+                player.SendChatMessage("~r~Dein Adminlevel ist zu gering!");
+                return;
+            }
+            if(account.Dog == false)
+            {
+                account.Dog = true;
+                player.TriggerEvent("dogFollowMe");
+            }
+        }
+
         [Command("testcloth", "Befehl: /testcloths [Component-ID] [Drawable] [Color*]")]
         public void CMD_testcloths(Player player, int componentid, int drawable, int color = 0)
         {
@@ -156,6 +230,92 @@ namespace Tutorial
                 return;
             });
         }
+
+         [Command("testeupoutfit", "Befehl: /testeupoutfit [Outfit-Name]", GreedyArg = true)]
+         public void CMD_testeupoutfit(Player player, String outfitname)
+            {
+            NAPI.Task.Run(() => {
+                try
+                {
+                    String json1 = "";
+                    String json2 = "";
+                    if (!Accounts.IstSpielerEingeloggt(player)) return;
+                    if (outfitname.Length < 5 || outfitname.Length > 35)
+                    {
+                        player.SendChatMessage("~r~Ungültiger Outfitname!");
+                        return;
+                    }
+
+                    MySqlCommand command = Datenbank.Connection.CreateCommand();
+                    command.CommandText = "SELECT json1,json2 FROM eupoutfits WHERE owner='EUP' LIMIT 1000";
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            json1 = reader.GetString("json1");
+                            json2 = reader.GetString("json2");
+                        }
+                    }
+
+                    string[] json1Array = new string[14];
+                    string[] json2Array = new string[14];
+
+                    json1 = json1.Substring(1, json1.Length - 2);
+                    json2 = json2.Substring(1, json2.Length - 2);
+
+                    json1Array = json1.Split(",");
+                    json2Array = json2.Split(",");
+
+                    NAPI.Player.ClearPlayerAccessory(player, 0);
+                    NAPI.Player.ClearPlayerAccessory(player, 1);
+                    NAPI.Player.ClearPlayerAccessory(player, 2);
+                    NAPI.Player.ClearPlayerAccessory(player, 6);
+                    NAPI.Player.ClearPlayerAccessory(player, 7);
+                    NAPI.Player.SetPlayerClothes(player, 10, 0, 0);
+                    NAPI.Player.SetPlayerClothes(player, 5, 0, 0);
+                    NAPI.Player.SetPlayerClothes(player, 7, 0, 0);
+                    NAPI.Player.SetPlayerClothes(player, 1, 0, 0);
+                    NAPI.Player.SetPlayerClothes(player, 9, 0, 0);
+
+                    //Top
+                    NAPI.Player.SetPlayerClothes(player, 11, Convert.ToInt32(json1Array[5]) - 1, Convert.ToInt32(json2Array[5]) - 1);
+                    //Torso
+                    NAPI.Player.SetPlayerClothes(player, 3, Convert.ToInt32(json1Array[6]) - 1, Convert.ToInt32(json2Array[6]) - 1);
+                    //Legs
+                    NAPI.Player.SetPlayerClothes(player, 4, Convert.ToInt32(json1Array[9]) - 1, Convert.ToInt32(json2Array[9]) - 1);
+                    //Shoes
+                    NAPI.Player.SetPlayerClothes(player, 6, Convert.ToInt32(json1Array[10]) - 1, Convert.ToInt32(json2Array[10]) - 1);
+                    //Undershirt
+                    NAPI.Player.SetPlayerClothes(player, 8, Convert.ToInt32(json1Array[8]) - 1, Convert.ToInt32(json2Array[8]) - 1);
+                    //Bag
+                    NAPI.Player.SetPlayerClothes(player, 5, Convert.ToInt32(json1Array[13]) - 1, Convert.ToInt32(json2Array[13]) - 1);
+                    //Glasses
+                    NAPI.Player.SetPlayerAccessory(player, 1, Convert.ToInt32(json1Array[1]) - 1, Convert.ToInt32(json2Array[1]) - 1);
+                    //Hat
+                    NAPI.Player.SetPlayerAccessory(player, 0, Convert.ToInt32(json1Array[0]) - 1, Convert.ToInt32(json2Array[0]) - 1);
+                    //Mask
+                    NAPI.Player.SetPlayerClothes(player, 1, Convert.ToInt32(json1Array[4]) - 1, Convert.ToInt32(json2Array[4]) - 1);
+                    //Ears
+                    NAPI.Player.SetPlayerAccessory(player, 2, Convert.ToInt32(json1Array[2]) - 1, Convert.ToInt32(json2Array[2]) - 1);
+                    //Watches
+                    NAPI.Player.SetPlayerClothes(player, 6, Convert.ToInt32(json1Array[3]) - 1, Convert.ToInt32(json2Array[3]) - 1);
+                    //Bracelets
+                    NAPI.Player.SetPlayerAccessory(player, 7, Convert.ToInt32(json1Array[7]) - 1, Convert.ToInt32(json2Array[7]) - 1);
+                    //Accessories
+                    NAPI.Player.SetPlayerClothes(player, 7, Convert.ToInt32(json1Array[11]) - 1, Convert.ToInt32(json2Array[11]) - 1);
+                    //Armor
+                    NAPI.Player.SetPlayerClothes(player, 9, Convert.ToInt32(json1Array[12]) - 1, Convert.ToInt32(json2Array[12]) - 1);
+                    player.SendChatMessage("~g~Testoutfit (EUP) gesetzt!");
+                }
+                catch (Exception e)
+                {
+                    NAPI.Util.ConsoleOutput($"[CMD_testeupoutfit]: " + e.ToString());
+                }
+                return;
+            });
+        }
+
+
 
         [Command("me", "/me [Nachricht]", GreedyArg = true)]
         public void CMD_me(Player player, string nachricht)
@@ -428,6 +588,22 @@ namespace Tutorial
             else
             {
                 player.SendChatMessage("~r~Du bist nicht in der Nähe von einem Fahrzeug!");
+            }
+        }
+
+        [Command("tuning", "/tuning um dein Fahrzeug zu tunen!")]
+        public void CMD_tuning(Player player)
+        {
+            Vehicle vehicle = player.Vehicle;
+            if (vehicle != null)
+            {
+                string color = $"{NAPI.Vehicle.GetVehiclePrimaryColor(vehicle)},{NAPI.Vehicle.GetVehicleSecondaryColor(vehicle)},{NAPI.Vehicle.GetVehiclePearlescentColor(vehicle)},{NAPI.Vehicle.GetVehicleWheelColor(vehicle)}";
+                vehicle.SetSharedData("Vehicle:Color", color);
+                player.TriggerEvent("Client:ShowTuning");
+            }
+            else
+            {
+                player.SendChatMessage("~r~Du sitzt in keinem Fahrzeug!");
             }
         }
 

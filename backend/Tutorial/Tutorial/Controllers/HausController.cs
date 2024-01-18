@@ -44,7 +44,7 @@ namespace Tutorial.Controllers
         public static void VerarbeiteHausListAlsJson()
         {
             String json = NAPI.Util.ToJson(hausListe);
-            NAPI.Util.ConsoleOutput(json);
+           //NAPI.Util.ConsoleOutput(json);
         }
     }
 }

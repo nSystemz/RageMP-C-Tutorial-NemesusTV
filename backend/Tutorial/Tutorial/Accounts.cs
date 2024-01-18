@@ -27,6 +27,8 @@ namespace Tutorial
         public float[] positions = new float[4];
         public int Einreise;
         public string CharacterData;
+        public bool Aduty;
+        public bool Dog;
 
         public Accounts()
         {
@@ -39,6 +41,8 @@ namespace Tutorial
             this.showInv = false;
             this.Einreise = 0;
             this.CharacterData = "";
+            this.Aduty = false;
+            this.Dog = false;
         }
 
         public Accounts(string Name, Player player)
@@ -53,6 +57,8 @@ namespace Tutorial
             this.showInv = false;
             this.Einreise = 0;
             this.CharacterData = "";
+            this.Aduty = false;
+            this.Dog = false;
         }
 
         public static bool IstSpielerEingeloggt(Player player)
@@ -120,6 +126,11 @@ namespace Tutorial
         public bool IstSpielerAdmin(int Adminlevel)
         {
             return this.Adminlevel >= Adminlevel;
+        }
+
+        public bool IsSpielerADuty()
+        {
+            return this.Aduty;
         }
 
         public bool IstSpielerInFraktion(int frak)

@@ -117,5 +117,29 @@ namespace Tutorial
             }
             return false;
         }
+        public static Vector3 GetPositionInFrontOfPlayer(Player player, float dist = 1.1f)
+        {
+            double radians = -player.Heading * Math.PI / 180;
+            double nx = player.Position.X + (dist * Math.Sin(radians));
+            double ny = player.Position.Y + (dist * Math.Cos(radians));
+            return new Vector3(nx, ny, player.Position.Z);
+        }
+
+
+        public static IEnumerable<T[]> Filter<T>(T[,] source, Func<T[], bool> predicate)
+        {
+            for (int i = 0; i < source.GetLength(0); ++i)
+            {
+                T[] values = new T[source.GetLength(1)];
+                for (int j = 0; j < values.Length; ++j)
+                {
+                    values[j] = source[i, j];
+                }
+                if (predicate(values))
+                {
+                    yield return values;
+                }
+            }
+        }
     }
 }

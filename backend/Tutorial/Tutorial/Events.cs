@@ -1,5 +1,8 @@
 ﻿using GTANetworkAPI;
 using Newtonsoft.Json.Linq;
+using System;
+using System.IO;
+using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 using Tutorial.Controllers;
@@ -10,6 +13,8 @@ namespace Tutorial
     {
         public ColShape colWillkommen;
         public Marker testMarker = null;
+        public static String weatherDataTemp = "";
+        public static String weatherData = "clear sky";
 
         [ServerEvent(Event.ResourceStart)]
         public void OnResourceStart()
@@ -19,6 +24,8 @@ namespace Tutorial
             {
                 Datenbank.InitConnection();
             }
+            //Wetter API
+            OnWeatherChange(null);
             //Häuser
             HausController.hausListe = Datenbank.LadeAlleHäuser();
             //Items
@@ -27,6 +34,7 @@ namespace Tutorial
             Datenbank.LadeAllFraktionen();
             //Timer
             Timer paydayTimer = new Timer(OnPaydayTimer, null, 60000, 60000);
+            Timer weatherTimer = new Timer(OnWeatherChange, null, 60000 * 60, 60000 * 60);
             //Sonstige Sachen
             NAPI.TextLabel.CreateTextLabel("~w~Willkommen auf dem NemesusTV Tutorial Server!", new Vector3(-425.50986, 1123.3857, 325.85443 + 1.0), 10.0f, 0.5f, 4, new Color(255, 255, 255));
             NAPI.Marker.CreateMarker(2, new Vector3(-425.50986, 1123.3857, 325.85443), new Vector3(), new Vector3(), 1.0f, new Color(255, 255, 255));
@@ -39,11 +47,102 @@ namespace Tutorial
             //Police Carspawner
             NAPI.TextLabel.CreateTextLabel("~w~Benutze Taste ~y~[F]~w~ um ein Fraktionsfahrzeug zu spawnen!", new Vector3(441.07944, -981.0528, 30.689598 + 0.5), 20.0f, 0.5f, 4, new Color(255, 255, 255));
             //Discord
-            Discord.DiscordBot.StartDiscordBot();
+            //Discord.DiscordBot.StartDiscordBot();
             //Adminlog
             Utils.adminLog("Der Server wurde erfolgreich gestartet", "Server");
             //Test
-            HausController.VerarbeiteHausListAlsJson();
+            //HausController.VerarbeiteHausListAlsJson();
+        }
+
+        public static void OnWeatherChange(object state)
+        {
+            try
+            {
+                Task.Factory.StartNew(() =>
+                {
+                    NAPI.Task.Run(() =>
+                    {
+                        var request = (HttpWebRequest)WebRequest.Create("https://nemesus.de/wetterapi/data.php");
+                        request.Method = "GET";
+                        var content = string.Empty;
+                        using (var response = (HttpWebResponse)request.GetResponse())
+                        {
+                            using (var stream = response.GetResponseStream())
+                            {
+                                using (var sr = new StreamReader(stream))
+                                {
+                                    content = sr.ReadToEnd();
+                                    weatherDataTemp = content.Split(",")[0];
+                                    weatherData = content.Split(",")[1];
+                                    switch (weatherData.ToLower())
+                                    {
+                                        default:
+                                            {
+                                                NAPI.World.SetWeather("CLEAR");
+                                                break;
+                                            }
+                                        case "clear sky":
+                                            {
+                                                NAPI.World.SetWeather("CLEAR");
+                                                break;
+                                            }
+                                        case "few clouds":
+                                            {
+                                                NAPI.World.SetWeather("CLOUDS");
+                                                break;
+                                            }
+                                        case "scattered clouds":
+                                            {
+                                                NAPI.World.SetWeather("OVERCAST");
+                                                break;
+                                            }
+                                        case "broken clouds":
+                                            {
+                                                NAPI.World.SetWeather("OVERCAST");
+                                                break;
+                                            }
+                                        case "shower rain":
+                                            {
+                                                NAPI.World.SetWeather("RAIN");
+                                                break;
+                                            }
+                                        case "light rain":
+                                            {
+                                                NAPI.World.SetWeather("RAIN");
+                                                break;
+                                            }
+                                        case "rain":
+                                            {
+                                                NAPI.World.SetWeather("RAIN");
+                                                break;
+                                            }
+                                        case "thunderstorm":
+                                            {
+                                                NAPI.World.SetWeather("THUNDER");
+                                                break;
+                                            }
+                                        case "snow":
+                                            {
+                                                NAPI.World.SetWeather("SNOW");
+                                                break;
+                                            }
+                                        case "mist":
+                                            {
+                                                NAPI.World.SetWeather("FOGGY");
+                                                break;
+                                            }
+                                    }
+                                    NAPI.Util.ConsoleOutput($"Wetter API aufgerufen mit den Daten: {weatherDataTemp} Grad - {weatherData}");
+                                }
+                            }
+                        }
+                    });
+                });
+            }
+            catch(Exception e) 
+            {
+                NAPI.Util.ConsoleOutput("[OnWeatherChange]: " + e.ToString());
+            }
         }
 
         public static void OnPaydayTimer(object state)
@@ -142,6 +241,7 @@ namespace Tutorial
             veh.NumberPlate = "Tutorial";
             veh.Locked = true;
             veh.EngineStatus = true;
+            veh.SetSharedData("Vehicle:Tuning", "n/A");
             if (sitIn)
             {
                 player.SetIntoVehicle(veh, (int)VehicleSeat.Driver);
@@ -299,8 +399,142 @@ namespace Tutorial
                     tempVehicle = NAPI.Vehicle.CreateVehicle(NAPI.Util.GetHashKey("police"), new Vector3(452.96118, -1020.051, 27.976496), -93.67f, 0, 0);
                     tempVehicle.Locked = true;
                     tempVehicle.SetData<int>("VEHICLE_FRAKTION", 1);
+                    tempVehicle.SetSharedData("Vehicle:Tuning", "n/A");
                     player.SetIntoVehicle(tempVehicle, (int)VehicleSeat.Driver);
                 }
+            }
+        }
+
+        [RemoteEvent("Server:TuningSync")]
+        public static void OnTuningSync(Player player, string sync)
+        {
+            try
+            {
+                if (player.IsInVehicle)
+                {
+                    player.Vehicle.SetSharedData("Vehicle:Tuning", sync);
+                }
+            }
+            catch (Exception e)
+            {
+                NAPI.Util.ConsoleOutput("[OnTuningSync]: " + e.ToString());
+            }
+        }
+
+        [RemoteEvent("Server:TuningPreview")]
+        public static void OnTuningPreview(Player player, int tuning, int component, bool pearlEffect = false, Vehicle getVehicle = null)
+        {
+            try
+            {
+                Vehicle vehicle = null;
+                if (player == null)
+                {
+                    vehicle = getVehicle;
+                }
+                else
+                {
+                    vehicle = player.Vehicle;
+                }
+                if (player == null || player.IsInVehicle)
+                {
+                    if (tuning == 53)
+                    {
+                        NAPI.Vehicle.SetVehicleNumberPlateStyle(vehicle, component);
+                    }
+                    else if (tuning == 56)
+                    {
+                        if (component > -1)
+                        {
+                            NAPI.Vehicle.SetVehicleNeonState(vehicle, true);
+                            if (component == 0)
+                            {
+                                NAPI.Vehicle.SetVehicleNeonColor(vehicle, 230, 16, 34);
+                            }
+                            else if (component == 1)
+                            {
+                                NAPI.Vehicle.SetVehicleNeonColor(vehicle, 2, 35, 250);
+                            }
+                            else if (component == 2)
+                            {
+                                NAPI.Vehicle.SetVehicleNeonColor(vehicle, 44, 196, 10);
+                            }
+                            else if (component == 3)
+                            {
+                                NAPI.Vehicle.SetVehicleNeonColor(vehicle, 245, 208, 0);
+                            }
+                            else if (component == 4)
+                            {
+                                NAPI.Vehicle.SetVehicleNeonColor(vehicle, 128, 14, 124);
+                            }
+                            else if (component == 5)
+                            {
+                                NAPI.Vehicle.SetVehicleNeonColor(vehicle, 240, 115, 48);
+                            }
+                            else if (component == 6)
+                            {
+                                NAPI.Vehicle.SetVehicleNeonColor(vehicle, 14, 168, 207);
+                            }
+                            else if (component == 7)
+                            {
+                                NAPI.Vehicle.SetVehicleNeonColor(vehicle, 209, 82, 207);
+                            }
+                            else if (component == 8)
+                            {
+                                NAPI.Vehicle.SetVehicleNeonColor(vehicle, 95, 158, 160);
+                            }
+                            else if (component == 9)
+                            {
+                                NAPI.Vehicle.SetVehicleNeonColor(vehicle, 255, 255, 255);
+                            }
+                            else if (component == 10)
+                            {
+                                NAPI.Vehicle.SetVehicleNeonColor(vehicle, 1, 4, 10);
+                            }
+                        }
+                        else
+                        {
+                            NAPI.Vehicle.SetVehicleNeonState(vehicle, false);
+                            NAPI.Vehicle.SetVehicleNeonColor(vehicle, 0, 0, 0);
+                        }
+                    }
+                    else if (tuning == 66)
+                    {
+                        if (pearlEffect == false)
+                        {
+                            NAPI.Vehicle.SetVehiclePrimaryColor(vehicle, component);
+                            string color = $"{NAPI.Vehicle.GetVehiclePrimaryColor(vehicle)},{NAPI.Vehicle.GetVehicleSecondaryColor(vehicle)},{NAPI.Vehicle.GetVehiclePearlescentColor(vehicle)},{NAPI.Vehicle.GetVehicleWheelColor(vehicle)}";
+                            vehicle.SetSharedData("Vehicle:Color", color);
+                        }
+                        else
+                        {
+                            NAPI.Vehicle.SetVehiclePearlescentColor(vehicle, component);
+                            string color = $"{NAPI.Vehicle.GetVehiclePrimaryColor(vehicle)},{NAPI.Vehicle.GetVehicleSecondaryColor(vehicle)},{NAPI.Vehicle.GetVehiclePearlescentColor(vehicle)},{NAPI.Vehicle.GetVehicleWheelColor(vehicle)}";
+                            vehicle.SetSharedData("Vehicle:Color", color);
+                        }
+                    }
+                    else if (tuning == 67)
+                    {
+                        NAPI.Vehicle.SetVehicleSecondaryColor(vehicle, component);
+                        string color = $"{NAPI.Vehicle.GetVehiclePrimaryColor(vehicle)},{NAPI.Vehicle.GetVehicleSecondaryColor(vehicle)},{NAPI.Vehicle.GetVehiclePearlescentColor(vehicle)},{NAPI.Vehicle.GetVehicleWheelColor(vehicle)}";
+                        vehicle.SetSharedData("Vehicle:Color", color);
+                    }
+                    else if (tuning == 68)
+                    {
+                        NAPI.Vehicle.SetVehicleWheelColor(vehicle, component);
+                        string color = $"{NAPI.Vehicle.GetVehiclePrimaryColor(vehicle)},{NAPI.Vehicle.GetVehicleSecondaryColor(vehicle)},{NAPI.Vehicle.GetVehiclePearlescentColor(vehicle)},{NAPI.Vehicle.GetVehicleWheelColor(vehicle)}";
+                        vehicle.SetSharedData("Vehicle:Color", color);
+                    }
+                    else if (tuning == 69)
+                    {
+                        NAPI.Vehicle.SetVehiclePearlescentColor(vehicle, component);
+                        string color = $"{NAPI.Vehicle.GetVehiclePrimaryColor(vehicle)},{NAPI.Vehicle.GetVehicleSecondaryColor(vehicle)},{NAPI.Vehicle.GetVehiclePearlescentColor(vehicle)},{NAPI.Vehicle.GetVehicleWheelColor(vehicle)}";
+                        vehicle.SetSharedData("Vehicle:Color", color);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                NAPI.Util.ConsoleOutput("[OnTuningPreview]: " + e.ToString());
             }
         }
     }
