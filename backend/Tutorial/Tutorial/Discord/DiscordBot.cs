@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 using GTANetworkAPI;
 using Discord.Net;
+using dotenv.net.Utilities;
 using Newtonsoft.Json;
 using Color = Discord.Color;
 
@@ -18,7 +19,9 @@ namespace Tutorial.Discord
         private static DiscordSocketClient client;
         private static CommandService commands;
         private static IServiceProvider services;
-        private static string token = "Nzk1MDQ0MDgwOTY2ODI4MDMy.GmiUZU.68HWBvxSshAcOOXm6CDIo3WV981yIj_V0lmG2s";
+        private static string token = EnvReader.GetStringValue("TOKEN");
+        private static ulong guildId = Convert.ToUInt64(EnvReader.GetIntValue("GUILD_ID"));
+        private static ulong memberCount = Convert.ToUInt64(EnvReader.GetIntValue("MEMBER_COUNT_ID"));
 
         public static async Task StartDiscordBot()
         {
@@ -51,7 +54,7 @@ namespace Tutorial.Discord
 
             //await GetUserCount();
 
-            var guild = client.GetGuild(772867895852138496);
+            var guild = client.GetGuild(guildId);
 
             var guildCommand = new SlashCommandBuilder();
             guildCommand.WithName("whitelisttest");
@@ -114,7 +117,7 @@ namespace Tutorial.Discord
                 }
             }
 
-            SocketVoiceChannel MemberCount = client.GetGuild(772867895852138496).GetVoiceChannel(1033767384701472809);
+            SocketVoiceChannel MemberCount = client.GetGuild(guildId).GetVoiceChannel(memberCount);
 
             await MemberCount.ModifyAsync(prop => prop.Name = $"{count} Spieler");
         }
