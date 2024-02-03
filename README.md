@@ -2,7 +2,7 @@
 
 Hier findet Ihr alle Dateien zur Youtube Tutorialreihe für RageMP C#
 
-**Auf der Suche nach einem günstigen RageMP Server? ZAP-Hosting: https://bit.ly/3ELgfbY und mit dem Gutschein: Nsus-a-3805 noch kräftig sparen! (Werbung)**
+**Auf der Suche nach einem günstigen RageMP Server? Ich empfehle euch einen Linux VServer bei ZAP-Hosting: https://bit.ly/3GX1yEx und mit dem Gutschein: Nsus-a-3805 noch kräftig sparen! (Werbung)**
 
 (RageMP C# Tutorials (C#, CEF, NativeUI, Javascript, Vue.js und vieles mehr)
 
