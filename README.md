@@ -27,4 +27,4 @@ Discord (Support und Smalltalk): https://discord.nemesus.de
 
 Ihr wollt uns unterstützen? https://ko-fi.com/nemesustv
 
-Viel Spass!
+Viel Spass und Erfolg!
