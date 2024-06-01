@@ -6,13 +6,13 @@ Hier findet Ihr alle Dateien zur Youtube Tutorialreihe für RageMP C#
 
 (RageMP C# Tutorials (C#, CEF, NativeUI, Javascript, Vue.js und vieles mehr)
 
---
+---
 
 Installation:
 
 Die benötigten Dateien einfach in euren Rage Server Ordner kopieren, evtl. C# auf enabled setzen in der server.cfg und im vuejsserver Ordner einmal npm install aufrufen.
 
---
+---
 
 Weitere Links:
 
@@ -30,7 +30,7 @@ https://forum.nemesus.de
 
 Discord (Support und Smalltalk): https://discord.nemesus.de
 
---
+---
 
 Ihr wollt uns unterstützen? https://ko-fi.com/nemesustv
 
