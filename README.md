@@ -14,6 +14,13 @@ Die benötigten Dateien einfach in euren Rage Server Ordner kopieren, evtl. C# a
 
 ---
 
+Testuser:
+
+Testuser
+123456
+
+---
+
 Weitere Links:
 
 Youtube: 
