@@ -10,7 +10,7 @@ Hier findet Ihr alle Dateien zur Youtube Tutorialreihe für RageMP C#
 
 Installation:
 
-Die benötigten Dateien einfach in euren Rage Server Ordner kopieren, evtl. C# auf enabled setzen in der server.cfg und im vuejsserver Ordner einmal npm install aufrufen.
+Die benötigten Dateien einfach in euren Rage Server Ordner kopieren, evtl. C# auf enabled setzen in der server.cfg und im vuejsserver Ordner einmal npm install aufrufen sowie den vue dev Server starten (npm run serve).
 
 ---
 
@@ -25,6 +25,9 @@ Weitere Links:
 
 Youtube: 
 https://yt.nemesus.de
+
+Tutorial zum aufsetzen dieses Tutorial Templates:
+https://www.youtube.com/watch?v=m3Y1sfV4atQ
 
 Playlist:
 https://www.youtube.com/watch?v=Y28QzJ_1ZK0&amp;list=PLwo_W2ZlTOIk3Csvsx77vhZuKYH_NfHpi
