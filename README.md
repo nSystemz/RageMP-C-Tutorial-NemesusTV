@@ -1,4 +1,4 @@
-# Rage.mp-C-Tutorial-NemesusTV
+# 🎮 Rage.mp-C-Tutorial-NemesusTV 🎮
 
 Hier findet Ihr alle Dateien zur Youtube Tutorialreihe für RageMP C#
 
@@ -39,6 +39,6 @@ Discord (Support und Smalltalk): https://discord.nemesus.de
 
 ---
 
-* Ihr wollt uns unterstützen? https://ko-fi.com/nemesustv *
+☕ Ihr wollt uns unterstützen? https://ko-fi.com/nemesustv ☕
 
 Viel Spass und Erfolg!
