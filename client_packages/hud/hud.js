@@ -126,20 +126,13 @@ mp.events.add('startRoulette', (number) => {
     table.playAnim('exit_'+number+'_wheel', lib, 1000.0, false, true, false, 0, 136704);
 });
 
-mp.events.add('dogFollowMe', () => {
-    if(ped == null)
-    {
-        ped = mp.peds.new(
-            mp.game.joaat('a_c_husky'),
-            new mp.Vector3(mp.players.local.position.x+2, mp.players.local.position.y+2, mp.players.local.position.z-0.5),
-            180,
-            mp.players.local.dimension
-        );
-        setTimeout(() => {
-            ped.freezePosition(false);
-            ped.setInvincible(false);
-            ped.setProofs(false, false, false, false, false, false, false, false);
-            ped.taskFollowToOffsetOf(mp.players.local.handle, 2, 2, 2, 1.5, -1, 10, true);
-        }, 500);
-    }
+mp.events.add('PetFollow', (ped) => {
+    ped.freezePosition(false);
+    ped.setCanBeDamaged(false);
+    ped.setInvincible(true);
+    ped.setHealth(100);
+    ped.setOnlyDamagedByPlayer(true);
+    ped.setFleeAttributes(0.0, false);
+    ped.setProofs(false, false, false, false, false, false, false, false);
+    ped.taskFollowToOffsetOf(mp.players.local.handle, 1.5, 1.5, 1.5, 1.5, -1, 10, true);
 });

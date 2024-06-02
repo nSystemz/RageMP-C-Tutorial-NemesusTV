@@ -76,6 +76,7 @@ namespace Tutorial
         public void Login(Player player, bool firstLogin)
         {
             Datenbank.AccountLaden(this);
+            player.SetSharedData("Client:Name", player.Name);
             if (firstLogin)
             {
                 player.SendChatMessage("Willkommen auf unserem Server!");

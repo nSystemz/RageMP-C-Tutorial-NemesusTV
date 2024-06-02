@@ -5,7 +5,7 @@ using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using GTANetworkAPI;
-using MySql.Data.MySqlClient;
+using MySqlConnector;
 using Tutorial.Controllers;
 
 namespace Tutorial
@@ -203,7 +203,12 @@ namespace Tutorial
             if(account.Dog == false)
             {
                 account.Dog = true;
-                player.TriggerEvent("dogFollowMe");
+                Ped ped = NAPI.Ped.CreatePed(0x9563221D, new Vector3(player.Position.X + 1.5, player.Position.Y + 1.5, player.Position.Z + 0.1), player.Heading, true, true, false, false, player.Dimension);
+                ped.Controller = player;
+                NAPI.Task.Run(() =>
+                {
+                    player.TriggerEvent("PetFollow", ped);
+                }, delayTime: 1500);
             }
         }
 

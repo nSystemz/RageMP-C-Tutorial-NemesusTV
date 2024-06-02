@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using System.Net;
 using System.Text;
-using Bcrypt;
 using GTANetworkAPI;
-using MySql.Data.MySqlClient;
+using MySqlConnector;
 
 namespace Tutorial
 {
@@ -71,7 +70,7 @@ namespace Tutorial
 
         public static void NeuenAccountErstellen(Accounts account, string password)
         {
-            string saltedpw = Bcrypt.BCrypt.HashPassword(password, Bcrypt.BCrypt.GenerateSalt());
+            string saltedpw = BCrypt.Net.BCrypt.HashPassword(password);
 
             try
             {
@@ -164,7 +163,7 @@ namespace Tutorial
                 }
             }
 
-            if (Bcrypt.BCrypt.CheckPassword(passwordinput, password)) return true;
+            if (BCrypt.Net.BCrypt.Verify(passwordinput, password)) return true;
             return false;
         }
 

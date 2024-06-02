@@ -184,6 +184,7 @@ namespace Tutorial
                 player.SendChatMessage("~w~Bitte erstellte dir mit /register einen Account!");
             }*/
             player.SetOwnSharedData("Account:Geld", 0);
+            player.SetSharedData("Client:Name", player.Name);
         }
 
         [ServerEvent(Event.PlayerDisconnected)]

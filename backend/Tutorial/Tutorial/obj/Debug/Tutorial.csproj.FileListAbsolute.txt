@@ -31,7 +31,6 @@ J:\Tutorials\Rage.mp-C-Tutorial-NemesusTV\backend\Tutorial\Tutorial\obj\Debug\Tu
 J:\Tutorials\Rage.mp-C-Tutorial-NemesusTV\backend\Tutorial\Tutorial\obj\Debug\Tutorial.csproj.CoreCompileInputs.cache
 J:\Tutorials\Rage.mp-C-Tutorial-NemesusTV\backend\Tutorial\Tutorial\obj\Debug\Tutorial.dll
 J:\Tutorials\Rage.mp-C-Tutorial-NemesusTV\backend\Tutorial\Tutorial\obj\Debug\Tutorial.pdb
-J:\Tutorials\Rage.mp-C-Tutorial-NemesusTV\backend\Tutorial\Tutorial\obj\Debug\Tutorial.csproj.CopyComplete
 J:\Tutorials\Rage.mp-C-Tutorial-NemesusTV\backend\Tutorial\Tutorial\obj\Debug\Tutorial.genruntimeconfig.cache
 J:\Tutorials\Rage.mp-C-Tutorial-NemesusTV\dotnet\resources\Tutorial\Tutorial.exe
 J:\Tutorials\Rage.mp-C-Tutorial-NemesusTV\dotnet\resources\Tutorial\Tutorial.deps.json
@@ -40,3 +39,5 @@ J:\Tutorials\Rage.mp-C-Tutorial-NemesusTV\dotnet\resources\Tutorial\Tutorial.run
 J:\Tutorials\Rage.mp-C-Tutorial-NemesusTV\dotnet\resources\Tutorial\Tutorial.dll
 J:\Tutorials\Rage.mp-C-Tutorial-NemesusTV\dotnet\resources\Tutorial\Tutorial.pdb
 J:\Tutorials\Rage.mp-C-Tutorial-NemesusTV\backend\Tutorial\Tutorial\obj\Debug\Tutorial.csproj.AssemblyReference.cache
+J:\Tutorials\Rage.mp-C-Tutorial-NemesusTV\backend\Tutorial\Tutorial\obj\Debug\Tutorial.GeneratedMSBuildEditorConfig.editorconfig
+J:\Tutorials\Rage.mp-C-Tutorial-NemesusTV\backend\Tutorial\Tutorial\obj\Debug\Tutorial.csproj.Up2Date

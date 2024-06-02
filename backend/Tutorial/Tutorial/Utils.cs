@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using GTANetworkAPI;
-using MySql.Data.MySqlClient;
+using MySqlConnector;
 
 namespace Tutorial
 {
