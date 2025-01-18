@@ -553,3 +553,12 @@ iframe {
     padding-right: 15px;
   }
 }
+
+body {
+  background: 
+    linear-gradient(#0007, #0000),
+    #123;
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+}

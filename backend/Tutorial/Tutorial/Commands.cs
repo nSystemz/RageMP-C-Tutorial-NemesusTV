@@ -769,6 +769,13 @@ namespace Tutorial
             }
         }
 
+        [Command("snow", "/snow um den Schneeeffekte zu aktivieren")]
+        public void cmd_snow(Player player)
+        {
+            NAPI.World.SetWeather(Weather.XMAS);
+            player.TriggerEvent("Player:Snow");
+        }
+
         [Command("charcreator")]
         public void CMD_charcreator(Player player)
         {

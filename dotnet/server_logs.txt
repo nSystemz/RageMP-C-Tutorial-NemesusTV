@@ -26260,4 +26260,50 @@ SERVER=localhost; DATABASE=ragemp; UID=ragemp; PASSWORD=12345
    at MySql.Data.MySqlClient.MySqlPool.TryToGetDriver()
    at MySql.Data.MySqlClient.MySqlPool.GetConnection()
    at MySql.Data.MySqlClient.MySqlConnection.Open()
-   at Tutorial.Datenbank.InitConnection() in J:\Tutorials\Rage.mp-C-Tutorial-Neme
+   at Tutorial.Datenbank.InitConnection() in J:\Tutorials\Rage.mp-C-Tutorial-NemeInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 31.12.2024 11:29:06
+Unable to load acl.xml
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Tutorial resource..
+Tutorial: loading scripts.. found 1 script(s)
+Tutorial: instantiating Tutorial.Commands..
+Tutorial: instantiating Tutorial.Connections..
+Tutorial: instantiating Tutorial.Events..
+Tutorial: instantiating Tutorial.HausInterior..
+Tutorial: instantiating Tutorial.Inventory.Inventory..
+Tutorial: instantiating Tutorial.Inventory.ItemModel..
+Tutorial: instantiating Tutorial.Controllers.HausController..
+Tutorial: loading server events.. found 6 server event(s)
+Tutorial: loaded 6 server events(s)
+Tutorial: loading commands.. found 36 command(s)
+Tutorial: loading commands.. found 2 command(s)
+Tutorial: loaded 38 commands(s)
+Tutorial: loading remote events.. found 2 remote event(s)
+Tutorial: loading remote events.. found 10 remote event(s)
+Tutorial: loading remote events.. found 2 remote event(s)
+Tutorial: loaded 14 remote event(s)
+[Settings] -> Die Server Settings wurden erfolgreich geladen!
+SERVER=localhost; DATABASE=ragemp; UID=ragemp; PASSWORD=12345
+[MYSQL] -> Verbindung konnte nicht aufgebaut werden!
+[MYSQL] ->MySqlConnector.MySqlException (0x80004005): Unknown database 'ragemp'
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, Int32 startTickCount, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 498
+   at MySqlConnector.Core.ConnectionPool.ConnectSessionAsync(String logMessage, Int32 startTickCount, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 376
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, Int32 startTickCount, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 107
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, Int32 startTickCount, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 137
+   at MySqlConnector.MySqlConnection.CreateSessionAsync(ConnectionPool pool, Int32 startTickCount, Nullable`1 ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 873
+   at MySqlConnector.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 414
+   at MySqlConnector.MySqlConnection.Open() in /_/src/MySqlConnector/MySqlConnection.cs:line 380
+   at Tutorial.Datenbank.InitConnection() in J:\Tutorials\Rage.mp-C-Tutorial-NemesusTV\backend\Tutorial\Tutorial\Datenbank.cs:line 39
+-> Error starting 'Tutorial'
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.InvalidOperationException: Connection must be Open; current state is Closed
+   at ServerSession MySqlConnector.MySqlConnection.get_Session() in /_/src/MySqlConnector/MySqlConnection.cs:line 691
+   at void MySqlConnector.Core.ICancellableCommandExtensions.ResetCommandTimeout(ICancellableCommand command) in /_/src/MySqlConnector/Core/ICancellableCommand.cs:line 59
+   at async Task<MySqlDataReader> MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 318
+   at DbDataReader MySqlConnector.MySqlCommand.ExecuteDbDataReader(CommandBehavior behavior) in /_/src/MySqlConnector/MySqlCommand.cs:line 261
+   at IDataReader System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   at IDataReader PetaPoco.Database.ExecuteReaderHelper(IDbCommand cmd)+(IDbCommand c) => { }
+   at object PetaPoco.Database.CommandHelper(IDbCommand cmd, Func<IDbCommand, object> cmdFunc)
+   at IDataReader PetaPoco.Database.ExecuteReaderHelper(IDbCommand cmd)
+   at IEnumerable<T> PetaPoco.Da

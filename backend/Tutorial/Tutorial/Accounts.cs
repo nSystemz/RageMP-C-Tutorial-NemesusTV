@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Numerics;
 using System.Text;
 using GTANetworkAPI;
+using GTANetworkMethods;
 using Tutorial.Models;
+using Player = GTANetworkAPI.Player;
 
 namespace Tutorial
 {
@@ -29,6 +32,7 @@ namespace Tutorial
         public string CharacterData;
         public bool Aduty;
         public bool Dog;
+        public string DiscordID;
 
         public Accounts()
         {
@@ -43,6 +47,7 @@ namespace Tutorial
             this.CharacterData = "";
             this.Aduty = false;
             this.Dog = false;
+            this.DiscordID = "";
         }
 
         public Accounts(string Name, Player player)
@@ -59,12 +64,31 @@ namespace Tutorial
             this.CharacterData = "";
             this.Aduty = false;
             this.Dog = false;
+            this.DiscordID = "";
         }
 
         public static bool IstSpielerEingeloggt(Player player)
         {
             if (player != null) return player.HasData(Account_Key);
             return false;
+        }
+
+        public void RegisterLoginWithDiscord(string name, string id)
+        {
+            this.Name = name;
+            this.DiscordID = id;
+            if (!Datenbank.AccountCheck(this.Name))
+            {
+                Datenbank.NeuenAccountErstellen(this, null);
+            }
+            if(Datenbank.DiscordIdCheck(this.Name, this.DiscordID) && this.DiscordID != null)
+            {
+                Login(_player, true);
+            }
+            else
+            {
+                _player.SendNotification("~r~Falsches Passwort");
+            }
         }
 
         public void Register(string name, string password)

@@ -70,12 +70,17 @@ namespace Tutorial
 
         public static void NeuenAccountErstellen(Accounts account, string password)
         {
-            string saltedpw = BCrypt.Net.BCrypt.HashPassword(password);
+            string saltedpw = null;
+
+            if(password != null)
+            {
+                BCrypt.Net.BCrypt.HashPassword(password);
+            }
 
             try
             {
                 MySqlCommand command = Connection.CreateCommand();
-                command.CommandText = "INSERT INTO accounts (password, name, adminlevel, geld, payday, einreise) VALUES (@password, @name, @adminlevel, @geld, @payday, @einreise)";
+                command.CommandText = "INSERT INTO accounts (password, name, adminlevel, geld, payday, einreise) VALUES (@password, @name, @adminlevel, @geld, @payday, @einreise, @discord_id)";
 
                 command.Parameters.AddWithValue("@password", saltedpw);
                 command.Parameters.AddWithValue("@name", account.Name);
@@ -83,6 +88,7 @@ namespace Tutorial
                 command.Parameters.AddWithValue("@geld", account.Geld);
                 command.Parameters.AddWithValue("@payday", account.Payday);
                 command.Parameters.AddWithValue("@einreise", account.Einreise);
+                command.Parameters.AddWithValue("@discord_id", account.DiscordID);
 
                 command.ExecuteNonQuery();
 
@@ -117,6 +123,34 @@ namespace Tutorial
                     account.positions[3] = reader.GetFloat("posa");
                     account.Einreise = reader.GetInt16("einreise");
                     account.CharacterData = reader.GetString("characterdata");
+                }
+            }
+        }
+
+        public static void AccountLadenWithDiscord(Accounts account, String discordId)
+        {
+            MySqlCommand command = Connection.CreateCommand();
+            command.CommandText = "SELECT * FROM accounts WHERE name=@name AND discord_id=@discordId LIMIT 1";
+            command.Parameters.AddWithValue("@name", account.Name);
+
+            using (MySqlDataReader reader = command.ExecuteReader())
+            {
+                if (reader.HasRows)
+                {
+                    reader.Read();
+                    account.ID = reader.GetInt16("id");
+                    account.Adminlevel = reader.GetInt16("adminlevel");
+                    account.Geld = reader.GetInt32("geld");
+                    account.Payday = reader.GetInt16("payday");
+                    account.Fraktion = reader.GetInt16("fraktion");
+                    account.Rang = reader.GetInt16("rang");
+                    account.positions[0] = reader.GetFloat("posx");
+                    account.positions[1] = reader.GetFloat("posy");
+                    account.positions[2] = reader.GetFloat("posz");
+                    account.positions[3] = reader.GetFloat("posa");
+                    account.Einreise = reader.GetInt16("einreise");
+                    account.CharacterData = reader.GetString("characterdata");
+                    account.DiscordID = reader.GetString("discord_id");
                 }
             }
         }
@@ -164,6 +198,27 @@ namespace Tutorial
             }
 
             if (BCrypt.Net.BCrypt.Verify(passwordinput, password)) return true;
+            return false;
+        }
+
+        public static bool DiscordIdCheck(string name, string discordId)
+        {
+            string discordIdDb = null;
+
+            MySqlCommand command = Connection.CreateCommand();
+            command.CommandText = "SELECT discordId FROM accounts WHERE name=@name LIMIT 1";
+            command.Parameters.AddWithValue("@name", name);
+
+            using (MySqlDataReader reader = command.ExecuteReader())
+            {
+                if (reader.HasRows)
+                {
+                    reader.Read();
+                    discordIdDb = reader.GetString("password");
+                }
+            }
+
+            if (discordId == discordIdDb) return true;
             return false;
         }
 

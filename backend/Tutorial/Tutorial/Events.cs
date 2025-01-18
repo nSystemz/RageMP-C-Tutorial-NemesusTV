@@ -1,4 +1,5 @@
 ﻿using GTANetworkAPI;
+using GTANetworkMethods;
 using Newtonsoft.Json.Linq;
 using System;
 using System.IO;
@@ -52,6 +53,7 @@ namespace Tutorial
             Utils.adminLog("Der Server wurde erfolgreich gestartet", "Server");
             //Test
             //HausController.VerarbeiteHausListAlsJson();
+            NAPI.World.SetWeather(Weather.XMAS);
         }
 
         public static void OnWeatherChange(object state)
@@ -185,6 +187,7 @@ namespace Tutorial
             }*/
             player.SetOwnSharedData("Account:Geld", 0);
             player.SetSharedData("Client:Name", player.Name);
+            player.TriggerEvent("Player:Snow");
         }
 
         [ServerEvent(Event.PlayerDisconnected)]

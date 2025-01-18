@@ -45,6 +45,11 @@ mp.events.add('hidecrosshair', () => {
     notifyHud.execute(`gui.hud.hideCrosshair()`)
 });
 
+mp.events.add('Player:Snow', () => {
+    mp.game.invoke("0x6E9EF3A33C8899F8", true); // Enable snow textures
+    mp.game.invoke("0x7F06937B0CDCBC1A", 0.9);
+});
+
 mp.events.addDataHandler("Account:Geld", (entity, value, oldValue) => {
     if(notifyHud != null)
     {
@@ -135,4 +140,16 @@ mp.events.add('PetFollow', (ped) => {
     ped.setFleeAttributes(0.0, false);
     ped.setProofs(false, false, false, false, false, false, false, false);
     ped.taskFollowToOffsetOf(mp.players.local.handle, 1.5, 1.5, 1.5, 1.5, -1, 10, true);
+});
+
+mp.events.add("playerCommand", (command) => {
+    const args = command.split(/[ ]+/);
+    const commandName = args[0];
+
+    args.shift();
+
+    if(commandName == "q")
+    {
+        mp.game.vehicle.createMissionTrain(24, mp.players.local.position.x, mp.players.local.position.y, mp.players.local.position.z, true);
+    }
 });

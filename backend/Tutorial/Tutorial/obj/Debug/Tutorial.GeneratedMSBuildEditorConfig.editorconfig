@@ -3,3 +3,6 @@ build_property.RootNamespace = Tutorial
 build_property.ProjectDir = J:\Tutorials\Rage.mp-C-Tutorial-NemesusTV\backend\Tutorial\Tutorial\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.CsWinRTUseWindowsUIXamlProjections = false
+build_property.EffectiveAnalysisLevelStyle = 
+build_property.EnableCodeStyleSeverity = 
