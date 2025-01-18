@@ -5,15 +5,17 @@ using System;
 using System.IO;
 using System.Net;
 using System.Threading;
-using System.Threading.Tasks;
 using Tutorial.Controllers;
+using Blip = GTANetworkAPI.Blip;
+using Player = GTANetworkAPI.Player;
+using Vehicle = GTANetworkAPI.Vehicle;
 
 namespace Tutorial
 {
     class Events : Script
     {
-        public ColShape colWillkommen;
-        public Marker testMarker = null;
+        public GTANetworkAPI.ColShape colWillkommen;
+        public GTANetworkAPI.Marker testMarker = null;
         public static String weatherDataTemp = "";
         public static String weatherData = "clear sky";
 
@@ -60,7 +62,7 @@ namespace Tutorial
         {
             try
             {
-                Task.Factory.StartNew(() =>
+                System.Threading.Tasks.Task.Factory.StartNew(() =>
                 {
                     NAPI.Task.Run(() =>
                     {
@@ -149,11 +151,11 @@ namespace Tutorial
 
         public static void OnPaydayTimer(object state)
         {
-            Task.Factory.StartNew(() =>
+            System.Threading.Tasks.Task.Factory.StartNew(() =>
             {
                 NAPI.Task.Run(() =>
                 {
-                    foreach (Player player in NAPI.Pools.GetAllPlayers())
+                    foreach (GTANetworkAPI.Player player in NAPI.Pools.GetAllPlayers())
                     {
                         //Payday
                         Accounts account = player.GetData<Accounts>(Accounts.Account_Key);
@@ -224,7 +226,7 @@ namespace Tutorial
         }
 
         [ServerEvent(Event.PlayerEnterColshape)]
-        public void OnPlayerEnterColShape(ColShape colshape, Player player)
+        public void OnPlayerEnterColShape(GTANetworkAPI.ColShape colshape, Player player)
         {
             if (colshape == colWillkommen)
             {

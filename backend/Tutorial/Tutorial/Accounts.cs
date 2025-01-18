@@ -123,14 +123,14 @@ namespace Tutorial
                 Events.OnCharacterCreated(player, CharacterData, false);
                 if (this.positions[0] != 0.0 && this.positions[1] != 0.0 && this.positions[2] != 0.0)
                 {
-                    player.Position = new Vector3(this.positions[0], this.positions[1], this.positions[2]);
-                    player.Rotation = new Vector3(0.0, 0.0, this.positions[3]);
+                    player.Position = new GTANetworkAPI.Vector3(this.positions[0], this.positions[1], this.positions[2]);
+                    player.Rotation = new GTANetworkAPI.Vector3(0.0, 0.0, this.positions[3]);
                 }
             }
             else
             {
-                player.Position = new Vector3(405.64282, -993.8147, -99.004036);
-                player.Rotation = new Vector3(0.0, 0.0, 175.28539);
+                player.Position = new GTANetworkAPI.Vector3(405.64282, -993.8147, -99.004036);
+                player.Rotation = new GTANetworkAPI.Vector3(0.0, 0.0, 175.28539);
                 if (CharacterData.Length <= 0)
                 {
                     player.TriggerEvent("showHideMoneyHud");

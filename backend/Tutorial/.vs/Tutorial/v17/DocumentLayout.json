@@ -3,24 +3,47 @@
   "WorkspaceRootPath": "J:\\Tutorials\\Rage.mp-C-Tutorial-NemesusTV\\backend\\Tutorial\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6771141C-7528-4055-A106-691D66A9A1C9}|Tutorial\\Tutorial.csproj|j:\\tutorials\\rage.mp-c-tutorial-nemesustv\\backend\\tutorial\\tutorial\\events.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6771141C-7528-4055-A106-691D66A9A1C9}|Tutorial\\Tutorial.csproj|solutionrelative:tutorial\\events.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6771141C-7528-4055-A106-691D66A9A1C9}|Tutorial\\Tutorial.csproj|j:\\tutorials\\rage.mp-c-tutorial-nemesustv\\backend\\tutorial\\tutorial\\commands.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6771141C-7528-4055-A106-691D66A9A1C9}|Tutorial\\Tutorial.csproj|solutionrelative:tutorial\\commands.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\tschn\\Microsoft.NET.Sdk.DefaultItems.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6771141C-7528-4055-A106-691D66A9A1C9}|Tutorial\\Tutorial.csproj|j:\\tutorials\\rage.mp-c-tutorial-nemesustv\\backend\\tutorial\\tutorial\\accounts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6771141C-7528-4055-A106-691D66A9A1C9}|Tutorial\\Tutorial.csproj|solutionrelative:tutorial\\accounts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6771141C-7528-4055-A106-691D66A9A1C9}|Tutorial\\Tutorial.csproj|j:\\tutorials\\rage.mp-c-tutorial-nemesustv\\backend\\tutorial\\tutorial\\datenbank.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6771141C-7528-4055-A106-691D66A9A1C9}|Tutorial\\Tutorial.csproj|solutionrelative:tutorial\\datenbank.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6771141C-7528-4055-A106-691D66A9A1C9}|Tutorial\\Tutorial.csproj|j:\\tutorials\\rage.mp-c-tutorial-nemesustv\\backend\\tutorial\\tutorial\\events.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6771141C-7528-4055-A106-691D66A9A1C9}|Tutorial\\Tutorial.csproj|solutionrelative:tutorial\\events.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6771141C-7528-4055-A106-691D66A9A1C9}|Tutorial\\Tutorial.csproj|j:\\tutorials\\rage.mp-c-tutorial-nemesustv\\backend\\tutorial\\tutorial\\hausinterior.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6771141C-7528-4055-A106-691D66A9A1C9}|Tutorial\\Tutorial.csproj|solutionrelative:tutorial\\hausinterior.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6771141C-7528-4055-A106-691D66A9A1C9}|Tutorial\\Tutorial.csproj|j:\\tutorials\\rage.mp-c-tutorial-nemesustv\\backend\\tutorial\\tutorial\\utils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6771141C-7528-4055-A106-691D66A9A1C9}|Tutorial\\Tutorial.csproj|solutionrelative:tutorial\\utils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6771141C-7528-4055-A106-691D66A9A1C9}|Tutorial\\Tutorial.csproj|j:\\tutorials\\rage.mp-c-tutorial-nemesustv\\backend\\tutorial\\tutorial\\settings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6771141C-7528-4055-A106-691D66A9A1C9}|Tutorial\\Tutorial.csproj|solutionrelative:tutorial\\settings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6771141C-7528-4055-A106-691D66A9A1C9}|Tutorial\\Tutorial.csproj|j:\\tutorials\\rage.mp-c-tutorial-nemesustv\\backend\\tutorial\\tutorial\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6771141C-7528-4055-A106-691D66A9A1C9}|Tutorial\\Tutorial.csproj|solutionrelative:tutorial\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6771141C-7528-4055-A106-691D66A9A1C9}|Tutorial\\Tutorial.csproj|j:\\tutorials\\rage.mp-c-tutorial-nemesustv\\backend\\tutorial\\tutorial\\commands.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6771141C-7528-4055-A106-691D66A9A1C9}|Tutorial\\Tutorial.csproj|solutionrelative:tutorial\\commands.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6771141C-7528-4055-A106-691D66A9A1C9}|Tutorial\\Tutorial.csproj|j:\\tutorials\\rage.mp-c-tutorial-nemesustv\\backend\\tutorial\\tutorial\\connections.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6771141C-7528-4055-A106-691D66A9A1C9}|Tutorial\\Tutorial.csproj|solutionrelative:tutorial\\connections.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6771141C-7528-4055-A106-691D66A9A1C9}|Tutorial\\Tutorial.csproj|j:\\tutorials\\rage.mp-c-tutorial-nemesustv\\backend\\tutorial\\tutorial\\datenbank.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6771141C-7528-4055-A106-691D66A9A1C9}|Tutorial\\Tutorial.csproj|solutionrelative:tutorial\\datenbank.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6771141C-7528-4055-A106-691D66A9A1C9}|Tutorial\\Tutorial.csproj|j:\\tutorials\\rage.mp-c-tutorial-nemesustv\\backend\\tutorial\\tutorial\\http.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6771141C-7528-4055-A106-691D66A9A1C9}|Tutorial\\Tutorial.csproj|solutionrelative:tutorial\\http.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6771141C-7528-4055-A106-691D66A9A1C9}|Tutorial\\Tutorial.csproj|j:\\tutorials\\rage.mp-c-tutorial-nemesustv\\backend\\tutorial\\tutorial\\discord\\discordbot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -29,10 +52,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{6771141C-7528-4055-A106-691D66A9A1C9}|Tutorial\\Tutorial.csproj|j:\\tutorials\\rage.mp-c-tutorial-nemesustv\\backend\\tutorial\\tutorial\\tutorial.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
       "RelativeMoniker": "D:0:0:{6771141C-7528-4055-A106-691D66A9A1C9}|Tutorial\\Tutorial.csproj|solutionrelative:tutorial\\tutorial.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6771141C-7528-4055-A106-691D66A9A1C9}|Tutorial\\Tutorial.csproj|j:\\tutorials\\rage.mp-c-tutorial-nemesustv\\backend\\tutorial\\tutorial\\utils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6771141C-7528-4055-A106-691D66A9A1C9}|Tutorial\\Tutorial.csproj|solutionrelative:tutorial\\utils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6771141C-7528-4055-A106-691D66A9A1C9}|Tutorial\\Tutorial.csproj|j:\\tutorials\\rage.mp-c-tutorial-nemesustv\\backend\\tutorial\\tutorial\\tutorial.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}",
@@ -46,11 +65,74 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Microsoft.NET.Sdk.DefaultItems.targets",
+              "DocumentMoniker": "C:\\Users\\tschn\\Microsoft.NET.Sdk.DefaultItems.targets",
+              "ToolTip": "C:\\Users\\tschn\\Microsoft.NET.Sdk.DefaultItems.targets",
+              "ViewState": "AgIAABsAAAAAAAAAAAArwDwAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
+              "WhenOpened": "2025-01-18T14:51:51.519Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "HausInterior.cs",
+              "DocumentMoniker": "J:\\Tutorials\\Rage.mp-C-Tutorial-NemesusTV\\backend\\Tutorial\\Tutorial\\HausInterior.cs",
+              "RelativeDocumentMoniker": "Tutorial\\HausInterior.cs",
+              "ToolTip": "J:\\Tutorials\\Rage.mp-C-Tutorial-NemesusTV\\backend\\Tutorial\\Tutorial\\HausInterior.cs",
+              "RelativeToolTip": "Tutorial\\HausInterior.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-18T14:49:50.445Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "HTTP.cs",
+              "DocumentMoniker": "J:\\Tutorials\\Rage.mp-C-Tutorial-NemesusTV\\backend\\Tutorial\\Tutorial\\HTTP.cs",
+              "RelativeDocumentMoniker": "Tutorial\\HTTP.cs",
+              "ToolTip": "J:\\Tutorials\\Rage.mp-C-Tutorial-NemesusTV\\backend\\Tutorial\\Tutorial\\HTTP.cs",
+              "RelativeToolTip": "Tutorial\\HTTP.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-18T14:49:49.272Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Program.cs",
+              "DocumentMoniker": "J:\\Tutorials\\Rage.mp-C-Tutorial-NemesusTV\\backend\\Tutorial\\Tutorial\\Program.cs",
+              "RelativeDocumentMoniker": "Tutorial\\Program.cs",
+              "ToolTip": "J:\\Tutorials\\Rage.mp-C-Tutorial-NemesusTV\\backend\\Tutorial\\Tutorial\\Program.cs",
+              "RelativeToolTip": "Tutorial\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-18T14:49:47.734Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 5,
+              "Title": "Settings.cs",
+              "DocumentMoniker": "J:\\Tutorials\\Rage.mp-C-Tutorial-NemesusTV\\backend\\Tutorial\\Tutorial\\Settings.cs",
+              "RelativeDocumentMoniker": "Tutorial\\Settings.cs",
+              "ToolTip": "J:\\Tutorials\\Rage.mp-C-Tutorial-NemesusTV\\backend\\Tutorial\\Tutorial\\Settings.cs",
+              "RelativeToolTip": "Tutorial\\Settings.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-18T14:49:43.098Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "DiscordBot.cs",
               "DocumentMoniker": "J:\\Tutorials\\Rage.mp-C-Tutorial-NemesusTV\\backend\\Tutorial\\Tutorial\\Discord\\DiscordBot.cs",
               "RelativeDocumentMoniker": "Tutorial\\Discord\\DiscordBot.cs",
@@ -58,77 +140,76 @@
               "RelativeToolTip": "Tutorial\\Discord\\DiscordBot.cs",
               "ViewState": "AgIAACIAAAAAAAAAAAAqwEgAAAA/AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-27T17:33:51.054Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-27T17:33:51.054Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 8,
               "Title": "Connections.cs",
               "DocumentMoniker": "J:\\Tutorials\\Rage.mp-C-Tutorial-NemesusTV\\backend\\Tutorial\\Tutorial\\Connections.cs",
               "RelativeDocumentMoniker": "Tutorial\\Connections.cs",
               "ToolTip": "J:\\Tutorials\\Rage.mp-C-Tutorial-NemesusTV\\backend\\Tutorial\\Tutorial\\Connections.cs",
               "RelativeToolTip": "Tutorial\\Connections.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwBgAAABAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAABAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-27T17:30:26.858Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 7,
               "Title": "Commands.cs",
               "DocumentMoniker": "J:\\Tutorials\\Rage.mp-C-Tutorial-NemesusTV\\backend\\Tutorial\\Tutorial\\Commands.cs",
               "RelativeDocumentMoniker": "Tutorial\\Commands.cs",
               "ToolTip": "J:\\Tutorials\\Rage.mp-C-Tutorial-NemesusTV\\backend\\Tutorial\\Tutorial\\Commands.cs",
               "RelativeToolTip": "Tutorial\\Commands.cs",
-              "ViewState": "AgIAALoCAAAAAAAAAAAqwAQDAAArAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQDAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-11T15:53:03.298Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 9,
               "Title": "Datenbank.cs",
               "DocumentMoniker": "J:\\Tutorials\\Rage.mp-C-Tutorial-NemesusTV\\backend\\Tutorial\\Tutorial\\Datenbank.cs",
               "RelativeDocumentMoniker": "Tutorial\\Datenbank.cs",
               "ToolTip": "J:\\Tutorials\\Rage.mp-C-Tutorial-NemesusTV\\backend\\Tutorial\\Tutorial\\Datenbank.cs",
               "RelativeToolTip": "Tutorial\\Datenbank.cs",
-              "ViewState": "AgIAAKkAAAAAAAAAAAAqwMsAAAApAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAMsAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-01T19:54:55.918Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Events.cs",
               "DocumentMoniker": "J:\\Tutorials\\Rage.mp-C-Tutorial-NemesusTV\\backend\\Tutorial\\Tutorial\\Events.cs",
               "RelativeDocumentMoniker": "Tutorial\\Events.cs",
               "ToolTip": "J:\\Tutorials\\Rage.mp-C-Tutorial-NemesusTV\\backend\\Tutorial\\Tutorial\\Events.cs",
               "RelativeToolTip": "Tutorial\\Events.cs",
-              "ViewState": "AgIAAJMAAAAAAAAAAAAqwL0AAAAvAAAAAAAAAA==",
+              "ViewState": "AgIAAOsAAAAAAAAAAAASwPUAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-04T10:30:33.275Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Accounts.cs",
               "DocumentMoniker": "J:\\Tutorials\\Rage.mp-C-Tutorial-NemesusTV\\backend\\Tutorial\\Tutorial\\Accounts.cs",
               "RelativeDocumentMoniker": "Tutorial\\Accounts.cs",
               "ToolTip": "J:\\Tutorials\\Rage.mp-C-Tutorial-NemesusTV\\backend\\Tutorial\\Tutorial\\Accounts.cs",
               "RelativeToolTip": "Tutorial\\Accounts.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFEAAAA8AAAAAAAAAA==",
+              "ViewState": "AgIAAGEAAAAAAAAAAAASwIQAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-11T16:22:00.487Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 4,
               "Title": "Utils.cs",
               "DocumentMoniker": "J:\\Tutorials\\Rage.mp-C-Tutorial-NemesusTV\\backend\\Tutorial\\Tutorial\\Utils.cs",
               "RelativeDocumentMoniker": "Tutorial\\Utils.cs",
@@ -141,7 +222,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 13,
               "Title": "Tutorial",
               "DocumentMoniker": "J:\\Tutorials\\Rage.mp-C-Tutorial-NemesusTV\\backend\\Tutorial\\Tutorial\\Tutorial.csproj",
               "RelativeDocumentMoniker": "Tutorial\\Tutorial.csproj",
@@ -153,7 +234,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 12,
               "Title": "Tutorial.csproj",
               "DocumentMoniker": "J:\\Tutorials\\Rage.mp-C-Tutorial-NemesusTV\\backend\\Tutorial\\Tutorial\\Tutorial.csproj",
               "RelativeDocumentMoniker": "Tutorial\\Tutorial.csproj",
