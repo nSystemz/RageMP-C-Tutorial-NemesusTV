@@ -1,9 +1,0 @@
-{
-  "profiles": {
-    "Tutorial": {
-      "commandName": "Executable",
-      "executablePath": "J:\\Tutorials\\Rage.mp-C-Tutorial-NemesusTV\\ragemp-server.exe",
-      "workingDirectory": "J:\\Tutorials\\Rage.mp-C-Tutorial-NemesusTV"
-    }
-  }
-}
