@@ -1,5 +1,9 @@
 # 🎮 Rage.mp-C-Tutorial-NemesusTV 🎮
 
+Info: Dieser Repo ist EOL, das RageMP Projekt wurde beendet!
+
+---
+
 Hier findet Ihr alle Dateien zur Youtube Tutorialreihe für RageMP C#
 
 **Auf der Suche nach einem günstigen RageMP Server? Ich empfehle euch einen Linux VServer bei ZAP-Hosting: https://bit.ly/3GX1yEx und mit dem Gutschein: Nsus-a-3805 noch kräftig sparen! (Werbung)**
